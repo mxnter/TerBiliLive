@@ -1,0 +1,5 @@
+Ter制作的 “TerBiliLive” 弹幕姬 - 测试中
+欢迎使用 TerBiliLive 当前版本 Beta01-D.Beta03-h.Beta03-G.Beta02
+联网信息：当前软件为测试阶段<br>测试
+网络正常
+

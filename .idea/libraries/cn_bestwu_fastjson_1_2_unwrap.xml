@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="cn.bestwu:fastjson:1.2-unwrap" type="repository">
+    <properties maven-id="cn.bestwu:fastjson:1.2-unwrap" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/fastjson-1.2-unwrap.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
