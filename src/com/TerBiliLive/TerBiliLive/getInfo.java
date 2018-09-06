@@ -1,12 +1,17 @@
 package com.TerBiliLive.TerBiliLive;
 
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
+import com.TerBiliLive.Utiliy.LogUtil;
 
 import java.io.DataOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class getInfo {
 
@@ -60,10 +65,12 @@ public class getInfo {
 
     public Socket connect(String roomID){
 //        String realRoomID = getRealRoomID(roomID);
-        LiveInfo liveInfo = new LiveInfo(roomID);
+        LiveInfo liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
         String socketServerUrl = liveInfo.getDm_server();
+        int socketServerPort = (liveInfo.getDm_port()==0)?DEFAULT_COMMENT_PORT:liveInfo.getDm_port();
+//        LogUtil.putLog(getFormatDay(), getFormatHour(), liveInfo.toString()+ "\n","TerBiliLive Log");
         Socket socket = null;
-        InetSocketAddress address = new InetSocketAddress(socketServerUrl, DEFAULT_COMMENT_PORT);
+        InetSocketAddress address = new InetSocketAddress(socketServerUrl, socketServerPort);
         try {
             socket = new Socket();
             socket.setReceiveBufferSize(RECEIVE_BUFFER_SIZE);

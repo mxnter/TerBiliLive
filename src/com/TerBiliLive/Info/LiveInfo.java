@@ -35,9 +35,9 @@ public class LiveInfo {
 	String User_silent_level = null;// 用户禁言等级
 	String User_silent_rank = null;// 用户禁言排名
 	String User_silent_verify = null; // 用户禁言确认
-	String Dm_ws_port = null; // (重头戏)弹幕服务器端口号
-	String Dm_wss_port = null;// 弹幕服务器端口号2
-	String Dm_port = null; // 弹幕服务器端口号3
+	int Dm_ws_port = 0; // (重头戏)弹幕服务器端口号
+	int Dm_wss_port = 0;// 弹幕服务器端口号2
+	int Dm_port = 0; // 弹幕服务器端口号3
 	String Dm_server = null;// 弹幕服务器地址
 	String Need_authority = null;// 是否需要认证
 	String Authority_range = null;// 授权区域(这个应该是本机ip地址的地区)
@@ -45,18 +45,7 @@ public class LiveInfo {
 
 	static String LiveInfoURL = "http://live.bilibili.com/api/player?id=cid:";
 
-	String xml = "<uid></uid>\r\n" + "<uname></uname>\r\n" + "<login></login>\r\n" + "<isadmin></isadmin>\r\n"
-			+ "<time></time>\r\n" + "<rank></rank>\r\n" + "<level></level>\r\n" + "<state>LIVE</state>\r\n"
-			+ "<chatid></chatid>\r\n" + "<server></server>\r\n" + "<sheid_user></sheid_user>\r\n"
-			+ "<block_time></block_time>\r\n" + "<block_type></block_type>\r\n" + "<room_shield></room_shield>\r\n"
-			+ "<level_sheid></level_sheid>\r\n" + "<user_sheid_keyword></user_sheid_keyword>\r\n"
-			+ "<room_silent_type></room_silent_type>\r\n" + "<room_silent_level>0</room_silent_level>\r\n"
-			+ "<room_silent_second></room_silent_second>\r\n" + "<user_silent_level></user_silent_level>\r\n"
-			+ "<user_silent_rank></user_silent_rank>\r\n" + "<user_silent_verify></user_silent_verify>\r\n"
-			+ "<dm_ws_port></dm_ws_port>\r\n" + "<dm_wss_port></dm_wss_port>\r\n" + "<dm_port></dm_port>\r\n"
-			+ "<dm_server></dm_server>\r\n" + "<dm_server_list></dm_server_list>\r\n"
-			+ "<dm_host_list></dm_host_list>\r\n" + "<need_authority></need_authority>\r\n"
-			+ "<authority_range></authority_range>\r\n" + "";
+	String xml = "";
 
 	public LiveInfo() {}
 
@@ -235,9 +224,9 @@ public class LiveInfo {
 		User_silent_level = getSubString.getSubString(ReturnData, "<user_silent_level>", "</user_silent_level>");
 		User_silent_rank = getSubString.getSubString(ReturnData, "<user_silent_rank>", "</user_silent_rank>");
 		User_silent_verify = getSubString.getSubString(ReturnData, "<user_silent_verify>", "</user_silent_verify>");
-		Dm_ws_port = getSubString.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>");
-		Dm_wss_port = getSubString.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>");
-		Dm_port = getSubString.getSubString(ReturnData, "<dm_port>", "</dm_port>");
+		Dm_ws_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>"));
+		Dm_wss_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>"));
+		Dm_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_port>", "</dm_port>"));
 		Dm_server = getSubString.getSubString(ReturnData, "<dm_server>", "</dm_server>");
 		Need_authority = getSubString.getSubString(ReturnData, "<need_authority>", "</need_authority>");
 		Authority_range = getSubString.getSubString(ReturnData, "<authority_range>", "</authority_range>");
@@ -414,15 +403,15 @@ public class LiveInfo {
 		return User_silent_verify;
 	}
 
-	public String getDm_ws_port() {
+	public int getDm_ws_port() {
 		return Dm_ws_port;
 	}
 
-	public String getDm_wss_port() {
+	public int getDm_wss_port() {
 		return Dm_wss_port;
 	}
 
-	public String getDm_port() {
+	public int getDm_port() {
 		return Dm_port;
 	}
 

@@ -1,5 +1,6 @@
 package com.TerBiliLive.Function;
 
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.Thr.DMJ_Thr;
 import com.TerBiliLive.Thr.GG_Thr;
@@ -38,7 +39,7 @@ public class Control_Fun {
         FileUtil.createDir("Ter/Dm/");
         //写入数据
         FileUtil.writeFile("RoomId", C.Control_UiT_RoomId.getText());
-        FileUtil.writeFile("Cookie",C.Control_UiT_Cookie.getText());
+        FileUtil.writeFile("Cookie",C.Control_UiT_Cookie.getText());ConfInfo.cookie=C.Control_UiT_Cookie.getText();
         FileUtil.writeFile("Second", GG_UiT_Second.getText());
         FileUtil.writeFile("Text",GG_UiT_Text.getText());
 

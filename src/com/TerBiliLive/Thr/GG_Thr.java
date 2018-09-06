@@ -2,6 +2,7 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.GG_Fun;
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Monitor.GG_Monitor;
 import com.TerBiliLive.TerBiliLive.sendPost;
@@ -53,7 +54,7 @@ public class GG_Thr extends Thread {
 
 
 
-            LiveInfo LI = new LiveInfo(C.Control_UiT_RoomId.getText());
+            LiveInfo LI = new LiveInfo(C.Control_UiT_RoomId.getText(),ConfInfo.cookie);
             ;
 
 

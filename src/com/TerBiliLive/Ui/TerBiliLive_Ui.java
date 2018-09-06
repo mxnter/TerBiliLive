@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
 import com.TerBiliLive.TerBiliLive.sendGet;
 import com.TerBiliLive.Utiliy.DmLogUtil;
@@ -51,7 +52,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         TerBiliLive_GG_Ui GG = new TerBiliLive_GG_Ui();
 
         C.Control_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
-        C.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));
+        C.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));ConfInfo.cookie=C.Control_UiT_Cookie.getText();
         GG.GG_UiT_Second.setText(FileUtil.readFile("Second"));
         GG.GG_UiT_Text.setText(FileUtil.readFile("Text"));
 //        HFJ.HFJ_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
