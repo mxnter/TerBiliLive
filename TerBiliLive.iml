@@ -7,8 +7,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.json" level="project" />
-    <orderEntry type="library" name="io.netty:netty-all:4.1.28.Final" level="project" />
-    <orderEntry type="library" name="cn.bestwu:fastjson:1.2-unwrap" level="project" />
+    <orderEntry type="library" exported="" name="org.json" level="project" />
+    <orderEntry type="library" exported="" name="io.netty:netty-all:4.1.28.Final" level="project" />
+    <orderEntry type="library" exported="" name="cn.bestwu:fastjson:1.2-unwrap" level="project" />
   </component>
 </module>

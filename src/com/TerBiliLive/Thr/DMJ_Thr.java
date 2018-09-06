@@ -148,6 +148,7 @@ public class DMJ_Thr {
                             int userCount = inputStream.readInt();
 //                            System.out.println("在线人数：" + userCount);
                             Control_UiT_State.setText("在线人数：" + userCount);
+//                            DMJ_UiT_Text.append("在线人数：" + userCount+"\r\n");
                             System.out.println("在线人数：" + userCount);
                         }else if (action == 4){
                             inputStream.readInt();
