@@ -4,25 +4,13 @@ import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
-import com.TerBiliLive.Monitor.GG_Monitor;
-import com.TerBiliLive.TerBiliLive.sendPost;
+import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_GG_Ui;
-import com.TerBiliLive.Utiliy.CodingUtil;
-import com.TerBiliLive.Utiliy.DmLogUtil;
 import com.TerBiliLive.Utiliy.DmUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
-import static com.TerBiliLive.Ui.TerBiliLive_DMJ_Ui.DMJ_UiT_Text;
 import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.GG_UiT_State;
-import static com.TerBiliLive.Utiliy.CodingUtil.ascii2native;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
@@ -33,7 +21,7 @@ public class GG_Thr extends Thread {
     String Parameter = "";
     TerBiliLive_Control_Ui C = new TerBiliLive_Control_Ui(Parameter);
     TerBiliLive_GG_Ui GG = new TerBiliLive_GG_Ui(Parameter);
-    sendPost SP = new sendPost();
+    SendPost SP = new SendPost();
     DmUtil DU = new DmUtil();
     String putDMJY = null;
     public int second;

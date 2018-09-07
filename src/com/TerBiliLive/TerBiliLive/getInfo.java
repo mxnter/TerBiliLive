@@ -15,8 +15,7 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class getInfo {
 
-    private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
-    private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
+
     private final int DEFAULT_COMMENT_PORT = 788;
     private final int PROTOCOL_VERSION = 1;
     public final int RECEIVE_BUFFER_SIZE = 10 * 1024;
@@ -42,8 +41,9 @@ public class getInfo {
     }
 
     public boolean sendJoinRoomMsg(Socket socket, String roomID){
-        LiveInfo liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
-        String uid = liveInfo.getUid();
+        ConfInfo.liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
+        String uid =  ConfInfo.liveInfo.getUid();
+        ConfInfo.liveInfo=null;
         String jsonBody = "{\"roomid\": " + roomID + ", \"uid\": " + uid + "}";
         try {
             return sendSocketData(socket, jsonBody.length() + 16, 16, PROTOCOL_VERSION, 7, 1, jsonBody.getBytes("utf-8"));
@@ -67,9 +67,10 @@ public class getInfo {
 
     public Socket connect(String roomID){
 //        String realRoomID = getRealRoomID(roomID);
-        LiveInfo liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
-        String socketServerUrl = liveInfo.getDm_server();
-        int socketServerPort = (liveInfo.getDm_port()==0)?DEFAULT_COMMENT_PORT:liveInfo.getDm_port();
+        ConfInfo.liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
+        String socketServerUrl = ConfInfo.liveInfo.getDm_server();
+        int socketServerPort = (ConfInfo.liveInfo.getDm_port()==0)?DEFAULT_COMMENT_PORT:ConfInfo.liveInfo.getDm_port();
+        ConfInfo.liveInfo=null;
 //        LogUtil.putLog(getFormatDay(), getFormatHour(), liveInfo.toString()+ "\n","TerBiliLive Log");
         Socket socket = null;
         InetSocketAddress address = new InetSocketAddress(socketServerUrl, DEFAULT_COMMENT_PORT);

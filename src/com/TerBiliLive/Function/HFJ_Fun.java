@@ -1,7 +1,10 @@
 package com.TerBiliLive.Function;
 
+import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.LiveRoom;
+import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.getSubString;
-import com.TerBiliLive.TerBiliLive.sendPost;
+import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui;
 import com.TerBiliLive.Utiliy.CodingUtil;
@@ -23,6 +26,10 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 public class HFJ_Fun {
     String Parameter= "" ;
     String pathUrl = "http://live.bilibili.com/msg/send";
+
+    public HFJ_Fun() {
+    }
+
     public HFJ_Fun(String msg){
 
         TerBiliLive_HFJ_Ui HFJ= new TerBiliLive_HFJ_Ui(Parameter);
@@ -37,13 +44,13 @@ public class HFJ_Fun {
 
         System.out.println(msg);
     roomid = C.Control_UiT_RoomId.getText();
+//
+//                try {
+//                    if(msg.equals("")){
 
-                try {
-                    if(msg.equals("")){
-                        msg = URLEncoder.encode(HFJ.HFJ_UiT_Text.getText(), "UTF-8");
-                    }else{
-                        msg = URLEncoder.encode(msg, "UTF-8");
-                    }
+//                    }else{
+//                        msg = URLEncoder.encode(msg, "UTF-8");
+//                    }
 //                    if(msg.length()>20){
 //                        String msgg=msg.substring(20);
 //                        msg=msg.substring(0, 20);
@@ -52,16 +59,17 @@ public class HFJ_Fun {
 
 
 
-                    mapParam.put("msg", msg);
-    } catch (UnsupportedEncodingException e1) {
-        // TODO Auto-generated catch block
-        e1.printStackTrace();
-    }
+//                    mapParam.put("msg", msg);
+//    } catch (UnsupportedEncodingException e1) {
+//        // TODO Auto-generated catch block
+//        e1.printStackTrace();
+//    }
     //	System.out.print("cookie:");
-    cookie = C.Control_UiT_Cookie.getText();
-                mapParam.put("roomid", roomid);
-    int x=(int)(Math.random()*1000000);
-                mapParam.put("rnd", Integer.toString(x));
+         msg =HFJ.HFJ_UiT_Text.getText();
+            cookie = C.Control_UiT_Cookie.getText();
+//                mapParam.put("roomid", roomid);
+//    int x=(int)(Math.random()*1000000);
+//                mapParam.put("rnd", Integer.toString(x));
 
 /*    //创建目录
                 FileUtil.createDir("Ter/data/");
@@ -74,9 +82,13 @@ public class HFJ_Fun {
 
     /*  cookie----->>DedeUserID=  后的值很重要*/
 
-    sendPost sp=new sendPost();
-    String RTData = sp.sendPost(url,mapParam,cookie);
-    getSubString gs=new getSubString();
+//    SendPost sp=new SendPost();
+    ConfInfo.sendBarrage=new SendBarrage();
+    LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
+    String RTData =ConfInfo.sendBarrage.SendBarrage(liveRoom.room_id,cookie,msg);
+    ConfInfo.sendBarrage=null;
+//            = sp.SendPost(roomid,cookie,msg);
+//    getSubString gs=new getSubString();
 
 
     /*使用JSON 获取返回值中的的信息

@@ -1,10 +1,9 @@
 package com.TerBiliLive.Function;
 
 import com.TerBiliLive.TerBiliLive.getSubString;
-import com.TerBiliLive.TerBiliLive.sendPost;
+import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_GG_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui;
 import com.TerBiliLive.Utiliy.CodingUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 import org.json.JSONException;
@@ -15,7 +14,6 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.TerBiliLive.Utiliy.FileUtil.createDir;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
@@ -60,10 +58,10 @@ public class GG_Fun {
                 FileUtil.writeFile("Cookie",GG.GG_UiT_Cookie.getText());*/
 
 
-        /*  cookie----->>DedeUserID=  后的值很重要*/
-        sendPost sp=new sendPost();
-        RTData = sp.sendPost(url,mapParam,cookie);
-        getSubString gs=new getSubString();
+//        /*  cookie----->>DedeUserID=  后的值很重要*/
+//        SendPost sp=new SendPost();
+//        RTData = sp.sendPost(url,mapParam,cookie);
+//        getSubString gs=new getSubString();
 
 
         /*使用JSON 获取返回值中的的信息

@@ -3,32 +3,23 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.TerBiliLive.getInfo;
-import com.TerBiliLive.TerBiliLive.sendPost;
+import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
-import com.TerBiliLive.Utiliy.CodingUtil;
 import com.TerBiliLive.Utiliy.DmLogUtil;
 import com.TerBiliLive.Utiliy.DmUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import org.json.JSONException;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
-import java.security.spec.ECField;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
 import static com.TerBiliLive.Ui.TerBiliLive_DMJ_Ui.DMJ_UiT_Text;
-import static com.TerBiliLive.Utiliy.CodingUtil.ascii2native;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
@@ -41,7 +32,7 @@ public class DMJ_Thr {
     String Parameter= "" ;
     TerBiliLive_Control_Ui C=new TerBiliLive_Control_Ui(Parameter);
    // TerBiliLive_DMJ_Ui DMJ =new TerBiliLive_DMJ_Ui();
-    sendPost SP = new sendPost();
+    SendPost SP = new SendPost();
     DmUtil DU = new DmUtil();
     String putDMJY =null;
 
@@ -84,8 +75,8 @@ public class DMJ_Thr {
 //                    LiveInfo xx=new LiveInfo(Control_UiT_RoomId.getText());
 //                    DMJ_UiT_Text.append("房间信息："+xx.toString());
                     bufferSize = socket.getReceiveBufferSize();
-                    DMJ_UiT_Text.append("系统 ："+getFormat()+" - "+"连接成功 " +"真实直播间ID："+roomID +"\r\n");
-                    DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+                    DMJ_UiT_Text.append("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"\r\n");
+
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
                     System.out.println("连接成功" +"真实直播间ID："+roomID );
                     ConfInfo.isReConnSum=0;
@@ -103,19 +94,14 @@ public class DMJ_Thr {
                             analyzeData(recvData);
                         }
                     }catch (Exception e){
-                        if (isReConn && keepRunning && ++ConfInfo.isReConnSum<10) {
-                            DMJ_UiT_Text.append("系统 ："+getFormat()+" - "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   +"\r\n");
-                            DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+                        if (isReConn && keepRunning ) {
+                            DMJ_UiT_Text.append("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   +"\r\n");
+
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,Control_UiT_RoomId.getText());
                             System.out.println("自动重连" +" 真实直播间ID："+roomID );
 
                             if(ConfInfo.isReConnSum>=10){
-                                DMJ_UiT_Text.append("系统警告 ："+getFormat()+" - "+"自动重连 失败，请断开后重新连接！"  +" 真实直播间ID："+roomID +"\r\n");
-                                DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
-                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"自动重连 失败，请断开后重新连接！" +" 真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
-                                System.out.println("自动重连 失败" +" 真实直播间ID："+roomID );
-                                Control_Fun CF =new Control_Fun();
-                                CF.Disconnect();
+                                keepRunning = false;
                             }
                             (new DMJ_Thr()).start(roomID, true);
 
@@ -124,6 +110,7 @@ public class DMJ_Thr {
                         e.printStackTrace();
                     }
                 }
+//                DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
             }
         }
 
@@ -159,6 +146,7 @@ public class DMJ_Thr {
                                 System.out.println(jsonStr);
                                 JSONObject object = JSON.parseObject(jsonStr);
                                 String msgType = object.getString("cmd");
+                                System.out.println("a");
                                 switch (msgType){
                                     case "DANMU_MSG":{
                                         JSONArray array = object.getJSONArray("info").getJSONArray(2);
@@ -198,7 +186,7 @@ public class DMJ_Thr {
 
                                         String putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text+"\t";
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                         System.out.println( putDM);
                                         break;
@@ -210,11 +198,11 @@ public class DMJ_Thr {
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        String putDM = "礼物 ："+getFormat()+" - "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                        String putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  giftName +" 喵~");
+//                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  giftName +" 喵~");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -225,11 +213,11 @@ public class DMJ_Thr {
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        String putDM = "礼物 ："+getFormat()+" - "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*" + combo_num;
+                                        String putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*" + combo_num;
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
+//                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -238,11 +226,11 @@ public class DMJ_Thr {
 //                                    int uid = welcData.getInteger("uid");
                                         String uname = welcData.getString("uname");
 //                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
-                                        String putDM =  "提示 ："+getFormat()+" - "+"欢迎老爷 "  +uname ;
+                                        String putDM =  "提示 ："+getFormat()+" @ "+"欢迎老爷 "  +uname ;
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        new HFJ_Fun("欢迎老爷 "  +uname +"\t");
+//                                        new HFJ_Fun("欢迎老爷 "  +uname +"\t");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -255,24 +243,24 @@ public class DMJ_Thr {
                                         String putDM;
                                         switch (guard_level){
                                             case "3":
-                                                putDM =  "提示 ："+getFormat()+" - "+"欢迎舰长 "  +username ;
+                                                putDM =  "提示 ："+getFormat()+" @ "+"欢迎舰长 "  +username ;
                                                 new HFJ_Fun("欢迎舰长 "  +username +"\t");
                                                 break;
                                             case "2":
-                                                putDM =  "提示 ："+getFormat()+" - "+"欢迎提督 "  +username ;
+                                                putDM =  "提示 ："+getFormat()+" @ "+"欢迎提督 "  +username ;
                                                 new HFJ_Fun("欢迎提督 "  +username +"\t");
                                                 break;
                                             case "1":
-                                                putDM =  "提示 ："+getFormat()+" - "+"欢迎总督 "  +username ;
+                                                putDM =  "提示 ："+getFormat()+" @ "+"欢迎总督 "  +username ;
                                                 new HFJ_Fun("欢迎总督 "  +username +"\t");
                                                 break;
                                             default:
-                                                putDM =  "提示 ："+getFormat()+" - "+"欢迎 "  +username ;
+                                                putDM =  "提示 ："+getFormat()+" @ "+"欢迎 "  +username ;
                                         }
 
 //                                        String putDM =  "提示 ："+getFormat()+" - "+"欢迎舰长 "  +uname +"\t";
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 
                                         System.out.println(putDM);
@@ -282,9 +270,9 @@ public class DMJ_Thr {
 
                                         String msg_common =  object.getString("msg_common");
                                         String real_roomid= object.getString("real_roomid");
-                                        String putDM = "通知 ："+getFormat()+" - "+ msg_common   + "id:"+real_roomid ;
+                                        String putDM = "通知 ："+getFormat()+" ~ "+ msg_common   + "id:"+real_roomid ;
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
                                         System.out.println(putDM+"\t");
@@ -294,9 +282,9 @@ public class DMJ_Thr {
 
                                         String msg =  object.getString("msg");
                                         String real_roomid= object.getString("real_roomid");
-                                        String putDM = "通知 ："+getFormat()+" - "+ msg   + "id:"+real_roomid +"\t";
+                                        String putDM = "通知 ："+getFormat()+" ~ "+ msg   + "id:"+real_roomid +"\t";
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
                                         System.out.println( msg   + "id:"+real_roomid +"\t");
@@ -310,9 +298,9 @@ public class DMJ_Thr {
                                         JSONObject RoomRankData = object.getJSONObject("data");
                                         String rank_desc =  RoomRankData.getString("rank_desc");
                                         String roomid= RoomRankData.getString("roomid");
-                                        String putDM = "通知 ："+getFormat()+" - "+ rank_desc   + "   id:"+roomid +"\t";
+                                        String putDM = "通知 ："+getFormat()+" ~ "+ rank_desc   + "   id:"+roomid +"\t";
                                         DMJ_UiT_Text.append(putDM+"\r\n");
-                                        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
                                         System.out.println( rank_desc   + "id:"+roomid +"\t");
@@ -322,7 +310,8 @@ public class DMJ_Thr {
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive Log");
                                     }
                                 }
-
+//                                DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+                                System.out.println("b");
                             }
                         }
                     }else if (msgLength > 16 && msgLength < dataLength){
@@ -334,7 +323,9 @@ public class DMJ_Thr {
                         System.arraycopy(data, msgLength, remainDate, 0, remainLen);
                         analyzeData(remainDate);
                     }
+                    System.out.println("c");
                 }catch (Exception ex){
+
                     ex.printStackTrace();
                 }
             }
