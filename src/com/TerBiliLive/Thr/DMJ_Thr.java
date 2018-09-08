@@ -41,6 +41,7 @@ public class DMJ_Thr {
     private boolean keepRunning = true;
     private boolean isReConn = true;
     private String roomID;
+    private String putDM = "";
 
 
     private getInfo client;
@@ -51,7 +52,13 @@ public class DMJ_Thr {
         client = new getInfo();
         socket = client.connect(this.roomID);
         if (socket != null) {
-            new handle_data_loop().start();
+            handle_data_loop hdp=  new handle_data_loop();
+            try {
+                hdp.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            hdp.start();
         }
     }
 
@@ -67,6 +74,7 @@ public class DMJ_Thr {
 
     private class handle_data_loop extends Thread {
         DataInputStream input = null;
+
 
         public void run(){
             if (socket != null){
@@ -146,7 +154,7 @@ public class DMJ_Thr {
                                 System.out.println(jsonStr);
                                 JSONObject object = JSON.parseObject(jsonStr);
                                 String msgType = object.getString("cmd");
-                                System.out.println("a");
+
                                 switch (msgType){
                                     case "DANMU_MSG":{
                                         JSONArray array = object.getJSONArray("info").getJSONArray(2);
@@ -164,7 +172,6 @@ public class DMJ_Thr {
                                         }catch (Exception e){
                                             putDM_medal="";
                                         }
-
                                         String putDM_user_level =" [" + object.getJSONArray("info").getJSONArray(4).getString(0) + "] " ;
 
                                         putDM_isadmin =(array.getString(2).equals("1"))?"<房主/管> ":"";
@@ -174,7 +181,6 @@ public class DMJ_Thr {
 //                                            putDM_isadmin = "";
 //                                        }
 
-
                                         putDM_timeline = getFormat();
 
                                         if (array.getString(3).equals("1")) {
@@ -183,9 +189,7 @@ public class DMJ_Thr {
                                         if (array.getString(4).equals("1")) {
                                             putDM_vip = "年费老爷 ";
                                         }
-
-                                        String putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text+"\t";
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                         System.out.println( putDM);
@@ -198,11 +202,12 @@ public class DMJ_Thr {
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        String putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  giftName +" 喵~");
+                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + " 喵~");
+
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -213,11 +218,25 @@ public class DMJ_Thr {
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        String putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*" + combo_num;
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*" + combo_num;
+
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
+                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
+                                        System.out.println(putDM);
+                                        break;
+                                    }
+                                    case "COMBO_SEND":{
+                                        JSONObject giftData = object.getJSONObject("data");
+                                        String gift_name = giftData.getString("gift_name");
+                                        String uname = giftData.getString("uname");
+//                                    int uid = giftData.getInteger("uid");
+//                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
+                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name ;
+
+
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -226,11 +245,10 @@ public class DMJ_Thr {
 //                                    int uid = welcData.getInteger("uid");
                                         String uname = welcData.getString("uname");
 //                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
-                                        String putDM =  "提示 ："+getFormat()+" @ "+"欢迎老爷 "  +uname ;
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM =  "提示 ："+getFormat()+" @ "+"欢迎老爷 "  +uname ;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        new HFJ_Fun("欢迎老爷 "  +uname +"\t");
+                                        if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎老爷 "  +uname +"\t");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -240,38 +258,36 @@ public class DMJ_Thr {
                                         String username = welcData.getString("username");
                                         String guard_level = welcData.getString("guard_level");
 //                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
-                                        String putDM;
                                         switch (guard_level){
                                             case "3":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎舰长 "  +username ;
-                                                new HFJ_Fun("欢迎舰长 "  +username +"\t");
+                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎舰长 "  +username +"\t");
                                                 break;
                                             case "2":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎提督 "  +username ;
-                                                new HFJ_Fun("欢迎提督 "  +username +"\t");
+                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎提督 "  +username +"\t");
                                                 break;
                                             case "1":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎总督 "  +username ;
-                                                new HFJ_Fun("欢迎总督 "  +username +"\t");
+                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎总督 "  +username +"\t");
                                                 break;
                                             default:
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎 "  +username ;
                                         }
 
 //                                        String putDM =  "提示 ："+getFormat()+" - "+"欢迎舰长 "  +uname +"\t";
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-
+//                                        new HFJ_Fun("欢迎老爷 "  +username +"\t");
                                         System.out.println(putDM);
                                         break;
                                     }
                                     case "NOTICE_MSG":{
-
                                         String msg_common =  object.getString("msg_common");
                                         String real_roomid= object.getString("real_roomid");
-                                        String putDM = "通知 ："+getFormat()+" ~ "+ msg_common   + "id:"+real_roomid ;
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM = "通知 ："+getFormat()+" ~ "+ msg_common   + "id:"+real_roomid ;
+
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
@@ -279,11 +295,9 @@ public class DMJ_Thr {
                                         break;
                                     }
                                     case "SYS_MSG":{
-
                                         String msg =  object.getString("msg");
                                         String real_roomid= object.getString("real_roomid");
-                                        String putDM = "通知 ："+getFormat()+" ~ "+ msg   + "id:"+real_roomid +"\t";
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM = "通知 ："+getFormat()+" ~ "+ msg   + "id:"+real_roomid +"\t";
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
@@ -298,8 +312,8 @@ public class DMJ_Thr {
                                         JSONObject RoomRankData = object.getJSONObject("data");
                                         String rank_desc =  RoomRankData.getString("rank_desc");
                                         String roomid= RoomRankData.getString("roomid");
-                                        String putDM = "通知 ："+getFormat()+" ~ "+ rank_desc   + "   id:"+roomid +"\t";
-                                        DMJ_UiT_Text.append(putDM+"\r\n");
+                                        putDM = "通知 ："+getFormat()+" ~ "+ rank_desc   + "   id:"+roomid +"\t";
+
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
@@ -307,11 +321,33 @@ public class DMJ_Thr {
                                         break;
                                     }
                                     default:{
+                                        putDM="";
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive Log");
                                     }
                                 }
-//                                DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
-                                System.out.println("b");
+
+                                Thread.sleep(50);//线程阻塞1秒后运行
+                                            if(!putDM.equals(""))
+                                                DMJ_UiT_Text.append(putDM +"\r\n");
+                                            DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+//                                String finalPutDM = putDM;
+//                                new Thread(new Runnable(){
+//                                    public void run(){
+//
+//                                        try {
+//                                            Thread.sleep(100);//线程阻塞1秒后运行
+//                                            if(!finalPutDM.equals(""))
+//                                                DMJ_UiT_Text.append(finalPutDM +"\r\n");
+//                                            DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+//                                        } catch (InterruptedException e) {
+//                                            e.printStackTrace();
+//                                        }
+//
+//
+//                                    }
+//                                }).start();
+
+
                             }
                         }
                     }else if (msgLength > 16 && msgLength < dataLength){
@@ -323,7 +359,6 @@ public class DMJ_Thr {
                         System.arraycopy(data, msgLength, remainDate, 0, remainLen);
                         analyzeData(remainDate);
                     }
-                    System.out.println("c");
                 }catch (Exception ex){
 
                     ex.printStackTrace();

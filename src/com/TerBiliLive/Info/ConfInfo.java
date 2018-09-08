@@ -8,6 +8,7 @@ import java.util.Map;
 public class ConfInfo {
 
     public static int isReConnSum = 0;
+    public static String Thank = "NO";
     public static String cookie = "";
     public static String RoomLive = "NO";//705952
     public static String sendBarrageUrl = "http://live.bilibili.com/msg/send";

@@ -4,6 +4,7 @@ import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
+import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_GG_Ui;
@@ -41,9 +42,8 @@ public class GG_Thr extends Thread {
             if (!AYO) GG_UiT_State.setText("已暂停");
 
 
-
-            LiveInfo LI = new LiveInfo(C.Control_UiT_RoomId.getText(),ConfInfo.cookie);
-            ;
+            LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
+            LiveInfo LI = new LiveInfo(liveRoom.room_id,ConfInfo.cookie);
 
 
 

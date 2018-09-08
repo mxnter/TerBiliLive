@@ -65,7 +65,16 @@ public class HFJ_Fun {
 //        e1.printStackTrace();
 //    }
     //	System.out.print("cookie:");
-         msg =HFJ.HFJ_UiT_Text.getText();
+
+        if(msg.equals("")){
+            msg =HFJ.HFJ_UiT_Text.getText();
+        }
+//        if(msg.length()>20){
+//            String msgg=msg.substring(20);
+//            msg=msg.substring(0, 20);
+//            new HFJ_Fun(msgg);
+//        }
+
             cookie = C.Control_UiT_Cookie.getText();
 //                mapParam.put("roomid", roomid);
 //    int x=(int)(Math.random()*1000000);

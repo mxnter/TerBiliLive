@@ -1,5 +1,8 @@
 package com.TerBiliLive.Function;
 
+import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.LiveRoom;
+import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.getSubString;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
@@ -32,46 +35,15 @@ public class GG_Fun {
         Map<String, String> mapParam = new HashMap<String, String>();
         String roomid, cookie, msg,url;
 
-        url=pathUrl;
 
         roomid = C.Control_UiT_RoomId.getText();
-
-        try {
-            msg = URLEncoder.encode(GG.GG_UiT_Text.getText(), "UTF-8");
-            mapParam.put("msg", msg);
-        } catch (UnsupportedEncodingException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }
-        //	System.out.print("cookie:");
+        msg = GG.GG_UiT_Text.getText();
         cookie = C.Control_UiT_Cookie.getText();
-        mapParam.put("roomid", roomid);
-        int x=(int)(Math.random()*1000000);
-        mapParam.put("rnd", Integer.toString(x));
 
-/*    //创建目录
-                FileUtil.createDir("Ter/data/");
-                FileUtil.createDir("Ter/log/");*/
-/*    //写入数据
-                FileUtil.writeFile("RoomId",GG.GG_UiT_RoomId.getText());
-                FileUtil.writeFile("Text",GG.GG_UiT_Text.getText());
-                FileUtil.writeFile("Cookie",GG.GG_UiT_Cookie.getText());*/
-
-
-//        /*  cookie----->>DedeUserID=  后的值很重要*/
-//        SendPost sp=new SendPost();
-//        RTData = sp.sendPost(url,mapParam,cookie);
-//        getSubString gs=new getSubString();
-
-
-        /*使用JSON 获取返回值中的的信息
-         * gs.getSubString(RTData, "\"code\":", ",\"msg\""),  <——老方法获取值
-         * CodingUtil.ascii2native(gs.getSubString(RTData, "\"code\":", ",\"msg\""))  <——老方法获取值
-         * JSONObject jsonObject = new JSONObject(RTData);<——新方法获取值
-         *  jsonObject.getString("code")<——新方法获取值
-         *
-         *
-         * */
+        ConfInfo.sendBarrage=new SendBarrage();
+        LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
+        String RTData =ConfInfo.sendBarrage.SendBarrage(liveRoom.room_id,cookie,msg);
+        ConfInfo.sendBarrage=null;
 
         try {
             JSONObject jsonObject = new JSONObject(RTData);
