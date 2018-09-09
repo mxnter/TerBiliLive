@@ -1,6 +1,7 @@
 package com.TerBiliLive.Monitor;
 
 import com.TerBiliLive.Function.Control_Fun;
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Thr.DMJ_Thr;
 import com.TerBiliLive.Thr.GG_Thr;
 
@@ -17,7 +18,7 @@ public class GG_Monitor {
 
     public GG_Monitor(){
 
-
+        if(ConfInfo.control_fun ==null) ConfInfo.control_fun =new Control_Fun();
 
         GG_Ui_Start.addActionListener(new ActionListener() {
 
@@ -25,8 +26,8 @@ public class GG_Monitor {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
 
-                Control_Fun CF =new Control_Fun();
-                CF.Start();
+
+                ConfInfo.control_fun.Start();
 
             }
         });
@@ -36,8 +37,7 @@ public class GG_Monitor {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 // YJ.gdpd=false;
-                Control_Fun CF =new Control_Fun();
-                CF.Suspend();
+                ConfInfo.control_fun.Suspend();
 
             }
         });

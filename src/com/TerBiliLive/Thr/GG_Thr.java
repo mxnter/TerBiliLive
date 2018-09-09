@@ -20,8 +20,7 @@ public class GG_Thr extends Thread {
 
     public boolean AYO = true;
     String Parameter = "";
-    TerBiliLive_Control_Ui C = new TerBiliLive_Control_Ui(Parameter);
-    TerBiliLive_GG_Ui GG = new TerBiliLive_GG_Ui(Parameter);
+
     SendPost SP = new SendPost();
     DmUtil DU = new DmUtil();
     String putDMJY = null;
@@ -42,8 +41,8 @@ public class GG_Thr extends Thread {
             if (!AYO) GG_UiT_State.setText("已暂停");
 
 
-            LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
-            LiveInfo LI = new LiveInfo(liveRoom.room_id,ConfInfo.cookie);
+            ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
+            LiveInfo LI = new LiveInfo(ConfInfo.liveRoom.room_id,ConfInfo.cookie);
 
 
 
@@ -58,26 +57,26 @@ public class GG_Thr extends Thread {
 
                             break;
                         case "ROUND":
-                            GG.GG_UiT_State.setText(getFormatHour() + "轮播中，等待验证" + "<" +LI.getState()+  ">");
+                            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour() + "轮播中，等待验证" + "<" +LI.getState()+  ">");
                             if (!LiveOpen.equals("ROUND")) {
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "轮播中，等待验证"  + "<" + LI.getState()+ ">"+ "\n", GG.ProjectName);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "轮播中，等待验证"  + "<" + LI.getState()+ ">"+ "\n", ConfInfo.terBiliLive_gg_ui.ProjectName);
 
                             }
                             LiveOpen = "ROUND";
                             break;
                         case "PREPARING":
-                            GG.GG_UiT_State.setText(getFormatHour() + "直播暂停或准备，等待验证" + "<" + LI.getState()+">");
+                            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour() + "直播暂停或准备，等待验证" + "<" + LI.getState()+">");
 
                             if (!LiveOpen.equals("ROUND")) {
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "直播暂停或准备，等待验证"  + "<" +LI.getState()+ ">" + "\n", GG.ProjectName);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "直播暂停或准备，等待验证"  + "<" +LI.getState()+ ">" + "\n", ConfInfo.terBiliLive_gg_ui.ProjectName);
 
                             }
                             LiveOpen = "ROUND";
                             break;
                         default:
-                            GG.GG_UiT_State.setText(getFormatHour() + "读取直播状态失败 ：" + "<" +LI.getState()+">");
+                            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour() + "读取直播状态失败 ：" + "<" +LI.getState()+">");
                             if (!LiveOpen.equals("OPEN")) {
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "读取失败" + "<"  +LI.getState()+ ">" + "\n", GG.ProjectName);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "读取失败" + "<"  +LI.getState()+ ">" + "\n", ConfInfo.terBiliLive_gg_ui.ProjectName);
 
                             }
                             LiveOpen = "OPEN";

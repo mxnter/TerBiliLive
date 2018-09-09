@@ -41,9 +41,7 @@ public class getInfo {
     }
 
     public boolean sendJoinRoomMsg(Socket socket, String roomID){
-        ConfInfo.liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
         String uid =  ConfInfo.liveInfo.getUid();
-        ConfInfo.liveInfo=null;
         String jsonBody = "{\"roomid\": " + roomID + ", \"uid\": " + uid + "}";
         try {
             return sendSocketData(socket, jsonBody.length() + 16, 16, PROTOCOL_VERSION, 7, 1, jsonBody.getBytes("utf-8"));
@@ -70,7 +68,6 @@ public class getInfo {
         ConfInfo.liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
         String socketServerUrl = ConfInfo.liveInfo.getDm_server();
         int socketServerPort = (ConfInfo.liveInfo.getDm_port()==0)?DEFAULT_COMMENT_PORT:ConfInfo.liveInfo.getDm_port();
-        ConfInfo.liveInfo=null;
 //        LogUtil.putLog(getFormatDay(), getFormatHour(), liveInfo.toString()+ "\n","TerBiliLive Log");
         Socket socket = null;
         InetSocketAddress address = new InetSocketAddress(socketServerUrl, DEFAULT_COMMENT_PORT);

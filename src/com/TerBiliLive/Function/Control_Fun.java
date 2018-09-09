@@ -16,7 +16,6 @@ public class Control_Fun {
     public static  boolean AYO_GG = true ;
     //boolean AYO=true;
     String Parameter= "" ;
-    TerBiliLive_Control_Ui C=new TerBiliLive_Control_Ui(Parameter);
     DMJ_Thr DT;
     GG_Thr GT = new GG_Thr();
 
@@ -38,8 +37,8 @@ public class Control_Fun {
         FileUtil.createDir("Ter/log/");
         FileUtil.createDir("Ter/Dm/");
         //写入数据
-        FileUtil.writeFile("RoomId", C.Control_UiT_RoomId.getText());
-        FileUtil.writeFile("Cookie",C.Control_UiT_Cookie.getText());ConfInfo.cookie=C.Control_UiT_Cookie.getText();
+        FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
+//        FileUtil.writeFile("Cookie",ConfInfo.cookie);
         FileUtil.writeFile("Second", GG_UiT_Second.getText());
         FileUtil.writeFile("Text",GG_UiT_Text.getText());
 
@@ -50,10 +49,10 @@ public class Control_Fun {
     }
     public void Connect(){
         DT= new DMJ_Thr();
-        LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
-        DT.start(liveRoom.room_id,true);
-        C.Control_UiB_Connect.setEnabled(false);
-        C.Control_UiB_Disconnect.setEnabled(true);
+        ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
+        DT.start(ConfInfo.liveRoom.room_id,true);
+        ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
+        ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(true);
 
 
 
@@ -69,8 +68,8 @@ public class Control_Fun {
     public void Disconnect(){
 
         DT.stop();
-        C.Control_UiB_Connect.setEnabled(true);
-        C.Control_UiB_Disconnect.setEnabled(false);
+        ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(true);
+        ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(false);
         //DT.interrupt();
 
 

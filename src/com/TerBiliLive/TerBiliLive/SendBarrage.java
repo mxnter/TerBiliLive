@@ -1,6 +1,7 @@
 package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Utiliy.TimeUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -27,10 +28,9 @@ public class SendBarrage {
             paramMap.put("msg", msg);
             //封装房间号
             paramMap.put("roomid", roomid);
-            //随机生成rnd
-            int x=(int)(Math.random()*1000000);
+            if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
             //封装Rnd
-            paramMap.put("rnd", Integer.toString(x));
+            paramMap.put("rnd", ConfInfo.Rnd);
             //创建Post提交对象
             ConfInfo.sendPost = new SendPost();
             //获取返回值

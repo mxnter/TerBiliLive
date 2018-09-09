@@ -1,8 +1,11 @@
 package com.TerBiliLive;
 
-import com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui;
+import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Ui.TerBiliLive_Hi_Ui;
+import com.TerBiliLive.Ui.TerBiliLive_Login_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_Ui;
 import com.TerBiliLive.Utiliy.FileUtil;
+import com.TerBiliLive.Utiliy.TimeUtil;
 
 
 
@@ -21,7 +24,7 @@ public class Main {
 
 
 
-        TerBiliLive_Ui HFJ = new TerBiliLive_Ui();
+        TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
 
         /*开启发送弹幕的代码*/
         /*

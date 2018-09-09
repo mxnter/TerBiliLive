@@ -9,7 +9,7 @@ import java.awt.*;
 public class TerBiliLive_GG_Ui {
 
 
-    public static String Version = "Beta02";
+    public static String Version = "Beta03";
     public static String Appname = "TerBiliLive GG";
     public static String ProjectName = "TerBiliLive GG";
     String pathUrl = "http://live.bilibili.com/msg/send";
@@ -27,14 +27,9 @@ public class TerBiliLive_GG_Ui {
 
 
 
-    public TerBiliLive_GG_Ui(String Parameter){
-
-
-
-    }
-
     TerBiliLive_GG_Ui (){
 
+        GG_Ui_Suspend.setEnabled(false);
         GG_UiT_State.setEditable(false);
 
         GG_Ui_Jpanel.add(GG_UiL_State);

@@ -1,14 +1,13 @@
 package com.TerBiliLive.Thr;
 
-import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.getInfo;
 import com.TerBiliLive.TerBiliLive.SendPost;
-import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
 import com.TerBiliLive.Utiliy.DmLogUtil;
 import com.TerBiliLive.Utiliy.DmUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Utiliy.TimeUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -30,8 +29,6 @@ public class DMJ_Thr {
 
     public boolean AYO= true;
     String Parameter= "" ;
-    TerBiliLive_Control_Ui C=new TerBiliLive_Control_Ui(Parameter);
-   // TerBiliLive_DMJ_Ui DMJ =new TerBiliLive_DMJ_Ui();
     SendPost SP = new SendPost();
     DmUtil DU = new DmUtil();
     String putDMJY =null;
@@ -41,7 +38,7 @@ public class DMJ_Thr {
     private boolean keepRunning = true;
     private boolean isReConn = true;
     private String roomID;
-    private String putDM = "";
+
 
 
     private getInfo client;
@@ -65,8 +62,13 @@ public class DMJ_Thr {
     public void stop(){
         keepRunning = false;
         client.disconnect(socket);
-        String putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID  +"\t";
-        DMJ_UiT_Text.append(putDM+"\r\n");
+        String uid =  ConfInfo.liveInfo.getUid();
+        String name =  ConfInfo.liveInfo.getUname();
+        ConfInfo.liveInfo=null;
+        String putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
+        ConfInfo.putShowUtil.PutDMUtil(putDM);
+       // new PutDMUtil(putDM);
+        Control_UiT_State.setText("已断开连接" );
         DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
         System.out.println("断开连接" +" 真实直播间ID："+roomID );
@@ -83,7 +85,9 @@ public class DMJ_Thr {
 //                    LiveInfo xx=new LiveInfo(Control_UiT_RoomId.getText());
 //                    DMJ_UiT_Text.append("房间信息："+xx.toString());
                     bufferSize = socket.getReceiveBufferSize();
-                    DMJ_UiT_Text.append("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"\r\n");
+                    String uid =  ConfInfo.liveInfo.getUid();
+                    String name =  ConfInfo.liveInfo.getUname();
+                    ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name);
 
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
                     System.out.println("连接成功" +"真实直播间ID："+roomID );
@@ -103,7 +107,7 @@ public class DMJ_Thr {
                         }
                     }catch (Exception e){
                         if (isReConn && keepRunning ) {
-                            DMJ_UiT_Text.append("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   +"\r\n");
+                            ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   );
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,Control_UiT_RoomId.getText());
                             System.out.println("自动重连" +" 真实直播间ID："+roomID );
@@ -123,7 +127,8 @@ public class DMJ_Thr {
         }
 
         private void analyzeData(byte[] data){
-
+            String putDM = "";
+            String putTZ = "";
             int dataLength = data.length;
             if (dataLength < 16){
                 System.out.println("错误的数据");
@@ -143,7 +148,7 @@ public class DMJ_Thr {
                             int userCount = inputStream.readInt();
 //                            System.out.println("在线人数：" + userCount);
                             Control_UiT_State.setText("在线人数：" + userCount);
-//                            DMJ_UiT_Text.append("在线人数：" + userCount+"\r\n");
+//                            ConfInfo.putDMUtil.PutDMUtil("在线人数：" + userCount);
                             System.out.println("在线人数：" + userCount);
                         }else if (action == 4){
                             inputStream.readInt();
@@ -158,6 +163,7 @@ public class DMJ_Thr {
                                 switch (msgType){
                                     case "DANMU_MSG":{
                                         JSONArray array = object.getJSONArray("info").getJSONArray(2);
+                                        JSONArray Date = object.getJSONArray("info").getJSONArray(0);
 //                                    int uid = array.getInteger(0);
 
                                         String putDM_text = object.getJSONArray("info").getString(1);
@@ -174,14 +180,14 @@ public class DMJ_Thr {
                                         }
                                         String putDM_user_level =" [" + object.getJSONArray("info").getJSONArray(4).getString(0) + "] " ;
 
-                                        putDM_isadmin =(array.getString(2).equals("1"))?"<房主/管> ":"";
+                                        putDM_isadmin =(array.getString(2).equals("1"))?array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid())?"<房主> ":"<房管> ":"";
 //                                        if (array.getString(2).equals("1")) {
 //                                            putDM_isadmin = "<房主/管> ";
 //                                        } else {
 //                                            putDM_isadmin = "";
 //                                        }
 
-                                        putDM_timeline = getFormat();
+                                        putDM_timeline = TimeUtil.timeStamp2Date(Date.getString(4),null);
 
                                         if (array.getString(3).equals("1")) {
                                             putDM_vip = "普通老爷 ";
@@ -286,7 +292,7 @@ public class DMJ_Thr {
                                     case "NOTICE_MSG":{
                                         String msg_common =  object.getString("msg_common");
                                         String real_roomid= object.getString("real_roomid");
-                                        putDM = "通知 ："+getFormat()+" ~ "+ msg_common   + "id:"+real_roomid ;
+                                        putTZ = "通知 ： ~ "+ "id:"+real_roomid+" "+ msg_common    ;
 
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
@@ -297,10 +303,10 @@ public class DMJ_Thr {
                                     case "SYS_MSG":{
                                         String msg =  object.getString("msg");
                                         String real_roomid= object.getString("real_roomid");
-                                        putDM = "通知 ："+getFormat()+" ~ "+ msg   + "id:"+real_roomid +"\t";
+                                        putTZ = "通知 ： ~ "+ "id:"+real_roomid +" "+ msg   ;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        new HFJ_Fun(putDM);
+//                                        if (ConfInfo.Thank.equals("ok"))new HFJ_Fun("出现低保："+real_roomid);
                                         System.out.println( msg   + "id:"+real_roomid +"\t");
                                         break;
                                     }
@@ -312,7 +318,7 @@ public class DMJ_Thr {
                                         JSONObject RoomRankData = object.getJSONObject("data");
                                         String rank_desc =  RoomRankData.getString("rank_desc");
                                         String roomid= RoomRankData.getString("roomid");
-                                        putDM = "通知 ："+getFormat()+" ~ "+ rank_desc   + "   id:"+roomid +"\t";
+                                        putTZ = "通知 ： ~ "+ "   id:"+roomid +" "+ rank_desc   ;
 
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
@@ -328,7 +334,9 @@ public class DMJ_Thr {
 
                                 Thread.sleep(50);//线程阻塞1秒后运行
                                             if(!putDM.equals(""))
-                                                DMJ_UiT_Text.append(putDM +"\r\n");
+                                                ConfInfo.putShowUtil.PutDMUtil(putDM);
+                                            if(!putTZ.equals(""))
+                                                ConfInfo.putShowUtil.PutTZUtil(putTZ);
                                             DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
 //                                String finalPutDM = putDM;
 //                                new Thread(new Runnable(){

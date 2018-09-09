@@ -12,7 +12,7 @@ import java.awt.*;
 public class TerBiliLive_HFJ_Ui{
         //extends JPanel implements ActionListener, KeyListener {
 
-    public static String Version = "Beta04";
+    public static String Version = "Beta05";
     public static String Appname = "TerBiliLive HFJ";
     public static String ProjectName = "TerBiliLive HFJ";
     String pathUrl = "http://live.bilibili.com/msg/send";

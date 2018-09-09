@@ -32,8 +32,6 @@ public class HFJ_Fun {
 
     public HFJ_Fun(String msg){
 
-        TerBiliLive_HFJ_Ui HFJ= new TerBiliLive_HFJ_Ui(Parameter);
-        TerBiliLive_Control_Ui C=new TerBiliLive_Control_Ui(Parameter);
        // HFJ.HFJ_UiT_RoomId.setText(C.Control_UiT_RoomId.getText());
        // HFJ.HFJ_UiT_Cookie.setText(C.Control_UiT_Cookie.getText());
 
@@ -43,7 +41,7 @@ public class HFJ_Fun {
     url=pathUrl;
 
         System.out.println(msg);
-    roomid = C.Control_UiT_RoomId.getText();
+    roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
 //
 //                try {
 //                    if(msg.equals("")){
@@ -67,7 +65,7 @@ public class HFJ_Fun {
     //	System.out.print("cookie:");
 
         if(msg.equals("")){
-            msg =HFJ.HFJ_UiT_Text.getText();
+            msg =ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText();
         }
 //        if(msg.length()>20){
 //            String msgg=msg.substring(20);
@@ -75,7 +73,7 @@ public class HFJ_Fun {
 //            new HFJ_Fun(msgg);
 //        }
 
-            cookie = C.Control_UiT_Cookie.getText();
+            cookie = ConfInfo.cookie;
 //                mapParam.put("roomid", roomid);
 //    int x=(int)(Math.random()*1000000);
 //                mapParam.put("rnd", Integer.toString(x));
@@ -93,8 +91,8 @@ public class HFJ_Fun {
 
 //    SendPost sp=new SendPost();
     ConfInfo.sendBarrage=new SendBarrage();
-    LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
-    String RTData =ConfInfo.sendBarrage.SendBarrage(liveRoom.room_id,cookie,msg);
+    ConfInfo.liveRoom=new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
+    String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,cookie,msg);
     ConfInfo.sendBarrage=null;
 //            = sp.SendPost(roomid,cookie,msg);
 //    getSubString gs=new getSubString();
@@ -117,32 +115,32 @@ public class HFJ_Fun {
         switch (jsonObject.getString("code")) {
 
             case "0":
-                HFJ.HFJ_UiT_Time.setText(getFormatHour());
-                HFJ.HFJ_UiT_State.setText("发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
 
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  HFJ.HFJ_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",HFJ.ProjectName);
+                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 break;
             case "-101":
-                HFJ.HFJ_UiT_Time.setText(getFormatHour());
-                HFJ.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  HFJ.HFJ_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",HFJ.ProjectName);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 break;
             case "-500":
-                HFJ.HFJ_UiT_Time.setText(getFormatHour());
-                HFJ.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  HFJ.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",HFJ.ProjectName);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 break;
             case "-400":
-                HFJ.HFJ_UiT_Time.setText(getFormatHour());
-                HFJ.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ HFJ.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",HFJ.ProjectName);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 break;
             default:
-                HFJ.HFJ_UiT_Time.setText(getFormatHour());
-                HFJ.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ HFJ.HFJ_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",HFJ.ProjectName);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
         }
-        HFJ.HFJ_UiT_Text.setText("");
+        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setText("");
 
     } catch (JSONException e) {
         e.printStackTrace();

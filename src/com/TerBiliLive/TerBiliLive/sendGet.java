@@ -6,6 +6,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class sendGet {
+	public static String sendGet(String url) {
+		return sendGet(url,null,null);
+	}
 
 	public static String sendGet(String url, String param, String cookie) {
 		String result = "";

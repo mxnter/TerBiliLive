@@ -27,8 +27,7 @@ public class GG_Fun {
     public static String RTData ;
     public GG_Fun(){
 
-        TerBiliLive_GG_Ui GG= new TerBiliLive_GG_Ui(Parameter);
-        TerBiliLive_Control_Ui C=new TerBiliLive_Control_Ui(Parameter);
+
         // GG.GG_UiT_RoomId.setText(C.Control_UiT_RoomId.getText());
         // GG.GG_UiT_Cookie.setText(C.Control_UiT_Cookie.getText());
 
@@ -36,14 +35,15 @@ public class GG_Fun {
         String roomid, cookie, msg,url;
 
 
-        roomid = C.Control_UiT_RoomId.getText();
-        msg = GG.GG_UiT_Text.getText();
-        cookie = C.Control_UiT_Cookie.getText();
+        roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
+        msg = ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText();
+        cookie = ConfInfo.cookie;
+
 
         ConfInfo.sendBarrage=new SendBarrage();
-        LiveRoom liveRoom =new LiveRoom(C.Control_UiT_RoomId.getText().toString());
-        String RTData =ConfInfo.sendBarrage.SendBarrage(liveRoom.room_id,cookie,msg);
-        ConfInfo.sendBarrage=null;
+        if(ConfInfo.liveRoom==null)ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
+        String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,cookie,msg);
+
 
         try {
             JSONObject jsonObject = new JSONObject(RTData);
@@ -54,29 +54,29 @@ public class GG_Fun {
 
                 case "0":
                     //GG.GG_UiT_Time.setText(getFormatHour());
-                    GG.GG_UiT_State.setText(getFormatHour()+"发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                    ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour()+"发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
 
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  GG.GG_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",GG.ProjectName);
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_gg_ui.ProjectName);
                     break;
                 case "-101":
                    // GG.GG_UiT_Time.setText(getFormatHour());
-                    GG.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  GG.GG_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",GG.ProjectName);
+                    ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",ConfInfo.terBiliLive_gg_ui.ProjectName);
                     break;
                 case "-500":
                    // GG.GG_UiT_Time.setText(getFormatHour());
-                    GG.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  GG.GG_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",GG.ProjectName);
+                    ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_gg_ui.ProjectName);
                     break;
                 case "-400":
                    // GG.GG_UiT_Time.setText(+getFormatHour());
-                    GG.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ GG.GG_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",GG.ProjectName);
+                    ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour()+"发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_gg_ui.ProjectName);
                     break;
                 default:
                    // GG.GG_UiT_Time.setText(getFormatHour());
-                    GG.GG_UiT_State.setText(getFormatHour()+"未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ GG.GG_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",GG.ProjectName);
+                    ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText(getFormatHour()+"未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_gg_ui.ProjectName);
             }
 
 
