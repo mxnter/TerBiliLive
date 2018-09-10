@@ -1,6 +1,7 @@
 package com.TerBiliLive.Monitor;
 
 import com.TerBiliLive.Function.HFJ_Fun;
+import com.TerBiliLive.Info.ConfInfo;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,7 +25,10 @@ public class HFJ_Monitor implements KeyListener {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
 
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(false);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(false);
                 new HFJ_Fun("");
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setText("");
 
             }
         });

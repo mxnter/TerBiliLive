@@ -65,7 +65,7 @@ public class SendBarrage_Thr extends Thread{
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 }
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setText("");
+
 
             } catch (JSONException e) {
                 e.printStackTrace();

@@ -93,8 +93,7 @@ public class HFJ_Fun {
 //    SendPost sp=new SendPost();
 
 
-        ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(false);
-        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(false);
+
         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送中");
         int ReplyLength=20;
         if (ConfInfo.terBiliLive_control_ui.Reply_30.isSelected())ReplyLength=30;

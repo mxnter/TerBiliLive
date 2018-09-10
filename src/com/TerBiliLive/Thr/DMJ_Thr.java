@@ -301,9 +301,9 @@ public class DMJ_Thr {
                                         putTZ = "通知 ： ~ "+ "id:"+real_roomid+" "+ msg_common    ;
 
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
-                                        System.out.println(putDM+"\t");
+                                        System.out.println(putTZ+"\t");
                                         break;
                                     }
                                     case "SYS_MSG":{
@@ -311,7 +311,7 @@ public class DMJ_Thr {
                                         String real_roomid= object.getString("real_roomid");
                                         putTZ = "通知 ： ~ "+ "id:"+real_roomid +" "+ msg   ;
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
                                         if(real_roomid!=null){
                                             if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected())new HFJ_Fun("出现低保："+real_roomid);
                                         }
@@ -329,9 +329,10 @@ public class DMJ_Thr {
                                         putTZ = "通知 ： ~ "+ "   id:"+roomid +" "+ rank_desc   ;
 
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun(putDM);
                                         System.out.println( rank_desc   + "id:"+roomid +"\t");
+
                                         break;
                                     }
                                     case "LIVE":{
@@ -339,7 +340,7 @@ public class DMJ_Thr {
                                         putTZ = "通知 ： ~ "+ "   id:"+roomid +" 直播开始啦，拿好小板凳哟."   ;
 
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
                                         if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播开始啦，拿好小板凳哟. ");
 //                                        new HFJ_Fun(putDM);
                                         System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播开始啦，拿好小板凳哟.");
@@ -350,10 +351,19 @@ public class DMJ_Thr {
                                         putTZ = "通知 ： ~ "+ "   id:"+roomid +" 直播结束啦，记得关注哦."   ;
 
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
                                         if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播结束啦，记得关注哦.");
 //                                        new HFJ_Fun(putDM);
                                         System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播结束啦，记得关注哦.");
+                                        break;
+                                    }
+                                    case "GUARD_MSG":{
+                                        String roomid= object.getString("roomid");
+                                        putTZ = "通知 ： ~ " +" 出现航海" + " id:"+roomid  ;
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
+                                        if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected()) new HFJ_Fun(" 出现航海" + " id:"+roomid);
+//                                        new HFJ_Fun(putDM);
+                                        System.out.println( putTZ);
                                         break;
                                     }
                                     default:{
