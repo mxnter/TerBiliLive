@@ -13,8 +13,9 @@ public class TerBiliLive_DMJ_Ui {
 
 
 
+    public static  JTextPane DMJ_UiT_Text =new JTextPane();
 
-    public static JTextArea DMJ_UiT_Text = new JTextArea();
+//    public static JTextArea DMJ_UiT_Text = new JTextArea();
     public static JScrollPane jsp = new JScrollPane(DMJ_UiT_Text);
     public static JScrollPane logScroll = new JScrollPane(DMJ_UiT_Text,ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     public static JPanel DMJ_Ui_Jpanel = new JPanel(new GridLayout(1, 1, 10, 10));
@@ -31,11 +32,11 @@ public class TerBiliLive_DMJ_Ui {
 
     public TerBiliLive_DMJ_Ui(){
 
-
-        DMJ_UiT_Text.setWrapStyleWord(true);
-        DMJ_UiT_Text.setLineWrap(true);//设置自动换行
+//
+//        DMJ_UiT_Text.setWrapStyleWord(true);
+//        DMJ_UiT_Text.setLineWrap(true);//设置自动换行
         DMJ_UiT_Text.setBorder(new TitledBorder("信息："));//设置标题
-        DMJ_UiT_Text.setWrapStyleWord(false);//设置以单词为整体换行，(即不会将单词切割成两半)
+//        DMJ_UiT_Text.setWrapStyleWord(false);//设置以单词为整体换行，(即不会将单词切割成两半)
         DMJ_UiT_Text.setEditable(false);//不可编辑
         JScrollPane scrollPane = new JScrollPane(DMJ_UiT_Text);//添加滚动条
         scrollPane.setBounds(5, 0, 250, 160);
@@ -89,9 +90,9 @@ public class TerBiliLive_DMJ_Ui {
 
 
 
-        public JTextArea getDMJ_UiT_Text() {
-        return DMJ_UiT_Text;
-    }
+//        public JTextArea getDMJ_UiT_Text() {
+//        return DMJ_UiT_Text;
+//    }
 
     public void setDMJ_UiT_Text(String Text) {
         this.DMJ_UiT_Text.setText(Text);

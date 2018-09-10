@@ -9,6 +9,9 @@ import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.PutShowUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ConfInfo {
 
     public static int isReConnSum = 0;
@@ -38,6 +41,8 @@ public class ConfInfo {
     public static PutShowUtil putShowUtil;
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
     private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
+
+    public static List<String> SendBarrageList = new ArrayList<String>();
 
 
 }

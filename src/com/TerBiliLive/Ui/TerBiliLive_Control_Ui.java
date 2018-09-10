@@ -14,6 +14,15 @@ public class TerBiliLive_Control_Ui {
     JLabel Control_UiL_State = new JLabel("状　态：");
     JLabel Control_UiL_UpUname = new JLabel("UP：");
 
+    JLabel Control_UiL_Reply = new JLabel("回复：");
+    //复选框
+    public JCheckBox Reply_LiveState = new JCheckBox("状态");
+    public JCheckBox Reply_LowSecurity = new JCheckBox("低保");
+    public JCheckBox Reply_Master = new JCheckBox("老爷");
+    public JCheckBox Reply_Guard = new JCheckBox("舰长");
+    public JCheckBox Reply_30 = new JCheckBox("-30-");
+
+
 
     public static JTextField Control_UiT_RoomId = new JTextField(10);
     public static JPasswordField Control_UiT_Cookie = new JPasswordField(20);
@@ -35,7 +44,7 @@ public class TerBiliLive_Control_Ui {
     public static JButton Control_UiB_ClaseThinks = new JButton("关闭感谢");
     public static JButton Control_UiB_Preservation = new JButton("保存");
 
-    JPanel Control_Ui_Jpanel = new JPanel(new GridLayout(2, 1, 5, 5));
+    JPanel Control_Ui_Jpanel = new JPanel(new GridLayout(3, 1, 5, 5));
     JPanel Control_Ui_Up_Jpanel = new JPanel(new FlowLayout());
     JPanel Control_Ui_Dn_Jpanel = new JPanel(new FlowLayout());
     JPanel Control_Ui_Tz_Jpanel = new JPanel(new FlowLayout());
@@ -78,9 +87,17 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Dn_Jpanel.add(Control_UiB_Text);
 
 
+        Control_Ui_Tz_Jpanel.add(Control_UiL_Reply);
+        Control_Ui_Tz_Jpanel.add(Reply_LiveState);
+        Control_Ui_Tz_Jpanel.add(Reply_LowSecurity);
+        Control_Ui_Tz_Jpanel.add(Reply_Master);
+        Control_Ui_Tz_Jpanel.add(Reply_Guard);
+        Control_Ui_Tz_Jpanel.add(Reply_30);
+
+
         Control_Ui_Jpanel.add(Control_Ui_Up_Jpanel);
         Control_Ui_Jpanel.add(Control_Ui_Dn_Jpanel);
-//        Control_Ui_Jpanel.add(Control_Ui_Tz_Jpanel);
+        Control_Ui_Jpanel.add(Control_Ui_Tz_Jpanel);
 
 
 

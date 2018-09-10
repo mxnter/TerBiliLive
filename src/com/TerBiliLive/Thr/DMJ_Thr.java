@@ -69,7 +69,6 @@ public class DMJ_Thr {
         ConfInfo.putShowUtil.PutDMUtil(putDM);
        // new PutDMUtil(putDM);
         Control_UiT_State.setText("已断开连接" );
-        DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
         System.out.println("断开连接" +" 真实直播间ID："+roomID );
     }
@@ -172,6 +171,7 @@ public class DMJ_Thr {
                                         String putDM_timeline = "";
                                         String putDM_vip = "";
                                         String putDM_medal="";
+                                        String putDM_GUARD="";
                                         try {
                                             putDM_medal ="【" + object.getJSONArray("info").getJSONArray(3).getString(1)+object.getJSONArray("info").getJSONArray(3).getString(0)+"】 "  ;
 
@@ -181,10 +181,16 @@ public class DMJ_Thr {
                                         String putDM_user_level =" [" + object.getJSONArray("info").getJSONArray(4).getString(0) + "] " ;
 
                                         putDM_isadmin =(array.getString(2).equals("1"))?array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid())?"<房主> ":"<房管> ":"";
-//                                        if (array.getString(2).equals("1")) {
-//                                            putDM_isadmin = "<房主/管> ";
-//                                        } else {
-//                                            putDM_isadmin = "";
+
+//                                        switch (array.getString(2)){
+//                                            case "3":
+//                                                putDM_GUARD="$舰长$";break;
+//                                            case "2":
+//                                                putDM_GUARD="提督";break;
+//                                            case "1":
+//                                                putDM_GUARD="总督";break;
+//                                            default:
+//                                                putDM_GUARD="";break;
 //                                        }
 
                                         putDM_timeline = TimeUtil.timeStamp2Date(Date.getString(4),null);
@@ -195,7 +201,7 @@ public class DMJ_Thr {
                                         if (array.getString(4).equals("1")) {
                                             putDM_vip = "年费老爷 ";
                                         }
-                                        putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
+                                        putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_GUARD+" "+putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                         System.out.println( putDM);
@@ -254,7 +260,7 @@ public class DMJ_Thr {
                                         putDM =  "提示 ："+getFormat()+" @ "+"欢迎老爷 "  +uname ;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎老爷 "  +uname +"\t");
+                                        if (ConfInfo.terBiliLive_control_ui.Reply_Master.isSelected())  new HFJ_Fun("欢迎老爷 "  +uname +"\t");
                                         System.out.println(putDM);
                                         break;
                                     }
@@ -267,15 +273,15 @@ public class DMJ_Thr {
                                         switch (guard_level){
                                             case "3":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎舰长 "  +username ;
-                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎舰长 "  +username +"\t");
+                                                if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("欢迎舰长 "  +username +"\t");
                                                 break;
                                             case "2":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎提督 "  +username ;
-                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎提督 "  +username +"\t");
+                                                if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("欢迎提督 "  +username +"\t");
                                                 break;
                                             case "1":
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎总督 "  +username ;
-                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("欢迎总督 "  +username +"\t");
+                                                if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("欢迎总督 "  +username +"\t");
                                                 break;
                                             default:
                                                 putDM =  "提示 ："+getFormat()+" @ "+"欢迎 "  +username ;
@@ -306,7 +312,9 @@ public class DMJ_Thr {
                                         putTZ = "通知 ： ~ "+ "id:"+real_roomid +" "+ msg   ;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        if (ConfInfo.Thank.equals("ok"))new HFJ_Fun("出现低保："+real_roomid);
+                                        if(real_roomid!=null){
+                                            if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected())new HFJ_Fun("出现低保："+real_roomid);
+                                        }
                                         System.out.println( msg   + "id:"+real_roomid +"\t");
                                         break;
                                     }
@@ -326,6 +334,28 @@ public class DMJ_Thr {
                                         System.out.println( rank_desc   + "id:"+roomid +"\t");
                                         break;
                                     }
+                                    case "LIVE":{
+                                        String roomid= object.getString("roomid");
+                                        putTZ = "通知 ： ~ "+ "   id:"+roomid +" 直播开始啦，拿好小板凳哟."   ;
+
+
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播开始啦，拿好小板凳哟. ");
+//                                        new HFJ_Fun(putDM);
+                                        System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播开始啦，拿好小板凳哟.");
+                                        break;
+                                    }
+                                    case "PREPARING":{
+                                        String roomid= object.getString("roomid");
+                                        putTZ = "通知 ： ~ "+ "   id:"+roomid +" 直播结束啦，记得关注哦."   ;
+
+
+                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播结束啦，记得关注哦.");
+//                                        new HFJ_Fun(putDM);
+                                        System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播结束啦，记得关注哦.");
+                                        break;
+                                    }
                                     default:{
                                         putDM="";
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive Log");
@@ -337,7 +367,7 @@ public class DMJ_Thr {
                                                 ConfInfo.putShowUtil.PutDMUtil(putDM);
                                             if(!putTZ.equals(""))
                                                 ConfInfo.putShowUtil.PutTZUtil(putTZ);
-                                            DMJ_UiT_Text.setCaretPosition(DMJ_UiT_Text.getText().length());
+
 //                                String finalPutDM = putDM;
 //                                new Thread(new Runnable(){
 //                                    public void run(){
