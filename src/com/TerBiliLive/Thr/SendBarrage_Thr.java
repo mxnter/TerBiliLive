@@ -19,11 +19,17 @@ public class SendBarrage_Thr extends Thread{
 
         for(String msg : ConfInfo.SendBarrageList){
 
+
+            if(msg.equals(ConfInfo.Upper_barrage)) {
+                System.out.println("弹幕重复 - 禁止发送");
+                continue;
+            }
             try {
-                sleep(1000);
+                sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             String roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
             if(ConfInfo.sendBarrage==null)ConfInfo.sendBarrage=new SendBarrage();
             ConfInfo.liveRoom=new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
@@ -68,6 +74,12 @@ public class SendBarrage_Thr extends Thread{
 
 
             } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            ConfInfo.Upper_barrage =msg;
+            try {
+                sleep(500);
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 

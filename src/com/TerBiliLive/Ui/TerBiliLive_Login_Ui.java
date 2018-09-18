@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utiliy.FileUtil;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class TerBiliLive_Login_Ui extends JFrame  {
 
@@ -28,6 +30,17 @@ public class TerBiliLive_Login_Ui extends JFrame  {
         this.setSize(400, 100);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+
+        //设置图标
+        Image icon = null;
+        try {
+            icon =  ImageBroker.loadImage("logo.jpg").getImage();
+        } catch (IOException e) {
+            icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+            e.printStackTrace();
+        }
+
+        if (icon != null) this.setIconImage(icon);  // 图片的具体位置
 
 //        Login_UiT_Cookie.setText(FileUtil.readFile("Cookie"));
 

@@ -39,6 +39,7 @@ public class ConfInfo {
     public static GG_Fun gg_fun = null;
     public static HFJ_Fun hfj_fun = null;
     public static PutShowUtil putShowUtil;
+    public static String Upper_barrage;
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
     private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
 

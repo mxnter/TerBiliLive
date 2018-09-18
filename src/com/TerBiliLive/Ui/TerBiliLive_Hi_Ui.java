@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Utiliy.FileUtil;
@@ -7,6 +8,7 @@ import com.TerBiliLive.Utiliy.TimeUtil;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class TerBiliLive_Hi_Ui extends JFrame {
 
@@ -14,12 +16,31 @@ public class TerBiliLive_Hi_Ui extends JFrame {
     JPanel p=new JPanel(new FlowLayout(FlowLayout.RIGHT));
     JLabel l=new JLabel("登陆中.");
     JLabel bt=new JLabel("TerBiliLive");
-    ImageIcon img_bj = new ImageIcon("Ter/img/hy.jpg");//这是背景图片
-    JLabel imgLabel = new JLabel(img_bj);//将背景图放在标签里。
-
+    ImageIcon img_bj =null;
+    JLabel imgLabel =null;
     public TerBiliLive_Hi_Ui(){
 
-        this.setTitle("欢迎界面");
+        //设置图片
+        try {
+            img_bj = ImageBroker.loadImage("hy.jpg");
+        } catch (IOException e) {
+            img_bj = new ImageIcon("Ter/img/hy.jpg");//这是背景图片
+            e.printStackTrace();
+        }
+        imgLabel = new JLabel(img_bj);//将背景图放在标签里。
+        //设置图标
+        Image icon = null;
+        try {
+            icon =  ImageBroker.loadImage("logo.jpg").getImage();
+        } catch (IOException e) {
+            icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+            e.printStackTrace();
+        }
+
+        if (icon != null) this.setIconImage(icon);  // 图片的具体位置
+
+
+        this.setTitle("TerBiliLive");
         this.setSize(300, 200);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -47,6 +68,10 @@ public class TerBiliLive_Hi_Ui extends JFrame {
         con.add(p,BorderLayout.SOUTH);
         ConfInfo.cookie=FileUtil.readFile("Cookie");
         System.out.println(ConfInfo.cookie);
+
+
+
+
         this.setVisible(true);
 
         new Thread(new Runnable() {

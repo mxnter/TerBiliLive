@@ -40,11 +40,16 @@ public class Control_Monitor {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                Control_UiB_OpenThinks.setEnabled(true);
-                ConfInfo.Thank="no";
-                ConfInfo.control_fun.Connect();
-                ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
-                ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
+                if(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")||ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText()==null){
+                    ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("房间号不能为空");
+                }else{
+                    Control_UiB_OpenThinks.setEnabled(true);
+                    ConfInfo.Thank="no";
+                    ConfInfo.control_fun.Connect();
+                    ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
+                    ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
+                }
+
 
 
             }

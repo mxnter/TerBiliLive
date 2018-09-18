@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
@@ -15,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
@@ -52,7 +54,13 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         Image icon = null;
-        icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+        try {
+            icon =  ImageBroker.loadImage("logo.jpg").getImage();
+        } catch (IOException e) {
+            icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+            e.printStackTrace();
+        }
+
         if (icon != null) this.setIconImage(icon);  // 图片的具体位置
 
         Container con = getContentPane();
