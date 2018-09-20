@@ -2,8 +2,6 @@ package com.TerBiliLive.Monitor;
 
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Thr.DMJ_Thr;
-import com.TerBiliLive.Thr.GG_Thr;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

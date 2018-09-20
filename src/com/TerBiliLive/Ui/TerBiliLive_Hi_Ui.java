@@ -89,7 +89,7 @@ public class TerBiliLive_Hi_Ui extends JFrame {
             }
         }).start();
 
-        if (ConfInfo.cookie==null){
+        if (ConfInfo.cookie.equals("")){
             TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
             this.setVisible(false);
         }else{

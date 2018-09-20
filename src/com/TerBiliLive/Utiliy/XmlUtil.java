@@ -31,12 +31,11 @@ public class XmlUtil {
 
     public boolean readData(){
 
-
+        String TerBiliLiveData =FileUtil.readFile("Data");
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = null;
         try {
             builder = factory.newDocumentBuilder();
-            String TerBiliLiveData =FileUtil.readFile("Data");
             StringReader sr = new StringReader(FileUtil.readFile("Data"));
             InputSource is = new InputSource(sr);
             Document doc = builder.parse(is);
@@ -58,7 +57,6 @@ public class XmlUtil {
 //            ConfInfo.confData.setRoomId(ele.getAttribute("Roomid"));
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));
 //            ConfInfo.confData.setText(ele.getAttribute("Text"));
-            System.out.println(ele);
 
 
         } catch (ParserConfigurationException e) {

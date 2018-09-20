@@ -11,6 +11,7 @@ public class TerBiliLive_Control_Ui {
     JLabel Control_UiL_Cookie = new JLabel("Cookie： ");
     JLabel Control_UiL_Uid = new JLabel("UID： ");
     JLabel Control_UiL_Uname = new JLabel("UL： ");
+    JLabel Control_UiL_RoomRank = new JLabel("小时榜： ");
     JLabel Control_UiL_State = new JLabel("状　态：");
     JLabel Control_UiL_UpUname = new JLabel("UP：");
 
@@ -30,6 +31,7 @@ public class TerBiliLive_Control_Ui {
     public static JTextField Control_UiT_Uid = new JTextField(8);
     public static JTextField Control_UiT_Uname = new JTextField(10);
     public static JTextField Control_UiT_UpUname = new JTextField(10);
+    public static JTextField Control_UiT_RoomRank = new JTextField(8);
 
     //
 /*    public static JTextField Control_UiT_Time = new JTextField(20);
@@ -37,7 +39,7 @@ public class TerBiliLive_Control_Ui {
     JLabel Control_UiL_Text = new JLabel("弹　幕： ");
     public static JTextArea Control_UiT_Text = new JTextArea(26,20);*/
 
-    public static JTextField Control_UiB_Text = new JTextField(27);
+    public static JTextField Control_UiB_Text = new JTextField(20);
     public static JButton Control_UiB_Connect = new JButton("连接");
     public static JButton Control_UiB_Disconnect = new JButton("断开");
     public static JButton Control_UiB_OpenThinks = new JButton("启动感谢");
@@ -59,6 +61,7 @@ public class TerBiliLive_Control_Ui {
         Control_UiT_Uid.setEditable(false);
         Control_UiT_Uname.setEditable(false);
         Control_UiT_UpUname.setEditable(false);
+        Control_UiT_RoomRank.setEditable(false);
 
         Control_Ui_Up_Jpanel.add(Control_UiL_State);
         Control_Ui_Up_Jpanel.add(Control_UiT_State);
@@ -82,9 +85,9 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Dn_Jpanel.add(Control_UiT_Uname);
         Control_Ui_Dn_Jpanel.add(Control_UiL_UpUname);
         Control_Ui_Dn_Jpanel.add(Control_UiT_UpUname);
+        Control_Ui_Dn_Jpanel.add(Control_UiL_RoomRank);
+        Control_Ui_Dn_Jpanel.add(Control_UiT_RoomRank);
 
-
-        Control_Ui_Dn_Jpanel.add(Control_UiB_Text);
 
 
         Control_Ui_Tz_Jpanel.add(Control_UiL_Reply);
@@ -94,6 +97,7 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Tz_Jpanel.add(Reply_Guard);
         Control_Ui_Tz_Jpanel.add(Reply_30);
 
+        Control_Ui_Tz_Jpanel.add(Control_UiB_Text);
 
         Control_Ui_Jpanel.add(Control_Ui_Up_Jpanel);
         Control_Ui_Jpanel.add(Control_Ui_Dn_Jpanel);

@@ -8,6 +8,7 @@ import javax.swing.text.Document;
 import javax.swing.text.Element;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -64,7 +65,12 @@ public class LiveInfo {
         ConfInfo.sendPost = new SendPost();
         //获取返回值
         ReturnData = ConfInfo.sendPost.SendPost(LiveInfoURL+Cid,null,cookie);
-        System.out.println(ReturnData);
+//		try {
+//			ReturnData.getBytes("UTF-8");
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+		System.out.println(ReturnData);
 //		ReturnData = CodingUtil.ascii2native(ReturnData);
 		setAllDate();
 

@@ -2,9 +2,8 @@ package com.TerBiliLive.Function;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
-import com.TerBiliLive.Thr.DMJ_Thr;
-import com.TerBiliLive.Thr.GG_Thr;
-import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
+import com.TerBiliLive.Thr.ChargeNotice_Thr;
+import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utiliy.FileUtil;
 
 import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.*;
@@ -16,8 +15,8 @@ public class Control_Fun {
     public static  boolean AYO_GG = true ;
     //boolean AYO=true;
     String Parameter= "" ;
-    DMJ_Thr DT;
-    GG_Thr GT = new GG_Thr();
+    ChargeNotice_Thr DT;
+    SendAdvertising_Thr GT = new SendAdvertising_Thr();
 
     public Control_Fun(){
 
@@ -53,7 +52,7 @@ public class Control_Fun {
 
     }
     public void Connect(){
-        DT= new DMJ_Thr();
+        DT= new ChargeNotice_Thr();
         ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
         DT.start(ConfInfo.liveRoom.room_id,true);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
