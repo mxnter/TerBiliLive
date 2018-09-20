@@ -73,16 +73,30 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         ConfInfo.terBiliLive_gg_ui= new TerBiliLive_GG_Ui();
 
 
-        ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
+//        ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
 
+//老版本弃用
+//        ConfInfo.terBiliLive_control_ui.Control_UiT_Uid.setText(ConfInfo.Uid);
+//        ConfInfo.terBiliLive_control_ui.Control_UiT_Uname.setText(ConfInfo.Uname);
+//
+////        ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));ConfInfo.cookie=ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.getText();
+//
+//        ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.setText(FileUtil.readFile("Second"));
+//        ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.setText(FileUtil.readFile("Text"));
 
         ConfInfo.terBiliLive_control_ui.Control_UiT_Uid.setText(ConfInfo.Uid);
         ConfInfo.terBiliLive_control_ui.Control_UiT_Uname.setText(ConfInfo.Uname);
 
 //        ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));ConfInfo.cookie=ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.getText();
 
-        ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.setText(FileUtil.readFile("Second"));
-        ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.setText(FileUtil.readFile("Text"));
+        ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.setText(ConfInfo.confData.getRoomId());
+        ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.setText(ConfInfo.confData.getSecond());
+        ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.setText(ConfInfo.confData.getText());
+
+
+
+
+
 //        HFJ.HFJ_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
         //HFJ.HFJ_UiT_Text.setText(FileUtil.readFile("Text"));
 //        HFJ.HFJ_UiT_Cookie.setText(FileUtil.readFile("Cookie"));

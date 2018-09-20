@@ -1,5 +1,6 @@
 package com.TerBiliLive.Info;
 
+import com.TerBiliLive.Data.ConfData;
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Function.HFJ_Fun;
@@ -8,6 +9,7 @@ import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.PutShowUtil;
+import com.TerBiliLive.Utiliy.XmlUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,10 @@ public class ConfInfo {
     public static HFJ_Fun hfj_fun = null;
     public static PutShowUtil putShowUtil;
     public static String Upper_barrage;
+
+    public static ConfData confData= new ConfData();
+    public static XmlUtil xmlUtil =new XmlUtil();
+
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
     private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
 

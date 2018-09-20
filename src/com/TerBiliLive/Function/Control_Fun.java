@@ -43,6 +43,11 @@ public class Control_Fun {
         FileUtil.writeFile("Text",GG_UiT_Text.getText());
 
 
+        ConfInfo.confData.setCookie(ConfInfo.cookie);
+        ConfInfo.confData.setSecond( GG_UiT_Second.getText());
+        ConfInfo.confData.setText(GG_UiT_Text.getText());
+        ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
+        ConfInfo.xmlUtil.writeData();
 
 
 

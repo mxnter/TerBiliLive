@@ -66,7 +66,8 @@ public class TerBiliLive_Hi_Ui extends JFrame {
 
         //	con.add(bt,BorderLayout.CENTER);
         con.add(p,BorderLayout.SOUTH);
-        ConfInfo.cookie=FileUtil.readFile("Cookie");
+        ConfInfo.cookie=ConfInfo.confData.getCookie();
+//                FileUtil.readFile("Cookie");
         System.out.println(ConfInfo.cookie);
 
 

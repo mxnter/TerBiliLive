@@ -2,10 +2,10 @@ package com.TerBiliLive.Data;
 
 public class ConfData {
 
-    String Cookie ;
-    String RoomId;
-    String Second;
-    String Text;
+    String Cookie="" ;
+    String RoomId="";
+    String Second="";
+    String Text="";
 
     public String getCookie() {
         return Cookie;
@@ -37,5 +37,15 @@ public class ConfData {
 
     public void setText(String text) {
         Text = text;
+    }
+
+    @Override
+    public String toString() {
+        return "ConfData{" +
+                "Cookie='" + Cookie + '\'' +
+                ", RoomId='" + RoomId + '\'' +
+                ", Second='" + Second + '\'' +
+                ", Text='" + Text + '\'' +
+                '}';
     }
 }

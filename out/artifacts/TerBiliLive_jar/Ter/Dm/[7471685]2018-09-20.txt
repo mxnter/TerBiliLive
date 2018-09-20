@@ -1,0 +1,7 @@
+Ter制作的 “TerBiliLive” 弹幕姬 - 测试中
+欢迎使用 TerBiliLive 当前版本 Beta03[D.Beta05]-[H.Beta05]-[G.Beta03]
+联网信息<br>为保证程序可长久运行，50毫秒内收发的弹幕，可能回丢失部分<br><br>反馈邮箱：xnter@outlook.com
+网络正常
+
+连接成功真实直播间ID：7471685
+弹幕 ：2018-09-20 17:03:51 -    [26] 兔团儿のTer ：感谢 Ming丶CAT 赠送的 辣条 喵~

@@ -3,6 +3,7 @@ package com.TerBiliLive.Ui;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utiliy.FileUtil;
+import com.TerBiliLive.Utiliy.XmlUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,6 +60,9 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 // TODO Auto-generated method stub
                 ConfInfo.cookie=Login_UiT_Cookie.getText();
                 FileUtil.writeFile("Cookie",ConfInfo.cookie);
+                ConfInfo.confData.setCookie(ConfInfo.cookie);
+                ConfInfo.xmlUtil.writeData();
+
                 TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
                 dispose();
             }

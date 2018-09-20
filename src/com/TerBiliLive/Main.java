@@ -6,6 +6,7 @@ import com.TerBiliLive.Ui.TerBiliLive_Login_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_Ui;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
+import com.TerBiliLive.Utiliy.XmlUtil;
 
 
 
@@ -23,6 +24,8 @@ public class Main {
         FileUtil.createDir("Ter/Dm/");
 
 
+        new XmlUtil().readData();
+        System.out.println(ConfInfo.confData.toString());
 
         TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
 

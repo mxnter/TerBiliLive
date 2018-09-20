@@ -16,7 +16,8 @@ public class FileUtil {
      */
     public static String readFile(String filePath){
         try {
-            String encoding="gbk";
+            String encoding="UTF-8";
+            String readText="";
             File file=new File("Ter/data/"+filePath+".terda");
             if(file.isFile() && file.exists()){ //判断文件是否存在
                 InputStreamReader read = new InputStreamReader(
@@ -25,11 +26,12 @@ public class FileUtil {
                 String lineTxt = null;
                 while((lineTxt = bufferedReader.readLine()) != null){
                     //System.out.println(lineTxt);
-                    return lineTxt;
+                    readText=readText+lineTxt;
+//                    return lineTxt;
                 }
 
                 read.close();
-                return lineTxt;
+                return readText;
             }else{
                 return "";
                 //System.out.println("找不到指定的文件");
