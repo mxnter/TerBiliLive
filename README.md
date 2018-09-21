@@ -10,7 +10,7 @@
 ![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
 
 ### 登陆界面
-![Image text](../../MDimg/dl.png)
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
 
 ### 弹幕姬界面
-![Image text](../../MDimg/dmj.png)
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDimg/dmj.png)
