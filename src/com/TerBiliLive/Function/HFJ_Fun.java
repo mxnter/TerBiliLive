@@ -40,8 +40,6 @@ public class HFJ_Fun {
     String roomid, cookie,url;
 
     url=pathUrl;
-
-        System.out.println(msg);
     roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
 //
 //                try {
@@ -67,7 +65,15 @@ public class HFJ_Fun {
 
         if(msg.equals("")){
             msg =ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText();
+            if(msg.equals("")){
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("不能发送空的弹幕");
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(true);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(true);
+                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.grabFocus();
+                return;
+            }
         }
+        System.out.println(msg);
 //        if(msg.length()>20){
 //            String msgg=msg.substring(20);
 //            msg=msg.substring(0, 20);

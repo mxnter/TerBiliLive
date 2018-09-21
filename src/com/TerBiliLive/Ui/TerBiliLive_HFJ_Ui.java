@@ -12,7 +12,7 @@ import java.awt.*;
 public class TerBiliLive_HFJ_Ui{
         //extends JPanel implements ActionListener, KeyListener {
 
-    public static String Version = "Beta05";
+    public static String Version = "Beta06";
     public static String Appname = "TerBiliLive HFJ";
     public static String ProjectName = "TerBiliLive HFJ";
     String pathUrl = "http://live.bilibili.com/msg/send";
@@ -41,15 +41,6 @@ public class TerBiliLive_HFJ_Ui{
    // static JButton HFJ_UiB_Suspend = new JButton("暂停");
     // JPanel HFJ_Ui_Jpanel = new JPanel(new GridLayout(6, 1, 10, 10));
    JPanel HFJ_Ui_Jpanel = new JPanel(new FlowLayout());
-
-
-
-    public TerBiliLive_HFJ_Ui(String Parameter){
-
-
-
-    }
-
 
     public TerBiliLive_HFJ_Ui(){
 

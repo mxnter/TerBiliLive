@@ -5,6 +5,7 @@ import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.Utiliy.CodingUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Utiliy.TimeUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,8 +22,12 @@ public class SendBarrage_Thr extends Thread{
 
 
             if(msg.equals(ConfInfo.Upper_barrage)) {
-                System.out.println("弹幕重复 - 禁止发送");
-                continue;
+                System.out.println("弹幕重复 - 判断时间");
+                if(TimeUtil.timeStamplong()-ConfInfo.Upper_barrage_time<6){
+                    System.out.println("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                    continue;
+                }
+
             }
             try {
                 sleep(500);
@@ -34,7 +39,8 @@ public class SendBarrage_Thr extends Thread{
             if(ConfInfo.sendBarrage==null)ConfInfo.sendBarrage=new SendBarrage();
             ConfInfo.liveRoom=new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
             String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
-
+            ConfInfo.Upper_barrage =msg;
+            ConfInfo.Upper_barrage_time= TimeUtil.timeStamplong();
 
 
 
@@ -76,7 +82,7 @@ public class SendBarrage_Thr extends Thread{
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            ConfInfo.Upper_barrage =msg;
+
             try {
                 sleep(500);
             } catch (InterruptedException e) {
@@ -87,6 +93,7 @@ public class SendBarrage_Thr extends Thread{
 
         ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(true);
         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(true);
+        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.grabFocus();
         ConfInfo.SendBarrageList.clear();
 
     }

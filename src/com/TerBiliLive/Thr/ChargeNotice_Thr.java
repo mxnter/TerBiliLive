@@ -480,9 +480,12 @@ public class ChargeNotice_Thr {
                                     }
                                 }
 
-                                Thread.sleep(50);//线程阻塞1秒后运行
-                                            if(!putDM.equals(""))
-                                                ConfInfo.putShowUtil.PutDMUtil(putDM);
+//                                Thread.sleep(50);//线程阻塞1秒后运行
+                                            if(!putDM.equals("")){
+                                                ConfInfo.ChargeBarrageList.add(putDM);
+//                                                ConfInfo.putShowUtil.PutDMUtil(putDM);
+                                            }
+
                                             if(!putTZ.equals(""))
                                                 ConfInfo.putShowUtil.PutTZUtil(putTZ);
 

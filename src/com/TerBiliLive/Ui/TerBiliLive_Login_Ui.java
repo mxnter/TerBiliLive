@@ -62,6 +62,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 FileUtil.writeFile("Cookie",ConfInfo.cookie);
                 ConfInfo.confData.setCookie(ConfInfo.cookie);
                 ConfInfo.xmlUtil.writeData();
+                ConfInfo.jsonUtil.writeData();
 
                 TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
                 dispose();

@@ -31,28 +31,45 @@ public class XmlUtil {
 
     public boolean readData(){
 
-        String TerBiliLiveData =FileUtil.readFile("Data");
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = null;
+        String TerBiliLiveData =FileUtil.readFile("xData");
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//        DocumentBuilder builder = null;
         try {
-            builder = factory.newDocumentBuilder();
-            StringReader sr = new StringReader(FileUtil.readFile("Data"));
-            InputSource is = new InputSource(sr);
-            Document doc = builder.parse(is);
-            NodeList nList = doc.getElementsByTagName("TerBiliLiveData");
-            Node node = nList.item(0);
-            Element ele = (Element)node;
+//            builder = factory.newDocumentBuilder();
+//            StringReader sr = new StringReader(FileUtil.readFile("Data"));
+//            InputSource is = new InputSource(sr);
+//            Document doc = builder.parse(is);
+//            NodeList nList = doc.getElementsByTagName("TerBiliLiveData");
+//            Node node = nList.item(0);
+//            Element ele = (Element)node;
 
-            char[] c = getSubString.getSubString(TerBiliLiveData, "<Cookie>", "</Cookie>").toCharArray();
+            DocumentBuilderFactory factory = DocumentBuilderFactory
+                    .newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(new File("Ter/data/xData.terda"));
+            Element rootElement = document.getDocumentElement();
+            char[] c = rootElement.getAttribute("Cookie").toCharArray();
             //使用for循环给字符数组加密
             for(int i=0;i<c.length;i++){
                 c[i] = (char)(c[i]-2);
             }
 
             ConfInfo.confData.setCookie(new String(c));
-            ConfInfo.confData.setRoomId(getSubString.getSubString(TerBiliLiveData, "<Roomid>", "</Roomid>"));
-            ConfInfo.confData.setSecond(getSubString.getSubString(TerBiliLiveData, "<Second>", "</Second>"));
-            ConfInfo.confData.setText(getSubString.getSubString(TerBiliLiveData, "<Text>", "</Text>"));
+            ConfInfo.confData.setRoomId(rootElement.getAttribute("Roomid"));
+            ConfInfo.confData.setSecond(rootElement.getAttribute("Second"));
+            ConfInfo.confData.setText(rootElement.getAttribute("Text"));
+
+//
+//            char[] c = getSubString.getSubString(TerBiliLiveData, "<Cookie>", "</Cookie>").toCharArray();
+//            //使用for循环给字符数组加密
+//            for(int i=0;i<c.length;i++){
+//                c[i] = (char)(c[i]-2);
+//            }
+//
+//            ConfInfo.confData.setCookie(new String(c));
+//            ConfInfo.confData.setRoomId(getSubString.getSubString(TerBiliLiveData, "<Roomid>", "</Roomid>"));
+//            ConfInfo.confData.setSecond(getSubString.getSubString(TerBiliLiveData, "<Second>", "</Second>"));
+//            ConfInfo.confData.setText(getSubString.getSubString(TerBiliLiveData, "<Text>", "</Text>"));
 //            ConfInfo.confData.setCookie(ele.getAttribute("Cookie"));
 //            ConfInfo.confData.setRoomId(ele.getAttribute("Roomid"));
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));
@@ -125,7 +142,7 @@ public class XmlUtil {
         //换行文件内容
         tf.setOutputProperty(OutputKeys.INDENT, "yes");
         try {
-            tf.transform(new DOMSource(document), new StreamResult(new File("Ter/data/Data.terda")));
+            tf.transform(new DOMSource(document), new StreamResult(new File("Ter/data/xData.terda")));
         } catch (TransformerException e) {
             e.printStackTrace();
         }

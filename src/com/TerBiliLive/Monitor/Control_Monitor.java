@@ -3,6 +3,7 @@ package com.TerBiliLive.Monitor;
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
+import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Ui.TerBiliLive_Hi_Ui;
 import com.TerBiliLive.Ui.TerBiliLive_Ui;
 import com.TerBiliLive.Utiliy.FileUtil;
@@ -48,6 +49,7 @@ public class Control_Monitor {
                     ConfInfo.control_fun.Connect();
                     ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
                     ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
+
                 }
 
 

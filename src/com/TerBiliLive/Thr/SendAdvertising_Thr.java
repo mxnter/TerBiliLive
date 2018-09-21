@@ -41,6 +41,10 @@ public class SendAdvertising_Thr extends Thread {
             if (!AYO) GG_UiT_State.setText("已暂停");
 
 
+//            if (ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")){
+//                ConfInfo.putShowUtil.PutDMUtil("\n ****** 警告：请填写直播间ID ******\n");
+//                return;
+//            }
             ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
             LiveInfo LI = new LiveInfo(ConfInfo.liveRoom.room_id,ConfInfo.cookie);
 

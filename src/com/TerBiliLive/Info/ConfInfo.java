@@ -7,10 +7,13 @@ import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
+import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Ui.*;
+import com.TerBiliLive.Utiliy.JsonUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
 import com.TerBiliLive.Utiliy.XmlUtil;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,14 +45,19 @@ public class ConfInfo {
     public static HFJ_Fun hfj_fun = null;
     public static PutShowUtil putShowUtil;
     public static String Upper_barrage;
+    public static long Upper_barrage_time;
 
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
+    public static JsonUtil jsonUtil = new JsonUtil();
+//    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
     private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
 
     public static List<String> SendBarrageList = new ArrayList<String>();
+    public static List<String> ChargeBarrageList = new ArrayList<String>();
+
 
 
 }

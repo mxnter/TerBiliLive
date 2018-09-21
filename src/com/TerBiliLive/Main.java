@@ -24,7 +24,8 @@ public class Main {
         FileUtil.createDir("Ter/Dm/");
 
 
-        new XmlUtil().readData();
+//        ConfInfo.xmlUtil.readData();
+        ConfInfo.jsonUtil.readData();
         System.out.println(ConfInfo.confData.toString());
 
         TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();

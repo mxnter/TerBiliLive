@@ -12,7 +12,8 @@ import java.io.IOException;
 
 public class TerBiliLive_Hi_Ui extends JFrame {
 
-
+    JPanel pp=new JPanel(new FlowLayout(FlowLayout.CENTER));
+    JLabel ll=new JLabel("");
     JPanel p=new JPanel(new FlowLayout(FlowLayout.RIGHT));
     JLabel l=new JLabel("登陆中.");
     JLabel bt=new JLabel("TerBiliLive");
@@ -39,6 +40,14 @@ public class TerBiliLive_Hi_Ui extends JFrame {
 
         if (icon != null) this.setIconImage(icon);  // 图片的具体位置
 
+        ImageIcon img_miao =null;
+        try {
+            img_miao = ImageBroker.loadImage("ganbei.png");
+        } catch (IOException e) {
+            img_miao = new ImageIcon("Ter/img/ganbei.png");//这是背景图片
+            e.printStackTrace();
+        }
+        JLabel img_miaoLabel = new JLabel(img_miao);//将背景图放在标签里。
 
         this.setTitle("TerBiliLive");
         this.setSize(300, 200);
@@ -61,11 +70,14 @@ public class TerBiliLive_Hi_Ui extends JFrame {
         l.setForeground(Color.WHITE);
         //	bt.setForeground(Color.WHITE);
         p.setOpaque(false); //背景透明
-
+        pp.setOpaque(false); //背景透明
+        pp.add(img_miaoLabel);
+        pp.add(ll);
         p.add(l);
 
         //	con.add(bt,BorderLayout.CENTER);
         con.add(p,BorderLayout.SOUTH);
+        con.add(pp,BorderLayout.CENTER);
         ConfInfo.cookie=ConfInfo.confData.getCookie();
 //                FileUtil.readFile("Cookie");
         System.out.println(ConfInfo.cookie);
@@ -89,11 +101,17 @@ public class TerBiliLive_Hi_Ui extends JFrame {
             }
         }).start();
 
-        if (ConfInfo.cookie.equals("")){
+        if (ConfInfo.cookie.equals("null")||ConfInfo.cookie.equals("")){
             TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
             this.setVisible(false);
         }else{
-            ConfInfo.liveInfo = new LiveInfo("9938182",ConfInfo.cookie);
+            try {
+                ConfInfo.liveInfo = new LiveInfo("9938182",ConfInfo.cookie);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null,"未检测到网络\n请连接网络再试");
+                System.exit(0);
+            }
+
             ConfInfo.Uid=ConfInfo.liveInfo.getUid();
             ConfInfo.Uname=ConfInfo.liveInfo.getUname();
             ConfInfo.liveInfo=null;
