@@ -7,10 +7,10 @@
 ### Cookie 请自行在浏览器内获取，作者还没写登陆呢！
 
 ### 欢迎界面
-![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
 
 ### 登陆界面
-![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
 
 ### 弹幕姬界面
 ![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
