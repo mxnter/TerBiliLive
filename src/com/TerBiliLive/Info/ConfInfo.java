@@ -8,19 +8,20 @@ import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
+import com.TerBiliLive.Thr.LT_Thr;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.JsonUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
 import com.TerBiliLive.Utiliy.XmlUtil;
 
 import javax.xml.crypto.Data;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class ConfInfo {
 
     public static int isReConnSum = 0;
     public static String Thank = "no";
+    public static String SEND_GIFT ="";
     public static String cookie = "";
     public static String Rnd="";
     public static String Uid = "";
@@ -50,6 +51,10 @@ public class ConfInfo {
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
     public static JsonUtil jsonUtil = new JsonUtil();
+    public static LT_Thr lt_thr =null;
+
+    public static GetSendBarrageList_Thr GBT;
+    public static Map<String,Integer> lt_lt = new HashMap();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";

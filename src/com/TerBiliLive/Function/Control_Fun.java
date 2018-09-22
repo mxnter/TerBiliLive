@@ -17,7 +17,7 @@ public class Control_Fun {
     //boolean AYO=true;
     String Parameter= "" ;
     ChargeNotice_Thr DT;
-    GetSendBarrageList_Thr GBT;
+//    GetSendBarrageList_Thr GBT;
     SendAdvertising_Thr GT = new SendAdvertising_Thr();
 
     public Control_Fun(){
@@ -56,10 +56,10 @@ public class Control_Fun {
     }
     public void Connect(){
         DT= new ChargeNotice_Thr();
-        GBT =new GetSendBarrageList_Thr();
+        ConfInfo.GBT =new GetSendBarrageList_Thr();
         ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
         DT.start(ConfInfo.liveRoom.room_id,true);
-        GBT.start();
+        ConfInfo.GBT.start();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(true);
 
@@ -77,7 +77,7 @@ public class Control_Fun {
     public void Disconnect(){
 
         DT.stop();
-        GBT.stop();
+        ConfInfo.GBT.stop();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(true);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(false);
         //DT.interrupt();

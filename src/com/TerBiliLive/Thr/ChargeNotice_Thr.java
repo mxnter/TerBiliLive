@@ -15,6 +15,8 @@ import com.alibaba.fastjson.JSONObject;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomRank;
@@ -204,6 +206,8 @@ public class ChargeNotice_Thr {
                                         putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_GUARD+" "+putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                        if(putDM_text.equals("# 版本信息")) new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);
+//                                        if(putDM_text.equals("# 状态")) new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);
                                         System.out.println( putDM);
                                         break;
                                     }
@@ -214,44 +218,103 @@ public class ChargeNotice_Thr {
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                        if(giftName.equals("辣条")){
+
+
+                                            if(!ConfInfo.lt_lt.containsKey(uname)) {
+                                                System.out.println("整合辣条"+uname);
+                                                new LT_Thr().start(uname,giftName);
+                                                ConfInfo.lt_lt.put(uname,0);
+                                            }
+                                            System.out.println("整合辣条"+uname);
+                                            ConfInfo.lt_lt.put(uname,ConfInfo.lt_lt.get(uname) + giftNum);
+                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+
+//                                            System.out.println(putDM);
+
+                                        }else{
+                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                            ConfInfo.SEND_GIFT=uname +  giftName  + giftNum;
+                                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                            if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" + giftNum +" 喵~");
+
+                                            System.out.println(putDM);
+                                        }
+
+                                        break;
+                                    }
+                                    case "COMBO_SEND":{
+                                        JSONObject giftData = object.getJSONObject("data");
+                                        String gift_name = giftData.getString("gift_name");
+                                        String uname = giftData.getString("uname");
+                                        int combo_num = giftData.getInteger("combo_num");
+//                                    int uid = giftData.getInteger("uid");
+//                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
+                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name+"*"  + combo_num ;
 
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + " 喵~");
-
+                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name+"*"  + combo_num +" 喵~");
                                         System.out.println(putDM);
                                         break;
                                     }
                                     case "COMBO_END":{
                                         JSONObject giftData = object.getJSONObject("data");
                                         String gift_name = giftData.getString("gift_name");
+                                        String gift_id = giftData.getString("gift_id");
                                         int combo_num = giftData.getInteger("combo_num");
                                         String uname = giftData.getString("uname");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*"  + combo_num;
 
+                                        if(!ConfInfo.SEND_GIFT.equals(uname +  gift_name + combo_num)){
+                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*"  + combo_num;
+                                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                            if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name+"*["  + combo_num +"连击]  喵~");
+                                            System.out.println(putDM);
+                                        }else{
+                                            System.out.println("连送礼物结束"+ConfInfo.SEND_GIFT);
+                                        }
 
-                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
-                                        System.out.println(putDM);
                                         break;
                                     }
-                                    case "COMBO_SEND":{
-//                                        JSONObject giftData = object.getJSONObject("data");
-//                                        String gift_name = giftData.getString("gift_name");
-//                                        String uname = giftData.getString("uname");
-////                                    int uid = giftData.getInteger("uid");
-////                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-//                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name ;
-//
-//
-//                                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-//                                        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name +" 喵~");
-//                                        System.out.println(putDM);
+                                    case "SPECIAL_GIFT":{
+                                        JSONObject giftData = object.getJSONObject("data");
+                                        JSONObject gift39 = giftData.getJSONObject("39");
+                                        String giftaction = gift39.getString("action");
+
+                                        String giftid = gift39.getString("id");
+//                                        System.out.println(giftData);
+                                        switch (giftaction){
+                                            case "start":{
+//                                                Map<String, String> paramMap = new HashMap<String, String>();
+//                                                paramMap.put("id", giftid);
+//                                                paramMap.put("color", "16777215");
+//                                                paramMap.put("captcha_token", "");
+//                                                paramMap.put("captcha_phrase", "");
+//                                                paramMap.put("roomid", "5440");
+//                                                paramMap.put("csrf_token", "810077afcf6973ee439bd6bd2caaddd5");
+//                                                paramMap.put("visit_id", "");
+//                                                System.out.println("\n\n\n\n" +   ConfInfo.sendPost.SendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
+                                                String giftcontent = gift39.getString("content");
+                                                putTZ = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid +"内容："+giftcontent ;
+                                                putDM = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid  +"内容："+giftcontent;
+                                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                                break;
+                                            }
+                                            case "end":{
+                                                putTZ = "通知 ： ~ "+ "节奏风暴 结束 id:"+giftid  ;
+                                                break;
+                                            }
+                                        }
+
+
+                                        System.out.println(putTZ);
                                         break;
                                     }
+
+
                                     case "WELCOME":{
                                         JSONObject welcData = object.getJSONObject("data");
 //                                      int uid = welcData.getInteger("uid");
@@ -483,6 +546,12 @@ public class ChargeNotice_Thr {
 //                                Thread.sleep(50);//线程阻塞1秒后运行
                                             if(!putDM.equals("")){
                                                 ConfInfo.ChargeBarrageList.add(putDM);
+                                                synchronized (ConfInfo.GBT) {
+                                                    ConfInfo.GBT.notify();
+                                                    System.out.println("-----------------------显示弹幕数据重新激活-----------------------");
+                                                }
+
+
 //                                                ConfInfo.putShowUtil.PutDMUtil(putDM);
                                             }
 

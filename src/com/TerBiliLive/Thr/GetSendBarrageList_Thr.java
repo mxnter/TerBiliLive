@@ -2,8 +2,11 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class GetSendBarrageList_Thr extends Thread {
 
+    private AtomicBoolean wait = new AtomicBoolean(false);
 
 
     @Override
@@ -20,13 +23,29 @@ public class GetSendBarrageList_Thr extends Thread {
             ConfInfo.ChargeBarrageList.remove(0);
 
 
+            try {
+                sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
+        }
+        else{
+            synchronized (ConfInfo.GBT) {
+                try {
+                    ConfInfo.GBT.wait();
+                    System.out.println("-----------------------显示弹幕数据进入休眠-----------------------");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
             try {
                 sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
     }
 }
