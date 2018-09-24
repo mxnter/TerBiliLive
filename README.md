@@ -9,7 +9,7 @@
 
 
 ### 如果想看效果，请 直接下载项目中的
-[下载](TerBiliLive/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+[下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
 （如需使用请在本机配置好Java环境）
 ### Cookie 请自行在浏览器内获取，作者还没写登陆呢！
 
