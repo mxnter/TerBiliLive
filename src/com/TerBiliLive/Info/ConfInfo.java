@@ -9,6 +9,7 @@ import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Thr.LT_Thr;
+import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.JsonUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
@@ -47,6 +48,7 @@ public class ConfInfo {
     public static PutShowUtil putShowUtil;
     public static String Upper_barrage;
     public static long Upper_barrage_time;
+    public static Boolean GetSendBarrageList_Thr_Size = false;
 
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
@@ -54,6 +56,7 @@ public class ConfInfo {
     public static LT_Thr lt_thr =null;
 
     public static GetSendBarrageList_Thr GBT;
+    public static SendAdvertising_Thr sendAdvertising_thr =null;
     public static Map<String,Integer> lt_lt = new HashMap();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 

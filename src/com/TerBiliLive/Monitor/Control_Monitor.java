@@ -84,6 +84,20 @@ public class Control_Monitor {
 
             }
         });
+        Reply_Master.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+
+                if(ConfInfo.terBiliLive_control_ui.Reply_Master.isSelected())Reply_MasterRadioGift.setSelected(true);
+                else Reply_MasterRadioGift.setSelected(false);
+
+
+
+
+            }
+        });
         Control_UiB_ClaseThinks.addActionListener(new ActionListener() {
 
             @Override

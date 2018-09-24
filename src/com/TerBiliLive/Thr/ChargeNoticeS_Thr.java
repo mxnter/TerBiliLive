@@ -15,8 +15,6 @@ import com.alibaba.fastjson.JSONObject;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomRank;
@@ -25,7 +23,7 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
-public class ChargeNotice_Thr {
+public class ChargeNoticeS_Thr {
 
 
 
@@ -116,7 +114,7 @@ public class ChargeNotice_Thr {
                             if(ConfInfo.isReConnSum>=10){
                                 keepRunning = false;
                             }
-                            (new ChargeNotice_Thr()).start(roomID, true);
+                            (new ChargeNoticeS_Thr()).start(roomID, true);
 
                         }
                         keepRunning = false;
@@ -206,8 +204,19 @@ public class ChargeNotice_Thr {
                                         putDM ="弹幕 ："+ putDM_timeline + " - " +putDM_GUARD+" "+putDM_vip + " " + putDM_isadmin +  putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-                                        if(putDM_text.equals("# 版本信息")) new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);
+                                        if(array.getString(2).equals("1")||putDM_nickname.equals("mxnter")){
+                                            if(putDM_text.equals("# 版本信息")) {new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);}
+                                            if(putDM_text.equals("# 关闭老爷")){ ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);new HFJ_Fun("关闭老爷 成功");}
+                                            if(putDM_text.equals("# 开启老爷")){ ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(true); new HFJ_Fun("开启老爷 成功");}
+                                            if(putDM_text.equals("# 开启感谢")){ ConfInfo.terBiliLive_control_ui.Control_UiB_OpenThinks.doClick();new HFJ_Fun("开启感谢 成功");}
+                                            if(putDM_text.equals("# 关闭感谢")){ ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();new HFJ_Fun("关闭感谢 成功");}
+                                            if(putDM_text.equals("# 关闭30")){ ConfInfo.terBiliLive_control_ui.Reply_30.setSelected(false);new HFJ_Fun("关闭30 成功");}
+                                            if(putDM_text.equals("# 开启30")){ ConfInfo.terBiliLive_control_ui.Reply_30.setSelected(true);new HFJ_Fun("开启30 成功");}
+                                            if(putDM_text.equals("# 开启舰长")){ ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(true);new HFJ_Fun("开启舰长 成功");}
+                                            if(putDM_text.equals("# 关闭舰长")){ ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);new HFJ_Fun("关闭舰长 成功");}
 //                                        if(putDM_text.equals("# 状态")) new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);
+                                        }
+
                                         System.out.println( putDM);
                                         break;
                                     }
@@ -240,6 +249,7 @@ public class ChargeNotice_Thr {
                                             if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" + giftNum +" 喵~");
 
                                             System.out.println(putDM);
+                                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         }
 
                                         break;
@@ -257,6 +267,7 @@ public class ChargeNotice_Thr {
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                         if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name+"*"  + combo_num +" 喵~");
                                         System.out.println(putDM);
+                                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         break;
                                     }
                                     case "COMBO_END":{
@@ -276,7 +287,7 @@ public class ChargeNotice_Thr {
                                         }else{
                                             System.out.println("连送礼物结束"+ConfInfo.SEND_GIFT);
                                         }
-
+                                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         break;
                                     }
                                     case "SPECIAL_GIFT":{
@@ -298,18 +309,24 @@ public class ChargeNotice_Thr {
 //                                                paramMap.put("visit_id", "");
 //                                                System.out.println("\n\n\n\n" +   ConfInfo.sendPost.SendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
                                                 String giftcontent = gift39.getString("content");
+                                                ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
                                                 putTZ = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid +"内容："+giftcontent ;
                                                 putDM = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid  +"内容："+giftcontent;
                                                 DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                                 break;
                                             }
                                             case "end":{
+                                                if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
+                                                    ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
+                                                }
+
                                                 putTZ = "通知 ： ~ "+ "节奏风暴 结束 id:"+giftid  ;
                                                 break;
                                             }
+
                                         }
 
-
+                                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         System.out.println(putTZ);
                                         break;
                                     }
@@ -546,10 +563,14 @@ public class ChargeNotice_Thr {
 //                                Thread.sleep(50);//线程阻塞1秒后运行
                                             if(!putDM.equals("")){
                                                 ConfInfo.ChargeBarrageList.add(putDM);
-                                                synchronized (ConfInfo.GBT) {
-                                                    ConfInfo.GBT.notify();
-                                                    System.out.println("-----------------------显示弹幕数据重新激活-----------------------");
+//                                                if(!ConfInfo.GetSendBarrageList_Thr_Size){
+                                                    synchronized (ConfInfo.GBT) {
+                                                        ConfInfo.GBT.notify();
+//                                                        ConfInfo.GetSendBarrageList_Thr_Size=true;
+                                                        System.out.println("-----------------------显示弹幕数据重新激活-----------------------");
+//                                                    }
                                                 }
+
 
 
 //                                                ConfInfo.putShowUtil.PutDMUtil(putDM);

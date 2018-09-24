@@ -32,12 +32,13 @@ public class GetSendBarrageList_Thr extends Thread {
         }
         else{
             synchronized (ConfInfo.GBT) {
-                try {
-                    ConfInfo.GBT.wait();
-                    System.out.println("-----------------------显示弹幕数据进入休眠-----------------------");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                    try {
+                        ConfInfo.GBT.wait();
+//                        ConfInfo.GetSendBarrageList_Thr_Size=false;
+                        System.out.println("-----------------------显示弹幕数据进入休眠-----------------------");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
             }
         }
             try {

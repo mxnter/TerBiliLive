@@ -35,10 +35,10 @@ public class SendAdvertising_Thr extends Thread {
         int i = 1;
        // GG_Fun GF =
 
-        while (AYO) {
+        while (true) {
 
-            AYO = Control_Fun.AYO_GG;
-            if (!AYO) GG_UiT_State.setText("已暂停");
+//            AYO = Control_Fun.AYO_GG;
+//            if (!AYO) GG_UiT_State.setText("已暂停");
 
 
 //            if (ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")){
@@ -89,9 +89,9 @@ public class SendAdvertising_Thr extends Thread {
                     }
 
             /*线程停止运行的设计*/
-            AYO = Control_Fun.AYO_GG;
-           // System.out.println(AYO);
-            if (!AYO) GG_UiT_State.setText("已暂停");
+//            AYO = Control_Fun.AYO_GG;
+//           // System.out.println(AYO);
+//            if (!AYO) GG_UiT_State.setText("已暂停");
             //String RTData = GG_Fun.RTData;
 
             try {
@@ -100,8 +100,8 @@ public class SendAdvertising_Thr extends Thread {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            AYO = Control_Fun.AYO_GG;
-            if (!AYO) GG_UiT_State.setText("已暂停");
+//            AYO = Control_Fun.AYO_GG;
+//            if (!AYO) GG_UiT_State.setText("已暂停");
 
 
            // super.run();

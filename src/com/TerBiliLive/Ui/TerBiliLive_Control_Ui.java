@@ -19,7 +19,8 @@ public class TerBiliLive_Control_Ui {
     //复选框
     public JCheckBox Reply_LiveState = new JCheckBox("状态");
     public JCheckBox Reply_LowSecurity = new JCheckBox("低保");
-    public JCheckBox Reply_Master = new JCheckBox("老爷");
+    public static JCheckBox Reply_Master = new JCheckBox("老爷");
+    public static JCheckBox Reply_MasterRadioGift = new JCheckBox("广播后开启老爷");
     public JCheckBox Reply_Guard = new JCheckBox("舰长");
     public JCheckBox Reply_30 = new JCheckBox("-30-");
 
@@ -64,6 +65,7 @@ public class TerBiliLive_Control_Ui {
         Control_UiT_UpUname.setEditable(false);
         Control_UiT_RoomRank.setEditable(false);
         Control_UiB_Text.setEditable(false);
+//        Reply_MasterRadioGift.setBorderPaintedFlat();
 
         Control_Ui_Up_Jpanel.add(Control_UiL_State);
         Control_Ui_Up_Jpanel.add(Control_UiT_State);
@@ -101,6 +103,7 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Tz_Jpanel.add(Reply_Master);
         Control_Ui_Tz_Jpanel.add(Reply_Guard);
         Control_Ui_Tz_Jpanel.add(Reply_30);
+//        Control_Ui_Tz_Jpanel.add(Reply_MasterRadioGift);
 
 
 
