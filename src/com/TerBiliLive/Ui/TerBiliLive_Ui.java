@@ -43,7 +43,9 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
     public JMenu m1 = new JMenu("编辑");
     public JMenuItem m1_item1 = new JMenuItem("清除账户");
-    public JMenuItem m1_item2 = new JMenuItem("保存信息");
+    public JMenuItem m1_item2 = new JMenuItem("清除Key");
+    public JMenuItem m1_item3 = new JMenuItem("保存信息");
+
 
     public JMenu m4 = new JMenu("关于");
     public JMenuItem m4_item1 = new JMenuItem("帮助");
@@ -55,10 +57,26 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
     public TerBiliLive_Ui()
 
     {
+//        String lookAndFeel = UIManager.getSystemLookAndFeelClassName();
+//        try {
+//            UIManager.setLookAndFeel(lookAndFeel);
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (UnsupportedLookAndFeelException e) {
+//            e.printStackTrace();
+//        }
+
+
+
         this.setTitle(Appname + " " + Version);
         this.setSize(800, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
+        this.setBackground(Color.white);
 
 
 //        //设置图片
@@ -91,6 +109,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         ConfInfo.terBiliLive_dmj_ui = new TerBiliLive_DMJ_Ui();
         ConfInfo.terBiliLive_hfj_ui = new TerBiliLive_HFJ_Ui();
         ConfInfo.terBiliLive_gg_ui= new TerBiliLive_GG_Ui();
+
+
 
 
 //        ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
@@ -162,6 +182,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         // 设置菜单
         m1.add(m1_item1);
         m1.add(m1_item2);
+        m1.add(m1_item3);
 
 //        m4.add(m4_item1);
         m4.add(m4_item2);
@@ -210,6 +231,20 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             }
         });
         m1_item2.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                ConfInfo.confData.setTulingApikey("");
+                ConfInfo.jsonUtil.writeData();
+                ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);
+                JOptionPane.showMessageDialog(null,"已经清除图灵Key");
+
+
+
+            }
+        });
+        m1_item3.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent arg0) {

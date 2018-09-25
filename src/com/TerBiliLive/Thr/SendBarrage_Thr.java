@@ -26,6 +26,7 @@ public class SendBarrage_Thr extends Thread{
                 if(TimeUtil.timeStamplong()-ConfInfo.Upper_barrage_time<6){
 //                    ConfInfo.Upper_barrage_time =TimeUtil.timeStamplong();
                     System.out.println("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                    ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
                     continue;
                 }
 

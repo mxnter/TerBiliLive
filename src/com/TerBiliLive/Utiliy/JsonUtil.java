@@ -46,6 +46,7 @@ public class JsonUtil {
                 ConfInfo.confData.setRoomId(jsonObject.getString("Roomid"));
                 ConfInfo.confData.setSecond(jsonObject.getString("Second"));
                 ConfInfo.confData.setText(jsonObject.getString("Text"));
+                ConfInfo.confData.setTulingApikey(jsonObject.getString("TulingApikey"));
 //            ConfInfo.confData.setCookie(ele.getAttribute("Cookie"));
 //            ConfInfo.confData.setRoomId(ele.getAttribute("Roomid"));
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));
@@ -71,6 +72,7 @@ public class JsonUtil {
             jsonObject.put("Roomid",ConfInfo.confData.getRoomId());
             jsonObject.put("Second",ConfInfo.confData.getSecond());
             jsonObject.put("Text",ConfInfo.confData.getText());
+            jsonObject.put("TulingApikey",ConfInfo.confData.getTulingApikey());
 //            ConfInfo.confData.setCookie(ele.getAttribute("Cookie"));
 //            ConfInfo.confData.setRoomId(ele.getAttribute("Roomid"));
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));

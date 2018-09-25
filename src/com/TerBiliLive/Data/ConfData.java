@@ -6,6 +6,7 @@ public class ConfData {
     String RoomId="";
     String Second="";
     String Text="";
+    String TulingApikey="";
 
     public String getCookie() {
         return Cookie;
@@ -39,6 +40,14 @@ public class ConfData {
         Text = text;
     }
 
+    public String getTulingApikey() {
+        return TulingApikey;
+    }
+
+    public void setTulingApikey(String tulingApikey) {
+        TulingApikey = tulingApikey;
+    }
+
     @Override
     public String toString() {
         return "ConfData{" +
@@ -46,6 +55,7 @@ public class ConfData {
                 ", RoomId='" + RoomId + '\'' +
                 ", Second='" + Second + '\'' +
                 ", Text='" + Text + '\'' +
+                ", TulingApikey='" + TulingApikey + '\'' +
                 '}';
     }
 }

@@ -17,6 +17,8 @@ public class SendBarrage {
 
     public String SendBarrage(String roomid,String cookie,String msg){
 
+//        if(ConfInfo.terBiliLive_control_ui.Reply_XXX.isSelected()) return "{\"code\":10000,\"msg\":\"请打开发送总开关\",\"data\":[]}";
+
         String result = null;
         url = ConfInfo.sendBarrageUrl;
         try {

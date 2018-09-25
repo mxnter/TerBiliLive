@@ -17,12 +17,15 @@ public class TerBiliLive_Control_Ui {
 
     JLabel Control_UiL_Reply = new JLabel("回复：");
     //复选框
-    public JCheckBox Reply_LiveState = new JCheckBox("状态");
-    public JCheckBox Reply_LowSecurity = new JCheckBox("低保");
+    public static JCheckBox Reply_chat = new JCheckBox("聊天");
+    public static JCheckBox Reply_LiveState = new JCheckBox("状态");
+    public static JCheckBox Reply_LowSecurity = new JCheckBox("低保");
     public static JCheckBox Reply_Master = new JCheckBox("老爷");
     public static JCheckBox Reply_MasterRadioGift = new JCheckBox("广播后开启老爷");
-    public JCheckBox Reply_Guard = new JCheckBox("舰长");
-    public JCheckBox Reply_30 = new JCheckBox("-30-");
+    public static JCheckBox Reply_Guard = new JCheckBox("舰长");
+    public static JCheckBox Reply_30 = new JCheckBox("-30-");
+
+//    public static JCheckBox Reply_XXX = new JCheckBox("禁用任何弹幕发送");
 
 
 
@@ -65,6 +68,7 @@ public class TerBiliLive_Control_Ui {
         Control_UiT_UpUname.setEditable(false);
         Control_UiT_RoomRank.setEditable(false);
         Control_UiB_Text.setEditable(false);
+//        Reply_XXX.setSelected(true);
 //        Reply_MasterRadioGift.setBorderPaintedFlat();
 
         Control_Ui_Up_Jpanel.add(Control_UiL_State);
@@ -98,11 +102,14 @@ public class TerBiliLive_Control_Ui {
 
 
         Control_Ui_Tz_Jpanel.add(Control_UiL_Reply);
+        Control_Ui_Tz_Jpanel.add(Reply_chat);
         Control_Ui_Tz_Jpanel.add(Reply_LiveState);
         Control_Ui_Tz_Jpanel.add(Reply_LowSecurity);
         Control_Ui_Tz_Jpanel.add(Reply_Master);
         Control_Ui_Tz_Jpanel.add(Reply_Guard);
         Control_Ui_Tz_Jpanel.add(Reply_30);
+
+//        Control_Ui_Tz_Jpanel.add( Reply_XXX);
 //        Control_Ui_Tz_Jpanel.add(Reply_MasterRadioGift);
 
 
@@ -110,6 +117,10 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Jpanel.add(Control_Ui_Up_Jpanel);
         Control_Ui_Jpanel.add(Control_Ui_Dn_Jpanel);
         Control_Ui_Jpanel.add(Control_Ui_Tz_Jpanel);
+//
+//        Control_Ui_Dn_Jpanel.setOpaque(false);
+//        Control_Ui_Tz_Jpanel.setBackground(Color.white);
+//        Control_Ui_Jpanel.setBackground(Color.white);
 
 
 

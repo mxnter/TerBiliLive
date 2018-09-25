@@ -79,7 +79,7 @@ public class SendPost {
 			// flush输出流的缓冲
 			out.flush();
 			// 定义BufferedReader输入流来读取URL的响应
-			in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			in = new BufferedReader(new InputStreamReader(conn.getInputStream(),"UTF-8"));
 			String line;
 			while ((line = in.readLine()) != null) {
 				result += line;
