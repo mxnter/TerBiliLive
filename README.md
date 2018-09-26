@@ -43,10 +43,10 @@
 ###### <center>Ui展示</center>
 
 ### 1.欢迎界面
-<center>![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)</center>
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
 
 ### 2.登陆界面
-<center>![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)</center>
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
 
 ### 3.弹幕姬界面
-<center>![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)</center>
+![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
