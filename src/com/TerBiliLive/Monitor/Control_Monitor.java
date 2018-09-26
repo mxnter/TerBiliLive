@@ -54,6 +54,7 @@ public class Control_Monitor {
                     ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
 
                 }
+//                ConfInfo.dingtalkUtil.LiveLive();
 
 
 

@@ -239,6 +239,14 @@ public class ChargeNoticeS_Thr {
 
                                             }
 
+                                            String pattern = "# 呼叫Ter .*";
+                                            if(Pattern.matches(pattern,putDM_text)){
+                                                ConfInfo.dingtalkUtil.chatAdmin(putDM_text.substring(2),putDM_nickname);
+                                            }
+                                        }
+                                        String patter = "# 呼叫Ter "+ ConfInfo.confData.getRoomId()+" .*";
+                                        if(Pattern.matches(patter,putDM_text)){
+                                            ConfInfo.dingtalkUtil.chatAdmin(putDM_text.substring(2),putDM_nickname);
                                         }
 
                                         if(ConfInfo.terBiliLive_control_ui.Reply_chat.isSelected()){
@@ -525,6 +533,7 @@ public class ChargeNoticeS_Thr {
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
                                         if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播开始啦，拿好小板凳哟. ");
                                         System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播开始啦，拿好小板凳哟.");
+                                        ConfInfo.dingtalkUtil.LiveLive();
                                         break;
                                     }
                                     case "PREPARING":{
@@ -535,6 +544,7 @@ public class ChargeNoticeS_Thr {
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putTZ,Control_UiT_RoomId.getText());
                                         if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播结束啦，记得关注哦.");
                                         System.out.println( "通知 ： ~ "+ "   id:"+roomid +" 直播结束啦，记得关注哦.");
+                                        ConfInfo.dingtalkUtil.LivePreparing();
                                         break;
                                     }
 /*

@@ -11,6 +11,7 @@ import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Thr.LT_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Ui.*;
+import com.TerBiliLive.Utiliy.DingtalkUtil;
 import com.TerBiliLive.Utiliy.JsonUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
 import com.TerBiliLive.Utiliy.XmlUtil;
@@ -49,6 +50,7 @@ public class ConfInfo {
     public static String Upper_barrage;
     public static long Upper_barrage_time;
     public static Boolean GetSendBarrageList_Thr_Size = false;
+    public static DingtalkUtil dingtalkUtil = new DingtalkUtil();
 
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();

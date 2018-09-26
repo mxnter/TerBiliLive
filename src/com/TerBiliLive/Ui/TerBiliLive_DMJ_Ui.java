@@ -5,7 +5,7 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class TerBiliLive_DMJ_Ui {
-    public static String Version = "Beta05-0925";
+    public static String Version = "Beta05-0926";
     public static String Appname = "TerBiliLive DMJ";
     public static String ProjectName = "TerBiliLive DMJ";
     String DMJpathUrl = "http://live.bilibili.com/msg/send";
