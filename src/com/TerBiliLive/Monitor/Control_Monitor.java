@@ -102,6 +102,21 @@ public class Control_Monitor {
 
             }
         });
+        Reply_tourist.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+
+                if(ConfInfo.terBiliLive_control_ui.Reply_tourist.isSelected())
+                    if(!ConfInfo.terBiliLive_control_ui.Reply_chat.isSelected())
+                        ConfInfo.terBiliLive_control_ui.Reply_chat.doClick();
+
+
+
+
+            }
+        });
 //        Reply_XXX.addActionListener(new ActionListener() {
 //
 //            @Override
@@ -133,6 +148,8 @@ public class Control_Monitor {
                             case "嗨":{ ConfInfo.jsonUtil.writeData();break;}
                         }
 //                    }
+                }else{
+                    ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);
                 }
 
 

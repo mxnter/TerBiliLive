@@ -18,6 +18,7 @@ public class TerBiliLive_Control_Ui {
     JLabel Control_UiL_Reply = new JLabel("回复：");
     //复选框
     public static JCheckBox Reply_chat = new JCheckBox("聊天");
+    public static JCheckBox Reply_tourist = new JCheckBox("回应游客");
     public static JCheckBox Reply_LiveState = new JCheckBox("状态");
     public static JCheckBox Reply_LowSecurity = new JCheckBox("低保");
     public static JCheckBox Reply_Master = new JCheckBox("老爷");
@@ -103,6 +104,8 @@ public class TerBiliLive_Control_Ui {
 
         Control_Ui_Tz_Jpanel.add(Control_UiL_Reply);
         Control_Ui_Tz_Jpanel.add(Reply_chat);
+        Control_Ui_Tz_Jpanel.add(Reply_tourist);
+
         Control_Ui_Tz_Jpanel.add(Reply_LiveState);
         Control_Ui_Tz_Jpanel.add(Reply_LowSecurity);
         Control_Ui_Tz_Jpanel.add(Reply_Master);

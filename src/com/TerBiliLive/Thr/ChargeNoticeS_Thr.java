@@ -230,14 +230,34 @@ public class ChargeNoticeS_Thr {
                                                 case "# 关闭低保":{ ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.setSelected(false);new HFJ_Fun("关闭低保 成功");break;}
                                                 case "# 开启聊天":{ ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(true);new HFJ_Fun("开启聊天 成功");break;}
                                                 case "# 关闭聊天":{ ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);new HFJ_Fun("关闭聊天 成功");break;}
+                                                case "# 开启回应":{ ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(true);ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(true);new HFJ_Fun("开启回应 成功 并且开启了聊天");break;}
+                                                case "# 关闭回应":{ ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);new HFJ_Fun("关闭回应 成功");break;}
 
 
 //                                                case "# 禁用Send":{new HFJ_Fun("禁用 成功"); ConfInfo.terBiliLive_control_ui.Reply_XXX.setSelected(true);break;}
 //                                                case "# 启用Send "+ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString():{ ConfInfo.terBiliLive_control_ui.Reply_XXX.setSelected(false);new HFJ_Fun("请谨慎使用");break; }
 
                                             }
-                                            if(ConfInfo.terBiliLive_control_ui.Reply_chat.isSelected()){
-//                                                ConfInfo.putShowUtil.PutDMUtil(putDM_text);
+
+                                        }
+
+                                        if(ConfInfo.terBiliLive_control_ui.Reply_chat.isSelected()){
+                                            if(!ConfInfo.terBiliLive_control_ui.Reply_tourist.isSelected()){
+                                                if(array.getString(2).equals("1")||putDM_nickname.equals("mxnter")){
+                                                    String pattern = "@ .*";
+                                                    if(Pattern.matches(pattern,putDM_text)){
+                                                        String TulingUtilMsg =TulingUtil.chat(putDM_text.substring(2),ConfInfo.confData.getTulingApikey());
+//                                                    ConfInfo.putShowUtil.PutDMUtil(TulingUtilMsg);
+                                                        switch (TulingUtilMsg){
+                                                            case "msgnull":{System.out.println("消息为空");break;}
+                                                            case "TulingApikeynull":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); new HFJ_Fun(TulingUtilMsg); break;}
+                                                            case "TerGGKey":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);new HFJ_Fun(TulingUtilMsg); break;}
+                                                            case "TerGG":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);new HFJ_Fun(TulingUtilMsg); break;}
+                                                            default:{  new HFJ_Fun(TulingUtilMsg);break;}
+                                                        }
+                                                    }
+                                                }
+                                            }else{
                                                 String pattern = "@ .*";
                                                 if(Pattern.matches(pattern,putDM_text)){
                                                     String TulingUtilMsg =TulingUtil.chat(putDM_text.substring(2),ConfInfo.confData.getTulingApikey());
@@ -249,9 +269,9 @@ public class ChargeNoticeS_Thr {
                                                         case "TerGG":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);new HFJ_Fun(TulingUtilMsg); break;}
                                                         default:{  new HFJ_Fun(TulingUtilMsg);break;}
                                                     }
-
                                                 }
                                             }
+//
                                         }
 
                                         System.out.println( putDM);
