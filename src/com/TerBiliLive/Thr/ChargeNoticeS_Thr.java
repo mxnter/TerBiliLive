@@ -290,7 +290,8 @@ public class ChargeNoticeS_Thr {
                                         String giftName = giftData.getString("giftName");
                                         int giftNum = giftData.getInteger("num");
                                         String uname = giftData.getString("uname");
-//                                    int uid = giftData.getInteger("uid");
+                                        String timestamp=giftData.getString("timestamp");
+                                        //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
                                         if(giftName.equals("辣条")){
 
@@ -302,13 +303,13 @@ public class ChargeNoticeS_Thr {
                                             }
                                             System.out.println("整合辣条"+uname);
                                             ConfInfo.lt_lt.put(uname,ConfInfo.lt_lt.get(uname) + giftNum);
-                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                            putDM = "礼物 ："+TimeUtil.timeStamp2Date(timestamp,null)+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
                                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
 
 //                                            System.out.println(putDM);
 
                                         }else{
-                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
+                                            putDM = "礼物 ："+TimeUtil.timeStamp2Date(timestamp,null)+" $ "+ " 感谢 "+uname + " 赠送 " +  giftName + "*" + giftNum;
                                             ConfInfo.SEND_GIFT=uname +  giftName  + giftNum;
                                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                             if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" + giftNum +" 喵~");
@@ -324,6 +325,7 @@ public class ChargeNoticeS_Thr {
                                         String gift_name = giftData.getString("gift_name");
                                         String uname = giftData.getString("uname");
                                         int combo_num = giftData.getInteger("combo_num");
+                                        String timestamp=giftData.getString("timestamp");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
                                         putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name+"*"  + combo_num ;
@@ -341,11 +343,35 @@ public class ChargeNoticeS_Thr {
                                         String gift_id = giftData.getString("gift_id");
                                         int combo_num = giftData.getInteger("combo_num");
                                         String uname = giftData.getString("uname");
+                                        String end_time = giftData.getString("end_time");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
 
+                                        if(gift_name.equals("摩天大楼")){
+                                            ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                            System.out.println("----------------------------------------关闭老爷----------------------------------------");
+                                            new Thread(new Runnable(){
+                                                public void run(){
+
+                                                    try {
+                                                        Thread.sleep(180*1000);
+                                                        if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
+                                                            //启动欢迎老爷
+                                                            System.out.println("----------------------------------------启动老爷----------------------------------------");
+                                                            ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
+                                                        }
+                                                    } catch (InterruptedException e) {
+                                                        e.printStackTrace();
+                                                    }
+
+
+                                                }
+                                            }).start();
+
+                                        }
+
                                         if(!ConfInfo.SEND_GIFT.equals(uname +  gift_name + combo_num)){
-                                            putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*"  + combo_num;
+                                            putDM = "礼物 ："+TimeUtil.timeStamp2Date(end_time,null)+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name + "*"  + combo_num;
                                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                             if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 "+uname + " 赠送的 " +  gift_name+"*["  + combo_num +"连击]  喵~");
                                             System.out.println(putDM);
@@ -371,11 +397,13 @@ public class ChargeNoticeS_Thr {
                                                 putDM = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid  +"内容："+giftcontent;
                                                 //关闭欢迎老爷
                                                 DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+                                                System.out.println("----------------------------------------关闭老爷----------------------------------------");
                                                 break;
                                             }
                                             case "end":{
                                                 if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                                     //启动欢迎老爷
+                                                    System.out.println("----------------------------------------启动老爷----------------------------------------");
                                                     ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                                 }
 
@@ -403,6 +431,7 @@ public class ChargeNoticeS_Thr {
                                      */
                                     case "TV_START":{
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        System.out.println("----------------------------------------关闭老爷----------------------------------------");
                                         JSONObject giftData = object.getJSONObject("data");
                                         String from =giftData.getString("from");
                                         String id=giftData.getString("id");
@@ -422,6 +451,7 @@ public class ChargeNoticeS_Thr {
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                             //启动欢迎老爷
+                                            System.out.println("----------------------------------------启动老爷----------------------------------------");
                                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                         }
                                         break;
@@ -432,7 +462,9 @@ public class ChargeNoticeS_Thr {
                                     }
 
                                     case "RAFFLE_START":{
+
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        System.out.println("----------------------------------------关闭老爷----------------------------------------");
                                         JSONObject giftData = object.getJSONObject("data");
                                         String from =giftData.getString("from");
                                         String id=giftData.getString("id");
@@ -467,6 +499,7 @@ public class ChargeNoticeS_Thr {
 
                                         if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                             //启动欢迎老爷
+                                            System.out.println("----------------------------------------启动老爷----------------------------------------");
                                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                         }
 
