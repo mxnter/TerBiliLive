@@ -328,7 +328,7 @@ public class ChargeNoticeS_Thr {
                                         String timestamp=giftData.getString("timestamp");
 //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                                        putDM = "礼物 ："+getFormat()+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name+"*"  + combo_num ;
+                                        putDM = "礼物 ："+TimeUtil.timeStamp2Date(timestamp,null)+" $ "+ " 感谢 "+uname + " 赠送 " +  gift_name+"*"  + combo_num ;
 
 
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
@@ -393,6 +393,7 @@ public class ChargeNoticeS_Thr {
 
                                                 String giftcontent = gift39.getString("content");
                                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                                ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);
                                                 putTZ = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid +"内容："+giftcontent ;
                                                 putDM = "通知 ： ~ "+ "节奏风暴 开始 id:"+giftid  +"内容："+giftcontent;
                                                 //关闭欢迎老爷
@@ -401,6 +402,9 @@ public class ChargeNoticeS_Thr {
                                                 break;
                                             }
                                             case "end":{
+                                                if (ConfInfo.Thank.equals("ok"))new HFJ_Fun("哇，发现大佬 "+ giftid+ "送的 节奏风暴 喵~");
+                                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
+                                                ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                                 if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                                     //启动欢迎老爷
                                                     System.out.println("----------------------------------------启动老爷----------------------------------------");
@@ -431,6 +435,7 @@ public class ChargeNoticeS_Thr {
                                      */
                                     case "TV_START":{
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);
                                         System.out.println("----------------------------------------关闭老爷----------------------------------------");
                                         JSONObject giftData = object.getJSONObject("data");
                                         String from =giftData.getString("from");
@@ -449,6 +454,7 @@ public class ChargeNoticeS_Thr {
                                         putDM = "通知 ： ~ "+ "小电视 结束 大佬："+ from +" Id:"+id ;
                                         if (ConfInfo.Thank.equals("ok"))new HFJ_Fun("哇，发现大佬 "+ from+"送的 小电视 喵~");
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                         if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                             //启动欢迎老爷
                                             System.out.println("----------------------------------------启动老爷----------------------------------------");
@@ -464,21 +470,30 @@ public class ChargeNoticeS_Thr {
                                     case "RAFFLE_START":{
 
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);
                                         System.out.println("----------------------------------------关闭老爷----------------------------------------");
                                         JSONObject giftData = object.getJSONObject("data");
                                         String from =giftData.getString("from");
                                         String id=giftData.getString("id");
-                                        String title = giftData.getString("title");
+//                                        String title = giftData.getString("title");
                                         String type = giftData.getString("type");
 
-                                        if(title.equals("摩天大楼抽奖")||type.equals("GIFT_20003")){
-                                            putTZ = "通知 ： ~ "+ "摩天大楼 开始 大佬："+ from +" Id:"+id ;
-                                            putDM = "通知 ： ~ "+ "摩天大楼 开始 大佬："+ from +" Id:"+id ;
-
-                                        }else{
-                                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive WZLW Log");
+                                        switch (type){
+                                            case "GIFT_20003":{
+                                                putTZ = "通知 ： ~ "+ "摩天大楼 开始 大佬："+ from +" Id:"+id ;
+                                                putDM = "通知 ： ~ "+ "摩天大楼 开始 大佬："+ from +" Id:"+id ;
+                                                break;
+                                            }
+                                            case "GIFT_30024":{
+                                                putTZ = "通知 ： ~ "+ "月色真美 开始 大佬："+ from +" Id:"+id ;
+                                                putDM = "通知 ： ~ "+ "月色真美 开始 大佬："+ from +" Id:"+id ;
+                                                break;
+                                            }
+                                            default:{
+                                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive WZLW Log");
+                                                break;
+                                            }
                                         }
-
                                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive LW Log");
                                         break;
                                     }
@@ -487,16 +502,30 @@ public class ChargeNoticeS_Thr {
                                         JSONObject giftData = object.getJSONObject("data");
                                         String from =giftData.getString("from");
                                         String id=giftData.getString("id");
-                                        String title = giftData.getString("title");
+//                                        String title = giftData.getString("title");
                                         String type = giftData.getString("type");
-                                        if(title.equals("摩天大楼抽奖")||type.equals("GIFT_20003")){
-                                            putTZ = "通知 ： ~ "+ "摩天大楼 结束 大佬："+ from +" Id:"+id ;
-                                            putDM = "通知 ： ~ "+ "摩天大楼 结束 大佬："+ from +" Id:"+id ;
-                                            if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("哇，发现大佬 "+ from+"送的 摩天大楼 喵~");
-                                        }else{
-                                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive WZLW Log");
+
+
+                                        switch (type){
+                                            case "GIFT_20003":{
+                                                putTZ = "通知 ： ~ "+ "摩天大楼 结束 大佬："+ from +" Id:"+id ;
+                                                putDM = "通知 ： ~ "+ "摩天大楼 结束 大佬："+ from +" Id:"+id ;
+                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("哇，发现大佬 "+ from+"送的 摩天大楼 喵~");
+                                                break;
+                                            }
+                                            case "GIFT_30024":{
+                                                putTZ = "通知 ： ~ "+ "月色真美 结束 大佬："+ from +" Id:"+id ;
+                                                putDM = "通知 ： ~ "+ "月色真美 结束 大佬："+ from +" Id:"+id ;
+                                                if (ConfInfo.Thank.equals("ok"))  new HFJ_Fun("哇，发现大佬 "+ from+"送的 月色真美 喵~");
+                                                break;
+                                            }
+                                            default:{
+                                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString()+ "\n","TerBiliLive WZLW Log");
+                                                break;
+                                            }
                                         }
 
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                         if(ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()){
                                             //启动欢迎老爷
                                             System.out.println("----------------------------------------启动老爷----------------------------------------");
@@ -512,8 +541,12 @@ public class ChargeNoticeS_Thr {
 
 21:27:23:{"data":{"raffleId":"142536","fromGiftId":20003,"uname":"墨竹清音","sname":"晚枫终有叶落时","giftName":"23333x银瓜子","from":"晚枫终有叶落时","id":"142536","type":"GIFT_20003","win":{"msg":"恭喜 <%墨竹清音%> 获得大奖 <%23333x银瓜子%>, 感谢 <%晚枫终有叶落时%> 的赠送","giftId":"silver","face":"http://i2.hdslb.com/bfs/face/1dfec3945b9eb47f334ca87095913cdefb83b6cc.jpg","giftImage":"http://s1.hdslb.com/bfs/live/00d768b444f1e1197312e57531325cde66bf0556.png","uname":"墨竹清音","giftName":"银瓜子","giftNum":23333},"fromFace":"http://i1.hdslb.com/bfs/face/7c663fae141aa51ceb1ae6f624ed3dc636911cd9.jpg","mobileTips":"恭喜 墨竹清音 获得23333x银瓜子"},"cmd":"RAFFLE_END"}
 */
+
+
+//{"cmd":"WELCOME","data":{"uid":16042466,"uname":"蛊毒の果","is_admin":false,"svip":1}}
                                     case "WELCOME":{
                                         JSONObject welcData = object.getJSONObject("data");
+//                                        String
 //                                      int uid = welcData.getInteger("uid");
                                         String vipStr = "";
                                         try {
@@ -531,11 +564,14 @@ public class ChargeNoticeS_Thr {
 
                                         String uname = welcData.getString("uname");
 //                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
-                                        putDM =  "提示 ："+getFormat()+" @ "+"欢迎"+vipStr+"老爷 "  +uname ;
 
+                                        putDM =  "提示 ："+getFormat()+" @ "+"欢迎"+vipStr+"老爷 "  +uname ;
                                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
                                         if (ConfInfo.terBiliLive_control_ui.Reply_Master.isSelected())  new HFJ_Fun("欢迎"+vipStr+"老爷 "  +uname );
                                         System.out.println(putDM);
+                                        if(!ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.isSelected()){
+                                            putDM="";
+                                        }
                                         break;
                                     }
                                     case "WELCOME_GUARD":{
@@ -575,19 +611,20 @@ public class ChargeNoticeS_Thr {
                                         JSONObject welcData = object.getJSONObject("data");
                                         String gift_name = welcData.getString("gift_name");
                                         String username = welcData.getString("username");
+                                        String start_time = welcData.getString("start_time");
                                         String guard_level = welcData.getString("guard_level");
 //                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
                                         switch (guard_level){
                                             case "3":
-                                                putDM =  "提示 ："+getFormat()+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
+                                                putDM =  "提示 ："+TimeUtil.timeStamp2Date(start_time,null)+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
                                                 if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("喵~ 感谢新的 "+gift_name+ " "+username +"开通特权");
                                                 break;
                                             case "2":
-                                                putDM =  "提示 ："+getFormat()+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
+                                                putDM =  "提示 ："+TimeUtil.timeStamp2Date(start_time,null)+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
                                                 if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("喵~ 感谢新的 "+gift_name+ " "+username +"开通特权");
                                                 break;
                                             case "1":
-                                                putDM =  "提示 ："+getFormat()+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
+                                                putDM =  "提示 ："+TimeUtil.timeStamp2Date(start_time,null)+" @ "+"喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" ;
                                                 if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())  new HFJ_Fun("喵~ 感谢新的 "+gift_name+ " "+username +"开通特权" );
                                                 break;
                                         }
