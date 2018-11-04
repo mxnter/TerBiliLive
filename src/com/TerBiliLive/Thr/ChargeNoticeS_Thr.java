@@ -789,7 +789,7 @@ public class ChargeNoticeS_Thr {
                                                     synchronized (ConfInfo.GBT) {
                                                         ConfInfo.GBT.notify();
 //                                                        ConfInfo.GetSendBarrageList_Thr_Size=true;
-                                                        System.out.println("-----------------------显示弹幕数据重新激活-----------------------");
+//                                                        System.out.println("-----------------------显示弹幕数据重新激活-----------------------");
 //                                                    }
                                                 }
 

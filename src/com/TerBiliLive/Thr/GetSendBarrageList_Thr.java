@@ -20,14 +20,18 @@ public class GetSendBarrageList_Thr extends Thread {
 //          System.out.print("0");
         if(!ConfInfo.ChargeBarrageList.isEmpty()&&!ConfInfo.ChargeBarrageList.get(0).equals("")) {
             try {
-                sleep(100);
+                sleep(120);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 //            System.out.println(ConfInfo.ChargeBarrageList.get(0));
             ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0));
             ConfInfo.ChargeBarrageList.remove(0);
-
+            try {
+                sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
 
 
