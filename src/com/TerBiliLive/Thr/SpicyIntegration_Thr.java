@@ -6,7 +6,13 @@ import com.TerBiliLive.TerBiliLive.getInfo;
 
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 
-public class LT_Thr  extends Thread {
+
+/**
+ * @Name ： 辣条整合
+ * @作用 ： 用于整合5秒内赠送的辣条，防止刷屏
+ * */
+
+public class SpicyIntegration_Thr extends Thread {
 
     String uname;String giftName;
     public void start(String uname,String giftName){

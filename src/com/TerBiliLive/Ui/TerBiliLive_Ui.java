@@ -31,7 +31,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
     public static String StartInfo = "Ter制作的 “TerBiliLive” 弹幕姬 - 测试中";
     public static String NetworkingInfo = null;
-    public static String Version = "Beta04[D."+TerBiliLive_DMJ_Ui.Version+"]-[H."+TerBiliLive_HFJ_Ui.Version+"]-[G."+TerBiliLive_GG_Ui.Version+"]";
+    public static String Version = "Beta05[D."+TerBiliLive_DMJ_Ui.Version+"]-[H."+TerBiliLive_HFJ_Ui.Version+"]-[G."+TerBiliLive_GG_Ui.Version+"]";
     public static String Appname = "TerBiliLive";
     public static String ProjectName = "TerBiliLive";
     //String UipathUrl = "http://live.bilibili.com/msg/send";

@@ -8,7 +8,8 @@ import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
-import com.TerBiliLive.Thr.LT_Thr;
+import com.TerBiliLive.Thr.SpicyIntegration_Thr;
+import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.DingtalkUtil;
@@ -16,7 +17,6 @@ import com.TerBiliLive.Utiliy.JsonUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
 import com.TerBiliLive.Utiliy.XmlUtil;
 
-import javax.xml.crypto.Data;
 import java.util.*;
 
 public class ConfInfo {
@@ -55,9 +55,10 @@ public class ConfInfo {
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
     public static JsonUtil jsonUtil = new JsonUtil();
-    public static LT_Thr lt_thr =null;
+    public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
     public static GetSendBarrageList_Thr GBT;
+    public static ParsingBarrage_Thr PBT;
     public static SendAdvertising_Thr sendAdvertising_thr =null;
     public static Map<String,Integer> lt_lt = new HashMap();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
@@ -68,6 +69,7 @@ public class ConfInfo {
     public static List<String> SendBarrageList = new ArrayList<String>();
     public static List<String> ChargeBarrageList = new ArrayList<String>();
 
+    public static List<String> ParsingBarrageList = new ArrayList<String>();
 
 
 }

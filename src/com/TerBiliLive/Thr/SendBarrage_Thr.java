@@ -55,28 +55,28 @@ public class SendBarrage_Thr extends Thread{
 
                     case "0":
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                         if(jsonObject.getString("msg").equals("msg repeat"))ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("弹幕重复");
                         break;
                     case "-101":
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                         break;
                     case "-500":
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                         break;
                     case "-400":
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                         break;
                     default:
                         ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
+                        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_hfj_ui.ProjectName);
                 }
 

@@ -4,6 +4,7 @@ import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.Thr.ChargeNoticeS_Thr;
 import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
+import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utiliy.FileUtil;
 
@@ -57,10 +58,12 @@ public class Control_Fun {
     public void Connect(){
         DT= new ChargeNoticeS_Thr();
         ConfInfo.GBT =new GetSendBarrageList_Thr();
+        ConfInfo.PBT =new ParsingBarrage_Thr();
         ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
         ConfInfo.ChargeBarrageList.clear();
         DT.start(ConfInfo.liveRoom.room_id,true);
         ConfInfo.GBT.start();
+        ConfInfo.PBT.start();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(true);
 
@@ -79,6 +82,7 @@ public class Control_Fun {
 
         DT.stop();
         ConfInfo.GBT.stop();
+        ConfInfo.PBT.stop();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(true);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(false);
         //DT.interrupt();
