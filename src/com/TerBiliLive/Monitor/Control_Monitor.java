@@ -1,23 +1,15 @@
 package com.TerBiliLive.Monitor;
 
 import com.TerBiliLive.Function.Control_Fun;
-import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
-import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
-import com.TerBiliLive.Ui.TerBiliLive_Hi_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_Ui;
-import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.TulingUtil;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.*;
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.GG_UiT_Second;
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.GG_UiT_Text;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 
 
@@ -70,7 +62,7 @@ public class Control_Monitor {
                 ConfInfo.Thank="no";
                 ConfInfo.control_fun.Disconnect();
                 ConfInfo.getLiveRoomUserInfo =null;
-                ConfInfo.terBiliLive_gg_ui.GG_Ui_Suspend.doClick();
+                ConfInfo.terBiliLive_adv_ui.GG_Ui_Suspend.doClick();
 
             }
         });

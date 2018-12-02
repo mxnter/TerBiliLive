@@ -4,6 +4,13 @@ import com.TerBiliLive.Info.ConfInfo;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+/**
+ * CODE IS POETRY
+ * @Nmae ：弹幕显示线程
+ * @Author ：xnter@outlook.com.
+ * @Date ：Created in 11:51 2018/11/4
+ */
+
 public class GetSendBarrageList_Thr extends Thread {
 
     private AtomicBoolean wait = new AtomicBoolean(false);
@@ -20,7 +27,7 @@ public class GetSendBarrageList_Thr extends Thread {
 //          System.out.print("0");
         if(!ConfInfo.ChargeBarrageList.isEmpty()&&!ConfInfo.ChargeBarrageList.get(0).equals("")) {
             try {
-                sleep(120);
+                sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -28,7 +35,7 @@ public class GetSendBarrageList_Thr extends Thread {
             ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0));
             ConfInfo.ChargeBarrageList.remove(0);
             try {
-                sleep(100);
+                sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -21,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+
 public class JsonUtil {
     public JsonUtil(){
 
@@ -31,13 +34,14 @@ public class JsonUtil {
     public boolean readData(){
 
             String TerBiliLiveData =FileUtil.readFile("Data");
+        // TODO 加密后部分电脑无法读取数据
             String sn = DiskUtil.getSerialNumber("C");
-            char[] c = TerBiliLiveData.toCharArray();
-            //使用for循环给字符数组加密
-            for(int i=0;i<c.length;i++){
-                c[i] = (char)(c[i]-(Integer.parseInt(sn)%10));
-            }
-            TerBiliLiveData= new String(c);
+//            char[] c = TerBiliLiveData.toCharArray();
+//            //使用for循环给字符数组加密
+//            for(int i=0;i<c.length;i++){
+//                c[i] = (char)(c[i]-(Integer.parseInt(sn)%10));
+//            }
+//            TerBiliLiveData= new String(c);
         try {
             if(!TerBiliLiveData.equals("")) {
                 JSONObject jsonObject = new JSONObject(TerBiliLiveData);
@@ -55,6 +59,7 @@ public class JsonUtil {
 
         } catch (JSONException e) {
             System.out.println("数据为空");
+            LogUtil.putLog(getFormatDay(), getFormatHour(), "数据为空" + "\n", "TerBiliLive Out");
             e.printStackTrace();
         }
 
@@ -78,13 +83,15 @@ public class JsonUtil {
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));
 //            ConfInfo.confData.setText(ele.getAttribute("Text"));
             TerBiliLiveData=jsonObject.toString();
+
+            // TODO 加密后部分电脑无法读取数据
             String sn = DiskUtil.getSerialNumber("C");
             char[] c = TerBiliLiveData.toCharArray();
-            //使用for循环给字符数组加密
-            for(int i=0;i<c.length;i++){
-                c[i] = (char)(c[i]+(Integer.parseInt(sn)%10));
-            }
-            TerBiliLiveData= new String(c);
+//            //使用for循环给字符数组加密
+//            for(int i=0;i<c.length;i++){
+//                c[i] = (char)(c[i]+(Integer.parseInt(sn)%10));
+//            }
+//            TerBiliLiveData= new String(c);
 
             FileUtil.writeFile("Data",TerBiliLiveData);
         } catch (JSONException e) {

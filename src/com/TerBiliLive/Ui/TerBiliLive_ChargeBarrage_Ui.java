@@ -4,10 +4,17 @@ import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 
-public class TerBiliLive_DMJ_Ui {
-    public static String Version = "Beta06-1104";
-    public static String Appname = "TerBiliLive DMJ";
-    public static String ProjectName = "TerBiliLive DMJ";
+/**
+ * @名称 收取弹幕 UI
+ * @作用 收取弹幕
+ * @作者 Mxnter
+ *
+ * */
+
+public class TerBiliLive_ChargeBarrage_Ui {
+    public static String Version = "Beta07-1202";
+    public static String Appname = "TerBiliLive ChargeBarrage";
+    public static String ProjectName = "TerBiliLive ChargeBarrage";
     String DMJpathUrl = "http://live.bilibili.com/msg/send";
 
 
@@ -23,14 +30,14 @@ public class TerBiliLive_DMJ_Ui {
     JTextField sendMessage;
     //JScrollPane jsp = new JScrollPane(DMJ_UiT_Text);
 
-    TerBiliLive_DMJ_Ui(String Parameter){
+    TerBiliLive_ChargeBarrage_Ui(String Parameter){
 
 
 
     }
 
 
-    public TerBiliLive_DMJ_Ui(){
+    public TerBiliLive_ChargeBarrage_Ui(){
 
 //
 //        DMJ_UiT_Text.setWrapStyleWord(true);

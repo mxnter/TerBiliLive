@@ -4,13 +4,24 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Utiliy.FileUtil;
+import com.TerBiliLive.Utiliy.LogUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class TerBiliLive_Hi_Ui extends JFrame {
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+
+/**
+ * @名称 欢迎界面 UI
+ * @作用 在开启程序时候读取图片 读取已存储的个人信息 测试 Cookie 是否可以登陆到 Bilibili
+ * @作者 Mxnter
+ *
+ * */
+
+public class TerBiliLive_Greet_Ui extends JFrame {
 
     JPanel pp=new JPanel(new FlowLayout(FlowLayout.CENTER));
     JLabel ll=new JLabel("");
@@ -19,7 +30,7 @@ public class TerBiliLive_Hi_Ui extends JFrame {
     JLabel bt=new JLabel("TerBiliLive");
     ImageIcon img_bj =null;
     JLabel imgLabel =null;
-    public TerBiliLive_Hi_Ui(){
+    public TerBiliLive_Greet_Ui(){
 
         //设置图片
         try {
@@ -81,6 +92,7 @@ public class TerBiliLive_Hi_Ui extends JFrame {
         ConfInfo.cookie=ConfInfo.confData.getCookie();
 //                FileUtil.readFile("Cookie");
         System.out.println(ConfInfo.cookie);
+        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.cookie+ "\n", "TerBiliLive Out");
 
 
 

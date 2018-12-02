@@ -6,12 +6,19 @@ import com.TerBiliLive.Monitor.HFJ_Monitor;
 import javax.swing.*;
 import java.awt.*;
 
-public class TerBiliLive_GG_Ui {
+/**
+ * @名称 发送定时广告 UI
+ * @作用 发送定时广告
+ * @作者 Mxnter
+ *
+ * */
+
+public class TerBiliLive_Adv_Ui {
 
 
     public static String Version = "Beta03";
-    public static String Appname = "TerBiliLive GG";
-    public static String ProjectName = "TerBiliLive GG";
+    public static String Appname = "TerBiliLive Adv";
+    public static String ProjectName = "TerBiliLive Adv";
     String pathUrl = "http://live.bilibili.com/msg/send";
 
     JLabel GG_UiL_Second = new JLabel("延时： ");
@@ -27,7 +34,7 @@ public class TerBiliLive_GG_Ui {
 
 
 
-    TerBiliLive_GG_Ui (){
+    TerBiliLive_Adv_Ui(){
 
         GG_Ui_Suspend.setEnabled(false);
         GG_UiT_State.setEditable(false);

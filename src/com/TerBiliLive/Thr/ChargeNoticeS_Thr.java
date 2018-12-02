@@ -22,6 +22,13 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
+/**
+ * CODE IS POETRY
+ * @Nmae ：连接服务获取信息线程
+ * @Author ：xnter@outlook.com.
+ * @Date ：Created in 11:51 2018/11/4
+ */
+
 public class ChargeNoticeS_Thr {
 
 
@@ -154,6 +161,7 @@ public class ChargeNoticeS_Thr {
                             if (inputStream.read(msgBody) == msgBodyLength){
                                 String jsonStr = new String(msgBody, "utf-8");
                                 System.out.println(jsonStr);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), jsonStr+ "\n", "TerBiliLive Out");
                                 // 将弹幕信息放入 list
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
 

@@ -1,27 +1,12 @@
 package com.TerBiliLive.Function;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Info.LiveRoom;
-import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.TerBiliLive.getSubString;
-import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Thr.SendBarrage_Thr;
-import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui;
-import com.TerBiliLive.Utiliy.CodingUtil;
-import com.TerBiliLive.Utiliy.LogUtil;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
-
-//import static com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui;
+//import static com.TerBiliLive.Ui.TerBiliLive_SendBarrage_Ui;
 
 
 public class HFJ_Fun {
@@ -64,12 +49,12 @@ public class HFJ_Fun {
     //	System.out.print("cookie:");
 
         if(msg.equals("")){
-            msg =ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.getText();
+            msg =ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText();
             if(msg.equals("")){
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("不能发送空的弹幕");
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(true);
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(true);
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.grabFocus();
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("不能发送空的弹幕");
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(true);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiB_Send.setEnabled(true);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.grabFocus();
                 return;
             }
         }
@@ -100,7 +85,7 @@ public class HFJ_Fun {
 
 
 
-        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("发送中");
+        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送中");
         int ReplyLength=20;
         if (ConfInfo.terBiliLive_control_ui.Reply_30.isSelected())ReplyLength=30;
         if(msg.length()<ReplyLength){

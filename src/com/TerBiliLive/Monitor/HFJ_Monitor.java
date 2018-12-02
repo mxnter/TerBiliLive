@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import static com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui.HFJ_UiB_Send;
-import static com.TerBiliLive.Ui.TerBiliLive_HFJ_Ui.HFJ_UiT_Text;
+import static com.TerBiliLive.Ui.TerBiliLive_SendBarrage_Ui.HFJ_UiB_Send;
+import static com.TerBiliLive.Ui.TerBiliLive_SendBarrage_Ui.HFJ_UiT_Text;
 
 public class HFJ_Monitor implements KeyListener {
 
@@ -25,10 +25,10 @@ public class HFJ_Monitor implements KeyListener {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
 
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiB_Send.setEnabled(false);
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setEnabled(false);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiB_Send.setEnabled(false);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(false);
                 new HFJ_Fun("");
-                ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Text.setText("");
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setText("");
 
             }
         });

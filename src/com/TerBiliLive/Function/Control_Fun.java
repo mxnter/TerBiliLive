@@ -8,7 +8,7 @@ import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utiliy.FileUtil;
 
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.*;
+import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.*;
 
 public class Control_Fun {
 
@@ -99,15 +99,15 @@ public class Control_Fun {
     public void Start(){
 //        System.out.println("GT1");
         if(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")){
-            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText("请填写直播间");
+            ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("请填写直播间");
             return;
         }
         if(GG_UiT_Second.getText().equals("")){
-            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText("请填写时间");
+            ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("请填写时间");
             return;
         }
         if(GG_UiT_Text.getText().equals("")){
-            ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText("请填写弹幕");
+            ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("请填写弹幕");
             return;
         }
         if(ConfInfo.sendAdvertising_thr==null) ConfInfo.sendAdvertising_thr = new SendAdvertising_Thr();

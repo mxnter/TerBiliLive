@@ -6,11 +6,14 @@ import com.TerBiliLive.TerBiliLive.getInfo;
 
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 
-
 /**
- * @Name ： 辣条整合
- * @作用 ： 用于整合5秒内赠送的辣条，防止刷屏
- * */
+ * CODE IS POETRY
+ * @Nmae ：辣条整合
+ * @Author ：xnter@outlook.com.
+ * @Date ：Created in 11:51 2018/11/4
+ * @作用 用于整合5秒内赠送的辣条，防止刷屏
+ */
+
 
 public class SpicyIntegration_Thr extends Thread {
 

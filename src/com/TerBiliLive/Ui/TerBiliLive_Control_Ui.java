@@ -3,6 +3,14 @@ package com.TerBiliLive.Ui;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @名称 控制台 UI
+ * @作用 控制台
+ * @作者 Mxnter
+ *
+ * */
+
+
 public class TerBiliLive_Control_Ui {
 
     // 标签

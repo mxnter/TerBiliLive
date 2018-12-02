@@ -2,9 +2,8 @@ package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
-import com.TerBiliLive.TerBiliLive.sendGet;
+import com.TerBiliLive.TerBiliLive.SendGet;
 import com.TerBiliLive.Utiliy.DmLogUtil;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.PutShowUtil;
@@ -21,17 +20,24 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.GG_UiT_Second;
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.GG_UiT_Text;
+import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.GG_UiT_Second;
+import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.GG_UiT_Text;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+
+/**
+ * @名称 整合所有 UI
+ * @作用 整合所有
+ * @作者 Mxnter
+ *
+ * */
 
 public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 
     public static String StartInfo = "Ter制作的 “TerBiliLive” 弹幕姬 - 测试中";
     public static String NetworkingInfo = null;
-    public static String Version = "Beta05[D."+TerBiliLive_DMJ_Ui.Version+"]-[H."+TerBiliLive_HFJ_Ui.Version+"]-[G."+TerBiliLive_GG_Ui.Version+"]";
+    public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]";
     public static String Appname = "TerBiliLive";
     public static String ProjectName = "TerBiliLive";
     //String UipathUrl = "http://live.bilibili.com/msg/send";
@@ -72,7 +78,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 
 
-        this.setTitle(Appname + " " + Version);
+        this.setTitle(ConfInfo.Uname+" "+Appname + " " + Version);
         this.setSize(800, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -106,9 +112,9 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 
         ConfInfo.terBiliLive_control_ui =new TerBiliLive_Control_Ui();
-        ConfInfo.terBiliLive_dmj_ui = new TerBiliLive_DMJ_Ui();
-        ConfInfo.terBiliLive_hfj_ui = new TerBiliLive_HFJ_Ui();
-        ConfInfo.terBiliLive_gg_ui= new TerBiliLive_GG_Ui();
+        ConfInfo.terBiliLive_chargeBarrage_ui = new TerBiliLive_ChargeBarrage_Ui();
+        ConfInfo.terBiliLive_sendBarrage_ui = new TerBiliLive_SendBarrage_Ui();
+        ConfInfo.terBiliLive_adv_ui = new TerBiliLive_Adv_Ui();
 
 
 
@@ -121,8 +127,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 //
 ////        ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));ConfInfo.cookie=ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.getText();
 //
-//        ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.setText(FileUtil.readFile("Second"));
-//        ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.setText(FileUtil.readFile("Text"));
+//        ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.setText(FileUtil.readFile("Second"));
+//        ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.setText(FileUtil.readFile("Text"));
 
         ConfInfo.terBiliLive_control_ui.Control_UiT_Uid.setText(ConfInfo.Uid);
         ConfInfo.terBiliLive_control_ui.Control_UiT_Uname.setText(ConfInfo.Uname);
@@ -130,8 +136,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 //        ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.setText(FileUtil.readFile("Cookie"));ConfInfo.cookie=ConfInfo.terBiliLive_control_ui.Control_UiT_Cookie.getText();
 
         ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.setText(ConfInfo.confData.getRoomId());
-        ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.setText(ConfInfo.confData.getSecond());
-        ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.setText(ConfInfo.confData.getText());
+        ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.setText(ConfInfo.confData.getSecond());
+        ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.setText(ConfInfo.confData.getText());
 
 
 
@@ -141,17 +147,17 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         //HFJ.HFJ_UiT_Text.setText(FileUtil.readFile("Text"));
 //        HFJ.HFJ_UiT_Cookie.setText(FileUtil.readFile("Cookie"));
         //System.out.print(readFile("RoomId.txt"));
-        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_Time.setText("Ter 简单制造");
-        ConfInfo.terBiliLive_hfj_ui.HFJ_UiT_State.setText("Ter 简单制造"+TerBiliLive_HFJ_Ui.Version);
-        ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("Ter 简单制造"+TerBiliLive_DMJ_Ui.Version);
-        ConfInfo.terBiliLive_gg_ui.GG_UiT_State.setText("Ter 简单制造"+TerBiliLive_GG_Ui.Version);
+        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText("Ter 简单制造");
+        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("Ter 简单制造"+ TerBiliLive_SendBarrage_Ui.Version);
+        ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("Ter 简单制造"+ TerBiliLive_ChargeBarrage_Ui.Version);
+        ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("Ter 简单制造"+ TerBiliLive_Adv_Ui.Version);
         if (ConfInfo.putShowUtil == null) ConfInfo.putShowUtil = new PutShowUtil();
         ConfInfo.putShowUtil.PutDMUtil(StartInfo);
         ConfInfo.putShowUtil.PutDMUtil("欢迎使用 "+Appname+" 当前版本 "+Version);
         new Thread(new Runnable(){
                                     public void run(){
                                         try {
-                                            ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+sendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/index.html","",""));
+                                            ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+ SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/index.html","",""));
                                         } catch (Exception e) {
                                             ConfInfo.putShowUtil.PutDMUtil("[ Ter ] ---X--->> [本机] 【获取开发者通知失败】");
                                             e.printStackTrace();
@@ -159,7 +165,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
                                     }
                                 }).start();
-        if(sendGet.sendGet("https://live.bilibili.com/","","").equals(null)){
+        if(SendGet.sendGet("https://live.bilibili.com/","","").equals(null)){
             ConfInfo.putShowUtil.PutDMUtil("未检测到网络，请检查您的网络（或许有可能检测服务器失效");
         }else {
             try {
@@ -169,14 +175,14 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 e.printStackTrace();
             }
         }
-        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ConfInfo.terBiliLive_dmj_ui.DMJ_UiT_Text.getText(),Control_UiT_RoomId.getText());
+        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getText(),Control_UiT_RoomId.getText());
         if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
 
 
 
 
-        Ui_SOUTH_Jpanel.add(ConfInfo.terBiliLive_gg_ui.GG_Ui_Jpanel);
-        Ui_SOUTH_Jpanel.add(ConfInfo.terBiliLive_hfj_ui.HFJ_Ui_Jpanel);
+        Ui_SOUTH_Jpanel.add(ConfInfo.terBiliLive_adv_ui.GG_Ui_Jpanel);
+        Ui_SOUTH_Jpanel.add(ConfInfo.terBiliLive_sendBarrage_ui.HFJ_Ui_Jpanel);
 
 
         // 设置菜单
@@ -201,7 +207,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
         con.add(ConfInfo.terBiliLive_control_ui.Control_Ui_Jpanel, BorderLayout.NORTH);
         con.add(Ui_SOUTH_Jpanel, BorderLayout.SOUTH);
-        con.add(ConfInfo.terBiliLive_dmj_ui.DMJ_Ui_Jpanel, BorderLayout.CENTER);
+        con.add(ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_Ui_Jpanel, BorderLayout.CENTER);
 
 
         m1_item1.addActionListener(new ActionListener() {
@@ -216,8 +222,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 //写入数据
                 FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
                 FileUtil.writeFile("Cookie","");
-                FileUtil.writeFile("Second", ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.getText());
-                FileUtil.writeFile("Text",ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText());
+                FileUtil.writeFile("Second", ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.getText());
+                FileUtil.writeFile("Text",ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText());
                 ConfInfo.confData.setCookie("");
                 ConfInfo.confData.setSecond( GG_UiT_Second.getText());
                 ConfInfo.confData.setText(GG_UiT_Text.getText());
@@ -282,8 +288,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 //写入数据
                 FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
                 FileUtil.writeFile("Cookie",ConfInfo.cookie);
-                FileUtil.writeFile("Second", ConfInfo.terBiliLive_gg_ui.GG_UiT_Second.getText());
-                FileUtil.writeFile("Text",ConfInfo.terBiliLive_gg_ui.GG_UiT_Text.getText());
+                FileUtil.writeFile("Second", ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.getText());
+                FileUtil.writeFile("Text",ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText());
 
                 super.windowClosing(e);
             }

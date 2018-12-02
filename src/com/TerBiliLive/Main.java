@@ -1,12 +1,12 @@
 package com.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Ui.TerBiliLive_Hi_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_Login_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_Ui;
+import com.TerBiliLive.Ui.TerBiliLive_Greet_Ui;
 import com.TerBiliLive.Utiliy.FileUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
-import com.TerBiliLive.Utiliy.XmlUtil;
+import com.TerBiliLive.Utiliy.LogUtil;
+
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 
 
@@ -27,12 +27,12 @@ public class Main {
 //        ConfInfo.xmlUtil.readData();
         ConfInfo.jsonUtil.readData();
         System.out.println(ConfInfo.confData.toString());
-
-        TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
+        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.toString() + "\n", "TerBiliLive Logxx");
+        TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();
 
         /*开启发送弹幕的代码*/
         /*
-        TerBiliLive_HFJ_Ui HFJ = new TerBiliLive_HFJ_Ui();
+        TerBiliLive_SendBarrage_Ui HFJ = new TerBiliLive_SendBarrage_Ui();
         HFJ.HFJ_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
         //HFJ.HFJ_UiT_Text.setText(FileUtil.readFile("Text"));
         HFJ.HFJ_UiT_Cookie.setText(FileUtil.readFile("Cookie"));

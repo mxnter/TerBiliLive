@@ -6,7 +6,7 @@ import com.TerBiliLive.Info.ConfInfo;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static com.TerBiliLive.Ui.TerBiliLive_GG_Ui.*;
+import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.*;
 
 public class GG_Monitor {
 

@@ -25,3 +25,9 @@ Ter制作的 “TerBiliLive” 弹幕姬 - 测试中
 欢迎使用 TerBiliLive 当前版本 Beta05[D.Beta06-1104]-[H.Beta06]-[G.Beta03]
  [Live Bilibili]  << ------ >>  [DELL]    【网络连接正常】
 
+Ter制作的 “TerBiliLive” 弹幕姬 - 测试中
+欢迎使用 TerBiliLive 当前版本 Beta05[D.Beta06-1104]-[H.Beta06]-[G.Beta03]
+ [Live Bilibili]  << ------ >>  [DELL]    【网络连接正常】
+开发者通知：
+    忠告,本程序无法保证信息发送是否正确,无法保证是否会重复发送错误的信息,请使用小号使用,不要去其他直播间试探底线,作者已经收到部分房间一个月的弹幕封禁,请勿使用任何回复功能去官方直播间试探底线,官方封禁会7天无法在任何地方发送弹幕！请注意！！！！\n反馈邮箱：Github@mter.xyz
+

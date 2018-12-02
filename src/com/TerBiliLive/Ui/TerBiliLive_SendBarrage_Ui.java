@@ -7,14 +7,19 @@ import javax.swing.*;
 import java.awt.*;
 
 //import org.json.JSONObject;
+/**
+ * @名称 发送弹幕 UI
+ * @作用 发送弹幕
+ * @作者 Mxnter
+ *
+ * */
 
-
-public class TerBiliLive_HFJ_Ui{
+public class TerBiliLive_SendBarrage_Ui {
         //extends JPanel implements ActionListener, KeyListener {
 
-    public static String Version = "Beta06";
-    public static String Appname = "TerBiliLive HFJ";
-    public static String ProjectName = "TerBiliLive HFJ";
+    public static String Version = "Beta07";
+    public static String Appname = "TerBiliLive SendBarrage";
+    public static String ProjectName = "TerBiliLive SendBarrage";
     String pathUrl = "http://live.bilibili.com/msg/send";
 
 
@@ -42,7 +47,7 @@ public class TerBiliLive_HFJ_Ui{
     // JPanel HFJ_Ui_Jpanel = new JPanel(new GridLayout(6, 1, 10, 10));
    JPanel HFJ_Ui_Jpanel = new JPanel(new FlowLayout());
 
-    public TerBiliLive_HFJ_Ui(){
+    public TerBiliLive_SendBarrage_Ui(){
 
 
 

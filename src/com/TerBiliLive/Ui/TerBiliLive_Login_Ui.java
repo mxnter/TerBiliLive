@@ -3,13 +3,19 @@ package com.TerBiliLive.Ui;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utiliy.FileUtil;
-import com.TerBiliLive.Utiliy.XmlUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
+/**
+ * @名称 登陆界面 UI
+ * @作用 获取cookie
+ * @作者 Mxnter
+ *
+ * */
 
 public class TerBiliLive_Login_Ui extends JFrame  {
 
@@ -64,7 +70,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 ConfInfo.xmlUtil.writeData();
                 ConfInfo.jsonUtil.writeData();
 
-                TerBiliLive_Hi_Ui login =new TerBiliLive_Hi_Ui();
+                TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();
                 dispose();
             }
         });

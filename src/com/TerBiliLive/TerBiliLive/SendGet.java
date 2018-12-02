@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class sendGet {
+public class SendGet {
 	public static String sendGet(String url) {
 		return sendGet(url,null,null);
 	}

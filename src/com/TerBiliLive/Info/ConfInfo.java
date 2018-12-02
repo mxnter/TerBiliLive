@@ -37,9 +37,9 @@ public class ConfInfo {
     public static LiveRoom liveRoom =null;
     public static SendBarrage sendBarrage = null;
     public static TerBiliLive_Control_Ui terBiliLive_control_ui = null;
-    public static TerBiliLive_DMJ_Ui terBiliLive_dmj_ui = null;
-    public static TerBiliLive_GG_Ui terBiliLive_gg_ui = null;
-    public static TerBiliLive_HFJ_Ui terBiliLive_hfj_ui = null;
+    public static TerBiliLive_ChargeBarrage_Ui terBiliLive_chargeBarrage_ui = null;
+    public static TerBiliLive_Adv_Ui terBiliLive_adv_ui = null;
+    public static TerBiliLive_SendBarrage_Ui terBiliLive_sendBarrage_ui = null;
     public static TerBiliLive_Ui terBiliLive_ui = null;
     public static TerBiliLive_Login_Ui terBiliLive_login_ui = null;
     public static GetLiveRoomUserInfo getLiveRoomUserInfo=null;
