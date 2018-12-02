@@ -1,4 +1,4 @@
-# TerBiliLive - Beta04
+# TerBiliLive - Beta06
 
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
@@ -26,9 +26,7 @@
 7. 钉钉群推送
 
 #### 现存问题
-1. 广播礼物，瞬间进入房间老爷过多，导致礼物结束还在欢迎老爷(节奏风暴过程中暂停欢迎老爷)
-2. 部分时候会出现CPU 长期占用10%-20%
-3. 内存占用过多 作者测试 打开 >26MB 连接弹幕服务器 >100MB
+1. 随机BUG
 
 
 ### 下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
