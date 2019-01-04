@@ -10,16 +10,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.Date;
 import java.util.regex.Pattern;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomRank;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utiliy.TimeUtil.*;
 
 /**
  * CODE IS POETRY
+ *
  * @Nmae ：弹幕信息解析线程
  * @Author ：xnter@outlook.com.
  * @Date ：Created in 11:51 2018/11/4
@@ -201,7 +201,12 @@ public class ParsingBarrage_Thr extends Thread {
                         if (Pattern.matches(patter, putDM_text)) {
                             ConfInfo.dingtalkUtil.chatAdmin(putDM_text.substring(2), putDM_nickname);
                         }
-
+                        // TODO 手机版进入房间时间是随机数
+                        if (putDM_text.equals("# 停留时间")) {
+                            long TLTime = new Date(Integer.parseInt(Date.getString(4))).getTime() - new Date(Integer.parseInt(Date.getString(5))).getTime();
+//                            new HFJ_Fun("停留时间：" + ((new Date(Integer.parseInt(Date.getString(4))).getTime() - new Date(Integer.parseInt(Date.getString(5))).getTime())) + "秒");
+                            new HFJ_Fun("停留时间：" + ((TLTime) / 60) + "分" + (TLTime % 60) + "秒 (测试功能存在BUG)");
+                        }
                         if (ConfInfo.terBiliLive_control_ui.Reply_chat.isSelected()) {
                             if (!ConfInfo.terBiliLive_control_ui.Reply_tourist.isSelected()) {
                                 if (array.getString(2).equals("1") || putDM_nickname.equals("mxnter")) {
@@ -212,7 +217,7 @@ public class ParsingBarrage_Thr extends Thread {
                                         switch (TulingUtilMsg) {
                                             case "msgnull": {
                                                 System.out.println("消息为空");
-                                                LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空"+ "\n", "TerBiliLive Out");
+                                                LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空" + "\n", "TerBiliLive Out");
                                                 break;
                                             }
                                             case "TulingApikeynull": {
@@ -245,7 +250,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     switch (TulingUtilMsg) {
                                         case "msgnull": {
                                             System.out.println("消息为空");
-                                            LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空"+ "\n", "TerBiliLive Out");
+                                            LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空" + "\n", "TerBiliLive Out");
                                             break;
                                         }
                                         case "TulingApikeynull": {
@@ -274,7 +279,7 @@ public class ParsingBarrage_Thr extends Thread {
                         }
 
                         System.out.println(putDM);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), putDM+ "\n", "TerBiliLive Out");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), putDM + "\n", "TerBiliLive Out");
                         break;
                     }
                     case "SEND_GIFT": {
@@ -290,12 +295,12 @@ public class ParsingBarrage_Thr extends Thread {
 
                             if (!ConfInfo.lt_lt.containsKey(uname)) {
                                 System.out.println("整合辣条" + uname);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname+ "\n", "TerBiliLive Out");
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
                                 new SpicyIntegration_Thr().start(uname, giftName);
                                 ConfInfo.lt_lt.put(uname, 0);
                             }
                             System.out.println("整合辣条" + uname);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname+ "\n", "TerBiliLive Out");
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
                             ConfInfo.lt_lt.put(uname, ConfInfo.lt_lt.get(uname) + giftNum);
                             putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
@@ -346,7 +351,7 @@ public class ParsingBarrage_Thr extends Thread {
                         if (gift_name.equals("摩天大楼")) {
                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
                             System.out.println("----------------------------------------关闭老爷----------------------------------------");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "关闭老爷"+ "\n", "TerBiliLive Out");
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "关闭老爷" + "\n", "TerBiliLive Out");
                             new Thread(new Runnable() {
                                 public void run() {
 
@@ -355,7 +360,7 @@ public class ParsingBarrage_Thr extends Thread {
                                         if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                             //启动欢迎老爷
                                             System.out.println("----------------------------------------启动老爷----------------------------------------");
-                                            LogUtil.putLog(getFormatDay(), getFormatHour(), "启动老爷"+ "\n", "TerBiliLive Out");
+                                            LogUtil.putLog(getFormatDay(), getFormatHour(), "启动老爷" + "\n", "TerBiliLive Out");
                                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                         }
                                     } catch (InterruptedException e) {
@@ -376,7 +381,7 @@ public class ParsingBarrage_Thr extends Thread {
                             System.out.println(putDM);
                         } else {
                             System.out.println("连送礼物结束" + ConfInfo.SEND_GIFT);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "连送礼物结束" + ConfInfo.SEND_GIFT+ "\n", "TerBiliLive Out");
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "连送礼物结束" + ConfInfo.SEND_GIFT + "\n", "TerBiliLive Out");
                         }
                         LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
                         break;
@@ -652,7 +657,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                         System.out.println(putTZ + "\t");
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), putTZ+ "\n", "TerBiliLive Out");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), putTZ + "\n", "TerBiliLive Out");
                         break;
                     }
                     case "SYS_MSG": {
@@ -671,7 +676,7 @@ public class ParsingBarrage_Thr extends Thread {
                     }
                     case "ENTRY_EFFECT": {
                         System.out.println("进入动画" + "\t");
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "进入动画"+ object + "\n", "TerBiliLive Out");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), "进入动画" + object + "\n", "TerBiliLive Out");
                         break;
                     }
                     case "ROOM_RANK": {
@@ -844,7 +849,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                if(!ConfInfo.GetSendBarrageList_Thr_Size){
                     synchronized (ConfInfo.GBT) {
                         ConfInfo.GBT.notify();
-                }
+                    }
 
 
 //                                                ConfInfo.putShowUtil.PutDMUtil(putDM);
@@ -854,7 +859,6 @@ public class ParsingBarrage_Thr extends Thread {
 
 
                 ConfInfo.ParsingBarrageList.remove(0);
-
 
 
             } else {

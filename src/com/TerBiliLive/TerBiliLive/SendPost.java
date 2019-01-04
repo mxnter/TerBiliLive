@@ -105,11 +105,15 @@ public class SendPost {
 	}
 
 
-	//发送JSON字符串 如果成功则返回成功标识。
 	public static String doJsonPost(String urlPath, String Json) {
+		return doJsonPost(urlPath,Json,null);
+	}
+	//发送JSON字符串 如果成功则返回成功标识。
+	public static String doJsonPost(String urlPath, String Json,String cookie) {
 		// HttpClient 6.0被抛弃了
 		String result = "";
 		BufferedReader reader = null;
+		System.out.print(Json);
 		try {
 			URL url = new URL(urlPath);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -118,6 +122,9 @@ public class SendPost {
 			conn.setDoInput(true);
 			conn.setUseCaches(false);
 			conn.setRequestProperty("Connection", "Keep-Alive");
+			if(cookie!=null){
+				conn.setRequestProperty("Cookie", cookie);
+			}
 			conn.setRequestProperty("Charset", "UTF-8");
 			// 设置文件类型:
 			conn.setRequestProperty("Content-Type","application/json; charset=UTF-8");

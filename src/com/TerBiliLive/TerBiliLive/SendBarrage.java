@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SendBarrage {
-    String url = "http://live.bilibili.com/msg/send";
+    String url = "https://api.live.bilibili.com/msg/send";
     Map<String, String> paramMap = new HashMap<String, String>();
 
     public SendBarrage() {
@@ -26,6 +26,12 @@ public class SendBarrage {
             System.out.println("SendBarrage :"+msg);
             msg =URLEncoder.encode(msg, "UTF-8");
             System.out.println("SendBarrage : "+msg);
+            //封装弹幕颜色
+            paramMap.put("color", "16777215");
+            //封装弹幕字体大小
+            paramMap.put("fontsize", "25");
+            //封装弹幕模式
+            paramMap.put("mode", "1");
             //封装弹幕消息
             paramMap.put("msg", msg);
             //封装房间号
@@ -33,6 +39,10 @@ public class SendBarrage {
             if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
             //封装Rnd
             paramMap.put("rnd", ConfInfo.Rnd);
+            //封装csrf_token = bili_jct=
+            paramMap.put("csrf_token", getSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            //封装csrf
+            paramMap.put("csrf", getSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //创建Post提交对象
             ConfInfo.sendPost = new SendPost();
             //获取返回值

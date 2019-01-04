@@ -29,7 +29,7 @@ public class ConfInfo {
     public static String Uid = "";
     public static String Uname = "";
     public static String RoomLive = "NO";//705952
-    public static String sendBarrageUrl = "http://live.bilibili.com/msg/send";
+    public static String sendBarrageUrl = "https://api.live.bilibili.com/msg/send";
     public static String LiveInfoURL = "https://api.live.bilibili.com/api/player?platform=pc&player_type=web&id=cid:";
     public static String LiveRoomUserInfoURL = "https://api.live.bilibili.com/room_ex/v1/RoomNews/get?roomid=";
     public static SendPost sendPost = null;
