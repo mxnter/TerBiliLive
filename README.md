@@ -1,5 +1,5 @@
-# TerBiliLive - Beta06
-[![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]()
+# TerBiliLive - Beta06 [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 06](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()
+
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />
