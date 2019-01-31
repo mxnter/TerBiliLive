@@ -3,7 +3,9 @@
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
 
-### 这是一个B站直播的弹幕姬，使用 Java 编写。
+### Bilibili Live Barrage kyi,Using Java .
+### 哔哩哔哩直播弹幕姬，使用 Java 。  
+
 ##### 作者近期加班严重，暂时搁置
 
 
