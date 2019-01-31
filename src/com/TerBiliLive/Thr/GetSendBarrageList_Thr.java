@@ -2,6 +2,7 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
 
+import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
@@ -32,7 +33,7 @@ public class GetSendBarrageList_Thr extends Thread {
                 e.printStackTrace();
             }
 //            System.out.println(ConfInfo.ChargeBarrageList.get(0));
-            ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0));
+            ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), Color.BLACK);
             ConfInfo.ChargeBarrageList.remove(0);
             try {
                 sleep(200);

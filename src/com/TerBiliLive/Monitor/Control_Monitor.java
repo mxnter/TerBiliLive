@@ -6,6 +6,7 @@ import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.Utiliy.TulingUtil;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -75,7 +76,7 @@ public class Control_Monitor {
                 Control_UiB_ClaseThinks.setEnabled(true);
                 ConfInfo.Thank="ok";
                 String putDM =  "系统 ："+getFormat()+" - "+"开启感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveInfo.getUid()+"  昵称："+ ConfInfo.liveInfo.getUname().toString()+"\t";
-                ConfInfo.putShowUtil.PutDMUtil(putDM);
+                ConfInfo.putShowUtil.PutDMUtil(putDM, Color.BLUE);
 
 
 
@@ -160,7 +161,7 @@ public class Control_Monitor {
                 Control_UiB_ClaseThinks.setEnabled(false);
                 ConfInfo.Thank="no";
                 String putDM =  "系统 ："+getFormat()+" - "+"关闭感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveInfo.getUid()+"  昵称："+ ConfInfo.liveInfo.getUname().toString()+"\t";
-                ConfInfo.putShowUtil.PutDMUtil(putDM);
+                ConfInfo.putShowUtil.PutDMUtil(putDM,Color.RED);
 
 
 

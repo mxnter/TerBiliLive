@@ -10,6 +10,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
@@ -72,7 +73,7 @@ public class ChargeNoticeS_Thr {
         String name =  ConfInfo.liveInfo.getUname();
         ConfInfo.liveInfo=null;
         String putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
-        ConfInfo.putShowUtil.PutDMUtil(putDM);
+        ConfInfo.putShowUtil.PutDMUtil(putDM, Color.RED);
        // new PutDMUtil(putDM);
         Control_UiT_State.setText("已断开连接" );
         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
@@ -92,7 +93,7 @@ public class ChargeNoticeS_Thr {
                     bufferSize = socket.getReceiveBufferSize();
                     String uid =  ConfInfo.liveInfo.getUid();
                     String name =  ConfInfo.liveInfo.getUname();
-                    ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name);
+                    ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
 
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
                     System.out.println("连接成功" +"真实直播间ID："+roomID );
@@ -112,7 +113,7 @@ public class ChargeNoticeS_Thr {
                         }
                     }catch (Exception e){
                         if (isReConn && keepRunning ) {
-                            ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   );
+                            ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID,Color.BLUE);
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,Control_UiT_RoomId.getText());
                             System.out.println("自动重连" +" 真实直播间ID："+roomID );

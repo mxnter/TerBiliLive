@@ -41,9 +41,9 @@ public class TerBiliLive_Login_Ui extends JFrame  {
         //设置图标
         Image icon = null;
         try {
-            icon =  ImageBroker.loadImage("logo.jpg").getImage();
+            icon =  ImageBroker.loadImage("logoa.png").getImage();
         } catch (IOException e) {
-            icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+            icon = Toolkit.getDefaultToolkit().getImage("Ter/logoa.png");
             e.printStackTrace();
         }
 

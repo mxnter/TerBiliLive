@@ -81,7 +81,7 @@ public class TerBiliLive_SendBarrage_Ui {
 //        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        this.setLocationRelativeTo(null);
 //        Image icon=null;
-//        icon=Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+//        icon=Toolkit.getDefaultToolkit().getImage("Ter/logoa.png");
 //        if(icon!=null )this.setIconImage(icon);  // 图片的具体位置
 //        //设置窗口的logo
 //        // HFJ_Ui_Jpanel。setOpaque(false);

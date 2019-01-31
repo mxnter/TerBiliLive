@@ -12,10 +12,7 @@ import com.TerBiliLive.Thr.SpicyIntegration_Thr;
 import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Ui.*;
-import com.TerBiliLive.Utiliy.DingtalkUtil;
-import com.TerBiliLive.Utiliy.JsonUtil;
-import com.TerBiliLive.Utiliy.PutShowUtil;
-import com.TerBiliLive.Utiliy.XmlUtil;
+import com.TerBiliLive.Utiliy.*;
 
 import java.util.*;
 
@@ -55,6 +52,8 @@ public class ConfInfo {
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
     public static JsonUtil jsonUtil = new JsonUtil();
+    public static ParsePutBarrageUtil PPutBUtil = new ParsePutBarrageUtil(); // 解析弹幕类型显示不同颜色
+
     public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
     public static GetSendBarrageList_Thr GBT;

@@ -96,9 +96,9 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
         Image icon = null;
         try {
-            icon =  ImageBroker.loadImage("logo.jpg").getImage();
+            icon =  ImageBroker.loadImage("logoa.png").getImage();
         } catch (IOException e) {
-            icon = Toolkit.getDefaultToolkit().getImage("Ter/logo.jpg");
+            icon = Toolkit.getDefaultToolkit().getImage("Ter/logoa.png");
             e.printStackTrace();
         }
 
@@ -152,26 +152,26 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("Ter 简单制造"+ TerBiliLive_ChargeBarrage_Ui.Version);
         ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("Ter 简单制造"+ TerBiliLive_Adv_Ui.Version);
         if (ConfInfo.putShowUtil == null) ConfInfo.putShowUtil = new PutShowUtil();
-        ConfInfo.putShowUtil.PutDMUtil(StartInfo);
-        ConfInfo.putShowUtil.PutDMUtil("欢迎使用 "+Appname+" 当前版本 "+Version);
+        ConfInfo.putShowUtil.PutDMUtil(StartInfo,Color.DARK_GRAY);
+        ConfInfo.putShowUtil.PutDMUtil("欢迎使用 "+Appname+" 当前版本 "+Version,Color.DARK_GRAY);
         new Thread(new Runnable(){
                                     public void run(){
                                         try {
-                                            ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+ SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/index.html","",""));
+                                            ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+ SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/index.html","",""),Color.DARK_GRAY);
                                         } catch (Exception e) {
-                                            ConfInfo.putShowUtil.PutDMUtil("[ Ter ] ---X--->> [本机] 【获取开发者通知失败】");
+                                            ConfInfo.putShowUtil.PutDMUtil("[ Ter ] ---X--->> [本机] 【获取开发者通知失败】",Color.DARK_GRAY);
                                             e.printStackTrace();
                                         }
 
                                     }
                                 }).start();
         if(SendGet.sendGet("https://live.bilibili.com/","","").equals(null)){
-            ConfInfo.putShowUtil.PutDMUtil("未检测到网络，请检查您的网络（或许有可能检测服务器失效");
+            ConfInfo.putShowUtil.PutDMUtil("未检测到网络，请检查您的网络（或许有可能检测服务器失效",Color.DARK_GRAY);
         }else {
             try {
-                ConfInfo.putShowUtil.PutDMUtil(" [Live Bilibili]  << ------ >>  ["+ InetAddress.getLocalHost().getHostName()+ "]    【网络连接正常】");
+                ConfInfo.putShowUtil.PutDMUtil(" [Live Bilibili]  << ------ >>  ["+ InetAddress.getLocalHost().getHostName()+ "]    【网络连接正常】",Color.DARK_GRAY);
             } catch (UnknownHostException e) {
-                ConfInfo.putShowUtil.PutDMUtil(" [Live Bilibili]  << ------ >>  [本机]    【网络连接正常】");
+                ConfInfo.putShowUtil.PutDMUtil(" [Live Bilibili]  << ------ >>  [本机]    【网络连接正常】",Color.DARK_GRAY);
                 e.printStackTrace();
             }
         }
