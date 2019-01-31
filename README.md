@@ -11,6 +11,7 @@
 * [一丶简述](#一丶简述)
 * [二丶Ui展示](#二丶Ui展示)
 * [三丶版本记录](#三丶版本记录)
+* [四丶帮助](#四丶帮助)
 
 <br>
 
@@ -36,20 +37,20 @@
 
 <br><br><br>
 
-### <center>Cookie 请自行在浏览器内获取，作者还没写登陆呢！</center>
+### <center>Cookie 请自行在浏览器内获取，作者还没写登陆呢！</center> [获取Cookie方法](###获取Cookie)
 
 <br><br>
 # 二丶Ui展示
 ###### <center>Ui展示</center>
 
 ### 1.欢迎界面
-![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
+![欢迎界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
 
 ### 2.登陆界面
-![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
+![登陆界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
 
 ### 3.弹幕姬界面
-![Image text](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
+![弹幕姬界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
 
 
 
@@ -65,3 +66,9 @@
 
 >##### Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03]  
 > 更新弹幕显示时的颜色
+
+
+# 四丶帮助
+
+### 获取Cookie
+![获取Cookie](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/getcookie.png)
