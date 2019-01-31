@@ -24,8 +24,16 @@
 6. 接入图灵机器人可以聊天
 7. 钉钉群推送
 
+#### 更新内容
+>###### Beta06[D.Beta07]-[H.Beta8]-[G.Beta03]  
+> 修复无法发送弹幕
+
+>###### Beta06[D.Beta08-0131]-[H.Beta9-0131]-[G.Beta03]  
+> 更新房间禁言关掉全部发送消息 并且钉钉群提示
+
+
 #### 现存问题
-1. 随机BUG
+1. 随机出现假死现象
 
 
 ### 下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)

@@ -108,7 +108,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 //        imgLabel.setBounds(0,0,img_bj.getIconWidth(), img_bj.getIconHeight());//设置背景标签的位置
 
         Container con = getContentPane();
-        this.setResizable(false);
+        this.setResizable(true); //允许调整大小
 
 
         ConfInfo.terBiliLive_control_ui =new TerBiliLive_Control_Ui();

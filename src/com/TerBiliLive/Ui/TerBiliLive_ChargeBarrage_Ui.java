@@ -12,7 +12,7 @@ import java.awt.*;
  * */
 
 public class TerBiliLive_ChargeBarrage_Ui {
-    public static String Version = "Beta07-1202";
+    public static String Version = "Beta08-0131";
     public static String Appname = "TerBiliLive ChargeBarrage";
     public static String ProjectName = "TerBiliLive ChargeBarrage";
     String DMJpathUrl = "http://live.bilibili.com/msg/send";
