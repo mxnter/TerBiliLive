@@ -37,7 +37,7 @@
 
 <br><br><br>
 
-### <center>Cookie 请自行在浏览器内获取，作者还没写登陆呢！</center> [获取Cookie方法](###获取Cookie)
+### <center>Cookie 请自行在浏览器内获取，作者还没写登陆呢！</center> [获取Cookie方法](#四丶帮助)
 
 <br><br>
 # 二丶Ui展示
