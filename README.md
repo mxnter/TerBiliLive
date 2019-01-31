@@ -29,8 +29,10 @@
 #### 现存问题
 1. 随机出现假死现象
 
+### 发布版本下载：[Beta](https://github.com/mxnter/TerBiliLive/releases)
 
-### 下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+
+### 当前下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
 
 
 <center>注意：（如需使用请在本机配置好Java环境）</center>
