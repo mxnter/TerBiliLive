@@ -2,14 +2,13 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Utiliy.DmLogUtil;
-import com.TerBiliLive.Utiliy.LogUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
-import com.TerBiliLive.Utiliy.TulingUtil;
+import com.TerBiliLive.Utiliy.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import javax.swing.text.BadLocationException;
+import java.awt.*;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -50,6 +49,30 @@ public class ParsingBarrage_Thr extends Thread {
                         JSONArray Date = object.getJSONArray("info").getJSONArray(0);
 //                                    int uid = array.getInteger(0);
 
+
+                        String timeline = TimeUtil.timeStamp2Date(Date.getString(4), null);
+                        String GUARD =  object.getJSONArray("info").getString(7);
+                        String  vip = array.getString(3).equals("1")?"月费老爷":(array.getString(4).equals("1")?"年费老爷":"");
+                        String  isadmin =(array.getString(2).equals("1")) ? array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid()) ? "房主" : "房管" : "";
+
+                        String medal ="";
+                        String medal_level ="";
+                        try {
+                            medal = object.getJSONArray("info").getJSONArray(3).getString(1);
+                            medal_level=object.getJSONArray("info").getJSONArray(3).getString(0);
+
+                        } catch (Exception e) {
+                            medal = "";
+                            medal_level="";
+                        }
+                        String  user_level =object.getJSONArray("info").getJSONArray(4).getString(0)  ;
+                        String  nickname  = array.getString(1);
+                        String text = object.getJSONArray("info").getString(1);;
+
+
+
+
+
                         String putDM_text = object.getJSONArray("info").getString(1);
                         String putDM_isadmin = "";
                         String putDM_nickname = array.getString(1);
@@ -87,6 +110,15 @@ public class ParsingBarrage_Thr extends Thread {
                             putDM_vip = "年费老爷 ";
                         }
                         putDM = "弹幕 ：" + putDM_timeline + " - " + putDM_GUARD + " " + putDM_vip + " " + putDM_isadmin + putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
+
+
+                        //TODO 根据等级显示不同颜色 暂时无法使用
+//                        try {
+//                            ConfInfo.PPutBUtil.ParsePut(timeline, GUARD ,vip, isadmin , medal,medal_level,  user_level ,  nickname , text);
+//                        } catch (BadLocationException e) {
+//                            e.printStackTrace();
+//                        }
+
 
                         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                         if (array.getString(2).equals("1") || putDM_nickname.equals("mxnter")) {
@@ -290,33 +322,87 @@ public class ParsingBarrage_Thr extends Thread {
                         String timestamp = giftData.getString("timestamp");
                         //                                    int uid = giftData.getInteger("uid");
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
-                        if (giftName.equals("辣条")) {
 
 
-                            if (!ConfInfo.lt_lt.containsKey(uname)) {
+                        switch (giftName){
+                            case "辣条":{
+                                if (!ConfInfo.lt_lt.containsKey(uname)) {
+                                    System.out.println("整合辣条" + uname);
+                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
+                                    new GiftIntegration_Thr().start(uname, giftName,giftData);
+                                    ConfInfo.lt_lt.put(uname, 0);
+                                }
                                 System.out.println("整合辣条" + uname);
                                 LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
-                                new SpicyIntegration_Thr().start(uname, giftName);
-                                ConfInfo.lt_lt.put(uname, 0);
+                                ConfInfo.lt_lt.put(uname, ConfInfo.lt_lt.get(uname) + giftNum);
+                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+                                break;
                             }
-                            System.out.println("整合辣条" + uname);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
-                            ConfInfo.lt_lt.put(uname, ConfInfo.lt_lt.get(uname) + giftNum);
-                            putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-
-//                                            System.out.println(putDM);
-
-                        } else {
-                            putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
-                            ConfInfo.SEND_GIFT = uname + giftName + giftNum;
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                            if (ConfInfo.Thank.equals("ok"))
-                                new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + "*" + giftNum + " 喵~");
-
-                            System.out.println(putDM);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            case "小猪爆竹":{
+                                if (!ConfInfo.pig_boom.containsKey(uname)) {
+                                    System.out.println("整合小猪爆竹" + uname);
+                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+                                    new GiftIntegration_Thr().start(uname, giftName,giftData);
+                                    ConfInfo.pig_boom.put(uname, 0);
+                                }
+                                System.out.println("整合小猪爆竹" + uname);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+                                ConfInfo.pig_boom.put(uname, ConfInfo.pig_boom.get(uname) + giftNum);
+                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+                                break;
+                            }
+                            default:{
+                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+                                ConfInfo.SEND_GIFT = uname + giftName + giftNum;
+                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+                                if (ConfInfo.Thank.equals("ok"))
+                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + "*" + giftNum + " 喵~");
+                                System.out.println(putDM);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                                break;
+                            }
                         }
+
+//
+//                        if (giftName.equals("辣条")) {
+//                            if (!ConfInfo.lt_lt.containsKey(uname)) {
+//                                System.out.println("整合辣条" + uname);
+//                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
+//                                new GiftIntegration_Thr().start(uname, giftName,giftData);
+//                                ConfInfo.lt_lt.put(uname, 0);
+//                            }
+//                            System.out.println("整合辣条" + uname);
+//                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
+//                            ConfInfo.lt_lt.put(uname, ConfInfo.lt_lt.get(uname) + giftNum);
+//                            putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+//                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+////                                            System.out.println(putDM);
+//                        }  else  if (giftName.equals("小猪爆竹")) {
+//                            if (!ConfInfo.pig_boom.containsKey(uname)) {
+//                                System.out.println("整合小猪爆竹" + uname);
+//                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+//                                new GiftIntegration_Thr().start(uname, giftName,giftData);
+//                                ConfInfo.pig_boom.put(uname, 0);
+//                            }
+//                            System.out.println("整合小猪爆竹" + uname);
+//                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+//                            ConfInfo.pig_boom.put(uname, ConfInfo.pig_boom.get(uname) + giftNum);
+//                            putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+//                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+////                                            System.out.println(putDM);
+//                        }
+//                        else {
+//                            putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+//                            ConfInfo.SEND_GIFT = uname + giftName + giftNum;
+//                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+//                            if (ConfInfo.Thank.equals("ok"))
+//                                new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + "*" + giftNum + " 喵~");
+//
+//                            System.out.println(putDM);
+//                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+//                        }
 
                         break;
                     }
@@ -763,77 +849,122 @@ public class ParsingBarrage_Thr extends Thread {
                                     15:26:16:{"pk_id":131628,"data":{"match_info":{"is_winner":true,"uid":27897180,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/6232d18dff2835591c3cf867ef79acef3a6e74e8.jpg","face_frame":"","uname":"小小的小兔团儿","vip_type":0,"match_id":7471685,"votes":5,"exp":{"master_level":{"color":5805790,"level":15},"color":9868950,"user_level":8},"vip":{"vip":0,"svip":0}},"init_info":{"is_winner":false,"uid":330655469,"face":"http://i1.hdslb.com/bfs/face/1cee3f42eb4d6268e3c368f9506dc4eda230c532.jpg","uname":"圆啵叽","votes":0,"init_id":11365011},"pk_id":131628,"punish_topic":"惩罚：模仿面筋哥","best_user":{"uid":18169995,"privilege_type":0,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/ecd8064598c534ec311287dd9c0b17dc8f3bb4f9.jpg","face_frame":"","uname":"mxnter","vip_type":0,"exp":{"master_level":{"color":6406234,"level":10},"color":5805790,"user_level":28},"vip":{"vip":0,"svip":0}}},"pk_status":400,"cmd":"PK_SETTLE"}
 */
                     case "PK_START": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         // pk 开始
                         break;
                     }
                     case "PK_PROCESS": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_END": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         // pk结束
                         break;
                     }
                     case "PK_SETTLE": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_MATCH": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_PRE": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_MIC_END": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_CLICK_AGAIN": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
                     case "PK_AGAIN": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         break;
                     }
-                    case "ROOM_SILENT_OFF": {
-
-                        // 房间关闭禁言
+                    case "ROOM_SILENT_OFF": {// 房间关闭禁言
                         // {"data":[],"cmd":"ROOM_SILENT_OFF","roomid":7471685}
+                        //{"cmd":"ROOM_SILENT_OFF","data":[],"roomid":9938182}
+                        String XX="禁言 ："+getFormat()+" - "+"[解禁] 直播间ID："+object.getString("roomid");
+                        ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("79B48E"));
+                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " SILENT Log","silent");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_SILENT Log","silent");
                         break;
                     }
-                    case "ROOM_SILENT_ON": {
-
-                        // 房间打开禁言
+                    case "ROOM_SILENT_ON": {// 房间打开禁言
+                        //{"cmd":"ROOM_SILENT_ON","data":{"type":"level","level":1,"second":1549176518},"roomid":9938182} 等级禁言
+                        //{"cmd":"ROOM_SILENT_ON","data":{"type":"member","level":1,"second":1549176544},"roomid":9938182} 全局禁言
                         // {"data":{"level":1,"type":"level","second":1540981075},"cmd":"ROOM_SILENT_ON","roomid":7471685}
+                        String XX="";
+                        switch (object.getJSONObject("data").getString("type")){
+                            case "level":{
+                                XX =  "禁言 ："+getFormat()+" - "+"[等级] 直播间ID："+object.getString("roomid")+" 对用户等级 UL."+object.getJSONObject("data").getString("level")+"以下的用户开启了禁言,到" +( object.getJSONObject("data").getString("second").equals("-1")?"本次直播结束":TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("second"), null));
+                                break;
+                            }
+                            case "medal":{
+                                XX =  "禁言 ："+getFormat()+" - "+"[勋章] 直播间ID："+object.getString("roomid")+" 对勋章等级 "+object.getJSONObject("data").getString("level")+"以下的用户开启了禁言,到" +( object.getJSONObject("data").getString("second").equals("-1")?"本次直播结束":TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("second"), null));
+                                break;
+                            }
+                            case "member":{
+                                XX =  "禁言 ："+getFormat()+" - "+"[全员] 直播间ID："+object.getString("roomid")+" 对所有用户开启了禁言,到" +( object.getJSONObject("data").getString("second").equals("-1")?"本次直播结束":TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("second"), null));
+                                break;
+                            }
+                            default:{
+                                XX =  "全局禁言 ："+getFormat()+" - "+"[全局] 直播间ID："+object.getString("roomid")+"  开启了全局禁言,到" +( object.getJSONObject("data").getString("second").equals("-1")?"本次直播结束":TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("second"), null));
+                                break;
+                            }
+                        }
+                        ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("ea9336"));
+                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " SILENT Log","silent");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_SILENT Log","silent");
+
                         break;
                     }
 
-                    case "ROOM_BLOCK_MSG": {
-
-                        // 用户封禁
+                    case "ROOM_BLOCK_MSG": {// 用户封禁 禁言
                         // {"uid":194036261,"uname":"骚话王丶zzm","data":{"uid":194036261,"uname":"骚话王丶zzm","operator":1},"cmd":"ROOM_BLOCK_MSG","roomid":5279}
+                        String XX="";
+                        switch (object.getJSONObject("data").getString("operator")){
+                            case "1":{
+                                XX =  "禁言 ："+getFormat()+" - "+object.getString("uname")+" 被房管禁言" +" 直播间ID："+object.getString("roomid") +"  UID："+object.getString("uid")+"  昵称："+object.getString("uname");
+                                break;
+                            }
+                            case "2":{
+                                XX =  "禁言 ："+getFormat()+" - "+object.getString("uname")+" 被房主禁言" +" 直播间ID："+object.getString("roomid") +"  UID："+object.getString("uid")+"  昵称："+object.getString("uname");
+                                break;
+                            }
+                            default:{
+                                XX =  "禁言 ："+getFormat()+" - "+object.getString("uname")+" 被禁言" +" 直播间ID："+object.getString("roomid") +"  UID："+object.getString("uid")+"  昵称："+object.getString("uname");
+                                break;
+                            }
+                        }
+                        ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("ea9336"));
+                        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " BLOCK_MSG Log","silent");
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_BLOCK_MSG Log","silent");
                         break;
                     }
                     case "CHANGE_ROOM_INFO": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         // 改变房间信息
                         // {"background":"http://static.hdslb.com/live-static/images/bg/4.jpg","cmd":"CHANGE_ROOM_INFO"}
                         break;
                     }
                     case "ACTIVITY_EVENT": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         // 活动事件
                         // {"data":{"limit":500000,"progress":74380,"keyword":"bls_winter_2018","type":"charge"},"cmd":"ACTIVITY_EVENT"}
                         break;
                     }
 
                     case "WISH_BOTTLE": {
-
+                        LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
                         // 许愿瓶
                         // {"data":{"wish":{"uid":50621949,"wish_progress":25098,"type_id":3,"wish_limit":99999,"ctime":"2018-01-28 09:28:21","id":8427,"count_map":[1,10,100],"type":1,"content":"一个B克拉得老白勋章","status":1},"action":"update","id":8427},"cmd":"WISH_BOTTLE"}
                         break;

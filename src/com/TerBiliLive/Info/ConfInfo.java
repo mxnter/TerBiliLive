@@ -14,6 +14,8 @@ import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.*;
 
+import javax.swing.text.Document;
+import javax.swing.text.StyledDocument;
 import java.util.*;
 
 public class ConfInfo {
@@ -52,14 +54,13 @@ public class ConfInfo {
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
     public static JsonUtil jsonUtil = new JsonUtil();
-    public static ParsePutBarrageUtil PPutBUtil = new ParsePutBarrageUtil(); // 解析弹幕类型显示不同颜色
 
-    public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
     public static GetSendBarrageList_Thr GBT;
     public static ParsingBarrage_Thr PBT;
     public static SendAdvertising_Thr sendAdvertising_thr =null;
     public static Map<String,Integer> lt_lt = new HashMap();
+    public static Map<String,Integer> pig_boom = new HashMap();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
@@ -70,5 +71,11 @@ public class ConfInfo {
 
     public static List<String> ParsingBarrageList = new ArrayList<String>();
 
+
+
+    public static ParsePutBarrageUtil PPutBUtil = new ParsePutBarrageUtil(); // 解析弹幕类型显示不同颜色
+    public static ColorUtil colorUtil = new ColorUtil(); // 解析弹幕类型显示不同颜色
+    public static StyledDocument docs = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getStyledDocument();
+    public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
 }

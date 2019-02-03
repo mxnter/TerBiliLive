@@ -3,14 +3,12 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.Utiliy.CodingUtil;
-import com.TerBiliLive.Utiliy.LogUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
+import com.TerBiliLive.Utiliy.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
+import static com.TerBiliLive.Utiliy.TimeUtil.*;
 
 /**
  * CODE IS POETRY
@@ -86,15 +84,19 @@ public class SendBarrage_Thr extends Thread{
                         ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
                         ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("已被禁言 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
                         LogUtil.putLog(getFormatDay(), getFormatHour(), "[已被禁言]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                        String ms="禁言 ："+getFormat()+" - "+jsonObject.getString("message");//提示信息
+                            ConfInfo.putShowUtil.PutDMUtil(ms, ColorUtil.toColorFromString("ea9336"));
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms,Control_UiT_RoomId.getText());//输出到弹幕日志
                         ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick(); // 被禁言 关闭感谢
-                            ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); // 关闭 聊天
-                            ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);// 关闭 回应游客
-                            ConfInfo.terBiliLive_control_ui.Reply_LiveState.setSelected(false);// 关闭 状态
-                            ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.setSelected(false);// 关闭 低保
-                            ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);// 关闭 老爷
-                            ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);// 关闭 显示弹幕老爷
-                            ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);// 关闭 广播后开启老爷
-                            ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);// 关闭 舰长
+                            //TODO 暂时只关闭 感谢
+//                            ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); // 关闭 聊天
+//                            ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);// 关闭 回应游客
+//                            ConfInfo.terBiliLive_control_ui.Reply_LiveState.setSelected(false);// 关闭 状态
+//                            ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.setSelected(false);// 关闭 低保
+//                            ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);// 关闭 老爷
+//                            ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);// 关闭 显示弹幕老爷
+//                            ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);// 关闭 广播后开启老爷
+//                            ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);// 关闭 舰长
                             ConfInfo.dingtalkUtil.bannedNotice(jsonObject.getString("msg")); // 通知禁言
                         break;
                     default:
