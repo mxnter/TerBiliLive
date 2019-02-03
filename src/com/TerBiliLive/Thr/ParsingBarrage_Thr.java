@@ -2,6 +2,7 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.Presents;
 import com.TerBiliLive.Utiliy.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -81,25 +82,25 @@ public class ParsingBarrage_Thr extends Thread {
                         String putDM_medal = "";
                         String putDM_GUARD = "";
                         try {
-                            putDM_medal = "【" + object.getJSONArray("info").getJSONArray(3).getString(1) + object.getJSONArray("info").getJSONArray(3).getString(0) + "】 ";
+                            putDM_medal = "[ " + object.getJSONArray("info").getJSONArray(3).getString(1) + "."+object.getJSONArray("info").getJSONArray(3).getString(0) + " ] ";
 
                         } catch (Exception e) {
                             putDM_medal = "";
                         }
-                        String putDM_user_level = " [" + object.getJSONArray("info").getJSONArray(4).getString(0) + "] ";
+                        String putDM_user_level = " [ UL." + object.getJSONArray("info").getJSONArray(4).getString(0) + " ] ";
 
-                        putDM_isadmin = (array.getString(2).equals("1")) ? array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid()) ? "<房主> " : "<房管> " : "";
+                        putDM_isadmin = (array.getString(2).equals("1")) ? array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid()) ? "『房主』 " : "『房管』 " : "";
 
-//                                        switch (array.getString(2)){
-//                                            case "3":
-//                                                putDM_GUARD="$舰长$";break;
-//                                            case "2":
-//                                                putDM_GUARD="提督";break;
-//                                            case "1":
-//                                                putDM_GUARD="总督";break;
-//                                            default:
-//                                                putDM_GUARD="";break;
-//                                        }
+                                        switch (object.getJSONArray("info").getString(7)){
+                                            case "3":
+                                                putDM_GUARD="「舰长」 ";break;
+                                            case "2":
+                                                putDM_GUARD="「提督」 ";break;
+                                            case "1":
+                                                putDM_GUARD="「总督」 ";break;
+                                            default:
+                                                putDM_GUARD="";break;
+                                        }
 
                         putDM_timeline = TimeUtil.timeStamp2Date(Date.getString(4), null);
 
@@ -109,7 +110,7 @@ public class ParsingBarrage_Thr extends Thread {
                         if (array.getString(4).equals("1")) {
                             putDM_vip = "年费老爷 ";
                         }
-                        putDM = "弹幕 ：" + putDM_timeline + " - " + putDM_GUARD + " " + putDM_vip + " " + putDM_isadmin + putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
+                        putDM = "弹幕 ：" + putDM_timeline + " - " + putDM_GUARD +  putDM_vip + putDM_isadmin + putDM_medal + putDM_user_level + putDM_nickname + " ：" + putDM_text;
 
 
                         //TODO 根据等级显示不同颜色 暂时无法使用
@@ -324,46 +325,51 @@ public class ParsingBarrage_Thr extends Thread {
 //                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
 
 
-                        switch (giftName){
-                            case "辣条":{
-                                if (!ConfInfo.lt_lt.containsKey(uname)) {
-                                    System.out.println("整合辣条" + uname);
-                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
-                                    new GiftIntegration_Thr().start(uname, giftName,giftData);
-                                    ConfInfo.lt_lt.put(uname, 0);
+//                        switch (giftName){//整合礼物使用整合线程进行展示弹幕
+                                if (!ConfInfo.integrated.containsKey(uname+giftName)) {
+                                    System.out.println("1整合"+giftName + uname+giftName);
+                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合"+giftName + uname + "\n", "TerBiliLive Out");
+                                    new GiftIntegration_Thr().start(uname, giftName);
+                                    ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,0));
                                 }
-                                System.out.println("整合辣条" + uname);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合辣条" + uname + "\n", "TerBiliLive Out");
-                                ConfInfo.lt_lt.put(uname, ConfInfo.lt_lt.get(uname) + giftNum);
-                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
-                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                                break;
-                            }
-                            case "小猪爆竹":{
-                                if (!ConfInfo.pig_boom.containsKey(uname)) {
-                                    System.out.println("整合小猪爆竹" + uname);
-                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
-                                    new GiftIntegration_Thr().start(uname, giftName,giftData);
-                                    ConfInfo.pig_boom.put(uname, 0);
-                                }
-                                System.out.println("整合小猪爆竹" + uname);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
-                                ConfInfo.pig_boom.put(uname, ConfInfo.pig_boom.get(uname) + giftNum);
-                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
-                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                                break;
-                            }
-                            default:{
-                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
-                                ConfInfo.SEND_GIFT = uname + giftName + giftNum;
-                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                                if (ConfInfo.Thank.equals("ok"))
-                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + "*" + giftNum + " 喵~");
-                                System.out.println(putDM);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
-                                break;
-                            }
-                        }
+                                System.out.println("2整合"+giftName+ uname+giftName +":"+ giftNum);
+                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合"+giftName + uname + "\n", "TerBiliLive Out");
+//                                ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,giftNum));
+                                ConfInfo.integrated.get(uname+giftName).setTimestamp(timestamp);
+                                ConfInfo.integrated.get(uname+giftName).setGiftNum(ConfInfo.integrated.get(uname+giftName).getGiftNum()+giftNum);
+//                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+//                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+//                                putDM="";
+//                                break;
+//                            }
+//                            case "小猪爆竹":{
+//                                if (!ConfInfo.pig_boom.containsKey(uname)) {
+//                                    System.out.println("整合小猪爆竹" + uname);
+//                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+//                                    new GiftIntegration_Thr().start(uname, giftName);
+//                                    ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,giftNum));
+//                                }
+//                                System.out.println("整合小猪爆竹" + uname);
+//                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合小猪爆竹" + uname + "\n", "TerBiliLive Out");
+//                                ConfInfo.integrated.get(uname+giftName).setTimestamp(timestamp);
+//                                ConfInfo.integrated.get(uname+giftName).setGiftNum(ConfInfo.integrated.get(uname+giftName).getGiftNum()+giftNum);
+////                                ConfInfo.pig_boom.put(uname, ConfInfo.pig_boom.get(uname) + giftNum);
+////                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+////                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+////                                putDM="";
+//                                break;
+//                            }
+//                            default:{
+//                                putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
+//                                ConfInfo.SEND_GIFT = uname + giftName + giftNum;
+//                                DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+//                                if (ConfInfo.Thank.equals("ok"))
+//                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName + "*" + giftNum + " 喵~");
+//                                System.out.println(putDM);
+//                                LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+//                                break;
+//                            }
+//                        }
 
 //
 //                        if (giftName.equals("辣条")) {

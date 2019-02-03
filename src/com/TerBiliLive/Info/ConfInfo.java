@@ -61,6 +61,7 @@ public class ConfInfo {
     public static SendAdvertising_Thr sendAdvertising_thr =null;
     public static Map<String,Integer> lt_lt = new HashMap();
     public static Map<String,Integer> pig_boom = new HashMap();
+    public static Map<String,Presents> integrated = new HashMap();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
