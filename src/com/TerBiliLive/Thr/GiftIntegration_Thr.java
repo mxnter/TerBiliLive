@@ -57,7 +57,18 @@ public class GiftIntegration_Thr extends Thread {
         }
 
         System.out.println(ConfInfo.integrated.get(uname+giftName));//查看礼物整合的数据
-        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
+        if (ConfInfo.Thank.equals("ok")){
+            if(ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.isSelected()){
+                if(giftName.equals("辣条")){
+                    System.out.println("_______________________忽略辣条感谢_____________________________");
+                }else{
+                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
+                }
+            }else{
+                new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
+            }
+
+        }
             putDM="整合礼物 ：" + TimeUtil.timeStamp2Date(ConfInfo.integrated.get(uname+giftName).getTimestamp(), null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + ConfInfo.integrated.get(uname+giftName).getGiftNum();
             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
             ConfInfo.integrated.remove(uname+giftName);

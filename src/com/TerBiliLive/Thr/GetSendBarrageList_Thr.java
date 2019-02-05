@@ -45,11 +45,11 @@ public class GetSendBarrageList_Thr extends Thread {
             }
 
             ConfInfo.ChargeBarrageList.remove(0);
-            try {
-                sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                sleep(200);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 
 
 

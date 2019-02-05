@@ -34,6 +34,7 @@ public class TerBiliLive_Control_Ui {
     public static JCheckBox Reply_MasterRadioGift = new JCheckBox("广播后开启老爷");
     public static JCheckBox Reply_Guard = new JCheckBox("舰长");
     public static JCheckBox Reply_30 = new JCheckBox("-30-");
+    public static JCheckBox Reply_NeglectSpicy = new JCheckBox("忽略辣条");
 
 //    public static JCheckBox Reply_XXX = new JCheckBox("禁用任何弹幕发送");
 
@@ -121,6 +122,7 @@ public class TerBiliLive_Control_Ui {
         Control_Ui_Tz_Jpanel.add(Reply_Master);
         Control_Ui_Tz_Jpanel.add(Reply_Guard);
         Control_Ui_Tz_Jpanel.add(Reply_30);
+        Control_Ui_Tz_Jpanel.add(Reply_NeglectSpicy);
 
 //        Control_Ui_Tz_Jpanel.add( Reply_XXX);
 //        Control_Ui_Tz_Jpanel.add(Reply_MasterRadioGift);

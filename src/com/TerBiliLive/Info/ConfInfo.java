@@ -74,7 +74,8 @@ public class ConfInfo {
 
     public static ParsePutBarrageUtil PPutBUtil = new ParsePutBarrageUtil(); // 解析弹幕类型显示不同颜色
     public static ColorUtil colorUtil = new ColorUtil(); // 解析弹幕类型显示不同颜色
-    public static StyledDocument docs = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getStyledDocument();
+    public static Document docs = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument();
+    public static StyledDocument docsS = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getStyledDocument();
     public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
 }

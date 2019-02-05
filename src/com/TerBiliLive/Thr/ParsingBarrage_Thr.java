@@ -170,6 +170,16 @@ public class ParsingBarrage_Thr extends Thread {
                                         new HFJ_Fun("开启30 成功");
                                         break;
                                     }
+                                    case "# 忽略辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(false);
+                                        new HFJ_Fun("忽略辣条 成功");
+                                        break;
+                                    }
+                                    case "# 感谢辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(true);
+                                        new HFJ_Fun("感谢辣条 成功");
+                                        break;
+                                    }
                                     case "# 开启舰长": {
                                         ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(true);
                                         new HFJ_Fun("开启舰长 成功");

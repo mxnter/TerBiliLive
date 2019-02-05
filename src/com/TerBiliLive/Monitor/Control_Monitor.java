@@ -9,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.*;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
@@ -44,6 +45,7 @@ public class Control_Monitor {
                     ConfInfo.Thank="no";
                     ConfInfo.control_fun.Connect();
                     ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
+                    ConfInfo.SendBarrageList = new ArrayList<String>();
                     ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
 
                 }
@@ -63,6 +65,7 @@ public class Control_Monitor {
                 ConfInfo.Thank="no";
                 ConfInfo.control_fun.Disconnect();
                 ConfInfo.getLiveRoomUserInfo =null;
+                ConfInfo.SendBarrageList =null;
                 ConfInfo.terBiliLive_adv_ui.GG_Ui_Suspend.doClick();
 
             }

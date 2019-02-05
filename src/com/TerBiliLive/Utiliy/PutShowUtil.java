@@ -18,13 +18,14 @@ public class PutShowUtil {
         SimpleAttributeSet attrset = new SimpleAttributeSet();
         StyleConstants.setFontSize(attrset,12);
         StyleConstants.setForeground(attrset, ColorDM);
-        Document docs = ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument();//获得文本对象
+//        ConfInfo.docs
+//        Document docs = ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument();//获得文本对象
         try {
-            docs.insertString(docs.getLength(), putDM+"\n", attrset);//对文本进行追加
+            ConfInfo.docs.insertString(ConfInfo.docs.getLength(), putDM+"\n", attrset);//对文本进行追加
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
-        ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.setCaretPosition(ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument().getLength());
+        ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.setCaretPosition(ConfInfo.docs.getLength());
 //        ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.append(putDM+"\r\n");
     }
 
