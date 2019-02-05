@@ -36,6 +36,10 @@ public class GetSendBarrageList_Thr extends Thread {
 //            System.out.println(ConfInfo.ChargeBarrageList.get(0).substring(0,2));
             if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("礼物")){ //为了区分礼物和弹幕的颜色
                 ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("944ef3"));
+            }else if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("提示")){ //为了区分礼物和弹幕的颜色
+                ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ff00"));
+            }else if(ConfInfo.ChargeBarrageList.get(0).substring(0,4).equals("整合礼物")){ //为了区分礼物和弹幕的颜色
+                ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ffff"));
             }else{
                 ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), Color.BLACK);
             }

@@ -7,10 +7,7 @@ import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.TerBiliLive.SendPost;
-import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
-import com.TerBiliLive.Thr.SpicyIntegration_Thr;
-import com.TerBiliLive.Thr.ParsingBarrage_Thr;
-import com.TerBiliLive.Thr.SendAdvertising_Thr;
+import com.TerBiliLive.Thr.*;
 import com.TerBiliLive.Ui.*;
 import com.TerBiliLive.Utiliy.*;
 
@@ -57,6 +54,7 @@ public class ConfInfo {
 
 
     public static GetSendBarrageList_Thr GBT;
+    public static SendBarrage_Thr SBLT = new SendBarrage_Thr();
     public static ParsingBarrage_Thr PBT;
     public static SendAdvertising_Thr sendAdvertising_thr =null;
     public static Map<String,Integer> lt_lt = new HashMap();

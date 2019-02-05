@@ -3,6 +3,7 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utiliy.DmLogUtil;
+import com.TerBiliLive.Utiliy.LogUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
 import com.alibaba.fastjson.JSONObject;
 
@@ -21,9 +22,9 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class GiftIntegration_Thr extends Thread {
 
-    String uname;
-    String giftName;
-    String putDM;
+    String uname = null;
+    String giftName = null;
+    String putDM = null;
     public void start(String uname,String giftName){
         this.uname = uname;
         this.giftName = giftName;
@@ -33,25 +34,32 @@ public class GiftIntegration_Thr extends Thread {
     @Override
     public void run() {
         super.run();
-        if(giftName.equals("辣条")||giftName.equals("小猪爆竹")){
-            try {
-                sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }else{
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//        if(giftName.equals("辣条")||giftName.equals("小猪爆竹")){
+//            try {
+//                sleep(5000);
+//            } catch (InterruptedException e) {
+//                LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+//                e.printStackTrace();
+//            }
+//        }else{
+//            try {
+//                sleep(1000);
+//            } catch (InterruptedException e) {
+//                LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+//                e.printStackTrace();
+//            }
+//        }
+        try {
+            sleep(5000);
+        } catch (InterruptedException e) {
+            LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+            e.printStackTrace();
         }
 
-System.out.print(ConfInfo.integrated.get(uname+giftName));
+        System.out.println(ConfInfo.integrated.get(uname+giftName));//查看礼物整合的数据
         if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
-            putDM="礼物 ：" + TimeUtil.timeStamp2Date(ConfInfo.integrated.get(uname+giftName).getTimestamp(), null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + ConfInfo.integrated.get(uname+giftName).getGiftNum();
-
-        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
+            putDM="整合礼物 ：" + TimeUtil.timeStamp2Date(ConfInfo.integrated.get(uname+giftName).getTimestamp(), null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + ConfInfo.integrated.get(uname+giftName).getGiftNum();
+            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
             ConfInfo.integrated.remove(uname+giftName);
 
 
@@ -62,6 +70,9 @@ System.out.print(ConfInfo.integrated.get(uname+giftName));
             }
         }
 
+        if (!isInterrupted()) {
+            interrupt();
+        }
 
 
     }

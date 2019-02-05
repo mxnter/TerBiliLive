@@ -18,76 +18,82 @@ import static com.TerBiliLive.Utiliy.TimeUtil.*;
  * @作用 在list内读取弹幕信息 并执行发送 获取回收值
  */
 
-public class SendBarrage_Thr extends Thread{
+public class SendBarrage_Thr extends Thread {
 
     @Override
     public void run() {
         super.run();
 
-        for(String msg : ConfInfo.SendBarrageList){
 
+        while (true) {
 
-            if(msg.equals(ConfInfo.Upper_barrage)) {
-                System.out.println("弹幕重复 - 判断时间");
-                if(TimeUtil.timeStamplong()-ConfInfo.Upper_barrage_time<6){
+            if (!ConfInfo.SendBarrageList.isEmpty() && !ConfInfo.SendBarrageList.get(0).equals("")) {
+                String msg = ConfInfo.SendBarrageList.get(0);
+                if (msg.equals(ConfInfo.Upper_barrage)) {
+                    System.out.println("弹幕重复 - 判断时间");
+                    if (TimeUtil.timeStamplong() - ConfInfo.Upper_barrage_time < 6) {
 //                    ConfInfo.Upper_barrage_time =TimeUtil.timeStamplong();
-                    System.out.println("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
-                    ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
-                    continue;
+                        System.out.println("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                        ConfInfo.SendBarrageList.remove(0);
+                        continue;
+                    }
+
+                }
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
-            }
-            try {
-                sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            String roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
-            if(ConfInfo.sendBarrage==null)ConfInfo.sendBarrage=new SendBarrage();
-            ConfInfo.liveRoom=new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
-            String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
-            ConfInfo.Upper_barrage =msg;
-            ConfInfo.Upper_barrage_time= TimeUtil.timeStamplong();
+                String roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
+                if (ConfInfo.sendBarrage == null) ConfInfo.sendBarrage = new SendBarrage();
+                ConfInfo.liveRoom = new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
+                //TODO 测试接收礼物后回复的弹幕
+//                String RTData = "{\"msg\":\"\",\"code\":0,\"data\":[],\"message\":\"\"}";
+                LogUtil.putLog(getFormatDay(), getFormatHour(), msg.toString() + "\n", " DM Log", "DM");
+                String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                ConfInfo.SendBarrageList.remove(0);
+                ConfInfo.Upper_barrage = msg;
+                ConfInfo.Upper_barrage_time = TimeUtil.timeStamplong();
 
 
+                try {
+                    JSONObject jsonObject = new JSONObject(RTData);
 
+                    System.out.println(jsonObject);
+                    switch (jsonObject.getString("code")) {
 
-            try {
-                JSONObject jsonObject = new JSONObject(RTData);
-
-                System.out.println(jsonObject);
-                switch (jsonObject.getString("code")) {
-
-                    case "0":
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送成功：OK"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() +"\t< -OK- "+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                        if(jsonObject.getString("msg").equals("msg repeat"))ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("弹幕重复");
-                        break;
-                    case "-101":
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() +"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+ ">"+"\t 返回值：" + CodingUtil.ascii2native(RTData)  +"\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                        break;
-                    case "-500":
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+  ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" +CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                        break;
-                    case "-400":
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                        break;
+                        case "0":
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送成功：OK" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t< -OK- " + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            if (jsonObject.getString("msg").equals("msg repeat"))
+                                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("弹幕重复");
+                            break;
+                        case "-101":
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            break;
+                        case "-500":
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            break;
+                        case "-400":
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            break;
                         case "1003": // 禁言返回值
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("已被禁言 ："+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[已被禁言]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText()+"\t<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                        String ms="禁言 ："+getFormat()+" - "+jsonObject.getString("message");//提示信息
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("已被禁言 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[已被禁言]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            String ms = "禁言 ：" + getFormat() + " - " + jsonObject.getString("message");//提示信息
                             ConfInfo.putShowUtil.PutDMUtil(ms, ColorUtil.toColorFromString("ea9336"));
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms,Control_UiT_RoomId.getText());//输出到弹幕日志
-                        ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick(); // 被禁言 关闭感谢
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms, Control_UiT_RoomId.getText());//输出到弹幕日志
+                            ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick(); // 被禁言 关闭感谢
                             //TODO 暂时只关闭 感谢
 //                            ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); // 关闭 聊天
 //                            ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);// 关闭 回应游客
@@ -98,30 +104,41 @@ public class SendBarrage_Thr extends Thread{
 //                            ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);// 关闭 广播后开启老爷
 //                            ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);// 关闭 舰长
                             ConfInfo.dingtalkUtil.bannedNotice(jsonObject.getString("msg")); // 通知禁言
-                        break;
-                    default:
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+msg);
-                        LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            break;
+                        default:
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("未知错误，" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
 
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiB_Send.setEnabled(true);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(true);
+                ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.grabFocus();
+
+
+            } else {
+                synchronized (ConfInfo.SBLT) {
+                    try {
+                        ConfInfo.SBLT.wait();
+//                        ConfInfo.GetSendBarrageList_Thr_Size=false;
+                        System.out.println("-----------------------发送弹幕　　进入休眠-----------------------");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-
-            try {
-                sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
         }
-
-        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiB_Send.setEnabled(true);
-        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(true);
-        ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.grabFocus();
-        ConfInfo.SendBarrageList.clear();
-
     }
+
 }

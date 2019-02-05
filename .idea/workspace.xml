@@ -6,18 +6,25 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="版本号&#10;Update 弹幕显示颜色">
+    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="V.Beta06[D.Beta08-0205]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写发送弹幕 线程 - 由于线程会重复发送(不稳定版)">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDImg/dmj.png" beforeDir="false" afterPath="$PROJECT_DIR$/MDImg/dmj.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/TerBiliLive.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Thr/SendBarrage_Thr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Thr/SendBarrage_Thr.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Ui.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/DingtalkUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/DingtalkUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Cookie.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Cookie.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Data.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Data.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/RoomId.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/RoomId.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Second.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Second.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Text.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Text.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/xData.terda" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/xData.terda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Info/ConfInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Info/ConfInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Thr/GetSendBarrageList_Thr.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Thr/GetSendBarrageList_Thr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,37 +53,41 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Ui.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="39" column="161" selection-start-line="39" selection-start-column="161" selection-end-line="39" selection-end-column="161" />
+            <state relative-caret-position="295">
+              <caret line="342" column="34" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state relative-caret-position="469">
+              <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Control_Ui.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="27" selection-start-line="27" selection-end-line="36" />
+            <state relative-caret-position="233">
+              <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+              <folding>
+                <element signature="e#3231#3239#0" expanded="true" />
+                <element signature="e#3385#3393#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+            <state relative-caret-position="250">
+              <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -85,8 +96,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="279">
-                <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+              <first_editor relative-caret-position="263">
+                <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
               </first_editor>
               <second_editor />
             </state>
@@ -94,40 +105,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ParsePutBarrageUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendAdvertising_Thr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="189">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="55" column="51" lean-forward="true" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2411#8005#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/PutShowUtil.java">
+        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+            <state relative-caret-position="815">
+              <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Thread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1197">
-              <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DmLogUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="233">
+              <caret line="1002" column="32" selection-start-line="1002" selection-start-column="32" selection-end-line="1002" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -143,23 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>摩天大楼</find>
-      <find>COMBO_END</find>
-      <find>putTZ</find>
-      <find>SendBarrageList</find>
-      <find>msg</find>
-      <find>ConfInfo.GBT</find>
-      <find>SpicyIntegration_Thr</find>
-      <find>ROOM_ADMINS</find>
-      <find>gettext</find>
-      <find>保存</find>
-      <find>System</find>
-      <find>System.out.print</find>
-      <find>SendBarrage</find>
-      <find>sleep</find>
-      <find>关闭感谢</find>
-      <find>Control_UiB_ClaseThinks</find>
-      <find>DiskUtil</find>
       <find>Reply_chat</find>
       <find>doJsonPost</find>
       <find>hy</find>
@@ -167,12 +170,29 @@
       <find>logo.jpg</find>
       <find>ConfInfo.putShowUtil.PutDMUtil</find>
       <find>ChargeBarrageList</find>
-      <find>系统</find>
       <find>Color.RED</find>
       <find>启动</find>
       <find>开启感谢</find>
       <find>Color.GREEN</find>
       <find>断开</find>
+      <find>ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text</find>
+      <find>ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument();</find>
+      <find>JTextComponent</find>
+      <find>terBiliLive_chargeBarrage_ui.DMJ_UiT_Text</find>
+      <find>系统</find>
+      <find>已被禁言</find>
+      <find>通知</find>
+      <find>DmLogUtil</find>
+      <find>Dm</find>
+      <find>$</find>
+      <find>提督</find>
+      <find>弹幕 ：</find>
+      <find>0204</find>
+      <find>silent</find>
+      <find>0205</find>
+      <find>try</find>
+      <find>进入动画</find>
+      <find>错误的数据</find>
     </findStrings>
     <replaceStrings>
       <replace>TerBiliLive</replace>
@@ -181,6 +201,7 @@
       <replace>Color.RED</replace>
       <replace>Color.GREEN</replace>
       <replace>Color.DARK_GRAY</replace>
+      <replace>ConfInfo.docs</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -189,16 +210,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/GetLiveRoomUserInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Function/GG_Fun.java" />
-        <option value="$PROJECT_DIR$/Ter/log/2018-09-16TerBiliLive Log.terlog" />
-        <option value="$PROJECT_DIR$/Ter/data/Cookie.terda" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/DMJ_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Img/ImageBroker.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/FileUtil.java" />
         <option value="$PROJECT_DIR$/Ter/data/Data.terda" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/TimeUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/XmlUtil.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DiskUtils.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/MacUtil.java" />
@@ -215,30 +231,35 @@
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/TulingUtil.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/LT_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_DMJ_Ui.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Main.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Function/Control_Fun.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Hi_Ui.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Control_Ui.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendAdvertising_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SpicyIntegration_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Adv_Ui.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendPost.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendBarrage.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/JsonUtil.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DingtalkUtil.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Ui.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Monitor/Control_Monitor.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Control_Ui.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/PutShowUtil.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ParsePutBarrageUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Monitor/Control_Monitor.java" />
-        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/LogUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ColorUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Info/Presents.java" />
         <option value="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" />
+        <option value="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -250,7 +271,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
+    <option name="x" value="731" />
+    <option name="y" value="-14" />
     <option name="width" value="854" />
     <option name="height" value="1017" />
   </component>
@@ -259,6 +281,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -293,6 +317,23 @@
               <item name="out" type="462c0819:PsiDirectoryNode" />
               <item name="artifacts" type="462c0819:PsiDirectoryNode" />
               <item name="TerBiliLive_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TerBiliLive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TerBiliLive" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="TerBiliLive_jar" type="462c0819:PsiDirectoryNode" />
+              <item name="Ter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TerBiliLive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TerBiliLive" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="TerBiliLive_jar" type="462c0819:PsiDirectoryNode" />
+              <item name="Ter" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TerBiliLive" type="b2602c69:ProjectViewProjectNode" />
@@ -379,12 +420,22 @@
               <item name="Ter" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TerBiliLive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TerBiliLive" type="462c0819:PsiDirectoryNode" />
+              <item name="Ter" type="462c0819:PsiDirectoryNode" />
+              <item name="Dm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TerBiliLive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TerBiliLive" type="462c0819:PsiDirectoryNode" />
+              <item name="Ter" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -395,15 +446,16 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../JavaWeb/EnvProtecReceive" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.TerBiliLive" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Learn\TerBiliLive\lib" />
+      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Learn\GitHub\TerBiliLive\MDImg" />
@@ -413,12 +465,12 @@
       <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.TerBiliLive.Thr" />
       <recent name="com.TerBiliLive.Ui" />
       <recent name="com.TerBiliLive.Utiliy" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Learn\TerBiliLive\lib" />
-      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.TerBiliLive" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -576,7 +628,11 @@
       <workItem from="1548659023733" duration="343000" />
       <workItem from="1548752066284" duration="24000" />
       <workItem from="1548753131462" duration="926000" />
-      <workItem from="1548901832042" duration="7617000" />
+      <workItem from="1548901832042" duration="11755000" />
+      <workItem from="1549159862927" duration="1000" />
+      <workItem from="1549159871507" duration="28778000" />
+      <workItem from="1549264923037" duration="91000" />
+      <workItem from="1549337007890" duration="8790000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -613,11 +669,67 @@
       <option name="project" value="LOCAL" />
       <updated>1548916480153</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="更新 简介">
+      <created>1548917044726</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1548917044726</updated>
+    </task>
+    <task id="LOCAL-00007" summary="获取Cookie方法已更新在README.md&#10;closed #1">
+      <created>1548919185867</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1548919185867</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix #1">
+      <created>1548919357099</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548919357099</updated>
+    </task>
+    <task id="LOCAL-00009" summary="发布 Beta 06 版本">
+      <created>1548923967775</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1548923967775</updated>
+    </task>
+    <task id="LOCAL-00010" summary="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知">
+      <created>1549180535294</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1549180535294</updated>
+    </task>
+    <task id="LOCAL-00011" summary="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知">
+      <created>1549180591744</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1549180591744</updated>
+    </task>
+    <task id="LOCAL-00012" summary="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知">
+      <created>1549180764939</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1549180764939</updated>
+    </task>
+    <task id="LOCAL-00013" summary="V.Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写整合礼物 全部整合(不稳定版)">
+      <created>1549193086961</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1549193086961</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="382526000" />
+    <option name="totallyTimeSpent" value="424324000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -629,10 +741,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24633251" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18070363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -643,7 +755,7 @@
       <window_info id="设计器" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28923768" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.30911064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -652,11 +764,11 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32899022" />
       <window_info anchor="bottom" id="运行" order="9" weight="0.32388222" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.18721972" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.18655097" />
       <window_info anchor="bottom" id="找到" order="12" weight="0.34460196" />
       <window_info anchor="bottom" id="调试" order="13" weight="0.32790446" />
       <window_info anchor="bottom" id="消息" order="14" weight="0.22682661" />
-      <window_info anchor="bottom" id="Messages" order="15" weight="0.32847533" />
+      <window_info anchor="bottom" id="Messages" order="15" weight="0.3275488" />
       <window_info anchor="bottom" id="Docker" order="16" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4992272" weight="0.25" />
@@ -736,97 +848,89 @@
     <MESSAGE value="更新房间禁言关掉全部发送消息 并且钉钉群提示" />
     <MESSAGE value="清理无用文件" />
     <MESSAGE value="版本号 Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03]&#10;Update 弹幕显示颜色" />
-    <option name="LAST_COMMIT_MESSAGE" value="版本号 Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03]&#10;Update 弹幕显示颜色" />
+    <MESSAGE value="更新 简介" />
+    <MESSAGE value="获取Cookie方法已更新在README.md&#10;closed #1" />
+    <MESSAGE value="fix #1" />
+    <MESSAGE value="发布 Beta 06 版本" />
+    <MESSAGE value="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知" />
+    <MESSAGE value="V.Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写整合礼物 全部整合(不稳定版)" />
+    <option name="LAST_COMMIT_MESSAGE" value="V.Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写整合礼物 全部整合(不稳定版)" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/getSubString.java">
+    <entry file="file://$PROJECT_DIR$/MDImg/dmj.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="551">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendGet.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/TimeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="208">
+          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/event/DocumentListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="15" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+        <state relative-caret-position="488">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/Document.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="328" column="16" selection-start-line="328" selection-start-column="16" selection-end-line="328" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/JTextComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="1628" selection-start-line="1628" selection-end-line="1628" />
+          <folding>
+            <element signature="e#17545#17546#0" expanded="true" />
+            <element signature="e#17573#17574#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/StyleConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="559" column="23" selection-start-line="559" selection-start-column="23" selection-end-line="559" selection-end-column="23" />
+          <folding>
+            <element signature="e#10600#10601#0" expanded="true" />
+            <element signature="e#10660#10661#0" expanded="true" />
+            <element signature="e#15263#15264#0" expanded="true" />
+            <element signature="e#15309#15310#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/awt/Color.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="64" column="30" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/JsonUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/FileUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="76" column="14" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/XmlUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        <state relative-caret-position="516">
+          <caret line="412" column="11" selection-start-line="412" selection-start-column="11" selection-end-line="412" selection-end-column="11" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#11984#11985#0" expanded="true" />
+            <element signature="e#12024#12025#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/CodingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2109">
-          <caret line="115" column="6" lean-forward="true" selection-start-line="115" selection-start-column="6" selection-end-line="115" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendBarrage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="53" column="9" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Monitor/HFJ_Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Monitor/GG_Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -837,196 +941,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Adv_Ui.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/CodingUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DingtalkUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendPost.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="142" column="37" selection-start-line="142" selection-start-column="37" selection-end-line="142" selection-end-column="37" />
-          <folding>
-            <element signature="e#2810#2811#0" expanded="true" />
-            <element signature="e#2853#2854#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1976">
-          <caret line="99" column="28" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MDImg/dl.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/Data.terda">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret column="531" selection-start-column="531" selection-end-column="531" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/RoomId.terda">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/Second.terda">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/Text.terda">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/xData.terda">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ter/data/Cookie.terda">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret column="661" selection-start-column="661" selection-end-column="661" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/aini.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/ganbei.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/logo.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/hy.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/ImageBroker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/hya.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Img/miao.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/StyleConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="48" column="13" selection-start-line="48" selection-start-column="13" selection-end-line="48" selection-end-column="13" />
-          <folding>
-            <element signature="e#10600#10601#0" expanded="true" />
-            <element signature="e#10660#10661#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="53" column="33" lean-forward="true" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="35" column="52" lean-forward="true" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Monitor/Control_Monitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14179">
-          <caret line="42" column="62" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
-          <folding>
-            <element signature="e#6235#6582#1" />
-            <element signature="e#6630#6870#1" />
-            <element signature="e#6918#7159#1" />
-            <element signature="e#7207#7442#1" />
-            <element signature="e#7490#7724#1" />
-            <element signature="e#7772#8009#1" />
-            <element signature="e#8057#8295#1" />
-            <element signature="e#8343#8584#1" />
-            <element signature="e#8632#8874#1" />
-            <element signature="e#8922#9165#1" />
-            <element signature="e#9213#9457#1" />
-            <element signature="e#9505#9741#1" />
-            <element signature="e#9789#10026#1" />
-            <element signature="e#10074#10419#1" />
-            <element signature="e#10467#10707#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Data/ConfData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-271">
+        <state relative-caret-position="38">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="53" column="53" lean-forward="true" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <element signature="e#3379#3387#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="19">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/Document.java">
+    <entry file="file://$PROJECT_DIR$/Ter/log/silent/2019-02-03ROOM_BLOCK_MSG Log.terlog" />
+    <entry file="file://$PROJECT_DIR$/Ter/log/silent/2019-02-03ROOM_SILENT_OFF Log.terlog" />
+    <entry file="file://$PROJECT_DIR$/Ter/log/silent/2019-02-03BLOCK_MSG Log.terlog" />
+    <entry file="file://$PROJECT_DIR$/Ter/log/silent/2019-02-03SILENT_ON Log.terlog" />
+    <entry file="file://$PROJECT_DIR$/Ter/Dm/[9938182]2019-01-31.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ter/log/2019-02-03封号 Log.terlog">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ColorUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="183" column="17" selection-start-line="183" selection-start-column="17" selection-end-line="183" selection-end-column="17" />
+        <state relative-caret-position="350">
+          <caret line="37" column="43" lean-forward="true" selection-start-line="37" selection-start-column="43" selection-end-line="37" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/javax/swing/text/JTextComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/PutShowUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#17545#17546#0" expanded="true" />
-            <element signature="e#17573#17574#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="141">
+          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ParsePutBarrageUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Ui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="319">
+          <caret line="177" column="8" lean-forward="true" selection-start-line="177" selection-start-column="8" selection-end-line="177" selection-end-column="151" />
         </state>
       </provider>
     </entry>
@@ -1037,56 +993,226 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/PutShowUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="72">
+          <caret line="23" column="38" lean-forward="true" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java">
+    <entry file="file://$PROJECT_DIR$/Ter/Dm/[9938182]2019-02-03.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1197">
-          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+        <state relative-caret-position="160">
+          <caret line="361" column="69" lean-forward="true" selection-start-line="361" selection-start-column="69" selection-end-line="361" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Ui.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/LogUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="39" column="161" selection-start-line="39" selection-start-column="161" selection-end-line="39" selection-end-column="161" />
+        <state relative-caret-position="57">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.java">
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/SendBarrage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state relative-caret-position="209">
+          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/ParsePutBarrageUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="15" column="3" lean-forward="true" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Data/ConfData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Control_Ui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="27" selection-start-line="27" selection-end-line="36" />
+        <state relative-caret-position="399">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/Presents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#641#642#0" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/getSubString.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2019-02-04TerBiliLive Out.terlog">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-4883">
+          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2019-02-05TerBiliLive Out.terlog">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34748" column="20" lean-forward="true" selection-start-line="34748" selection-start-column="20" selection-end-line="34748" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SpicyIntegration_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetRoomInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="492" column="9" selection-start-line="492" selection-start-column="9" selection-end-line="492" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Function/Control_Fun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+          <folding>
+            <element signature="e#3231#3239#0" expanded="true" />
+            <element signature="e#3385#3393#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_171/src.zip!/java/lang/Thread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="1002" column="32" selection-start-line="1002" selection-start-column="32" selection-end-line="1002" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendAdvertising_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="137" column="33" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="60" column="54" selection-start-line="60" selection-start-column="54" selection-end-line="60" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="342" column="34" selection-start-line="342" selection-start-column="34" selection-end-line="342" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="13" column="43" lean-forward="true" selection-start-line="13" selection-start-column="43" selection-end-line="13" selection-end-column="43" />
+        <state relative-caret-position="114">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MDImg/dmj.png">
-      <provider selected="true" editor-type-id="images" />
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="815">
+          <caret line="123" column="1" selection-start-line="123" selection-start-column="1" selection-end-line="123" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ter/log/DM/2019-02-05 DM Log.terlog">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="55" column="51" lean-forward="true" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <folding>
+            <element signature="e#2411#8005#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="279">
-            <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+          <first_editor relative-caret-position="263">
+            <caret line="72" lean-forward="true" selection-start-line="72" selection-end-line="72" />
           </first_editor>
           <second_editor />
         </state>
@@ -1152,6 +1278,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

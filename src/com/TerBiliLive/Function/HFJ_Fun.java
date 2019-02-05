@@ -18,6 +18,7 @@ public class HFJ_Fun {
 
     public HFJ_Fun(String msg){
 
+        if(!ConfInfo.SBLT.isAlive()) ConfInfo.SBLT.start();//线程死亡启动线程
        // HFJ.HFJ_UiT_RoomId.setText(C.Control_UiT_RoomId.getText());
        // HFJ.HFJ_UiT_Cookie.setText(C.Control_UiT_Cookie.getText());
 
@@ -98,8 +99,10 @@ public class HFJ_Fun {
             }
             ConfInfo.SendBarrageList.add(msg);
         }
-        new SendBarrage_Thr().start();
 
+        synchronized (ConfInfo.SBLT) {
+            ConfInfo.SBLT.notify();
+        }
 
 
 
