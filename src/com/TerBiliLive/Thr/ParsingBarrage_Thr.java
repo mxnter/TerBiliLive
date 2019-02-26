@@ -171,12 +171,12 @@ public class ParsingBarrage_Thr extends Thread {
                                         break;
                                     }
                                     case "# 忽略辣条": {
-                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(true);
                                         new HFJ_Fun("忽略辣条 成功");
                                         break;
                                     }
                                     case "# 感谢辣条": {
-                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(true);
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(false);
                                         new HFJ_Fun("感谢辣条 成功");
                                         break;
                                     }
@@ -229,6 +229,68 @@ public class ParsingBarrage_Thr extends Thread {
                                     case "# 关闭回应": {
                                         ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);
                                         new HFJ_Fun("关闭回应 成功");
+                                        break;
+                                    }
+                                    case "Ter感谢": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_OpenThinks.doClick();
+                                        new HFJ_Fun("大家多多送礼物哦，我会感谢的呦！");
+                                        break;
+                                    }
+                                    case "Ter停止": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();
+                                        new HFJ_Fun("不感谢了？那我去休息一下了哦");
+                                        break;
+                                    }
+                                    case "Ter闭嘴": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();
+                                        ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);
+                                        new HFJ_Fun("那好吧，人家不说话就是了（￣へ￣）");
+                                        break;
+                                    }
+                                    case "Ter忽略辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(true);
+                                        new HFJ_Fun("辣条太多了忙不过来了，先忽略了呦！");
+                                        break;
+                                    }
+                                    case "Ter感谢辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(false);
+                                        new HFJ_Fun("收到指令，我开启了感谢辣条哦");
+                                        break;
+                                    }
+                                    case "ter感谢": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_OpenThinks.doClick();
+                                        new HFJ_Fun("大家多多送礼物哦，我会感谢的呦！");
+                                        break;
+                                    }
+                                    case "ter停止": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();
+                                        new HFJ_Fun("不感谢了？那我去休息一下了哦");
+                                        break;
+                                    }
+                                    case "ter闭嘴": {
+                                        ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();
+                                        ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
+                                        ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);
+                                        new HFJ_Fun("那好吧，人家不说话就是了（￣へ￣）");
+                                        break;
+                                    }
+                                    case "ter忽略辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(true);
+                                        new HFJ_Fun("辣条太多了忙不过来了，先忽略了呦！");
+                                        break;
+                                    }
+                                    case "ter感谢辣条": {
+                                        ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.setSelected(false);
+                                        new HFJ_Fun("收到指令，我开启了感谢辣条哦");
                                         break;
                                     }
 
@@ -365,12 +427,12 @@ public class ParsingBarrage_Thr extends Thread {
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                             if (ConfInfo.Thank.equals("ok"))
-                                new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~");
+                                new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
                             System.out.println(putDM);
                             LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
                             break;
                         }
-                        case "COMBO_END": {
+                        case "COMBO_END": {//连击礼物
                             JSONObject giftData = object.getJSONObject("data");
                             String gift_name = giftData.getString("gift_name");
                             String gift_id = giftData.getString("gift_id");
@@ -409,7 +471,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 putDM = "礼物 ：" + TimeUtil.timeStamp2Date(end_time, null) + " $ " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
                                 DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                                 if (ConfInfo.Thank.equals("ok"))
-                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*[" + combo_num + "连击]  喵~");
+//                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*[" + combo_num + "连击]  喵~"); //多次感谢暂时关闭
                                 System.out.println(putDM);
                             } else {
                                 System.out.println("连送礼物结束" + ConfInfo.SEND_GIFT);
@@ -439,7 +501,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     break;
                                 }
                                 case "end": {
-                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + giftid + "送的 节奏风暴 喵~");
+                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + giftid + "送的 节奏风暴 喵~",1);
                                     LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
                                     ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                     if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
@@ -489,7 +551,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String id = giftData.getString("id");
                             putTZ = "通知 ： ~ " + "小电视 结束 大佬：" + from + " Id:" + id;
                             putDM = "通知 ： ~ " + "小电视 结束 大佬：" + from + " Id:" + id;
-                            if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 小电视 喵~");
+                            if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 小电视 喵~",1);
                             LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                             if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
@@ -548,13 +610,13 @@ public class ParsingBarrage_Thr extends Thread {
                                 case "GIFT_20003": {
                                     putTZ = "通知 ： ~ " + "摩天大楼 结束 大佬：" + from + " Id:" + id;
                                     putDM = "通知 ： ~ " + "摩天大楼 结束 大佬：" + from + " Id:" + id;
-                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 摩天大楼 喵~");
+                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 摩天大楼 喵~",1);
                                     break;
                                 }
                                 case "GIFT_30024": {
                                     putTZ = "通知 ： ~ " + "月色真美 结束 大佬：" + from + " Id:" + id;
                                     putDM = "通知 ： ~ " + "月色真美 结束 大佬：" + from + " Id:" + id;
-                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 月色真美 喵~");
+                                    if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 月色真美 喵~",1);
                                     break;
                                 }
                                 default: {
@@ -660,17 +722,17 @@ public class ParsingBarrage_Thr extends Thread {
                                 case "3":
                                     putDM = "提示 ：" + TimeUtil.timeStamp2Date(start_time, null) + " @ " + "喵~ 感谢新的 " + gift_name + " " + username + "开通特权";
                                     if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())
-                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权");
+                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权",1);
                                     break;
                                 case "2":
                                     putDM = "提示 ：" + TimeUtil.timeStamp2Date(start_time, null) + " @ " + "喵~ 感谢新的 " + gift_name + " " + username + "开通特权";
                                     if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())
-                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权");
+                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权",1);
                                     break;
                                 case "1":
                                     putDM = "提示 ：" + TimeUtil.timeStamp2Date(start_time, null) + " @ " + "喵~ 感谢新的 " + gift_name + " " + username + "开通特权";
                                     if (ConfInfo.terBiliLive_control_ui.Reply_Guard.isSelected())
-                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权");
+                                        new HFJ_Fun("喵~ 感谢新的 " + gift_name + " " + username + "开通特权",1);
                                     break;
                             }
 
@@ -771,7 +833,7 @@ public class ParsingBarrage_Thr extends Thread {
                             putTZ = "通知 ： ~ " + " 出现航海" + " id:" + roomid + "类型：" + buy_typeStr;
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected())
-                                new HFJ_Fun(" 出现航海" + " id:" + roomid + "类型：" + buy_typeStr);
+                                new HFJ_Fun(" 出现航海" + " id:" + roomid + "类型：" + buy_typeStr,1);
                             System.out.println(putTZ);
                             break;
                         }

@@ -6,8 +6,9 @@
 ### Bilibili Live Barrage kyi,Using Java .
 ### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-##### 作者近期加班严重，暂时搁置
+##### 作者近期加班严重，暂时搁置  
 
+##### 告知：软件将记录 开关播时间 房间号 发送到服务器，其他信息均保存在本地，望周知。如有其他问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。
 
 ## 目录
 * [一丶简述](#一丶简述)
@@ -85,8 +86,24 @@
 > 忽略辣条(不稳定版)  
 > 维护回复姬线程 (不稳定版)  
 
+>##### Beta06[D.Beta08-0217]-[H.Beta9-0205]-[G.Beta03] (稳定版)
+> 新增 忽略辣条
+> 修改 部分礼物感谢 2 次
 
 # 四丶帮助
+
+### 弹幕控制
+```
+(#号后需要一个半角空格)
+# 关闭老爷
+# 开启老爷
+# 开启感谢
+# 关闭感谢
+# 忽略辣条
+# 感谢辣条
+# 开启舰长
+# 关闭舰长
+```
 
 ### 获取Cookie
 ![获取Cookie](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/getcookie.png)

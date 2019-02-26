@@ -1,6 +1,7 @@
 package com.TerBiliLive.Function;
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.SendBarrageMap;
 import com.TerBiliLive.Thr.SendBarrage_Thr;
 
 import java.util.HashMap;
@@ -15,8 +16,11 @@ public class HFJ_Fun {
 
     public HFJ_Fun() {
     }
+    public HFJ_Fun(String msg) {
+        new HFJ_Fun(msg,1);
+    }
 
-    public HFJ_Fun(String msg){
+    public HFJ_Fun(String msg,int type){
 
         if(!ConfInfo.SBLT.isAlive()) ConfInfo.SBLT.start();//线程死亡启动线程
        // HFJ.HFJ_UiT_RoomId.setText(C.Control_UiT_RoomId.getText());
@@ -90,14 +94,14 @@ public class HFJ_Fun {
         int ReplyLength=20;
         if (ConfInfo.terBiliLive_control_ui.Reply_30.isSelected())ReplyLength=30;
         if(msg.length()<ReplyLength){
-            ConfInfo.SendBarrageList.add(msg);
+            ConfInfo.SendBarrageList.add(new SendBarrageMap(msg,type));
             System.out.println(msg);}
         else{
             while(msg.length()>ReplyLength){
-                ConfInfo.SendBarrageList.add(msg.substring(0, ReplyLength));
+                ConfInfo.SendBarrageList.add(new SendBarrageMap(msg.substring(0, ReplyLength),type));
                 msg=msg.substring(ReplyLength);
             }
-            ConfInfo.SendBarrageList.add(msg);
+            ConfInfo.SendBarrageList.add(new SendBarrageMap(msg,type));
         }
 
         synchronized (ConfInfo.SBLT) {

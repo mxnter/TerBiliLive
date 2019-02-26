@@ -62,10 +62,10 @@ public class GiftIntegration_Thr extends Thread {
                 if(giftName.equals("辣条")){
                     System.out.println("_______________________忽略辣条感谢_____________________________");
                 }else{
-                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
+                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~",1);
                 }
             }else{
-                new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~");
+                new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~",1);
             }
 
         }

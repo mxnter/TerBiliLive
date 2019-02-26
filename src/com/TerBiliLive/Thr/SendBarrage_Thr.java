@@ -28,7 +28,7 @@ public class SendBarrage_Thr extends Thread {
         while (true) {
 
             if (!ConfInfo.SendBarrageList.isEmpty() && !ConfInfo.SendBarrageList.get(0).equals("")) {
-                String msg = ConfInfo.SendBarrageList.get(0);
+                String msg = ConfInfo.SendBarrageList.get(0).getMsg();
                 if (msg.equals(ConfInfo.Upper_barrage)) {
                     System.out.println("弹幕重复 - 判断时间");
                     if (TimeUtil.timeStamplong() - ConfInfo.Upper_barrage_time < 6) {
@@ -50,9 +50,25 @@ public class SendBarrage_Thr extends Thread {
                 if (ConfInfo.sendBarrage == null) ConfInfo.sendBarrage = new SendBarrage();
                 ConfInfo.liveRoom = new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
                 //TODO 测试接收礼物后回复的弹幕
-//                String RTData = "{\"msg\":\"\",\"code\":0,\"data\":[],\"message\":\"\"}";
+                String RTData = "{\"msg\":\"强制暂停发送\",\"code\":-500,\"data\":[],\"message\":\"强制暂停发送\"}";
                 LogUtil.putLog(getFormatDay(), getFormatHour(), msg.toString() + "\n", " DM Log", "DM");
-                String RTData =ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+//                String RTData;
+                switch (ConfInfo.SendBarrageList.get(0).getType()){
+                    case 1:{
+                        if(ConfInfo.Thank.equals("ok")){
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                        }
+                        break;
+                    }
+                    case 2:{
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                        break;
+                    }
+                    default:{
+                        RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                        break;
+                    }
+                }
                 ConfInfo.SendBarrageList.remove(0);
                 ConfInfo.Upper_barrage = msg;
                 ConfInfo.Upper_barrage_time = TimeUtil.timeStamplong();

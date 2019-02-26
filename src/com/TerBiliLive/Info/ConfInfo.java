@@ -65,7 +65,7 @@ public class ConfInfo {
     private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";
     private final String DEFAULT_COMMENT_HOST = "livecmt-1.bilibili.com";
 
-    public static List<String> SendBarrageList = new ArrayList<String>();
+    public static List<SendBarrageMap> SendBarrageList = new ArrayList<SendBarrageMap>();
     public static List<String> ChargeBarrageList = new ArrayList<String>();
 
     public static List<String> ParsingBarrageList = new ArrayList<String>();

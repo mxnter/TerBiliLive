@@ -2,6 +2,7 @@ package com.TerBiliLive.Monitor;
 
 import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.SendBarrageMap;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.Utiliy.TulingUtil;
 
@@ -45,7 +46,7 @@ public class Control_Monitor {
                     ConfInfo.Thank="no";
                     ConfInfo.control_fun.Connect();
                     ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
-                    ConfInfo.SendBarrageList = new ArrayList<String>();
+                    ConfInfo.SendBarrageList = new ArrayList<SendBarrageMap>();
                     ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
 
                 }

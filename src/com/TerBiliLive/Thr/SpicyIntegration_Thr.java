@@ -34,7 +34,7 @@ public class SpicyIntegration_Thr extends Thread {
             e.printStackTrace();
         }
 
-        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.lt_lt.get(uname) +" 喵~");
+        if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.lt_lt.get(uname) +" 喵~",1);
         ConfInfo.lt_lt.remove(uname);
     }
 
