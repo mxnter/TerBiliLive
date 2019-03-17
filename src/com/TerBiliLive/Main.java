@@ -22,7 +22,7 @@ public class Main {
         FileUtil.createDir("Ter/data/");
         FileUtil.createDir("Ter/log/");
         FileUtil.createDir("Ter/Dm/");
-
+//        ConfInfo.dingtalkUtil.OpenProgram();//统计用户
 
 //        ConfInfo.xmlUtil.readData();
         ConfInfo.jsonUtil.readData();

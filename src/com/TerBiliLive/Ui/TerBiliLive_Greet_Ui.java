@@ -135,6 +135,7 @@ public class TerBiliLive_Greet_Ui extends JFrame {
 
             }else{
                 if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
+                ConfInfo.dingtalkUtil.LogIn();
                 l.setText("登陆成功");
                 TerBiliLive_Ui HFJ = new TerBiliLive_Ui();
                 dispose();

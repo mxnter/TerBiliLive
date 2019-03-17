@@ -29,7 +29,7 @@ public class GetSendBarrageList_Thr extends Thread {
 //          System.out.print("0");
         if(!ConfInfo.ChargeBarrageList.isEmpty()&&!ConfInfo.ChargeBarrageList.get(0).equals("")) {
             try {
-                sleep(200);
+                sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

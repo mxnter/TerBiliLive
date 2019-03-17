@@ -5,11 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * CODE IS POETRY
+ *
+ * @Author ：xnter@outlook.com.
+ * @Date ：Created in 12:19 2019/2/3
+ * @Name ：弹幕输出工具类
+ */
 public class DmLogUtil {
 
 
 
-    // 输出日志 ProjectName 项目名，区分日志
+    // 输出弹幕日志 输出到Ter/Dm/[房间号]日期.txt
     public static void putDmLog(String Day, String Date, String DmLog ,String roomid ) {
         FileWriter fw = null;
         try {

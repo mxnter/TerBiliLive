@@ -55,6 +55,7 @@ public class HFJ_Fun {
 
         if(msg.equals("")){
             msg =ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText();
+            type = 2;
             if(msg.equals("")){
                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("不能发送空的弹幕");
                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(true);

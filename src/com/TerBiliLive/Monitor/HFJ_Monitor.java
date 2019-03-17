@@ -27,7 +27,7 @@ public class HFJ_Monitor implements KeyListener {
 
                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiB_Send.setEnabled(false);
                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setEnabled(false);
-                new HFJ_Fun("");
+                new HFJ_Fun("");//在里面写的获取发送文字
                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.setText("");
 
             }

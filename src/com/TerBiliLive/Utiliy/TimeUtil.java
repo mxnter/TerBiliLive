@@ -2,12 +2,19 @@ package com.TerBiliLive.Utiliy;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * CODE IS POETRY
+ *
+ * @Author ：xnter@outlook.com.
+ * @Date ：Created in 12:19 2019/2/3
+ * @Name ：时间工具类
+ */
 public class TimeUtil {
 	
 	
 	public static String getFormatHour() {
 		Date date = new Date();
-		long times = date.getTime();// ʱ���
+		long times = date.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
 		String dateString = formatter.format(date);
 		return dateString;
@@ -15,14 +22,14 @@ public class TimeUtil {
 
 	public static String getFormatDay() {
 		Date date = new Date();
-		long times = date.getTime();// ʱ���
+		long times = date.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		String dateString = formatter.format(date);
 		return dateString;
 	}
 	public static String getFormat() {
 		Date date = new Date();
-		long times = date.getTime();// ʱ���
+		long times = date.getTime();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String dateString = formatter.format(date);
 		return dateString;
@@ -31,7 +38,7 @@ public class TimeUtil {
 	/**
 	 * 时间戳转换成日期格式字符串
 	 * @param seconds 精确到秒的字符串
-	 * @param formatStr
+	 * @param format
 	 * @return
 	 */
 	public static String timeStamp2Date(String seconds,String format) {
@@ -46,7 +53,7 @@ public class TimeUtil {
 	}
 	/**
 	 * 日期格式字符串转换成时间戳
-	 * @param date 字符串日期
+	 * @param date_str 字符串日期
 	 * @param format 如：yyyy-MM-dd HH:mm:ss
 	 * @return
 	 */
