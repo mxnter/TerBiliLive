@@ -1,5 +1,8 @@
 # TerBiliLive - Beta06  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 06](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
+# 致歉:
+B站更改了获取直播间信息的接口校验，由于作者校验 cookie 使用的是作者直播间，现在导致不关注作者直播间将显示 未检测到网络，请连接网络再试，现在的解决方案是将弹幕姬账号关注 9938182 这个直播间即可使用，由于作者最近需要考试，将在考试结束后尽快修复这个问题，先准备更新一个并不校验 cookie 的版本，请自行判断 cookie 是否有效，再次表示抱歉感谢您的使用。  
+
 
 
 
