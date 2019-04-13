@@ -17,7 +17,7 @@ import java.awt.*;
 public class TerBiliLive_SendBarrage_Ui {
         //extends JPanel implements ActionListener, KeyListener {
 
-    public static String Version = "Beta9-0317";
+    public static String Version = "Beta9-0413";
     public static String Appname = "TerBiliLive SendBarrage";
     public static String ProjectName = "TerBiliLive SendBarrage";
     String pathUrl = "http://live.bilibili.com/msg/send";
@@ -243,12 +243,12 @@ public class TerBiliLive_SendBarrage_Ui {
                 *//*  cookie----->>DedeUserID=  后的值很重要*//*
                 sendPost sp=new sendPost();
                 String RTData = sp.sendPost(url,mapParam,cookie);
-                getSubString gs=new getSubString();
+                GetSubString gs=new GetSubString();
 
 
                 *//*使用JSON 获取返回值中的的信息
- * gs.getSubString(RTData, "\"code\":", ",\"msg\""),  <——老方法获取值
- * CodingUtil.ascii2native(gs.getSubString(RTData, "\"code\":", ",\"msg\""))  <——老方法获取值
+ * gs.GetSubString(RTData, "\"code\":", ",\"msg\""),  <——老方法获取值
+ * CodingUtil.ascii2native(gs.GetSubString(RTData, "\"code\":", ",\"msg\""))  <——老方法获取值
  * JSONObject jsonObject = new JSONObject(RTData);<——新方法获取值
  *  jsonObject.getString("code")<——新方法获取值
  *
@@ -293,18 +293,18 @@ public class TerBiliLive_SendBarrage_Ui {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-//                if (gs.getSubString(RTData, "\"code\":", ",\"msg\"").equals("0")) {
+//                if (gs.GetSubString(RTData, "\"code\":", ",\"msg\"").equals("0")) {
 //
 //
 //
-//                } else  if (gs.getSubString(RTData, "\"code\":", ",\"msg\"").equals("-101")) {
+//                } else  if (gs.GetSubString(RTData, "\"code\":", ",\"msg\"").equals("-101")) {
 //                    HFJ_UiT_Time.setText(getFormatHour());
 //                    HFJ_UiT_State.setText("发送失败，Cookie 可能时失效");
 //                    LogUtil.putLog(getFormatDay(), getFormatHour(), "发送失败 ：Cookie 可能时失效 "+ HFJ_UiT_Text.getText() + "\t 返回值：" + RTData +"\n");
 //
 //
 //
-//                } else if (gs.getSubString(RTData, "\"code\":", ",\"msg\"").equals("-500")) {
+//                } else if (gs.GetSubString(RTData, "\"code\":", ",\"msg\"").equals("-500")) {
 //                    HFJ_UiT_Time.setText(getFormatHour());
 //                    HFJ_UiT_State.setText("发送失败，Cookie 为空或错误");
 //                    LogUtil.putLog(getFormatDay(), getFormatHour(), "发送失败 ：Cookie 为空或错误 " + RTData+ HFJ_UiT_Text.getText()+ "\t 返回值："  + "\n");

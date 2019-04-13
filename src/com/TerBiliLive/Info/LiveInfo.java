@@ -1,16 +1,7 @@
 package com.TerBiliLive.Info;
 
+import com.TerBiliLive.TerBiliLive.GetSubString;
 import com.TerBiliLive.TerBiliLive.SendPost;
-import com.TerBiliLive.TerBiliLive.getSubString;
-import com.TerBiliLive.Utiliy.CodingUtil;
-
-import javax.swing.text.Document;
-import javax.swing.text.Element;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 public class LiveInfo {
@@ -70,7 +61,7 @@ public class LiveInfo {
 //		} catch (UnsupportedEncodingException e) {
 //			e.printStackTrace();
 //		}
-		System.out.println(ReturnData);
+//		System.out.println(ReturnData);
 //		ReturnData = CodingUtil.ascii2native(ReturnData);
 		setAllDate();
 
@@ -81,35 +72,35 @@ public class LiveInfo {
 
 
 	void setAllDate() {
-		Uid = getSubString.getSubString(ReturnData, "<uid>", "</uid>");
-		Uname = getSubString.getSubString(ReturnData, "<uname>", "</uname>");
-		Login = getSubString.getSubString(ReturnData, "<login>", "</login>");
-		Isadmin = getSubString.getSubString(ReturnData, "<isadmin>", "</isadmin>");
-		Time = getSubString.getSubString(ReturnData, "<time>", "</time>");
-		Rank = getSubString.getSubString(ReturnData, "<rank>", "</rank>");
-		Level = getSubString.getSubString(ReturnData, "<level>", "</level>");
-		State = getSubString.getSubString(ReturnData, "<state>", "</state>");
-		Chatid = getSubString.getSubString(ReturnData, "<chatid>", "</chatid>");
-		Server = getSubString.getSubString(ReturnData, "<server>", "</server>");
-		Sheid_user = getSubString.getSubString(ReturnData, "<sheid_user>", "</sheid_user>");
-		Block_time = getSubString.getSubString(ReturnData, "<block_time>", "</block_time>");
-		Block_type = getSubString.getSubString(ReturnData, "<block_type>", "</block_type>");
-		Room_shield = getSubString.getSubString(ReturnData, "<room_shield>", "</room_shield>");
-		Level_sheid = getSubString.getSubString(ReturnData, "<level_sheid>", "</level_sheid>");
-		User_sheid_keyword = getSubString.getSubString(ReturnData, "<user_sheid_keyword>", "</user_sheid_keyword>");
-		Room_silent_type = getSubString.getSubString(ReturnData, "<room_silent_type>", "</room_silent_type>");
-		Room_silent_level = getSubString.getSubString(ReturnData, "<room_silent_level>", "</room_silent_level>");
-		Room_silent_second = getSubString.getSubString(ReturnData, "<room_silent_second>", "</room_silent_second>");
-		User_silent_level = getSubString.getSubString(ReturnData, "<user_silent_level>", "</user_silent_level>");
-		User_silent_rank = getSubString.getSubString(ReturnData, "<user_silent_rank>", "</user_silent_rank>");
-		User_silent_verify = getSubString.getSubString(ReturnData, "<user_silent_verify>", "</user_silent_verify>");
-		Dm_ws_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>"));
-		Dm_wss_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>"));
-		Dm_port = Integer.parseInt(getSubString.getSubString(ReturnData, "<dm_port>", "</dm_port>"));
-		Dm_server = getSubString.getSubString(ReturnData, "<dm_server>", "</dm_server>");
-		Need_authority = getSubString.getSubString(ReturnData, "<need_authority>", "</need_authority>");
-		Authority_range = getSubString.getSubString(ReturnData, "<authority_range>", "</authority_range>");
-		Forbidden = getSubString.getSubString(ReturnData, "<forbidden>", "</forbidden>");
+		Uid = GetSubString.getSubString(ReturnData, "<uid>", "</uid>");
+		Uname = GetSubString.getSubString(ReturnData, "<uname>", "</uname>");
+		Login = GetSubString.getSubString(ReturnData, "<login>", "</login>");
+		Isadmin = GetSubString.getSubString(ReturnData, "<isadmin>", "</isadmin>");
+		Time = GetSubString.getSubString(ReturnData, "<time>", "</time>");
+		Rank = GetSubString.getSubString(ReturnData, "<rank>", "</rank>");
+		Level = GetSubString.getSubString(ReturnData, "<level>", "</level>");
+		State = GetSubString.getSubString(ReturnData, "<state>", "</state>");
+		Chatid = GetSubString.getSubString(ReturnData, "<chatid>", "</chatid>");
+		Server = GetSubString.getSubString(ReturnData, "<server>", "</server>");
+		Sheid_user = GetSubString.getSubString(ReturnData, "<sheid_user>", "</sheid_user>");
+		Block_time = GetSubString.getSubString(ReturnData, "<block_time>", "</block_time>");
+		Block_type = GetSubString.getSubString(ReturnData, "<block_type>", "</block_type>");
+		Room_shield = GetSubString.getSubString(ReturnData, "<room_shield>", "</room_shield>");
+		Level_sheid = GetSubString.getSubString(ReturnData, "<level_sheid>", "</level_sheid>");
+		User_sheid_keyword = GetSubString.getSubString(ReturnData, "<user_sheid_keyword>", "</user_sheid_keyword>");
+		Room_silent_type = GetSubString.getSubString(ReturnData, "<room_silent_type>", "</room_silent_type>");
+		Room_silent_level = GetSubString.getSubString(ReturnData, "<room_silent_level>", "</room_silent_level>");
+		Room_silent_second = GetSubString.getSubString(ReturnData, "<room_silent_second>", "</room_silent_second>");
+		User_silent_level = GetSubString.getSubString(ReturnData, "<user_silent_level>", "</user_silent_level>");
+		User_silent_rank = GetSubString.getSubString(ReturnData, "<user_silent_rank>", "</user_silent_rank>");
+		User_silent_verify = GetSubString.getSubString(ReturnData, "<user_silent_verify>", "</user_silent_verify>");
+		Dm_ws_port = Integer.parseInt(GetSubString.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>"));
+		Dm_wss_port = Integer.parseInt(GetSubString.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>"));
+		Dm_port = Integer.parseInt(GetSubString.getSubString(ReturnData, "<dm_port>", "</dm_port>"));
+		Dm_server = GetSubString.getSubString(ReturnData, "<dm_server>", "</dm_server>");
+		Need_authority = GetSubString.getSubString(ReturnData, "<need_authority>", "</need_authority>");
+		Authority_range = GetSubString.getSubString(ReturnData, "<authority_range>", "</authority_range>");
+		Forbidden = GetSubString.getSubString(ReturnData, "<forbidden>", "</forbidden>");
 
 	}
 

@@ -82,7 +82,7 @@ public class Control_Monitor {
                 Control_UiB_OpenThinks.setEnabled(false);
                 Control_UiB_ClaseThinks.setEnabled(true);
                 ConfInfo.Thank="ok";
-                String putDM =  "系统 ："+getFormat()+" - "+"开启感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveInfo.getUid()+"  昵称："+ ConfInfo.liveInfo.getUname().toString()+"\t";
+                String putDM =  "系统 ："+getFormat()+" - "+"开启感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.userInfo.getUid()+"  昵称："+ ConfInfo.userInfo.getUname().toString()+"\t";
                 ConfInfo.putShowUtil.PutDMUtil(putDM, Color.BLUE);
 
 
@@ -167,7 +167,7 @@ public class Control_Monitor {
                 Control_UiB_OpenThinks.setEnabled(true);
                 Control_UiB_ClaseThinks.setEnabled(false);
                 ConfInfo.Thank="no";
-                String putDM =  "系统 ："+getFormat()+" - "+"关闭感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveInfo.getUid()+"  昵称："+ ConfInfo.liveInfo.getUname().toString()+"\t";
+                String putDM =  "系统 ："+getFormat()+" - "+"关闭感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.userInfo.getUid()+"  昵称："+ ConfInfo.userInfo.getUname().toString()+"\t";
                 ConfInfo.putShowUtil.PutDMUtil(putDM,Color.RED);
 
 

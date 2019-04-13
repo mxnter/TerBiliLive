@@ -112,12 +112,12 @@ public class HFJ_Fun {
 
 
 //            = sp.SendPost(roomid,cookie,msg);
-//    getSubString gs=new getSubString();
+//    GetSubString gs=new GetSubString();
 
 
     /*使用JSON 获取返回值中的的信息
-     * gs.getSubString(RTData, "\"code\":", ",\"msg\""),  <——老方法获取值
-     * CodingUtil.ascii2native(gs.getSubString(RTData, "\"code\":", ",\"msg\""))  <——老方法获取值
+     * gs.GetSubString(RTData, "\"code\":", ",\"msg\""),  <——老方法获取值
+     * CodingUtil.ascii2native(gs.GetSubString(RTData, "\"code\":", ",\"msg\""))  <——老方法获取值
      * JSONObject jsonObject = new JSONObject(RTData);<——新方法获取值
      *  jsonObject.getString("code")<——新方法获取值
      *

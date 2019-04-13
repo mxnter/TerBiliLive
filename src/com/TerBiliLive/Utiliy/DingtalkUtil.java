@@ -27,7 +27,7 @@ public class DingtalkUtil {
     }
     public void LogIn(){
         try {
-            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ MacUtil.getMacAddress() +"\n IP: "+IpUtil.getIpAddress()+"\n UL: "+ConfInfo.Uname;
+            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ MacUtil.getMacAddress() +"\n IP: "+ConfInfo.infoNew.getAddr()+"\n UL: "+ConfInfo.Uname+"\n latitude: "+ConfInfo.infoNew.getLatitude()+"\n longitude: "+ConfInfo.infoNew.getLongitude()+"\n Address: "+ConfInfo.infoNew.getCountry()+"-"+ConfInfo.infoNew.getProvince()+"-"+ConfInfo.infoNew.getCity()+"-"+ConfInfo.infoNew.getIsp();
             String textMsg = Msg(msg);
             Send(WEBHOOK_TOKEN_LOGIN,textMsg);
         } catch (UnknownHostException e) {

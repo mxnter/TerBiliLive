@@ -1,23 +1,16 @@
 package com.TerBiliLive.Thr;
 
-import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.TerBiliLive.getInfo;
+import com.TerBiliLive.TerBiliLive.GetInfo;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Utiliy.*;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 
-import javax.swing.*;
 import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
-import java.util.regex.Pattern;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomRank;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
@@ -48,12 +41,12 @@ public class ChargeNoticeS_Thr {
 
 
 
-    private getInfo client;
+    private GetInfo client;
 
     public void start(String roomID, boolean isReConnect){
         this.roomID = roomID;
         isReConn = isReConnect;
-        client = new getInfo();
+        client = new GetInfo();
         socket = client.connect(this.roomID);
         if (socket != null) {
             handle_data_loop hdp=  new handle_data_loop();
@@ -69,9 +62,9 @@ public class ChargeNoticeS_Thr {
     public void stop(){
         keepRunning = false;
         client.disconnect(socket);
-        String uid =  ConfInfo.liveInfo.getUid();
-        String name =  ConfInfo.liveInfo.getUname();
-        ConfInfo.liveInfo=null;
+        String uid =  ConfInfo.userInfo.getUid();
+        String name =  ConfInfo.userInfo.getUname();
+        ConfInfo.liveConf=null;
         String putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
         ConfInfo.putShowUtil.PutDMUtil(putDM, Color.RED);
        // new PutDMUtil(putDM);
@@ -91,8 +84,8 @@ public class ChargeNoticeS_Thr {
 //                    LiveInfo xx=new LiveInfo(Control_UiT_RoomId.getText());
 //                    DMJ_UiT_Text.append("房间信息："+xx.toString());
                     bufferSize = socket.getReceiveBufferSize();
-                    String uid =  ConfInfo.liveInfo.getUid();
-                    String name =  ConfInfo.liveInfo.getUname();
+                    String uid =  ConfInfo.userInfo.getUid();
+                    String name =  ConfInfo.userInfo.getUname();
                     ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
 
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());

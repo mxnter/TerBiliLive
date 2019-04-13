@@ -1,8 +1,7 @@
 package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
-import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Info.LiveInfo;
+import com.TerBiliLive.Info.*;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
@@ -117,30 +116,31 @@ public class TerBiliLive_Greet_Ui extends JFrame {
             TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
             this.setVisible(false);
         }else{
-//            try {
-//                ConfInfo.liveInfo = new LiveInfo("9938182",ConfInfo.cookie);
-//            }catch (Exception e){
-//                JOptionPane.showMessageDialog(null,"未检测到网络\n请连接网络再试");
-//                System.exit(0);
-//            }
-//
-//            ConfInfo.Uid=ConfInfo.liveInfo.getUid();
-//            ConfInfo.Uname=ConfInfo.liveInfo.getUname();
-//            ConfInfo.liveInfo=null;
-//            if(ConfInfo.Uid.equals("")){
-//                JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
-//                TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
-//                dispose();
-////                this.setVisible(false);
-//
-//            }else{
+            try {
+                ConfInfo.userInfo = new UserInfo(ConfInfo.cookie);
+            }catch (Exception e){
+                JOptionPane.showMessageDialog(null,"未检测到网络\n请连接网络再试\n\n（如果您多次收到此提示，请查看 Github ：TerBiliLive 是否有更新\n如果未找到更新，请发送邮件到 TerBiliLive@outlook.com 提醒作者程序无法使用！）");
+                System.exit(0);
+            }
+
+            ConfInfo.Uid=ConfInfo.userInfo.getUid();
+            ConfInfo.Uname=ConfInfo.userInfo.getUname();
+            ConfInfo.liveConf=null;
+            if(ConfInfo.Uid.equals("")){
+                JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
+                TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
+                dispose();
+//                this.setVisible(false);
+
+            }else{
                 if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
+                ConfInfo.infoNew = new InfoNew(ConfInfo.cookie);
                 ConfInfo.dingtalkUtil.LogIn();
                 l.setText("登陆成功");
                 TerBiliLive_Ui HFJ = new TerBiliLive_Ui();
                 dispose();
-//                this.setVisible(false);
-//            }
+                this.setVisible(false);
+            }
 
         }
 

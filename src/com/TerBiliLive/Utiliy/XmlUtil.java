@@ -1,12 +1,8 @@
 package com.TerBiliLive.Utiliy;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.TerBiliLive.getSubString;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,7 +13,6 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 
 public class XmlUtil {
     public XmlUtil(){
@@ -60,16 +55,16 @@ public class XmlUtil {
             ConfInfo.confData.setText(rootElement.getAttribute("Text"));
 
 //
-//            char[] c = getSubString.getSubString(TerBiliLiveData, "<Cookie>", "</Cookie>").toCharArray();
+//            char[] c = GetSubString.GetSubString(TerBiliLiveData, "<Cookie>", "</Cookie>").toCharArray();
 //            //使用for循环给字符数组加密
 //            for(int i=0;i<c.length;i++){
 //                c[i] = (char)(c[i]-2);
 //            }
 //
 //            ConfInfo.confData.setCookie(new String(c));
-//            ConfInfo.confData.setRoomId(getSubString.getSubString(TerBiliLiveData, "<Roomid>", "</Roomid>"));
-//            ConfInfo.confData.setSecond(getSubString.getSubString(TerBiliLiveData, "<Second>", "</Second>"));
-//            ConfInfo.confData.setText(getSubString.getSubString(TerBiliLiveData, "<Text>", "</Text>"));
+//            ConfInfo.confData.setRoomId(GetSubString.GetSubString(TerBiliLiveData, "<Roomid>", "</Roomid>"));
+//            ConfInfo.confData.setSecond(GetSubString.GetSubString(TerBiliLiveData, "<Second>", "</Second>"));
+//            ConfInfo.confData.setText(GetSubString.GetSubString(TerBiliLiveData, "<Text>", "</Text>"));
 //            ConfInfo.confData.setCookie(ele.getAttribute("Cookie"));
 //            ConfInfo.confData.setRoomId(ele.getAttribute("Roomid"));
 //            ConfInfo.confData.setSecond(ele.getAttribute("Second"));

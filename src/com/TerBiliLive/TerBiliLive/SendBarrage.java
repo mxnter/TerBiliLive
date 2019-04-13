@@ -40,9 +40,9 @@ public class SendBarrage {
             //封装Rnd
             paramMap.put("rnd", ConfInfo.Rnd);
             //封装csrf_token = bili_jct=
-            paramMap.put("csrf_token", getSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf_token", GetSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //封装csrf
-            paramMap.put("csrf", getSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf", GetSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //创建Post提交对象
             ConfInfo.sendPost = new SendPost();
             //获取返回值

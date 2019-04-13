@@ -1,6 +1,7 @@
 package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.LiveConf;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Utiliy.LogUtil;
 
@@ -13,7 +14,7 @@ import java.util.TimerTask;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
-public class getInfo {
+public class GetInfo {
 
 
     private final int DEFAULT_COMMENT_PORT = 788;
@@ -41,7 +42,7 @@ public class getInfo {
     }
 
     public boolean sendJoinRoomMsg(Socket socket, String roomID){
-        String uid =  ConfInfo.liveInfo.getUid();
+        String uid =  ConfInfo.userInfo.getUid();
         String jsonBody = "{\"roomid\": " + roomID + ", \"uid\": " + uid + "}";
         try {
             return sendSocketData(socket, jsonBody.length() + 16, 16, PROTOCOL_VERSION, 7, 1, jsonBody.getBytes("utf-8"));
@@ -65,9 +66,9 @@ public class getInfo {
 
     public Socket connect(String roomID){
 //        String realRoomID = getRealRoomID(roomID);
-        ConfInfo.liveInfo = new LiveInfo(roomID,ConfInfo.cookie);
-        String socketServerUrl = ConfInfo.liveInfo.getDm_server();
-        int socketServerPort = (ConfInfo.liveInfo.getDm_port()==0)?DEFAULT_COMMENT_PORT:ConfInfo.liveInfo.getDm_port();
+        ConfInfo.liveConf = new LiveConf(roomID,ConfInfo.cookie);
+        String socketServerUrl = ConfInfo.liveConf.getHost();
+        int socketServerPort = (ConfInfo.liveConf.getPort()==0)?DEFAULT_COMMENT_PORT:ConfInfo.liveConf.getPort();
 //        LogUtil.putLog(getFormatDay(), getFormatHour(), liveInfo.toString()+ "\n","TerBiliLive Log");
         Socket socket = null;
         InetSocketAddress address = new InetSocketAddress(socketServerUrl, DEFAULT_COMMENT_PORT);

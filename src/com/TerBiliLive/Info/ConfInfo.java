@@ -6,6 +6,7 @@ import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
+import com.TerBiliLive.TerBiliLive.SendGet;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Thr.*;
 import com.TerBiliLive.Ui.*;
@@ -27,9 +28,16 @@ public class ConfInfo {
     public static String RoomLive = "NO";//705952
     public static String sendBarrageUrl = "https://api.live.bilibili.com/msg/send";
     public static String LiveInfoURL = "https://api.live.bilibili.com/api/player?platform=pc&player_type=web&id=cid:";
+    public static String UserInfoURL = "https://api.live.bilibili.com/xlive/web-ucenter/user/get_user_info";
+    public static String LiveConfURL = "https://api.live.bilibili.com/room/v1/Danmu/getConf?room_id=";
+    public static String InfoNewURL = "https://api.live.bilibili.com/client/v1/Ip/getInfoNew";
     public static String LiveRoomUserInfoURL = "https://api.live.bilibili.com/room_ex/v1/RoomNews/get?roomid=";
     public static SendPost sendPost = null;
-    public static LiveInfo liveInfo = null;
+    public static SendGet sendGet = null;
+    public static LiveInfo liveInfo = null; //TODO b站更改接口 停用 20190412
+    public static UserInfo userInfo = null;
+    public static LiveConf liveConf = null;
+    public static InfoNew infoNew = null;
     public static LiveRoom liveRoom =null;
     public static SendBarrage sendBarrage = null;
     public static TerBiliLive_Control_Ui terBiliLive_control_ui = null;

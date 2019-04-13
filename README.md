@@ -1,23 +1,20 @@
 # TerBiliLive - Beta06  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 06](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
-# 致歉:
-B站更改了获取直播间信息的接口校验，由于作者校验 cookie 使用的是作者直播间，现在导致不关注作者直播间将显示 未检测到网络，请连接网络再试，现在的解决方案是将弹幕姬账号关注 9938182 这个直播间即可使用，由于作者最近需要考试，将在考试结束后尽快修复这个问题，先准备更新一个并不校验 cookie 的版本，请自行判断 cookie 是否有效，再次表示抱歉感谢您的使用。  
-
-# 推荐
-推荐您 Watch 本项目，如有版本更新，方便您接受信息。
-
-
 ### Bilibili Live Barrage kyi,Using Java .
 ### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
 ##### 作者近期加班和考试，尽力更新。  
 
+# 推荐
+推荐您 Watch 本项目，以保证您及时收取新版本。  
+
+# 致歉:
+B站更改了软件使用的接口，导致软件无法登陆，我们已更新了 Beta06 - Issue02 版本，修复了这个问题。对于此问题我们深感抱歉，感谢您的使用。  
+
+
 # 告知：
 Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本  
-将记录您的 IP、Mac、主机名等 到服务器，以方便作者统计使用人数。 
- 
-Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以前版本  
-将记录 开关播时间 房间号 发送到服务器(进行统计,将在新版本中已移出项，改用IP地址)。  
+将记录您的 IP、Mac、主机名等信息 到服务器，以方便作者统计使用。 
 
 如有其他问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。
 
@@ -142,3 +139,6 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以前版本
 > 新增 用户协议授权  
 > 修复 不开启感谢无法发送弹幕  
 > 修改 为了保证稳定 延迟弹幕显示时间  
+
+>##### V.Beta06[D.Beta08-0413]-[H.Beta9-0413]-[G.Beta03] - 发布版(Beta06 - Issue02)
+> 修复 获取服务器信息接口（B站更改接口）  

@@ -113,7 +113,7 @@ public class SendPost {
 		// HttpClient 6.0被抛弃了
 		String result = "";
 		BufferedReader reader = null;
-		System.out.print(Json);
+//		System.out.print(Json);
 		try {
 			URL url = new URL(urlPath);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -140,7 +140,7 @@ public class SendPost {
 				outwritestream.write(Json.getBytes("UTF-8"));
 				outwritestream.flush();
 				outwritestream.close();
-				System.out.println( "doJsonPost: conn"+conn.getResponseCode());
+//				System.out.println( "doJsonPost: conn"+conn.getResponseCode());
 			}
 			if (conn.getResponseCode() == 200) {
 				reader = new BufferedReader(

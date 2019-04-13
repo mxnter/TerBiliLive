@@ -1,6 +1,6 @@
 package com.TerBiliLive.TerBiliLive;
 
-public class getSubString {
+public class GetSubString {
 
 
 
