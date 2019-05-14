@@ -3,16 +3,16 @@
 ### Bilibili Live Barrage kyi,Using Java .
 ### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-##### 作者近期加班和考试，尽力更新。  
+##### 尽力更新  
 
 # 推荐
 推荐您 Watch 本项目，以保证您及时收取新版本。  
 
-# 致歉:
-B站更改了软件使用的接口，导致软件无法登陆，我们已更新了 Beta06 - Issue02 版本，修复了这个问题。对于此问题我们深感抱歉，感谢您的使用。  
-
 
 # 告知：
+提示： 暂停发布版更新请直接下载当前编译的最新版本  
+[下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+
 Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本  
 将记录您的 IP、Mac、主机名等信息 到服务器，以方便作者统计使用。 
 
@@ -41,7 +41,7 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 #### 现存问题
 1. 随机出现假死现象
 
-### 发布版本下载：[Beta](https://github.com/mxnter/TerBiliLive/releases)
+### 发布版本下载：[暂停发布版更新](https://github.com/mxnter/TerBiliLive/releases)
 
 
 ### 当前下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
@@ -142,3 +142,8 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 
 >##### V.Beta06[D.Beta08-0413]-[H.Beta9-0413]-[G.Beta03] - 发布版(Beta06 - Issue02)
 > 修复 获取服务器信息接口（B站更改接口）  
+
+>##### V.Beta06[D.Beta08-0413]-[H.Beta9-0514]-[G.Beta03] - （暂停发布版更新）
+> 修复 Cookie 失效卡死 
+> 修复 无法获取直播间信息  
+

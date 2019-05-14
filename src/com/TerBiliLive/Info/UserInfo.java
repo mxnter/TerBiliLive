@@ -49,28 +49,59 @@ public class UserInfo {
         System.out.println(ReturnData);
         try {
             JSONObject data = new JSONObject(ReturnData);
-            JSONObject jsonObject = data.getJSONObject("data");
-            if(data.getString("code").equals("0")){
-                achieve = jsonObject.getString("achieve");
-                billCoin = jsonObject.getString("billCoin");
-                face = jsonObject.getString("face");
-                gold = jsonObject.getString("gold");
-                is_level_top = jsonObject.getString("is_level_top");
-                silver = jsonObject.getString("silver");
-                svip = jsonObject.getString("svip");
-                uid = jsonObject.getString("uid");
-                uname = jsonObject.getString("uname");
-                user_charged = jsonObject.getString("user_charged");
-                user_intimacy = jsonObject.getString("user_intimacy");
-                user_level = jsonObject.getString("user_level");
-                user_level_rank = jsonObject.getString("user_level_rank");
-                user_next_intimacy = jsonObject.getString("user_next_intimacy");
-                user_next_level = jsonObject.getString("user_next_level");
-                vip = jsonObject.getString("vip");
-            }else{
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "获取个人信息数据信息异常 ："+ReturnData+ "\n", "Exception","Exception");
-                System.out.println("获取个人信息数据信息异常 ："+ReturnData);
+            switch (data.getString("code")){
+                case "0":{
+                    JSONObject jsonObject = data.getJSONObject("data");
+                    achieve = jsonObject.getString("achieve");
+                    billCoin = jsonObject.getString("billCoin");
+                    face = jsonObject.getString("face");
+                    gold = jsonObject.getString("gold");
+                    is_level_top = jsonObject.getString("is_level_top");
+                    silver = jsonObject.getString("silver");
+                    svip = jsonObject.getString("svip");
+                    uid = jsonObject.getString("uid");
+                    uname = jsonObject.getString("uname");
+                    user_charged = jsonObject.getString("user_charged");
+                    user_intimacy = jsonObject.getString("user_intimacy");
+                    user_level = jsonObject.getString("user_level");
+                    user_level_rank = jsonObject.getString("user_level_rank");
+                    user_next_intimacy = jsonObject.getString("user_next_intimacy");
+                    user_next_level = jsonObject.getString("user_next_level");
+                    vip = jsonObject.getString("vip");
+                    break;
+                }
+                case "-101":{
+
+                    break;
+                }
+                default:{
+                    LogUtil.putLog(getFormatDay(), getFormatHour(), "获取个人信息数据信息异常 ："+ReturnData+ "\n", "Exception","Exception");
+                    System.out.println("获取个人信息数据信息异常 ："+ReturnData);
+                    break;
+                }
             }
+//            if(data.getString("code").equals("0")){
+//                JSONObject jsonObject = data.getJSONObject("data");
+//                achieve = jsonObject.getString("achieve");
+//                billCoin = jsonObject.getString("billCoin");
+//                face = jsonObject.getString("face");
+//                gold = jsonObject.getString("gold");
+//                is_level_top = jsonObject.getString("is_level_top");
+//                silver = jsonObject.getString("silver");
+//                svip = jsonObject.getString("svip");
+//                uid = jsonObject.getString("uid");
+//                uname = jsonObject.getString("uname");
+//                user_charged = jsonObject.getString("user_charged");
+//                user_intimacy = jsonObject.getString("user_intimacy");
+//                user_level = jsonObject.getString("user_level");
+//                user_level_rank = jsonObject.getString("user_level_rank");
+//                user_next_intimacy = jsonObject.getString("user_next_intimacy");
+//                user_next_level = jsonObject.getString("user_next_level");
+//                vip = jsonObject.getString("vip");
+//            }else{
+//                LogUtil.putLog(getFormatDay(), getFormatHour(), "获取个人信息数据信息异常 ："+ReturnData+ "\n", "Exception","Exception");
+//                System.out.println("获取个人信息数据信息异常 ："+ReturnData);
+//            }
 
 
 

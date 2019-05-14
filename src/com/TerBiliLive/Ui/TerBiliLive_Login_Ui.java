@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class TerBiliLive_Login_Ui extends JFrame  {
 
-    public static String Version = "Beta02";
+    public static String Version = "Beta02-0514";
     public static String Appname = "TerBiliLive Login";
     public static String ProjectName = "TerBiliLive Login";
 

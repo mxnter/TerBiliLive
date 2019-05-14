@@ -126,7 +126,7 @@ public class TerBiliLive_Greet_Ui extends JFrame {
             ConfInfo.Uid=ConfInfo.userInfo.getUid();
             ConfInfo.Uname=ConfInfo.userInfo.getUname();
             ConfInfo.liveConf=null;
-            if(ConfInfo.Uid.equals("")){
+            if(null==ConfInfo.userInfo.getUid()||ConfInfo.Uid.equals("")){
                 JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
                 TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
                 dispose();

@@ -1,5 +1,6 @@
 package com.TerBiliLive.Info;
 
+import com.TerBiliLive.TerBiliLive.SendGet;
 import com.TerBiliLive.TerBiliLive.SendPost;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,9 +21,9 @@ public class LiveRoom {
 
 
         //创建Post提交对象
-        ConfInfo.sendPost = new SendPost();
+        ConfInfo.sendGet = new SendGet();
         //获取返回值
-        ReturnData = ConfInfo.sendPost.SendPost(LiveRoomURL + Cid);
+        ReturnData = ConfInfo.sendGet.sendGet(LiveRoomURL + Cid);
         System.out.println(ReturnData);
         JSONObject AllData = null;
         try {
