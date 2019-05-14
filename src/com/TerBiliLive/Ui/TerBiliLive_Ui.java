@@ -4,10 +4,7 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
 import com.TerBiliLive.TerBiliLive.SendGet;
-import com.TerBiliLive.Utiliy.DmLogUtil;
-import com.TerBiliLive.Utiliy.FileUtil;
-import com.TerBiliLive.Utiliy.PutShowUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
+import com.TerBiliLive.Utiliy.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,6 +53,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
     public JMenu m4 = new JMenu("关于");
     public JMenuItem m4_item1 = new JMenuItem("帮助");
     public JMenuItem m4_item2 = new JMenuItem("关于");
+    public JMenuItem m4_item3 = new JMenuItem("官网");
 
 
     ImageIcon img_bj =null;
@@ -192,6 +190,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 //        m4.add(m4_item1);
         m4.add(m4_item2);
+        m4.add(m4_item3);
 
         mBar.add(m1);
         mBar.add(m4);
@@ -202,6 +201,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         m1_item1.addActionListener(this);
         m4_item1.addActionListener(this);
         m4_item2.addActionListener(this);
+        m4_item3.addActionListener(this);
 
 
 
@@ -262,13 +262,15 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             }
         });
         m4_item2.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent arg0) {
-
-
                 JOptionPane.showMessageDialog(new JFrame().getContentPane(), "欢迎使用 "+Appname+" 当前版本 "+Version +"\n 问题反馈 ：git@mter.xyz", "关于", JOptionPane.QUESTION_MESSAGE);
-
+            }
+        });
+        m4_item3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
             }
         });
 
