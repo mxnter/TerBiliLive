@@ -48,7 +48,7 @@ public class ParsingBarrage_Thr extends Thread {
 
 
                     switch (msgType) {
-                        case "DANMU_MSG": {
+                        case "DANMU_MSG:4:0:2:2:2:0": {
                             JSONArray array = object.getJSONArray("info").getJSONArray(2);
                             JSONArray Date = object.getJSONArray("info").getJSONArray(0);
 //                                    int uid = array.getInteger(0);
