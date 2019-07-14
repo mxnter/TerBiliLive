@@ -128,7 +128,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
         new Thread(new Runnable() {
             public void run() {
                 int SVersionNum = ConfInfo.VersionNum;
-                int level = 0;
+                int level = -1;
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
@@ -136,7 +136,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
-                    if (level >= 0) {
+                    if (level >= -1) {
                         Login_UiL_Notice.setText("收到一份重要更新提醒,请尽快更新！");
                         Login_UiL_Notice.setForeground(Color.RED);
                     }

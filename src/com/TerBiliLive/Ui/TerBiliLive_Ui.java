@@ -169,19 +169,18 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                     msg = jsonObject.getString("msg");
                     ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+msg ,Color.DARK_GRAY);
                     int SVersionNum = ConfInfo.VersionNum;
-                    int level = 0;
+                    int level = -1;
                     String SVersion = Version;
                     JSONObject SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
                     ConfInfo.putShowUtil.PutDMUtil("最新版本：\n    "+SVersion ,Color.DARK_GRAY);
-                    if(level>=0){
-                        Thread.sleep(100);
-                        ConfInfo.putShowUtil.PutDMUtil("收到一份更新提醒,请尽快更新！\n    " ,Color.DARK_GRAY);
-                    }
-                    if(level>0){
-                        if(ConfInfo.VersionNum<SVersionNum){
+                    Thread.sleep(100);
+                    if(ConfInfo.VersionNum<SVersionNum){
+                        if(level>-1){
+                            ConfInfo.putShowUtil.PutDMUtil("收到一份更新提醒,请尽快更新！\n    " ,Color.DARK_GRAY);
+                        }else  if(level>0){
                             if(JOptionPane.showConfirmDialog(null, "找到最新版本：\n"+SVersion+"\n请尽快更新", "更新",JOptionPane.OK_CANCEL_OPTION)==0){
                                 OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
                             }else{
@@ -307,7 +306,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 int SVersionNum = ConfInfo.VersionNum;
-                int level = 0;
+                int level = -1;
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
@@ -324,6 +323,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                             }
                         }
 
+                    }else{
+                        JOptionPane.showMessageDialog(null,"您已经是最新版本啦！");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
