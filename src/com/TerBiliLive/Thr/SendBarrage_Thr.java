@@ -82,30 +82,30 @@ public class SendBarrage_Thr extends Thread {
 
                         case "0":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送成功：OK" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t< -OK- " + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送成功：OK" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送成功]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t< -OK- " + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                             if (jsonObject.getString("msg").equals("msg repeat"))
                                 ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("弹幕重复");
                             break;
                         case "-101":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                             break;
                         case "-500":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                             break;
                         case "-400":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                             break;
                         case "1003": // 禁言返回值
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("已被禁言 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[已被禁言]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("已被禁言 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[已被禁言]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                             String ms = "禁言 ：" + getFormat() + " - " + jsonObject.getString("message");//提示信息
                             ConfInfo.putShowUtil.PutDMUtil(ms, ColorUtil.toColorFromString("ea9336"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms, Control_UiT_RoomId.getText());//输出到弹幕日志
@@ -119,12 +119,12 @@ public class SendBarrage_Thr extends Thread {
 //                            ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);// 关闭 显示弹幕老爷
 //                            ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);// 关闭 广播后开启老爷
 //                            ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);// 关闭 舰长
-                            ConfInfo.dingtalkUtil.bannedNotice(jsonObject.getString("msg")); // 通知禁言
+                            ConfInfo.dingtalkUtil.bannedNotice(jsonObject.getString("message")); // 通知禁言
                             break;
                         default:
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
-                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("未知错误，" + "<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + msg);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("msg")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("未知错误，" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
+                            LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
                     }
 
 

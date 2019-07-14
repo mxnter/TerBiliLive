@@ -11,12 +11,14 @@
 
 # 告知：
 提示： 暂停发布版更新请直接下载当前编译的最新版本  
-[下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+[最新下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
 
-Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本  
-将记录您的 IP、Mac、主机名等信息 到服务器，以方便作者统计使用。 
-
-如有其他问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。
+当前版本及以后版本  
+将会记录您的 IP、Mac、主机名等信息 ，以方便作者统计使用人数(您的Cooike将永久保存再您的设备内，我永远不会窃取您的Cookie)。 
+  
+### <center>Cookie 请自行在浏览器内获取！</center> [获取Cookie方法](#四丶帮助)    
+  
+如有其他问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。  
 
 ## 目录
 * [一丶简述](#一丶简述)
@@ -30,13 +32,14 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 # 一丶简述
 
 #### 实现功能
-1. 手动发送弹幕
-2. 定时发送弹幕
-3. 接收弹幕
-4. 根据礼物感谢
-5. 欢迎老爷舰长进入房间
-6. 接入图灵机器人可以聊天
+1. 接收弹幕
+2. 发送弹幕
+3. 定时发送弹幕
+4. 礼物感谢
+5. 欢迎老爷舰长
+6. 机器人聊天
 7. 钉钉群推送
+8. 检查更新
 
 #### 现存问题
 1. 随机出现假死现象
@@ -44,14 +47,12 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 ### 发布版本下载：[暂停发布版更新](https://github.com/mxnter/TerBiliLive/releases)
 
 
-### 当前下载地址：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+### 编译版下载：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
 
 
-<center>注意：（如需使用请在本机配置好Java环境）</center>
+<center>注意：如需使用请在本机配置好Java环境(由于Java的跨平台性,几乎可以运行在任何拥有JVM的平台上)</center>
 
-<br><br><br>
-
-### <center>Cookie 请自行在浏览器内获取，作者还没写登陆呢！</center> [获取Cookie方法](#四丶帮助)
+<br><br>
 
 <br><br>
 # 二丶Ui展示
@@ -87,6 +88,7 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 ```
 
 ### 获取Cookie
+打开任意直播间 F12 然后刷新页面即可看到下图
 ![获取Cookie](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/getcookie.png)
 
 
@@ -108,6 +110,10 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 
 # 五丶版本记录
 
+>##### Beta06[D.Beta08-0617]-[H.Beta9-0514]-[G.Beta03]-[L.Beta03-0714]  
+> 完善 登录页面  
+> 增加 更新检查  
+
 >##### Beta06[D.Beta07]-[H.Beta8]-[G.Beta03]  
 > 修复无法发送弹幕
 
@@ -117,36 +123,4 @@ Beta06[D.Beta08-0217]-[H.Beta9-0131]-[G.Beta03] 及以后版本
 >##### Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03] - 发布版  
 > 更新弹幕显示时的颜色
 
->##### Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]  
-> 更新禁言显示
-
->##### Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03]  
-> 重写整合礼物 全部整合(不稳定版)
-
->##### Beta06[D.Beta08-0205]-[H.Beta9-0131]-[G.Beta03] 
-> 重写发送弹幕 线程 - 由于线程会重复发送(不稳定版)
-
->##### Beta06[D.Beta08-0206]-[H.Beta9-0205]-[G.Beta03] 
-> 加快显示弹幕速度 (不稳定版)  
-> 忽略辣条(不稳定版)  
-> 维护回复姬线程 (不稳定版)  
-
->##### Beta06[D.Beta08-0217]-[H.Beta9-0205]-[G.Beta03]  
-> 新增 忽略辣条
-> 修改 部分礼物感谢 2 次
-
->##### V.Beta06[D.Beta08-0317]-[H.Beta9-0317]-[G.Beta03] - 发布版(Beta06 - Issue01)
-> 新增 用户协议授权  
-> 修复 不开启感谢无法发送弹幕  
-> 修改 为了保证稳定 延迟弹幕显示时间  
-
->##### V.Beta06[D.Beta08-0413]-[H.Beta9-0413]-[G.Beta03] - 发布版(Beta06 - Issue02)
-> 修复 获取服务器信息接口（B站更改接口）  
-
->##### V.Beta06[D.Beta08-0413]-[H.Beta9-0514]-[G.Beta03] - （暂停发布版更新）
-> 修复 Cookie 失效卡死 
-> 修复 无法获取直播间信息 
-   
->##### V.Beta06[D.Beta08-0606]-[H.Beta9-0514]-[G.Beta03]
->Upadte 无法显示弹幕信息
-
+[更多记录](VERSION.md)

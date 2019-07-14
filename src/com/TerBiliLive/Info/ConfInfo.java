@@ -18,6 +18,9 @@ import java.util.*;
 
 public class ConfInfo {
 
+    public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
+    public static int VersionNum = 201907140;
+
     public static int isReConnSum = 0;
     public static String Thank = "no";
     public static String SEND_GIFT ="";

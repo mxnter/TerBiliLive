@@ -62,10 +62,18 @@ public class ChargeNoticeS_Thr {
     public void stop(){
         keepRunning = false;
         client.disconnect(socket);
-        String uid =  ConfInfo.userInfo.getUid();
-        String name =  ConfInfo.userInfo.getUname();
+        String uid = "";
+        String name =  "";
         ConfInfo.liveConf=null;
-        String putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
+        // 未登录将不执行
+        String putDM = "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID ;
+        if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+            uid =  ConfInfo.userInfo.getUid();
+            name =  ConfInfo.userInfo.getUname();
+            putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
+        }else{
+            putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  - 用户未登录(游客模式)";
+        }
         ConfInfo.putShowUtil.PutDMUtil(putDM, Color.RED);
        // new PutDMUtil(putDM);
         Control_UiT_State.setText("已断开连接" );
@@ -84,10 +92,17 @@ public class ChargeNoticeS_Thr {
 //                    LiveInfo xx=new LiveInfo(Control_UiT_RoomId.getText());
 //                    DMJ_UiT_Text.append("房间信息："+xx.toString());
                     bufferSize = socket.getReceiveBufferSize();
-                    String uid =  ConfInfo.userInfo.getUid();
-                    String name =  ConfInfo.userInfo.getUname();
-                    ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
+                    String uid = "";
+                    String name =  "";
+                    // 未登录将不执行
+                    if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+                        uid =  ConfInfo.userInfo.getUid();
+                        name =  ConfInfo.userInfo.getUname();
+                        ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
 
+                    } else{
+                        ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  - 用户未登录(游客模式)",Color.BLUE);
+                    }
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
                     System.out.println("连接成功" +"真实直播间ID："+roomID );
                     ConfInfo.isReConnSum=0;

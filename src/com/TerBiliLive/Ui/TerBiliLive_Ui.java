@@ -5,6 +5,10 @@ import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
 import com.TerBiliLive.TerBiliLive.SendGet;
 import com.TerBiliLive.Utiliy.*;
+import com.alibaba.fastjson.JSON;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +38,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
     public static String StartInfo = "Ter制作的 “TerBiliLive” 弹幕姬 - 测试中";
     public static String NetworkingInfo = null;
-    public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]";
+    public static String Version = ConfInfo.Version;
     public static String Appname = "TerBiliLive";
     public static String ProjectName = "TerBiliLive";
     //String UipathUrl = "http://live.bilibili.com/msg/send";
@@ -54,6 +58,11 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
     public JMenuItem m4_item1 = new JMenuItem("帮助");
     public JMenuItem m4_item2 = new JMenuItem("关于");
     public JMenuItem m4_item3 = new JMenuItem("官网");
+
+    public JMenu m3 = new JMenu("帮助");
+    public JMenuItem m3_item1 = new JMenuItem("检查更新");
+    public JMenuItem m3_item2 = new JMenuItem("关于");
+    public JMenuItem m3_item3 = new JMenuItem("官网");
 
 
     ImageIcon img_bj =null;
@@ -76,7 +85,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 
 
-        this.setTitle(ConfInfo.Uname+" "+Appname + " " + Version);
+        this.setTitle(ConfInfo.Uname+" "+Appname + " " + ConfInfo.Version);
         this.setSize(800, 600);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -150,19 +159,45 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("Ter 简单制造"+ TerBiliLive_ChargeBarrage_Ui.Version);
         ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("Ter 简单制造"+ TerBiliLive_Adv_Ui.Version);
         if (ConfInfo.putShowUtil == null) ConfInfo.putShowUtil = new PutShowUtil();
-        ConfInfo.putShowUtil.PutDMUtil(StartInfo,Color.DARK_GRAY);
-        ConfInfo.putShowUtil.PutDMUtil("欢迎使用 "+Appname+" 当前版本 "+Version,Color.DARK_GRAY);
+        ConfInfo.putShowUtil.PutDMUtil(StartInfo+"\n"+"欢迎使用 "+Appname+" 当前版本 "+Version,Color.DARK_GRAY);
         new Thread(new Runnable(){
-                                    public void run(){
-                                        try {
-                                            ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+ SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/index.html","",""),Color.DARK_GRAY);
-                                        } catch (Exception e) {
-                                            ConfInfo.putShowUtil.PutDMUtil("[ Ter ] ---X--->> [本机] 【获取开发者通知失败】",Color.DARK_GRAY);
-                                            e.printStackTrace();
-                                        }
+            public void run(){
+                try {
 
-                                    }
-                                }).start();
+                    String msg="";
+                    JSONObject jsonObject = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/msg.json","",""));
+                    msg = jsonObject.getString("msg");
+                    ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+msg ,Color.DARK_GRAY);
+                    int SVersionNum = ConfInfo.VersionNum;
+                    int level = 0;
+                    String SVersion = Version;
+                    JSONObject SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    SVersion = SVersionJson.getString("version");
+                    SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
+                    level = Integer.parseInt(SVersionJson.getString("level"));
+                    ConfInfo.putShowUtil.PutDMUtil("最新版本：\n    "+SVersion ,Color.DARK_GRAY);
+                    if(level>=0){
+                        Thread.sleep(100);
+                        ConfInfo.putShowUtil.PutDMUtil("收到一份更新提醒,请尽快更新！\n    " ,Color.DARK_GRAY);
+                    }
+                    if(level>0){
+                        if(ConfInfo.VersionNum<SVersionNum){
+                            if(JOptionPane.showConfirmDialog(null, "找到最新版本：\n"+SVersion+"\n请尽快更新", "更新",JOptionPane.OK_CANCEL_OPTION)==0){
+                                OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
+                            }else{
+                                if(level>1){
+                                    JOptionPane.showMessageDialog(null,"当前更新为紧急更新，如果您取消了更新，可能会导致软件无法继续运行！");
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    ConfInfo.putShowUtil.PutDMUtil("[ Ter ] ---X--->> [本机] 【获取开发者通知失败】",Color.DARK_GRAY);
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
         if(SendGet.sendGet("https://live.bilibili.com/","","").equals(null)){
             ConfInfo.putShowUtil.PutDMUtil("未检测到网络，请检查您的网络（或许有可能检测服务器失效",Color.DARK_GRAY);
         }else {
@@ -188,17 +223,23 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         m1.add(m1_item2);
         m1.add(m1_item3);
 
+        m3.add(m3_item1);
+//        m3.add(m3_item2);
+//        m3.add(m3_item3);
+
 //        m4.add(m4_item1);
         m4.add(m4_item2);
         m4.add(m4_item3);
 
         mBar.add(m1);
+        mBar.add(m3);
         mBar.add(m4);
         // mBar.add(m5);
 
         this.setJMenuBar(mBar);
 
         m1_item1.addActionListener(this);
+        m3_item1.addActionListener(this);
         m4_item1.addActionListener(this);
         m4_item2.addActionListener(this);
         m4_item3.addActionListener(this);
@@ -261,10 +302,39 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
             }
         });
+
+        m3_item1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                int SVersionNum = ConfInfo.VersionNum;
+                int level = 0;
+                String SVersion = ConfInfo.Version;
+                JSONObject SVersionJson = null;
+                try {
+                    SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    SVersion = SVersionJson.getString("version");
+                    SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
+                    level = Integer.parseInt(SVersionJson.getString("level"));
+                    if(ConfInfo.VersionNum<SVersionNum){
+                        if(JOptionPane.showConfirmDialog(null, "找到最新版本：\n"+SVersion+"\n请尽快更新", "更新",JOptionPane.OK_CANCEL_OPTION)==0){
+                            OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
+                        }else{
+                            if(level>1){
+                                JOptionPane.showMessageDialog(null,"当前更新为紧急更新，如果您取消了更新，可能会导致软件无法继续运行！");
+                            }
+                        }
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
         m4_item2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
-                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "欢迎使用 "+Appname+" 当前版本 "+Version +"\n 问题反馈 ：git@mter.xyz", "关于", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "欢迎使用 "+Appname+" 当前版本 "+Version +"\n 问题反馈 ：TerBiliLive@outlook.com", "关于", JOptionPane.QUESTION_MESSAGE);
             }
         });
         m4_item3.addActionListener(new ActionListener() {
@@ -298,7 +368,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
         });
 
-            this.setVisible(true);
+        this.setVisible(true);
 
     }
 

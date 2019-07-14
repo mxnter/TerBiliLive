@@ -1,5 +1,7 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Info.ConfInfo;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -70,6 +72,21 @@ public class TerBiliLive_Control_Ui {
 
 
     TerBiliLive_Control_Ui(){
+        if(null!= ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+           //登录后执行
+        }else{
+            //未登录执行
+            Reply_chat.setEnabled(false);
+            Reply_tourist.setEnabled(false);
+            Reply_LiveState.setEnabled(false);
+            Reply_LowSecurity.setEnabled(false);
+            Reply_Master.setEnabled(false);
+            Reply_MasterBarrage.setEnabled(false);
+            Reply_MasterRadioGift.setEnabled(false);
+            Reply_Guard.setEnabled(false);
+            Reply_30.setEnabled(false);
+            Reply_NeglectSpicy.setEnabled(false);
+        }
         Control_UiB_Disconnect.setEnabled(false);
         Control_UiB_ClaseThinks.setEnabled(false);
         Control_UiB_OpenThinks.setEnabled(false);

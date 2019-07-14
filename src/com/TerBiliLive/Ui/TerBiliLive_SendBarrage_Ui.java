@@ -1,6 +1,7 @@
 package com.TerBiliLive.Ui;
 
 
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.HFJ_Monitor;
 
 import javax.swing.*;
@@ -56,7 +57,12 @@ public class TerBiliLive_SendBarrage_Ui {
 
 
 
-
+        if(null!= ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+            //登录后执行
+        }else{
+            //未登录执行
+            HFJ_UiB_Send.setEnabled(false);
+        }
 
 
 

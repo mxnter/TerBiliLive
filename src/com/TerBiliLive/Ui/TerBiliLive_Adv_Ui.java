@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.GG_Monitor;
 import com.TerBiliLive.Monitor.HFJ_Monitor;
 
@@ -35,6 +36,13 @@ public class TerBiliLive_Adv_Ui {
 
 
     TerBiliLive_Adv_Ui(){
+
+        if(null!= ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+            //登录后执行
+        }else{
+            //未登录执行
+            GG_Ui_Start.setEnabled(false);
+        }
 
         GG_Ui_Suspend.setEnabled(false);
         GG_UiT_State.setEditable(false);

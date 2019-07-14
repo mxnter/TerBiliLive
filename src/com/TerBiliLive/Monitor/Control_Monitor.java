@@ -42,7 +42,9 @@ public class Control_Monitor {
                 if(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")||ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText()==null){
                     ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("房间号不能为空");
                 }else{
-                    Control_UiB_OpenThinks.setEnabled(true);
+                    if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+                        Control_UiB_OpenThinks.setEnabled(true);
+                    }
                     ConfInfo.Thank="no";
                     ConfInfo.control_fun.Connect();
                     ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
