@@ -126,3 +126,7 @@
 > 更新弹幕显示时的颜色
 
 [更多记录](VERSION.md)
+
+
+## License
+The MIT License (see the [LICENSE](https://github.com/mxnter/TerBiliLive/blob/master/LICENSE) file for the full text)
