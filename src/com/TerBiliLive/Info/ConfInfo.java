@@ -20,6 +20,7 @@ public class ConfInfo {
 
     public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
     public static int VersionNum = 201907141;
+    public static boolean DisableOutput = false;
 
     public static int isReConnSum = 0;
     public static String Thank = "no";

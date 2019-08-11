@@ -28,11 +28,11 @@ public class TerBiliLive_Login_Ui extends JFrame  {
     public static String Appname = "TerBiliLive Login";
     public static String ProjectName = "TerBiliLive Login";
     Font font = new Font(null,Font.PLAIN,24);
-    public static JLabel Login_UiL_Title = new JLabel("TerBiliLive");
+    public static JLabel Login_UiL_Title = new JLabel("TerBiliLive Disable Output");
     public static JLabel Login_UiL_Hint = new JLabel("Cookie");
     public static JLabel Login_UiL_Msg = new JLabel("哔哩哔哩直播弹幕姬，使用Java");
     public static JLabel Login_UiL_Tips = new JLabel("Tips :" );
-    public static JLabel Login_UiL_Notice = new JLabel("新增游客登录，可能出现未知情况。" );
+    public static JLabel Login_UiL_Notice = new JLabel("特殊版本禁用更新计划" );
     public static JLabel Login_UiL_Tips1 = new JLabel("获取Cookie方法");
     public static JLabel Login_UiL_Tips2 = new JLabel(" |　无法运行？获取最新版！");
     public static JTextField Login_UiT_Cookie = new JTextField(22);
@@ -125,6 +125,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
 //                System.exit(0); //不同意后关闭软件
             }
         }
+        if(ConfInfo.DisableOutput)
         new Thread(new Runnable() {
             public void run() {
                 int SVersionNum = ConfInfo.VersionNum;

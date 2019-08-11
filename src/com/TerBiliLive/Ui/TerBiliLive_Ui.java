@@ -36,10 +36,10 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
 
-    public static String StartInfo = "Ter制作的 “TerBiliLive” 弹幕姬 - 测试中";
+    public static String StartInfo = "Ter制作的 “TerBiliLive Disable Output” 弹幕姬 - 测试中";
     public static String NetworkingInfo = null;
     public static String Version = ConfInfo.Version;
-    public static String Appname = "TerBiliLive";
+    public static String Appname = "TerBiliLive Disable Output";
     public static String ProjectName = "TerBiliLive";
     //String UipathUrl = "http://live.bilibili.com/msg/send";
 
@@ -160,6 +160,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("Ter 简单制造"+ TerBiliLive_Adv_Ui.Version);
         if (ConfInfo.putShowUtil == null) ConfInfo.putShowUtil = new PutShowUtil();
         ConfInfo.putShowUtil.PutDMUtil(StartInfo+"\n"+"欢迎使用 "+Appname+" 当前版本 "+Version,Color.DARK_GRAY);
+        if(ConfInfo.DisableOutput)
         new Thread(new Runnable(){
             public void run(){
                 try {
@@ -305,6 +306,12 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         m3_item1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent arg0) {
+                if(ConfInfo.DisableOutput){
+
+                }else{
+                    JOptionPane.showMessageDialog(null,"特殊版本禁用更新计划！");
+                    return ;
+                }
                 int SVersionNum = ConfInfo.VersionNum;
                 int level = -1;
                 String SVersion = ConfInfo.Version;

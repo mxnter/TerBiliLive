@@ -8,6 +8,8 @@ import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utiliy.FileUtil;
 
+import java.awt.*;
+
 import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.*;
 
 public class Control_Fun {
@@ -62,18 +64,14 @@ public class Control_Fun {
         ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
         ConfInfo.ChargeBarrageList.clear();
         DT.start(ConfInfo.liveRoom.room_id,true);
-        ConfInfo.GBT.start();
+        if(ConfInfo.DisableOutput){
+            ConfInfo.GBT.start();
+        }else{
+            ConfInfo.putShowUtil.PutDMUtil(" [Live Bilibili]  提示：当前版本为 禁用弹幕输出版， 为了更长时间的挂机！", Color.DARK_GRAY);
+        }
         ConfInfo.PBT.start();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(true);
-
-
-
-
-
-
-
-
 
 
     }
@@ -81,7 +79,7 @@ public class Control_Fun {
     public void Disconnect(){
 
         DT.stop();
-        ConfInfo.GBT.stop();
+        if(ConfInfo.DisableOutput)ConfInfo.GBT.stop();
         ConfInfo.PBT.stop();
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(true);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(false);
