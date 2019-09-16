@@ -7,52 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="V.Beta06[D.Beta08-0413]-[H.Beta9-0413]-[G.Beta03]&#10;修复 获取服务器信息接口（B站更改接口）">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/TerBiliLive.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[11365011]2018-10-01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-09-22.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-09-24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-09-25.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-10-01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[14194847]2018-09-24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[388]2018-09-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[3]2018-09-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[3]2018-09-07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[3]2018-09-08.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[4236342]2018-09-06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[4236342]2018-09-07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[4236342]2018-09-08.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[4236342]2018-09-09.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[4236342]2018-09-20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[5389469]2018-09-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[5389469]2018-09-06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[5552]2018-09-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[56789]2018-09-08.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[605]2018-09-21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[6]2018-09-05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[6]2018-09-07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[7471685]2018-09-06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[7471685]2018-09-20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[]2018-09-20.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[]2018-09-21.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[]2018-09-24.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Cookie.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Cookie.terda1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Data.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/RoomId.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Second.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/Text.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/data/xData.terda" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/img/hy.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-06TerBiliLive HFJ.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-06TerBiliLive Log.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-07TerBiliLive HFJ.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-08TerBiliLive GG.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-08TerBiliLive HFJ.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-21TerBiliLive HFJ.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-22TerBiliLive HFJ.terlog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/logo.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/JsonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/JsonUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,9 +71,8 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Learn\TerBiliLive\lib" />
-      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.TerBiliLive" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\GitHub\TerBiliLive\lib" />
@@ -130,8 +86,9 @@
       <recent name="com.TerBiliLive.Thr" />
       <recent name="com.TerBiliLive.Ui" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.TerBiliLive" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Learn\TerBiliLive\lib" />
+      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
     </key>
   </component>
   <component name="RunDashboard">
