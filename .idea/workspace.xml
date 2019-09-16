@@ -7,13 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="V.Beta06[D.Beta08-0413]-[H.Beta9-0413]-[G.Beta03]&#10;修复 获取服务器信息接口（B站更改接口）">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_codec_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javax_crypto_1_0_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/commons-codec-1.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javax.crypto-1.0.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/AESUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerBiliLive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TerBiliLive.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/TerBiliLive.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[11365011]2018-10-01.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-09-22.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/Dm/[1198385]2018-09-24.txt" beforeDir="false" />
@@ -57,14 +51,8 @@
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-21TerBiliLive HFJ.terlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/log/2018-09-22TerBiliLive HFJ.terlog" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/Ter/logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/TerBiliLive_jar/TerBiliLive.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Info/ConfInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Info/ConfInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/DingtalkUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/DingtalkUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/AgreementUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/AgreementUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DingtalkUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/DingtalkUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/JsonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utiliy/JsonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/JsonUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TerBiliLive/com/TerBiliLive/Utiliy/JsonUtil.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -319,7 +307,7 @@
       <workItem from="1562846113970" duration="1506000" />
       <workItem from="1563093885980" duration="10223000" />
       <workItem from="1563104131124" duration="248000" />
-      <workItem from="1568634139493" duration="4758000" />
+      <workItem from="1568634139493" duration="5073000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -461,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563103646825</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="V.Beta06 09161更新&#10;更改 Cookie 为加密模式,和部分 Bug 修复">
+      <created>1568640873246</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1568640873247</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -534,7 +529,8 @@
     <MESSAGE value="V.Beta06[D.Beta08-0617]-[H.Beta9-0514]-[G.Beta03]&#10;Upadte 无法显示弹幕信息" />
     <MESSAGE value="V.Beta06[D.Beta08-0617]-[H.Beta9-0514]-[G.Beta03]-[L.Beta03-0714]  &#10;完善 登录页面&#10;增加 更新检查" />
     <MESSAGE value="更新图片" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新图片" />
+    <MESSAGE value="V.Beta06 09161更新&#10;更改 Cookie 为加密模式,和部分 Bug 修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="V.Beta06 09161更新&#10;更改 Cookie 为加密模式,和部分 Bug 修复" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
