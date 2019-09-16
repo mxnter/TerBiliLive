@@ -16,17 +16,16 @@ public class JsonUtil {
 
     public boolean readData(){
 
-            String TerBiliLiveData =FileUtil.readFile("Data");
-        // TODO 加密后部分电脑无法读取数据
-            String sn = DiskUtil.getSerialNumber("C");
-//            char[] c = TerBiliLiveData.toCharArray();
-//            //使用for循环给字符数组加密
-//            for(int i=0;i<c.length;i++){
-//                c[i] = (char)(c[i]-(Integer.parseInt(sn)%10));
-//            }
-//            TerBiliLiveData= new String(c);
+            String readDatas =FileUtil.readFile("Data");
+        // TODO 加密后部分电脑无法读取数据 更换加密方式
+        String TerBiliLiveData = "";
         try {
-            if(!TerBiliLiveData.equals("")) {
+            TerBiliLiveData = AESUtil.Decrypt(readDatas);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            if(TerBiliLiveData!=null && (!TerBiliLiveData.equals(""))) {
                 JSONObject jsonObject = new JSONObject(TerBiliLiveData);
 
                 ConfInfo.confData.setCookie(jsonObject.getString("Cookie"));
@@ -67,16 +66,14 @@ public class JsonUtil {
 //            ConfInfo.confData.setText(ele.getAttribute("Text"));
             TerBiliLiveData=jsonObject.toString();
 
-            // TODO 加密后部分电脑无法读取数据
-            String sn = DiskUtil.getSerialNumber("C");
-            char[] c = TerBiliLiveData.toCharArray();
-//            //使用for循环给字符数组加密
-//            for(int i=0;i<c.length;i++){
-//                c[i] = (char)(c[i]+(Integer.parseInt(sn)%10));
-//            }
-//            TerBiliLiveData= new String(c);
-
-            FileUtil.writeFile("Data",TerBiliLiveData);
+            // TODO 加密后部分电脑无法读取数据 更换加密方式
+            String writeDatas = "";
+            try {
+                writeDatas = AESUtil.Encryption(TerBiliLiveData);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            FileUtil.writeFile("Data",writeDatas);
         } catch (JSONException e) {
             e.printStackTrace();
         }

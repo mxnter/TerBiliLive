@@ -24,7 +24,7 @@ import java.io.IOException;
 
 public class TerBiliLive_Login_Ui extends JFrame  {
 
-    public static String Version = "Beta03-0714";
+    public static String Version = "Beta03-0916";
     public static String Appname = "TerBiliLive Login";
     public static String ProjectName = "TerBiliLive Login";
     Font font = new Font(null,Font.PLAIN,24);

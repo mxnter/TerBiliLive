@@ -7,7 +7,7 @@ public class AgreementUtil {
 		try {
 			String encoding="UTF-8";
 			String readText="";
-			File file=new File("Ter/" + "用户协议"+ ".text");
+			File file=new File("Ter/" + "用户协议"+ ".txt");
 			if(file.isFile() && file.exists()){ //判断文件是否存在
 				InputStreamReader read = new InputStreamReader(
 						new FileInputStream(file),encoding);//考虑到编码格式
@@ -39,7 +39,7 @@ public class AgreementUtil {
 		FileWriter fw = null;
 		try {
 			// 如果文件存在，则追加内容；如果文件不存在，则创建文件
-			File f = new File("Ter/" + "用户协议"+ ".text");
+			File f = new File("Ter/" + "用户协议"+ ".txt");
 			fw = new FileWriter(f, true);
 
 		} catch (IOException e) {

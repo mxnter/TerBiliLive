@@ -17,5 +17,7 @@
     <orderEntry type="library" exported="" name="io.netty:netty-all:4.1.28.Final" level="project" />
     <orderEntry type="library" exported="" name="cn.bestwu:fastjson:1.2-unwrap" level="project" />
     <orderEntry type="library" name="jsoup-1.11.3" level="project" />
+    <orderEntry type="library" name="javax.crypto-1.0.5" level="project" />
+    <orderEntry type="library" name="commons-codec-1.4" level="project" />
   </component>
 </module>

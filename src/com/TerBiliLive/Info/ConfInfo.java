@@ -19,7 +19,7 @@ import java.util.*;
 public class ConfInfo {
 
     public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
-    public static int VersionNum = 201907141;
+    public static int VersionNum = 201909161;
 
     public static int isReConnSum = 0;
     public static String Thank = "no";
@@ -62,6 +62,7 @@ public class ConfInfo {
     public static ConfData confData= new ConfData();
     public static XmlUtil xmlUtil =new XmlUtil();
     public static JsonUtil jsonUtil = new JsonUtil();
+    public static AESUtil aesUtil = new AESUtil();
 
 
     public static GetSendBarrageList_Thr GBT;
@@ -89,4 +90,10 @@ public class ConfInfo {
     public static StyledDocument docsS = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getStyledDocument();
     public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
+    // Dingtalk Robot Webhook
+    public static String DingtalkWebhookStart = "s945Q0A+q3VWvmDSV27I4XNmPnEzpb+9y6298m2MnQvGzTCE8ciaYlQktDkNF3/xn+85ebPuEAmyyJxGzMEIdlQoZOPE0P4fS5HXTjqtN+uNkXMhlgEcQbtY8nuqoWOFXB/1+pDZ8Da6HSj1ugJngF9auE18oBvkA6ru2UHRJtc=";
+    public static String DingtalkWebhookOpen = "s945Q0A+q3VWvmDSV27I4XNmPnEzpb+9y6298m2MnQvGzTCE8ciaYlQktDkNF3/xABTpARnN9l6n9bwIQZ2pwqGxZM5pxhUJ4cowU4wWvggshqgcBMsZv2Q3vmoXKsb/eXqBWPqcsVLIMYTZQeGGtbV8hEjE5Lmcn6jq9vmf40k=";
+    public static String DingtalkWebhookLink = "s945Q0A+q3VWvmDSV27I4XNmPnEzpb+9y6298m2MnQvGzTCE8ciaYlQktDkNF3/xuTokoe7J6mOockxV28ZhBGHyCyxxEWQQDV1JX9qEKh0n57afBDZrOBEUBqJkGQ3VDZgznm3AC3ONNhHG1WinatUbe0dyXSqmb8UDQJw3WLo=";
+    public static String DingtalkWebhookLogin = "s945Q0A+q3VWvmDSV27I4XNmPnEzpb+9y6298m2MnQvGzTCE8ciaYlQktDkNF3/xeTfhiOP9v02+hzDlAW1ML/dXiPvIZEmjuiMWXOV1uO8vCLDirDILIf8yt+0LixNqjZknNlyBQgjIcSAGrfkdfY8qWgiNVHPc7JJFGSGMqgA=";
+    public static String DingtalkWebhookPK = "b244c6c6b95c002eb89da3259d8809af817415e77636c4e3e4f47c6a1944199f";
 }
