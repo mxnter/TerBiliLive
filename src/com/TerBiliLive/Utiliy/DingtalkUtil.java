@@ -112,9 +112,13 @@ public class DingtalkUtil {
         String msg = "[直播结束]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
+    }
 
-
-
+    public void LiveLogin(){
+        DingtalkInform();
+        String msg = "[未登录]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String textMsg = Msg(msg);
+        Send(WEBHOOK_TOKEN_START,textMsg);
     }
 
     public void chatAdmin(String m,String uanme){

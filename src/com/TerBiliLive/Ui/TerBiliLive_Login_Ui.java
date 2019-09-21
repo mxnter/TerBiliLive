@@ -136,12 +136,12 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
-                    if (level >= -1) {
-                        Login_UiL_Notice.setText("收到一份重要更新提醒,请尽快更新！");
-                        Login_UiL_Notice.setForeground(Color.RED);
-                    }
-                    if (level > 0) {
-                        if (ConfInfo.VersionNum < SVersionNum) {
+                    if (ConfInfo.VersionNum < SVersionNum) {
+                        if (level >= -1) {
+                            Login_UiL_Notice.setText("收到一份重要更新提醒,请尽快更新！");
+                            Login_UiL_Notice.setForeground(Color.RED);
+                        }
+                        if (level > 0) {
                             if (JOptionPane.showConfirmDialog(null, "找到最新版本：\n" + SVersion + "\n请尽快更新", "更新", JOptionPane.OK_CANCEL_OPTION) == 0) {
                                 OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
                             } else {
@@ -151,6 +151,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                             }
                         }
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

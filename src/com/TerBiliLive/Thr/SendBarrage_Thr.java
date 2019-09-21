@@ -91,6 +91,7 @@ public class SendBarrage_Thr extends Thread {
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
                             LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
+                            ConfInfo.dingtalkUtil.LiveLogin(); // 未登录通知
                             break;
                         case "-500":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());

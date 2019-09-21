@@ -18,7 +18,7 @@ import java.awt.*;
 public class TerBiliLive_SendBarrage_Ui {
         //extends JPanel implements ActionListener, KeyListener {
 
-    public static String Version = "Beta9-0514";
+    public static String Version = "Beta9-0921";
     public static String Appname = "TerBiliLive SendBarrage";
     public static String ProjectName = "TerBiliLive SendBarrage";
     String pathUrl = "http://live.bilibili.com/msg/send";
