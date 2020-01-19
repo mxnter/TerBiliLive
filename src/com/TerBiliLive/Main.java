@@ -2,6 +2,7 @@ package com.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Ui.TerBiliLive_Greet_Ui;
+import com.TerBiliLive.Utiliy.DevLogUtil;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 
@@ -22,27 +23,15 @@ public class Main {
         FileUtil.createDir("Ter/data/");
         FileUtil.createDir("Ter/log/");
         FileUtil.createDir("Ter/Dm/");
-//        ConfInfo.dingtalkUtil.OpenProgram();//统计用户
+//      ConfInfo.dingtalkUtil.OpenProgram();//统计用户
 
-//        ConfInfo.xmlUtil.readData();
-        ConfInfo.jsonUtil.readData();
-        System.out.println(ConfInfo.confData.toString());
+        ConfInfo.jsonUtil.readData(); //读取基础数据
+
+        DevLogUtil.printf(ConfInfo.confData.toString());
+
         LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.toString() + "\n", "TerBiliLive Logxx");
+
         TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();
-
-        /*开启发送弹幕的代码*/
-        /*
-        TerBiliLive_SendBarrage_Ui HFJ = new TerBiliLive_SendBarrage_Ui();
-        HFJ.HFJ_UiT_RoomId.setText(FileUtil.readFile("RoomId"));
-        //HFJ.HFJ_UiT_Text.setText(FileUtil.readFile("Text"));
-        HFJ.HFJ_UiT_Cookie.setText(FileUtil.readFile("Cookie"));
-        //System.out.print(readFile("RoomId.txt"));
-        HFJ.HFJ_UiT_Time.setText("Ter 简单制造");
-        HFJ.HFJ_UiT_State.setText("欢迎使用回复姬");
-        */
-
-
-
 
 
     }

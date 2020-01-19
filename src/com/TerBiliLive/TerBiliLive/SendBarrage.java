@@ -1,6 +1,7 @@
 package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Utiliy.SubStringUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -40,21 +41,21 @@ public class SendBarrage {
             //封装Rnd
             paramMap.put("rnd", ConfInfo.Rnd);
             //封装csrf_token = bili_jct=
-            paramMap.put("csrf_token", GetSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf_token", SubStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //封装csrf
-            paramMap.put("csrf", GetSubString.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf", SubStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //创建Post提交对象
-            ConfInfo.sendPost = new SendPost();
+//            ConfInfo.sendPost = new SendPost();
             //获取返回值
-            result = ConfInfo.sendPost.SendPost(url,paramMap,cookie);
+            result = HttpClient.SendPost(url,paramMap,cookie);
 
         } catch (UnsupportedEncodingException e) {
             System.out.println("SendBarrage : 转换字符出错 "+msg);
             e.printStackTrace();
         }
 
-        //回收资源
-        ConfInfo.sendPost = null;
+        //回收资源 TODO 使用静态方法不再进行回收资源
+        //ConfInfo.sendPost = null;
         return result;
     }
 

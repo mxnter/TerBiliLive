@@ -16,23 +16,13 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class GG_Fun {
 
-    String Parameter= "" ;
-    String pathUrl = "http://live.bilibili.com/msg/send";
-    public static String RTData ;
     public GG_Fun(){
 
-
-        // GG.GG_UiT_RoomId.setText(C.Control_UiT_RoomId.getText());
-        // GG.GG_UiT_Cookie.setText(C.Control_UiT_Cookie.getText());
-
-        Map<String, String> mapParam = new HashMap<String, String>();
-        String roomid, cookie, msg,url;
-
+        String roomid, cookie, msg;
 
         roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
         msg = ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText();
         cookie = ConfInfo.cookie;
-
 
         ConfInfo.sendBarrage=new SendBarrage();
         if(ConfInfo.liveRoom==null)ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
@@ -41,8 +31,6 @@ public class GG_Fun {
 
         try {
             JSONObject jsonObject = new JSONObject(RTData);
-
-
 
             switch (jsonObject.getString("code")) {
 
@@ -72,7 +60,6 @@ public class GG_Fun {
                     ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText(getFormatHour()+"未知错误，"+"<"+ CodingUtil.ascii2native(jsonObject.getString("msg"))+">");
                     LogUtil.putLog(getFormatDay(), getFormatHour(), "[未知错误]-->[" +roomid+"] ："+ ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText()+"\t<"+  CodingUtil.ascii2native(jsonObject.getString("msg"))+">"+ "\t 返回值：" + CodingUtil.ascii2native(RTData)  + "\n",ConfInfo.terBiliLive_adv_ui.ProjectName);
             }
-
 
         } catch (JSONException e) {
             e.printStackTrace();

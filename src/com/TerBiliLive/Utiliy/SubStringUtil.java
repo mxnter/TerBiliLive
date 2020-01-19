@@ -1,9 +1,13 @@
-package com.TerBiliLive.TerBiliLive;
+package com.TerBiliLive.Utiliy;
 
-public class GetSubString {
-
-
-
+public class SubStringUtil {
+	/**
+	 * 拆分字符串
+	 * @param text 字符串
+	 * @param left 左边的标识字符串
+	 * @param right 右边标识字符串
+	 * @return 取出的字符串
+	 */
 	public static String getSubString(String text, String left, String right) {
 		String result = "";
 		int zLen;

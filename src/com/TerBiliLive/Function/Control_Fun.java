@@ -8,6 +8,8 @@ import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utiliy.FileUtil;
 
+import javax.swing.*;
+
 import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.*;
 
 public class Control_Fun {
@@ -23,39 +25,65 @@ public class Control_Fun {
 
     public Control_Fun(){
 
-
-
-
-
     }
 
 
-
-    public  void Preservation(){
-
-
+    /**
+     * 保存基础信息
+     */
+    public void Preservation(){
         //创建目录
         FileUtil.createDir("Ter/data/");
         FileUtil.createDir("Ter/log/");
         FileUtil.createDir("Ter/Dm/");
         //写入数据
-        FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-//        FileUtil.writeFile("Cookie",ConfInfo.cookie);
-        FileUtil.writeFile("Second", GG_UiT_Second.getText());
-        FileUtil.writeFile("Text",GG_UiT_Text.getText());
+//      FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
+//      FileUtil.writeFile("Cookie",ConfInfo.cookie);
+//      FileUtil.writeFile("Second", GG_UiT_Second.getText());
+//      FileUtil.writeFile("Text",GG_UiT_Text.getText());
 
+        if(ConfInfo.dev){ FileUtil.writeFile("Cookie",ConfInfo.cookie);}
 
         ConfInfo.confData.setCookie(ConfInfo.cookie);
         ConfInfo.confData.setSecond( GG_UiT_Second.getText());
         ConfInfo.confData.setText(GG_UiT_Text.getText());
         ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-        ConfInfo.xmlUtil.writeData();
+//      ConfInfo.xmlUtil.writeData(); //关闭 xData.terda 输出
         ConfInfo.jsonUtil.writeData();
 
+    }
 
+    /**
+     * 清除基础信息
+     */
+    public void Clear(){
+        //创建目录
+        FileUtil.createDir("Ter/data/");
+        FileUtil.createDir("Ter/log/");
+        FileUtil.createDir("Ter/Dm/");
+
+        //写入数据
+//        FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
+        if(ConfInfo.dev){ FileUtil.writeFile("Cookie",""); }
+//        FileUtil.writeFile("Second", ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.getText());
+//        FileUtil.writeFile("Text",ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText());
+
+        ConfInfo.confData.setCookie("");
+        ConfInfo.confData.setSecond(GG_UiT_Second.getText());
+        ConfInfo.confData.setText(GG_UiT_Text.getText());
+        ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
+//      ConfInfo.xmlUtil.writeData(); //关闭 xData.terda 输出
+        ConfInfo.jsonUtil.writeData();
+        JOptionPane.showMessageDialog(null,"已经退出登录,请手动启动软件!");
+        System.exit(0);
 
     }
+
+
+
+
     public void Connect(){
+
         DT= new ChargeNoticeS_Thr();
         ConfInfo.GBT =new GetSendBarrageList_Thr();
         ConfInfo.PBT =new ParsingBarrage_Thr();
@@ -67,16 +95,8 @@ public class Control_Fun {
         ConfInfo.terBiliLive_control_ui.Control_UiB_Connect.setEnabled(false);
         ConfInfo.terBiliLive_control_ui.Control_UiB_Disconnect.setEnabled(true);
 
-
-
-
-
-
-
-
-
-
     }
+
     @SuppressWarnings("deprecation")
     public void Disconnect(){
 

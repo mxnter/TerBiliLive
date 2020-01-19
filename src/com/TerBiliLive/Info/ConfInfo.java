@@ -18,8 +18,10 @@ import java.util.*;
 
 public class ConfInfo {
 
+    public static boolean dev = false;
+
     public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
-    public static int VersionNum = 201909211;
+    public static int VersionNum = 202001190;
 
     public static int isReConnSum = 0;
     public static String Thank = "no";
@@ -60,7 +62,7 @@ public class ConfInfo {
     public static DingtalkUtil dingtalkUtil = new DingtalkUtil();
 
     public static ConfData confData= new ConfData();
-    public static XmlUtil xmlUtil =new XmlUtil();
+//    public static XmlUtil xmlUtil =new XmlUtil(); //关闭 xData.terda
     public static JsonUtil jsonUtil = new JsonUtil();
     public static AESUtil aesUtil = new AESUtil();
 

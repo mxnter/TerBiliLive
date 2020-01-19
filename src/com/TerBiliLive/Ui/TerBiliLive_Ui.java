@@ -4,6 +4,7 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
 import com.TerBiliLive.TerBiliLive.SendGet;
+import com.TerBiliLive.TerBiliLive.TerWindowListener;
 import com.TerBiliLive.Utiliy.*;
 import com.alibaba.fastjson.JSON;
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
@@ -49,7 +50,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
     JMenuBar mBar = new JMenuBar();
 
     public JMenu m1 = new JMenu("编辑");
-    public JMenuItem m1_item1 = new JMenuItem("清除账户");
+    public JMenuItem m1_item1 = new JMenuItem("退出登录");
     public JMenuItem m1_item2 = new JMenuItem("清除Key");
     public JMenuItem m1_item3 = new JMenuItem("保存信息");
 
@@ -90,7 +91,8 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setBackground(Color.white);
-
+        TerWindowListener terwl = new TerWindowListener();//创建一个窗口监听事件对象
+        this.addWindowListener(terwl);//添加myMouseListener鼠标监听事件
 
 //        //设置图片
 //        try {
@@ -255,25 +257,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                //创建目录
-                FileUtil.createDir("Ter/data/");
-                FileUtil.createDir("Ter/log/");
-                FileUtil.createDir("Ter/Dm/");
-                //写入数据
-                FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-                FileUtil.writeFile("Cookie","");
-                FileUtil.writeFile("Second", ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.getText());
-                FileUtil.writeFile("Text",ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText());
-                ConfInfo.confData.setCookie("");
-                ConfInfo.confData.setSecond( GG_UiT_Second.getText());
-                ConfInfo.confData.setText(GG_UiT_Text.getText());
-                ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-                ConfInfo.xmlUtil.writeData();
-                ConfInfo.jsonUtil.writeData();
-                JOptionPane.showMessageDialog(null,"已经清除您得账号信息，请重新启动软件！");
-                System.exit(0);
-
-
+                ConfInfo.control_fun.Clear();
             }
         });
         m1_item2.addActionListener(new ActionListener() {
@@ -342,32 +326,11 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
+                OpenUtil.OpenUrl("http://terbililive.mter.top/");
             }
         });
 
         new Control_Monitor();
-
-
-
-
-
-        this.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
-
-                //创建目录
-                FileUtil.createDir("Ter/data/");
-                FileUtil.createDir("Ter/log/");
-                FileUtil.createDir("Ter/Dm/");
-                //写入数据
-                FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-                FileUtil.writeFile("Cookie",ConfInfo.cookie);
-                FileUtil.writeFile("Second", ConfInfo.terBiliLive_adv_ui.GG_UiT_Second.getText());
-                FileUtil.writeFile("Text",ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText());
-
-                super.windowClosing(e);
-            }
-
-        });
 
         this.setVisible(true);
 

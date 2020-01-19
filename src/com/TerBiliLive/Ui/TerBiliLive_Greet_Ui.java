@@ -2,6 +2,7 @@ package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.*;
+import com.TerBiliLive.TerBiliLive.TerWindowListener;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 import com.TerBiliLive.Utiliy.TimeUtil;
@@ -137,7 +138,7 @@ public class TerBiliLive_Greet_Ui extends JFrame {
                 ConfInfo.infoNew = new InfoNew(ConfInfo.cookie);
                 ConfInfo.dingtalkUtil.LogIn();
                 l.setText("登陆成功");
-                TerBiliLive_Ui HFJ = new TerBiliLive_Ui();
+                TerBiliLive_Ui ui = new TerBiliLive_Ui();
                 dispose();
                 this.setVisible(false);
             }
