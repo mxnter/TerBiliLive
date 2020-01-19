@@ -21,3 +21,12 @@ dependencies {
     compile group: 'org.jsoup', name: 'jsoup', version: '1.12.1'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.13'
 }
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.TerBiliLive.Main'
+        )
+    }
+}
