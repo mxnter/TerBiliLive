@@ -1,15 +1,5 @@
 apply plugin: 'java'
 
-
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/']
-        }
-    }
-}
-
 repositories {
     mavenCentral()
 }
@@ -26,7 +16,7 @@ jar {
     manifest {
         attributes(
                 'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'com.TerBiliLive.Main'
+                'Main-Class': 'com.github.TerBiliLive.Main'
         )
     }
 }
