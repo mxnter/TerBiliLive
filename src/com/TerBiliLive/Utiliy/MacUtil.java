@@ -7,7 +7,7 @@ import java.util.Enumeration;
 
 public class MacUtil {
 
-    public static String getMac(){
+    public String getMac(){
         try {
 
             Process process = Runtime.getRuntime().exec("ipconfig /all");
@@ -38,7 +38,7 @@ public class MacUtil {
         return "获取失败";
     }
 
-    public static String getMacAddress() {
+    public String getMacAddress() {
         try {
             Enumeration<NetworkInterface> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
             byte[] mac = null;

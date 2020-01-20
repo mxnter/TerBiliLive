@@ -1,6 +1,6 @@
 package com.TerBiliLive.Info;
 
-import com.TerBiliLive.TerBiliLive.SendPost;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utiliy.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,8 +27,7 @@ public class LiveConf {
     public String ReturnData = null;
 
     public LiveConf(String Cid,String cookie) {
-        ConfInfo.sendPost = new SendPost();
-        ReturnData = ConfInfo.sendGet.sendGet(ConfInfo.LiveConfURL+Cid,cookie);
+        ReturnData = HttpClient.sendGet(ConfInfo.LiveConfURL+Cid,cookie);
         System.out.println(ReturnData);
         try {
             JSONObject data = new JSONObject(ReturnData);

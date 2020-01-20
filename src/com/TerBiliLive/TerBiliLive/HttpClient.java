@@ -84,8 +84,8 @@ public class HttpClient {
 	 * @param url 请求地址
 	 * @return 所代表远程资源的响应结果
 	 */
-	public static String  SendPost(String url) {
-		return SendPost(url,null,"");
+	public static String  sendPost(String url) {
+		return sendPost(url,null,"");
 	}
 
 	/**
@@ -94,8 +94,8 @@ public class HttpClient {
 	 * @param paramMap 请求参数
 	 * @return 所代表远程资源的响应结果
 	 */
-	public static String  SendPost(String url, Map<String, String> paramMap) {
-        return SendPost(url,paramMap,"");
+	public static String  sendPost(String url, Map<String, String> paramMap) {
+        return sendPost(url,paramMap,"");
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class HttpClient {
 	 * @param cookie 请求所携带的Cookie
 	 * @return 所代表远程资源的响应结果
 	 */
-	public static String  SendPost(String url, Map<String, String> paramMap, String cookie) {
+	public static String  sendPost(String url, Map<String, String> paramMap, String cookie) {
 		PrintWriter out = null;
 		BufferedReader in = null;
 		StringBuilder result = new StringBuilder();
@@ -178,8 +178,8 @@ public class HttpClient {
 	 * @param Json 请求参数
 	 * @return 所代表远程资源的响应结果
 	 */
-	public static String SendPostJson(String url, String Json) {
-		return SendPostJson(url,Json,null);
+	public static String sendPostJson(String url, String Json) {
+		return sendPostJson(url,Json,null);
 	}
 
 	/**
@@ -189,7 +189,7 @@ public class HttpClient {
 	 * @param cookie 请求所携带的Cookie
 	 * @return 所代表远程资源的响应结果
 	 */
-	public static String SendPostJson(String url, String Json,String cookie) {
+	public static String sendPostJson(String url, String Json,String cookie) {
 		// HttpClient 6.0被抛弃了
 		String result = "";
 		BufferedReader reader = null;

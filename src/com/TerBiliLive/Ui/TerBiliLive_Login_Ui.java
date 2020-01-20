@@ -2,8 +2,7 @@ package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.TerBiliLive.SendGet;
-import com.TerBiliLive.TerBiliLive.TerWindowListener;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utiliy.AgreementUtil;
 import com.TerBiliLive.Utiliy.FileUtil;
 import com.TerBiliLive.Utiliy.OpenUtil;
@@ -12,7 +11,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.swing.*;
-import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -117,13 +115,13 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 "GITHUB:https://github.com/mxnter/TerBiliLive\n"+
                 "\n" +
                 "再次感谢您的使用。\n";
-        if(AgreementUtil.readFile().equals("NO")){
+        if(new AgreementUtil().readFile().equals("NO")){
             //  JOptionPane.showInputDialog(null,SQ,"用户授权",JOptionPane.PLAIN_MESSAGE).equals("我同意")
             if(JOptionPane.showConfirmDialog(null, SQ, "用户授权",JOptionPane.OK_CANCEL_OPTION)==0){
-                AgreementUtil.putAgreement(SQ+"\n"+"用户：同意");
-                ConfInfo.dingtalkUtil.Agreement("同意");
+                new AgreementUtil().putAgreement(SQ+"\n"+"用户：同意");
+                ConfInfo.dingtalk.Agreement("同意");
             }else{
-                ConfInfo.dingtalkUtil.Agreement("不同意");
+                ConfInfo.dingtalk.Agreement("不同意");
 //                System.exit(0); //不同意后关闭软件
             }
         }
@@ -134,7 +132,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
-                    SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json", "", ""));
+                    SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json", "", ""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
@@ -244,7 +242,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
         Login_Ui_ShearPlate.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Login_UiT_Cookie.setText(ShearPlateUtil.getFromClipboard());
+                Login_UiT_Cookie.setText(new ShearPlateUtil().getFromClipboard());
             }
 
             @Override

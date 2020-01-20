@@ -8,6 +8,7 @@ import com.TerBiliLive.Utiliy.LogUtil;
 import java.io.DataOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -45,12 +46,12 @@ public class GetInfo {
     public boolean sendJoinRoomMsg(Socket socket, String roomID){
         String uid =  String.valueOf(new Random().nextInt(899999) + 100000);//生成随机Uid
         // 未登录将不执行 防止没有Uid 导致无法连接
-        if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+        if(null != ConfInfo.userInfo|| !ConfInfo.cookie.equals("")){
             uid = ConfInfo.userInfo.getUid();
         }
         String jsonBody = "{\"roomid\": " + roomID + ", \"uid\": " + uid + "}";
         try {
-            return sendSocketData(socket, jsonBody.length() + 16, 16, PROTOCOL_VERSION, 7, 1, jsonBody.getBytes("utf-8"));
+            return sendSocketData(socket, jsonBody.length() + 16, 16, PROTOCOL_VERSION, 7, 1, jsonBody.getBytes(StandardCharsets.UTF_8));
         }catch (Exception ex){
             ex.printStackTrace();
         }

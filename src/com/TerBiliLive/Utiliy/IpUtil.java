@@ -8,14 +8,14 @@ import java.util.Enumeration;
 
 
 public class IpUtil {
-    public static String INTRANET_IP = getIntranetIp(); // 内网IP
-    public static String INTERNET_IP = getInternetIp(); // 外网IP
+    public String INTRANET_IP = getIntranetIp(); // 内网IP
+    public String INTERNET_IP = getInternetIp(); // 外网IP
 
     /**
      * 获得内网IP
      * @return 内网IP
      */
-    public static String getIntranetIp(){
+    public String getIntranetIp(){
         try{
             return InetAddress.getLocalHost().getHostAddress();
         } catch(Exception e){
@@ -27,7 +27,7 @@ public class IpUtil {
      * 获得外网IP
      * @return 外网IP
      */
-    public static String getInternetIp(){
+    public String getInternetIp(){
         try{
             Enumeration<NetworkInterface> networks = NetworkInterface.getNetworkInterfaces();
             InetAddress ip = null;
@@ -56,7 +56,7 @@ public class IpUtil {
     }
 
     // 获取ip地址
-    public static String getIpAddress() {
+    public String getIpAddress() {
         try {
             Enumeration<NetworkInterface> allNetInterfaces = NetworkInterface.getNetworkInterfaces();
             InetAddress ip = null;

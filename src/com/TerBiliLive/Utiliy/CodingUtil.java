@@ -2,9 +2,6 @@ package com.TerBiliLive.Utiliy;
 
 public class CodingUtil {
 
-
-
-
 	public static String ascii2native ( String asciicode )
 	{
 		String[] asciis = asciicode.split ("\\\\u");

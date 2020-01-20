@@ -4,6 +4,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * 残留代码,忘记干什么的了 应该是为了解析弹幕用的
+ */
 
 public class DmUtil {
     String code ="";
@@ -53,15 +56,6 @@ public class DmUtil {
     String M_medal[] ="";
      String U_user_level[]="";//
 */
-
-
-
-
-
-
-
-
-
 
     public DmUtil(){
 

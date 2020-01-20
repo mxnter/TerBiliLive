@@ -16,7 +16,7 @@ public class GetLiveRoomUserInfo {
     public GetLiveRoomUserInfo() {
         String url = ConfInfo.LiveRoomUserInfoURL;
         ConfInfo.liveRoom=new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
-        String getUserInfoData= SendGet.sendGet(url+ConfInfo.liveRoom.room_id);
+        String getUserInfoData= HttpClient.sendGet(url+ConfInfo.liveRoom.room_id);
         JSONObject object = JSON.parseObject(getUserInfoData);
         RoomUseruid=object.getJSONObject("data").getString("uid");
         RoomUseruname =object.getJSONObject("data").getString("uname");

@@ -91,7 +91,7 @@ public class SendBarrage_Thr extends Thread {
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_State.setText("发送失败 ：" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg);
                             LogUtil.putLog(getFormatDay(), getFormatHour(), "[发送失败]-->[" + roomid + "] ：" + ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Text.getText() + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n", ConfInfo.terBiliLive_sendBarrage_ui.ProjectName);
-                            ConfInfo.dingtalkUtil.LiveLogin(); // 未登录通知
+                            ConfInfo.dingtalk.LiveLogin(); // 未登录通知
                             break;
                         case "-500":
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());
@@ -120,7 +120,7 @@ public class SendBarrage_Thr extends Thread {
 //                            ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);// 关闭 显示弹幕老爷
 //                            ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);// 关闭 广播后开启老爷
 //                            ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);// 关闭 舰长
-                            ConfInfo.dingtalkUtil.bannedNotice(jsonObject.getString("message")); // 通知禁言
+                            ConfInfo.dingtalk.bannedNotice(jsonObject.getString("message")); // 通知禁言
                             break;
                         default:
                             ConfInfo.terBiliLive_sendBarrage_ui.HFJ_UiT_Time.setText(getFormatHour());

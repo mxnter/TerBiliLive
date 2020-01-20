@@ -1,14 +1,8 @@
 package com.TerBiliLive.Info;
 
-import com.TerBiliLive.TerBiliLive.SendGet;
-import com.TerBiliLive.TerBiliLive.SendPost;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class LiveRoom {
 
@@ -19,11 +13,8 @@ public class LiveRoom {
     public static String uid="";
     public LiveRoom(String Cid) {
 
-
-        //创建Post提交对象
-        ConfInfo.sendGet = new SendGet();
         //获取返回值
-        ReturnData = ConfInfo.sendGet.sendGet(LiveRoomURL + Cid);
+        ReturnData = HttpClient.sendGet(LiveRoomURL + Cid);
         System.out.println(ReturnData);
         JSONObject AllData = null;
         try {

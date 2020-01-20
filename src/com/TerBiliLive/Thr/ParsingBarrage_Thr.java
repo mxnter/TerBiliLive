@@ -8,8 +8,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import javax.swing.text.BadLocationException;
-import java.awt.*;
 import java.util.Date;
 import java.util.regex.Pattern;
 
@@ -302,12 +300,12 @@ public class ParsingBarrage_Thr extends Thread {
 
                                 String pattern = "# 呼叫Ter .*";
                                 if (Pattern.matches(pattern, putDM_text)) {
-                                    ConfInfo.dingtalkUtil.chatAdmin(putDM_text.substring(2), putDM_nickname);
+                                    ConfInfo.dingtalk.chatAdmin(putDM_text.substring(2), putDM_nickname);
                                 }
                             }
                             String patter = "# 呼叫Ter " + ConfInfo.confData.getRoomId() + " .*";
                             if (Pattern.matches(patter, putDM_text)) {
-                                ConfInfo.dingtalkUtil.chatAdmin(putDM_text.substring(2), putDM_nickname);
+                                ConfInfo.dingtalk.chatAdmin(putDM_text.substring(2), putDM_nickname);
                             }
                             // TODO 手机版进入房间时间是随机数
                             if (putDM_text.equals("# 停留时间")) {
@@ -524,7 +522,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                paramMap.put("roomid", "5440");
 //                                                paramMap.put("csrf_token", "810077afcf6973ee439bd6bd2caaddd5");
 //                                                paramMap.put("visit_id", "");
-//                                                System.out.println("\n\n\n\n" +   ConfInfo.sendPost.SendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
+//                                                System.out.println("\n\n\n\n" +   HttpClient.sendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
                             LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
                             System.out.println(putTZ);
                             break;
@@ -793,7 +791,7 @@ public class ParsingBarrage_Thr extends Thread {
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播开始啦，拿好小板凳哟. ");
                             System.out.println("通知 ： ~ " + "   id:" + roomid + " 直播开始啦，拿好小板凳哟.");
-                            ConfInfo.dingtalkUtil.LiveLive();
+                            ConfInfo.dingtalk.LiveLive();
                             break;
                         }
                         case "PREPARING": {
@@ -804,7 +802,7 @@ public class ParsingBarrage_Thr extends Thread {
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播结束啦，记得关注哦.");
                             System.out.println("通知 ： ~ " + "   id:" + roomid + " 直播结束啦，记得关注哦.");
-                            ConfInfo.dingtalkUtil.LivePreparing();
+                            ConfInfo.dingtalk.LivePreparing();
                             break;
                         }
 /*

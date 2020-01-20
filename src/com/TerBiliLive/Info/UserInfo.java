@@ -1,7 +1,6 @@
 package com.TerBiliLive.Info;
 
-import com.TerBiliLive.TerBiliLive.SendPost;
-import com.TerBiliLive.Utiliy.JsonUtil;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utiliy.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,8 +43,7 @@ public class UserInfo {
 
     public UserInfo(String cookie){
 
-        ConfInfo.sendPost = new SendPost();
-        ReturnData = ConfInfo.sendGet.sendGet(ConfInfo.UserInfoURL,cookie);
+        ReturnData = HttpClient.sendGet(ConfInfo.UserInfoURL,cookie);
         System.out.println(ReturnData);
         try {
             JSONObject data = new JSONObject(ReturnData);

@@ -3,11 +3,9 @@ package com.TerBiliLive.Ui;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
-import com.TerBiliLive.TerBiliLive.SendGet;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.TerBiliLive.TerWindowListener;
 import com.TerBiliLive.Utiliy.*;
-import com.alibaba.fastjson.JSON;
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -15,15 +13,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.GG_UiT_Second;
-import static com.TerBiliLive.Ui.TerBiliLive_Adv_Ui.GG_UiT_Text;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
@@ -167,13 +161,13 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 try {
 
                     String msg="";
-                    JSONObject jsonObject = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/msg.json","",""));
+                    JSONObject jsonObject = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/msg.json","",""));
                     msg = jsonObject.getString("msg");
                     ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+msg ,Color.DARK_GRAY);
                     int SVersionNum = ConfInfo.VersionNum;
                     int level = -1;
                     String SVersion = Version;
-                    JSONObject SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    JSONObject SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
@@ -199,7 +193,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
             }
         }).start();
-        if(SendGet.sendGet("https://live.bilibili.com/","","").equals(null)){
+        if(HttpClient.sendGet("https://live.bilibili.com/", "", "") == null){
             ConfInfo.putShowUtil.PutDMUtil("未检测到网络，请检查您的网络（或许有可能检测服务器失效",Color.DARK_GRAY);
         }else {
             try {
@@ -294,7 +288,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
-                    SVersionJson = new JSONObject(SendGet.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));

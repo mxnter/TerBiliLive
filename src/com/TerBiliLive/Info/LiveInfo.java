@@ -1,6 +1,6 @@
 package com.TerBiliLive.Info;
 
-import com.TerBiliLive.TerBiliLive.SendPost;
+import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utiliy.SubStringUtil;
 
 
@@ -52,10 +52,9 @@ public class LiveInfo {
 
 	public LiveInfo(String Cid, String cookie) {
 
-    //创建Post提交对象
-        ConfInfo.sendPost = new SendPost();
+
         //获取返回值
-        ReturnData = ConfInfo.sendPost.SendPost(LiveInfoURL+Cid,null,cookie);
+        ReturnData = HttpClient.sendPost(LiveInfoURL+Cid,null,cookie);
 //		try {
 //			ReturnData.getBytes("UTF-8");
 //		} catch (UnsupportedEncodingException e) {
@@ -72,36 +71,35 @@ public class LiveInfo {
 
 
 	void setAllDate() {
-		Uid = SubStringUtil.getSubString(ReturnData, "<uid>", "</uid>");
-		Uname = SubStringUtil.getSubString(ReturnData, "<uname>", "</uname>");
-		Login = SubStringUtil.getSubString(ReturnData, "<login>", "</login>");
-		Isadmin = SubStringUtil.getSubString(ReturnData, "<isadmin>", "</isadmin>");
-		Time = SubStringUtil.getSubString(ReturnData, "<time>", "</time>");
-		Rank = SubStringUtil.getSubString(ReturnData, "<rank>", "</rank>");
-		Level = SubStringUtil.getSubString(ReturnData, "<level>", "</level>");
-		State = SubStringUtil.getSubString(ReturnData, "<state>", "</state>");
-		Chatid = SubStringUtil.getSubString(ReturnData, "<chatid>", "</chatid>");
-		Server = SubStringUtil.getSubString(ReturnData, "<server>", "</server>");
-		Sheid_user = SubStringUtil.getSubString(ReturnData, "<sheid_user>", "</sheid_user>");
-		Block_time = SubStringUtil.getSubString(ReturnData, "<block_time>", "</block_time>");
-		Block_type = SubStringUtil.getSubString(ReturnData, "<block_type>", "</block_type>");
-		Room_shield = SubStringUtil.getSubString(ReturnData, "<room_shield>", "</room_shield>");
-		Level_sheid = SubStringUtil.getSubString(ReturnData, "<level_sheid>", "</level_sheid>");
-		User_sheid_keyword = SubStringUtil.getSubString(ReturnData, "<user_sheid_keyword>", "</user_sheid_keyword>");
-		Room_silent_type = SubStringUtil.getSubString(ReturnData, "<room_silent_type>", "</room_silent_type>");
-		Room_silent_level = SubStringUtil.getSubString(ReturnData, "<room_silent_level>", "</room_silent_level>");
-		Room_silent_second = SubStringUtil.getSubString(ReturnData, "<room_silent_second>", "</room_silent_second>");
-		User_silent_level = SubStringUtil.getSubString(ReturnData, "<user_silent_level>", "</user_silent_level>");
-		User_silent_rank = SubStringUtil.getSubString(ReturnData, "<user_silent_rank>", "</user_silent_rank>");
-		User_silent_verify = SubStringUtil.getSubString(ReturnData, "<user_silent_verify>", "</user_silent_verify>");
-		Dm_ws_port = Integer.parseInt(SubStringUtil.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>"));
-		Dm_wss_port = Integer.parseInt(SubStringUtil.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>"));
-		Dm_port = Integer.parseInt(SubStringUtil.getSubString(ReturnData, "<dm_port>", "</dm_port>"));
-		Dm_server = SubStringUtil.getSubString(ReturnData, "<dm_server>", "</dm_server>");
-		Need_authority = SubStringUtil.getSubString(ReturnData, "<need_authority>", "</need_authority>");
-		Authority_range = SubStringUtil.getSubString(ReturnData, "<authority_range>", "</authority_range>");
-		Forbidden = SubStringUtil.getSubString(ReturnData, "<forbidden>", "</forbidden>");
-
+		Uid = ConfInfo.subStringUtil.getSubString(ReturnData, "<uid>", "</uid>");
+		Uname = ConfInfo.subStringUtil.getSubString(ReturnData, "<uname>", "</uname>");
+		Login = ConfInfo.subStringUtil.getSubString(ReturnData, "<login>", "</login>");
+		Isadmin = ConfInfo.subStringUtil.getSubString(ReturnData, "<isadmin>", "</isadmin>");
+		Time = ConfInfo.subStringUtil.getSubString(ReturnData, "<time>", "</time>");
+		Rank = ConfInfo.subStringUtil.getSubString(ReturnData, "<rank>", "</rank>");
+		Level = ConfInfo.subStringUtil.getSubString(ReturnData, "<level>", "</level>");
+		State = ConfInfo.subStringUtil.getSubString(ReturnData, "<state>", "</state>");
+		Chatid = ConfInfo.subStringUtil.getSubString(ReturnData, "<chatid>", "</chatid>");
+		Server = ConfInfo.subStringUtil.getSubString(ReturnData, "<server>", "</server>");
+		Sheid_user = ConfInfo.subStringUtil.getSubString(ReturnData, "<sheid_user>", "</sheid_user>");
+		Block_time = ConfInfo.subStringUtil.getSubString(ReturnData, "<block_time>", "</block_time>");
+		Block_type = ConfInfo.subStringUtil.getSubString(ReturnData, "<block_type>", "</block_type>");
+		Room_shield = ConfInfo.subStringUtil.getSubString(ReturnData, "<room_shield>", "</room_shield>");
+		Level_sheid = ConfInfo.subStringUtil.getSubString(ReturnData, "<level_sheid>", "</level_sheid>");
+		User_sheid_keyword = ConfInfo.subStringUtil.getSubString(ReturnData, "<user_sheid_keyword>", "</user_sheid_keyword>");
+		Room_silent_type = ConfInfo.subStringUtil.getSubString(ReturnData, "<room_silent_type>", "</room_silent_type>");
+		Room_silent_level = ConfInfo.subStringUtil.getSubString(ReturnData, "<room_silent_level>", "</room_silent_level>");
+		Room_silent_second = ConfInfo.subStringUtil.getSubString(ReturnData, "<room_silent_second>", "</room_silent_second>");
+		User_silent_level = ConfInfo.subStringUtil.getSubString(ReturnData, "<user_silent_level>", "</user_silent_level>");
+		User_silent_rank = ConfInfo.subStringUtil.getSubString(ReturnData, "<user_silent_rank>", "</user_silent_rank>");
+		User_silent_verify = ConfInfo.subStringUtil.getSubString(ReturnData, "<user_silent_verify>", "</user_silent_verify>");
+		Dm_ws_port = Integer.parseInt(ConfInfo.subStringUtil.getSubString(ReturnData, "<dm_ws_port>", "</dm_ws_port>"));
+		Dm_wss_port = Integer.parseInt(ConfInfo.subStringUtil.getSubString(ReturnData, "<dm_wss_port>", "</dm_wss_port>"));
+		Dm_port = Integer.parseInt(ConfInfo.subStringUtil.getSubString(ReturnData, "<dm_port>", "</dm_port>"));
+		Dm_server = ConfInfo.subStringUtil.getSubString(ReturnData, "<dm_server>", "</dm_server>");
+		Need_authority = ConfInfo.subStringUtil.getSubString(ReturnData, "<need_authority>", "</need_authority>");
+		Authority_range = ConfInfo.subStringUtil.getSubString(ReturnData, "<authority_range>", "</authority_range>");
+		Forbidden = ConfInfo.subStringUtil.getSubString(ReturnData, "<forbidden>", "</forbidden>");
 	}
 
 

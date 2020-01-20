@@ -50,10 +50,10 @@ public class Control_Monitor {
                     ConfInfo.getLiveRoomUserInfo = new GetLiveRoomUserInfo();
                     ConfInfo.SendBarrageList = new ArrayList<SendBarrageMap>();
                     ConfInfo.terBiliLive_control_ui.Control_UiT_UpUname.setText(ConfInfo.getLiveRoomUserInfo.getRoomUseruname());
-                    ConfInfo.dingtalkUtil.OpenLink();
+                    ConfInfo.dingtalk.OpenLink();
 
                 }
-//                ConfInfo.dingtalkUtil.LiveLive();
+//                ConfInfo.dingtalk.LiveLive();
 
 
 
@@ -64,7 +64,7 @@ public class Control_Monitor {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                ConfInfo.dingtalkUtil.CloseLink();
+                ConfInfo.dingtalk.CloseLink();
                 Control_UiB_OpenThinks.setEnabled(false);
                 Control_UiB_ClaseThinks.setEnabled(false);
                 ConfInfo.Thank="no";

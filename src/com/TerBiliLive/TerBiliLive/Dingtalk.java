@@ -1,7 +1,12 @@
-package com.TerBiliLive.Utiliy;
+package com.TerBiliLive.TerBiliLive;
 
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.TerBiliLive.HttpClient;
+import com.TerBiliLive.Utiliy.AESUtil;
+import com.TerBiliLive.Utiliy.AgreementUtil;
+import com.TerBiliLive.Utiliy.IpUtil;
+import com.TerBiliLive.Utiliy.MacUtil;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -13,7 +18,7 @@ import java.net.UnknownHostException;
  * @Date ：Created in 12:19 2019/2/3
  * @Name ： 钉钉群推送工具类
  */
-public class DingtalkUtil {
+public class Dingtalk {
 
     private String WEBHOOK_TOKEN_PUBLIC = "https://oapi.dingtalk.com/robot/send?access_token=";
     private String WEBHOOK_TOKEN_START = null;
@@ -23,7 +28,9 @@ public class DingtalkUtil {
 
 
 
-    public DingtalkUtil() {
+    public Dingtalk() {
+       if(ConfInfo.MacAddress==null)ConfInfo.MacAddress = new MacUtil().getMacAddress();
+       if(ConfInfo.IpAddress==null)ConfInfo.IpAddress = new IpUtil().getIpAddress();
     }
     private String Msg(String msg){ return "{ \"msgtype\": \"text\", \"text\": {\"content\": \""+msg+"\"}}"; }
     private void DingtalkInform(){
@@ -67,7 +74,7 @@ public class DingtalkUtil {
     public void LogIn(){
         DingtalkInform();
         try {
-            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ MacUtil.getMacAddress() +"\n IP: "+ConfInfo.infoNew.getAddr()+"\n UL: "+ConfInfo.Uname+"\n latitude: "+ConfInfo.infoNew.getLatitude()+"\n longitude: "+ConfInfo.infoNew.getLongitude()+"\n Address: "+ConfInfo.infoNew.getCountry()+"-"+ConfInfo.infoNew.getProvince()+"-"+ConfInfo.infoNew.getCity()+"-"+ConfInfo.infoNew.getIsp();
+            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ConfInfo.infoNew.getAddr()+"\n UL: "+ConfInfo.Uname+"\n latitude: "+ConfInfo.infoNew.getLatitude()+"\n longitude: "+ConfInfo.infoNew.getLongitude()+"\n Address: "+ConfInfo.infoNew.getCountry()+"-"+ConfInfo.infoNew.getProvince()+"-"+ConfInfo.infoNew.getCity()+"-"+ConfInfo.infoNew.getIsp();
             String textMsg = Msg(msg);
             Send(WEBHOOK_TOKEN_LOGIN,textMsg);
         } catch (UnknownHostException e) {
@@ -78,7 +85,7 @@ public class DingtalkUtil {
     public void OpenProgram(){
         DingtalkInform();
         try {
-            String msg = "[启动]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ MacUtil.getMacAddress() +"\n IP: "+IpUtil.getIpAddress();
+            String msg = "[启动]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress;
             String textMsg = Msg(msg);
             Send(WEBHOOK_TOKEN_OPEM,textMsg);
         } catch (UnknownHostException e) {
@@ -152,9 +159,9 @@ public class DingtalkUtil {
     public void Agreement(String type){
         DingtalkInform();
         try {
-            String msg = "[授权]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ MacUtil.getMacAddress() +"\n IP: "+IpUtil.getIpAddress()+"\n Type: "+type;
+            String msg = "[授权]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress +"\n Type: "+type;
             String textMsg = Msg(msg);
-            ConfInfo.sendPost.doJsonPost(WEBHOOK_TOKEN_OPEM,textMsg);
+            HttpClient.sendPostJson(WEBHOOK_TOKEN_OPEM,textMsg);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -162,8 +169,8 @@ public class DingtalkUtil {
     }
 
     public void Send(String WEBHOOK_TOKEN_START,String textMsg){
-        if(!AgreementUtil.readFile().equals("NO")){
-            ConfInfo.sendPost.doJsonPost(WEBHOOK_TOKEN_START,textMsg);
+        if(!(new AgreementUtil().readFile().equals("NO"))){
+            HttpClient.sendPostJson(WEBHOOK_TOKEN_START,textMsg);
         }
 
     }

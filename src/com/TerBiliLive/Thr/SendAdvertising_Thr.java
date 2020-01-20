@@ -4,8 +4,6 @@ import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Info.LiveRoom;
-import com.TerBiliLive.TerBiliLive.SendPost;
-import com.TerBiliLive.Utiliy.DmUtil;
 import com.TerBiliLive.Utiliy.LogUtil;
 
 import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
@@ -21,12 +19,6 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 public class SendAdvertising_Thr extends Thread {
 
 
-    public boolean AYO = true;
-    String Parameter = "";
-
-    SendPost SP = new SendPost();
-    DmUtil DU = new DmUtil();
-    String putDMJY = null;
     public int second;
     String LiveOpen = "open";
 

@@ -4,11 +4,14 @@ import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * 获取硬盘特征码,原来用于加密,但是有些设备的硬盘特征码很奇怪(无法使用)
+ */
 class DiskUtil {
-    private DiskUtil() {
+    public DiskUtil() {
     }
 
-    public static String getSerialNumber(String drive) {
+    public String getSerialNumber(String drive) {
         String result = "";
         try {
             File file = File.createTempFile("damn", ".vbs");

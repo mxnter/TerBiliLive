@@ -8,7 +8,7 @@ public class SubStringUtil {
 	 * @param right 右边标识字符串
 	 * @return 取出的字符串
 	 */
-	public static String getSubString(String text, String left, String right) {
+	public String getSubString(String text, String left, String right) {
 		String result = "";
 		int zLen;
 		if (left == null || left.isEmpty()) {

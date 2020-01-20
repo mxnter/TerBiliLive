@@ -3,7 +3,7 @@ import java.io.*;
 
 public class AgreementUtil {
 
-	public static String readFile(){
+	public String readFile(){
 		try {
 			String encoding="UTF-8";
 			String readText="";
@@ -35,7 +35,7 @@ public class AgreementUtil {
 	}
 
 	// 输出协议
-	public static void putAgreement(String Data) {
+	public void putAgreement(String Data) {
 		FileWriter fw = null;
 		try {
 			// 如果文件存在，则追加内容；如果文件不存在，则创建文件
@@ -58,7 +58,7 @@ public class AgreementUtil {
 	}
 
 	// 输出协议
-	public static void putAgreement(String Day, String Date, String Log ,String ProjectName,String path ) {
+	public void putAgreement(String Day, String Date, String Log ,String ProjectName,String path ) {
 		FileUtil.createDir("Ter/log/"+path);
 		FileWriter fw = null;
 		try {

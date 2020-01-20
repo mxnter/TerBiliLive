@@ -12,13 +12,13 @@ import java.awt.datatransfer.Transferable;
 public class ShearPlateUtil {
 
     //写入剪切板
-    public static void setIntoClipboard(String data) {
+    public void setIntoClipboard(String data) {
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(new StringSelection(data), null);
     }
 
     //读取剪切板
-    public static String getFromClipboard() {
+    public String getFromClipboard() {
         Transferable transferable = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
         if (transferable != null && transferable.isDataFlavorSupported(DataFlavor.stringFlavor)) {
             try {

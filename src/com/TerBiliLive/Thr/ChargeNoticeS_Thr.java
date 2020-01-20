@@ -2,7 +2,6 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.GetInfo;
-import com.TerBiliLive.TerBiliLive.SendPost;
 import com.TerBiliLive.Utiliy.*;
 
 import java.awt.*;
@@ -25,22 +24,10 @@ import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class ChargeNoticeS_Thr {
 
-
-
-    public boolean AYO= true;
-    String Parameter= "" ;
-    SendPost SP = new SendPost();
-    DmUtil DU = new DmUtil();
-    String putDMJY =null;
-
-
     private Socket socket;
     private boolean keepRunning = true;
     private boolean isReConn = true;
     private String roomID;
-
-
-
     private GetInfo client;
 
     public void start(String roomID, boolean isReConnect){
@@ -173,8 +160,6 @@ public class ChargeNoticeS_Thr {
                                 LogUtil.putLog(getFormatDay(), getFormatHour(), jsonStr+ "\n", "TerBiliLive Out");
                                 // 将弹幕信息放入 list
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
-
-
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
                                     ConfInfo.PBT.notify();

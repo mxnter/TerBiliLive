@@ -41,13 +41,11 @@ public class SendBarrage {
             //封装Rnd
             paramMap.put("rnd", ConfInfo.Rnd);
             //封装csrf_token = bili_jct=
-            paramMap.put("csrf_token", SubStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf_token", ConfInfo.subStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //封装csrf
-            paramMap.put("csrf", SubStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
-            //创建Post提交对象
-//            ConfInfo.sendPost = new SendPost();
+            paramMap.put("csrf", ConfInfo.subStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
             //获取返回值
-            result = HttpClient.SendPost(url,paramMap,cookie);
+            result = HttpClient.sendPost(url,paramMap,cookie);
 
         } catch (UnsupportedEncodingException e) {
             System.out.println("SendBarrage : 转换字符出错 "+msg);
