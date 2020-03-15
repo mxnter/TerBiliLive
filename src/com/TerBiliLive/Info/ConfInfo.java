@@ -7,15 +7,18 @@ import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
 import com.TerBiliLive.Thr.*;
 import com.TerBiliLive.Ui.*;
-import com.TerBiliLive.Utiliy.*;
+import com.TerBiliLive.Utils.*;
 
 import javax.swing.text.Document;
 import javax.swing.text.StyledDocument;
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class ConfInfo {
 
-    public static boolean dev = false;
+
+
 
     public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
     public static int VersionNum = 202001190;
@@ -24,6 +27,44 @@ public class ConfInfo {
     public static String MacAddress = null;
     public static String IpAddress = null;
 
+    public static final boolean dev = false;
+    public static final HashMap<String, String> AppName = new HashMap<String, String>();
+    static { AppName.put("A", "TerBiliAssistant");AppName.put("L", "TerBiliLive"); }
+    public static final HashMap<String,String> AppViceName = new HashMap<String, String>();
+    static { AppViceName.put("A", "BiliBili 智能助手 By.Mxnter");AppViceName.put("L", "哔哩哔哩直播弹幕姬 By.Mxnter"); }
+    public static final String AppSystemId = "A";
+    public static final String AppViceNameId = "A";
+    public static final String AppVersion = "Beta 7";
+    public static final String AppVersionBuildNum = "00001";
+    public static final int AppVersionNum = 202001190;
+
+    //Server
+    public static final String AppServerUrl = "http://uxj608.coding-pages.com";
+    public static final String AppServerVersion = AppServerUrl+"/Networking/Version.json";
+    public static final String AppServerMsg = AppServerUrl+"/Networking/msg.json";
+
+    public static final String DatabaseInternalPath = "../assets/terbili";
+    public static final String DatabaseExternalPath = "Ter/Database/terbili";
+
+    // jdbc
+    public static final String JDBC_URL = "jdbc:sqlite:Ter/Database/terbili";
+    public static final String JDBC_USERNAME = "test";
+    public static final String JDBC_PASSWORD = "test";
+    public static final String JDBC_DRIVER = "org.sqlite.JDBC";
+    public static DatabaesUtil databaesUtil = new DatabaesUtil();
+
+
+    //BiliServer
+    public static String BiliServer ="https://api.bilibili.com/";
+    public static String BiliServer_nav = BiliServer + "x/web-interface/nav";
+    //BiliLiveServer
+    public static String BiliLiveServer ="https://api.live.bilibili.com/";
+    public static String BiliLiveServer_doSign= BiliLiveServer + "sign/doSign";
+
+
+    public static LiveUserInfo liveUserInfo = null;
+
+    public static SystemTray systemTray = SystemTray.getSystemTray();
 
 
     public static int isReConnSum = 0;
@@ -41,7 +82,7 @@ public class ConfInfo {
     public static String InfoNewURL = "https://api.live.bilibili.com/client/v1/Ip/getInfoNew";
     public static String LiveRoomUserInfoURL = "https://api.live.bilibili.com/room_ex/v1/RoomNews/get?roomid=";
 //    public static LiveInfo liveInfo = null; //TODO b站更改接口 停用 20190412
-    public static UserInfo userInfo = null;
+
     public static LiveConf liveConf = null;
     public static InfoNew infoNew = null;
     public static LiveRoom liveRoom =null;
@@ -50,14 +91,14 @@ public class ConfInfo {
     public static TerBiliLive_ChargeBarrage_Ui terBiliLive_chargeBarrage_ui = null;
     public static TerBiliLive_Adv_Ui terBiliLive_adv_ui = null;
     public static TerBiliLive_SendBarrage_Ui terBiliLive_sendBarrage_ui = null;
-//    public static TerBiliLive_Ui terBiliLive_ui = null;
+    public static TerBiliLive_Ui terBiliLive_ui = null;
 //    public static TerBiliLive_Login_Ui terBiliLive_login_ui = null;
     public static GetLiveRoomUserInfo getLiveRoomUserInfo=null;
-    public static Control_Fun control_fun = null;
+    public static Control_Fun control_fun = new Control_Fun();
 //    public static GG_Fun gg_fun = null;
 //    public static HFJ_Fun hfj_fun = null;
     public static PutShowUtil putShowUtil;
-    public static SubStringUtil subStringUtil;
+    public static SubStringUtil subStringUtil = new SubStringUtil();
     public static String Upper_barrage;
     public static long Upper_barrage_time;
 //    public static Boolean GetSendBarrageList_Thr_Size = false;

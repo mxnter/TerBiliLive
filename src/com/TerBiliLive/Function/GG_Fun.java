@@ -3,16 +3,13 @@ package com.TerBiliLive.Function;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.Utiliy.CodingUtil;
-import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Utils.CodingUtil;
+import com.TerBiliLive.Utils.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 public class GG_Fun {
 
@@ -22,7 +19,7 @@ public class GG_Fun {
 
         roomid = ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText();
         msg = ConfInfo.terBiliLive_adv_ui.GG_UiT_Text.getText();
-        cookie = ConfInfo.cookie;
+        cookie = ConfInfo.confData.getCookie();
 
         ConfInfo.sendBarrage=new SendBarrage();
         if(ConfInfo.liveRoom==null)ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());

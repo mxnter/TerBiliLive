@@ -3,7 +3,7 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.Presents;
-import com.TerBiliLive.Utiliy.*;
+import com.TerBiliLive.Utils.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomRank;
-import static com.TerBiliLive.Utiliy.TimeUtil.*;
+import static com.TerBiliLive.Utils.TimeUtil.*;
 
 /**
  * CODE IS POETRY

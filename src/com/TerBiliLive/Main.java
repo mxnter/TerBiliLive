@@ -1,13 +1,13 @@
 package com.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Ui.TerBiliLive_Greet_Ui;
-import com.TerBiliLive.Utiliy.DevLogUtil;
-import com.TerBiliLive.Utiliy.FileUtil;
-import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Ui.Greet;
+import com.TerBiliLive.Utils.DevLogUtil;
+import com.TerBiliLive.Utils.FileUtil;
+import com.TerBiliLive.Utils.LogUtil;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 
 
@@ -25,13 +25,12 @@ public class Main {
         FileUtil.createDir("Ter/Dm/");
 //      ConfInfo.dingtalk.OpenProgram();//统计用户
 
-        ConfInfo.jsonUtil.readData(); //读取基础数据
+//        TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();
 
-        DevLogUtil.printf(ConfInfo.confData.toString());
-
-        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.toString() + "\n", "TerBiliLive Logxx");
-
-        TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();
+        new Greet();
+//        dialog.pack();
+//        dialog.setVisible(true);
+//        new Greet();
 
 
     }

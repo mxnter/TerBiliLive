@@ -6,7 +6,7 @@ import com.TerBiliLive.Thr.ChargeNoticeS_Thr;
 import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
-import com.TerBiliLive.Utiliy.FileUtil;
+import com.TerBiliLive.Utils.FileUtil;
 
 import javax.swing.*;
 
@@ -38,18 +38,18 @@ public class Control_Fun {
         FileUtil.createDir("Ter/Dm/");
         //写入数据
 //      FileUtil.writeFile("RoomId", ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
-//      FileUtil.writeFile("Cookie",ConfInfo.cookie);
+//      FileUtil.writeFile("Cookie",ConfInfo.confData.getCookie());
 //      FileUtil.writeFile("Second", GG_UiT_Second.getText());
 //      FileUtil.writeFile("Text",GG_UiT_Text.getText());
 
-        if(ConfInfo.dev){ FileUtil.writeFile("Cookie",ConfInfo.cookie);}
+        if(ConfInfo.dev){ FileUtil.writeFile("Cookie",ConfInfo.confData.getCookie());}
 
-        ConfInfo.confData.setCookie(ConfInfo.cookie);
+        ConfInfo.confData.setCookie(ConfInfo.confData.getCookie());
         ConfInfo.confData.setSecond( GG_UiT_Second.getText());
         ConfInfo.confData.setText(GG_UiT_Text.getText());
         ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
 //      ConfInfo.xmlUtil.writeData(); //关闭 xData.terda 输出
-        ConfInfo.jsonUtil.writeData();
+        ConfInfo.confData.writeConfData();
 
     }
 
@@ -73,7 +73,7 @@ public class Control_Fun {
         ConfInfo.confData.setText(GG_UiT_Text.getText());
         ConfInfo.confData.setRoomId(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText());
 //      ConfInfo.xmlUtil.writeData(); //关闭 xData.terda 输出
-        ConfInfo.jsonUtil.writeData();
+        ConfInfo.confData.writeConfData();
         JOptionPane.showMessageDialog(null,"已经退出登录,请手动启动软件!");
         System.exit(0);
 

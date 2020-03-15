@@ -1,12 +1,12 @@
 package com.TerBiliLive.Info;
 
 import com.TerBiliLive.TerBiliLive.HttpClient;
-import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Utils.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 /**
  * CODE IS POETRY

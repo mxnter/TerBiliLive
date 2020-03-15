@@ -1,8 +1,7 @@
 package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Utiliy.SubStringUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
+import com.TerBiliLive.Utils.TimeUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -41,9 +40,9 @@ public class SendBarrage {
             //封装Rnd
             paramMap.put("rnd", ConfInfo.Rnd);
             //封装csrf_token = bili_jct=
-            paramMap.put("csrf_token", ConfInfo.subStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf_token", ConfInfo.subStringUtil.getSubString(cookie,"bili_jct=",";"));
             //封装csrf
-            paramMap.put("csrf", ConfInfo.subStringUtil.getSubString(ConfInfo.cookie,"bili_jct=",";"));
+            paramMap.put("csrf", ConfInfo.subStringUtil.getSubString(cookie,"bili_jct=",";"));
             //获取返回值
             result = HttpClient.sendPost(url,paramMap,cookie);
 

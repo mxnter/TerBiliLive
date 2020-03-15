@@ -4,10 +4,10 @@ import com.TerBiliLive.Function.GG_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveInfo;
 import com.TerBiliLive.Info.LiveRoom;
-import com.TerBiliLive.Utiliy.LogUtil;
+import com.TerBiliLive.Utils.LogUtil;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 /**
  * CODE IS POETRY
@@ -41,7 +41,7 @@ public class SendAdvertising_Thr extends Thread {
 //                return;
 //            }
             ConfInfo.liveRoom =new LiveRoom(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().toString());
-            LiveInfo LI = new LiveInfo(ConfInfo.liveRoom.room_id,ConfInfo.cookie);
+            LiveInfo LI = new LiveInfo(ConfInfo.liveRoom.room_id,ConfInfo.confData.getCookie());
 
 
 

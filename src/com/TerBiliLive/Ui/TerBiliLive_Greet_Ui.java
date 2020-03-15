@@ -2,15 +2,15 @@ package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.*;
-import com.TerBiliLive.Utiliy.LogUtil;
-import com.TerBiliLive.Utiliy.TimeUtil;
+import com.TerBiliLive.Utils.LogUtil;
+import com.TerBiliLive.Utils.TimeUtil;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 /**
  * @名称 欢迎界面 UI
@@ -87,10 +87,9 @@ public class TerBiliLive_Greet_Ui extends JFrame {
         //	con.add(bt,BorderLayout.CENTER);
         con.add(p,BorderLayout.SOUTH);
         con.add(pp,BorderLayout.CENTER);
-        ConfInfo.cookie=ConfInfo.confData.getCookie();
 //                FileUtil.readFile("Cookie");
-        System.out.println(ConfInfo.cookie);
-        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.cookie+ "\n", "TerBiliLive Out");
+        System.out.println(ConfInfo.confData.getCookie());
+        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.getCookie()+ "\n", "TerBiliLive Out");
 
 
 
@@ -111,21 +110,21 @@ public class TerBiliLive_Greet_Ui extends JFrame {
             }
         }).start();
 
-        if (ConfInfo.cookie.equals("null")||ConfInfo.cookie.equals("")){
-            TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
+        if (ConfInfo.confData.getCookie().equals("null")||ConfInfo.confData.getCookie().equals("")){
+            new TerBiliLive_Login_Ui();
             this.setVisible(false);
         }else{
             try {
-                ConfInfo.userInfo = new UserInfo(ConfInfo.cookie);
+                ConfInfo.liveUserInfo = new LiveUserInfo(ConfInfo.confData.getCookie());
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"未检测到网络\n请连接网络再试\n\n（如果您多次收到此提示，请查看 Github ：TerBiliLive 是否有更新\n如果未找到更新，请发送邮件到 TerBiliLive@outlook.com 提醒作者程序无法使用！）");
                 System.exit(0);
             }
 
-            ConfInfo.Uid=ConfInfo.userInfo.getUid();
-            ConfInfo.Uname=ConfInfo.userInfo.getUname();
+            ConfInfo.Uid=ConfInfo.liveUserInfo.getUid();
+            ConfInfo.Uname=ConfInfo.liveUserInfo.getUname();
             ConfInfo.liveConf=null;
-            if(null==ConfInfo.userInfo.getUid()||ConfInfo.Uid.equals("")){
+            if(null==ConfInfo.liveUserInfo.getUid()||ConfInfo.Uid.equals("")){
                 JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
                 TerBiliLive_Login_Ui live_login_ui=new TerBiliLive_Login_Ui();
                 dispose();
@@ -133,7 +132,7 @@ public class TerBiliLive_Greet_Ui extends JFrame {
 
             }else{
                 if(ConfInfo.Rnd.equals(""))ConfInfo.Rnd=TimeUtil.timeStamp();
-                ConfInfo.infoNew = new InfoNew(ConfInfo.cookie);
+                ConfInfo.infoNew = new InfoNew(ConfInfo.confData.getCookie());
                 ConfInfo.dingtalk.LogIn();
                 l.setText("登陆成功");
                 TerBiliLive_Ui ui = new TerBiliLive_Ui();
@@ -142,7 +141,8 @@ public class TerBiliLive_Greet_Ui extends JFrame {
             }
 
         }
-
-
     }
+
+
+
 }

@@ -1,7 +1,6 @@
 package com.TerBiliLive.Info;
 
 import com.TerBiliLive.TerBiliLive.HttpClient;
-import com.TerBiliLive.Utiliy.SubStringUtil;
 
 
 public class LiveInfo {

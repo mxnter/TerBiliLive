@@ -3,12 +3,12 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.Utiliy.*;
+import com.TerBiliLive.Utils.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Utiliy.TimeUtil.*;
+import static com.TerBiliLive.Utils.TimeUtil.*;
 
 /**
  * CODE IS POETRY
@@ -56,16 +56,16 @@ public class SendBarrage_Thr extends Thread {
                 switch (ConfInfo.SendBarrageList.get(0).getType()){
                     case 1:{
                         if(ConfInfo.Thank.equals("ok")){
-                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.confData.getCookie(),msg);
                         }
                         break;
                     }
                     case 2:{
-                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.confData.getCookie(),msg);
                         break;
                     }
                     default:{
-                        RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.cookie,msg);
+                        RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.room_id,ConfInfo.confData.getCookie(),msg);
                         break;
                     }
                 }

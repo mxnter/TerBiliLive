@@ -4,7 +4,7 @@ import com.TerBiliLive.Function.Control_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.SendBarrageMap;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
-import com.TerBiliLive.Utiliy.TulingUtil;
+import com.TerBiliLive.Utils.TulingUtil;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +13,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.*;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
+import static com.TerBiliLive.Utils.TimeUtil.getFormat;
 
 
 public class Control_Monitor {
 
 
     public Control_Monitor(){
-
-        if(ConfInfo.control_fun ==null) ConfInfo.control_fun =new Control_Fun();
-
 
         Control_UiB_Preservation.addActionListener(new ActionListener() {
 
@@ -42,7 +39,7 @@ public class Control_Monitor {
                 if(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")||ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText()==null){
                     ConfInfo.terBiliLive_control_ui.Control_UiT_State.setText("房间号不能为空");
                 }else{
-                    if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+                    if(null!=ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
                         Control_UiB_OpenThinks.setEnabled(true);
                     }
                     ConfInfo.Thank="no";
@@ -84,7 +81,7 @@ public class Control_Monitor {
                 Control_UiB_OpenThinks.setEnabled(false);
                 Control_UiB_ClaseThinks.setEnabled(true);
                 ConfInfo.Thank="ok";
-                String putDM =  "系统 ："+getFormat()+" - "+"开启感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.userInfo.getUid()+"  昵称："+ ConfInfo.userInfo.getUname().toString()+"\t";
+                String putDM =  "系统 ："+getFormat()+" - "+"开启感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveUserInfo.getUid()+"  昵称："+ ConfInfo.liveUserInfo.getUname().toString()+"\t";
                 ConfInfo.putShowUtil.PutDMUtil(putDM, Color.BLUE);
 
 
@@ -148,7 +145,7 @@ public class Control_Monitor {
                             case "TulingApikeynull":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); JOptionPane.showMessageDialog(null, "apikey为空,已帮您关闭了聊天功能", "TulingUtil 错误", JOptionPane.ERROR_MESSAGE);ConfInfo.confData.setTulingApikey(null); break;}
                             case "TerGGKey":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); JOptionPane.showMessageDialog(null, "apikey不合法,已帮您关闭了聊天功能", "TulingUtil 错误", JOptionPane.ERROR_MESSAGE);ConfInfo.confData.setTulingApikey(null); break;}
                             case "TerGG":{ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); JOptionPane.showMessageDialog(null, "位置错误,已帮您关闭了聊天功能", "TulingUtil 错误", JOptionPane.ERROR_MESSAGE);ConfInfo.confData.setTulingApikey(null); break;}
-                            case "嗨":{ ConfInfo.jsonUtil.writeData();break;}
+                            case "嗨":{ ConfInfo.confData.writeConfData();break;}
                         }
 //                    }
                 }else{
@@ -169,7 +166,7 @@ public class Control_Monitor {
                 Control_UiB_OpenThinks.setEnabled(true);
                 Control_UiB_ClaseThinks.setEnabled(false);
                 ConfInfo.Thank="no";
-                String putDM =  "系统 ："+getFormat()+" - "+"关闭感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.userInfo.getUid()+"  昵称："+ ConfInfo.userInfo.getUname().toString()+"\t";
+                String putDM =  "系统 ："+getFormat()+" - "+"关闭感谢" +" 真实直播间ID："+ConfInfo.liveRoom.room_id +"  UID："+ConfInfo.liveUserInfo.getUid()+"  昵称："+ ConfInfo.liveUserInfo.getUname().toString()+"\t";
                 ConfInfo.putShowUtil.PutDMUtil(putDM,Color.RED);
 
 

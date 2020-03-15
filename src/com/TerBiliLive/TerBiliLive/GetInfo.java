@@ -2,8 +2,6 @@ package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveConf;
-import com.TerBiliLive.Info.LiveInfo;
-import com.TerBiliLive.Utiliy.LogUtil;
 
 import java.io.DataOutputStream;
 import java.net.InetSocketAddress;
@@ -12,9 +10,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
 
 public class GetInfo {
 
@@ -46,8 +41,8 @@ public class GetInfo {
     public boolean sendJoinRoomMsg(Socket socket, String roomID){
         String uid =  String.valueOf(new Random().nextInt(899999) + 100000);//生成随机Uid
         // 未登录将不执行 防止没有Uid 导致无法连接
-        if(null != ConfInfo.userInfo|| !ConfInfo.cookie.equals("")){
-            uid = ConfInfo.userInfo.getUid();
+        if(null != ConfInfo.liveUserInfo|| !ConfInfo.confData.getCookie().equals("")){
+            uid = ConfInfo.liveUserInfo.getUid();
         }
         String jsonBody = "{\"roomid\": " + roomID + ", \"uid\": " + uid + "}";
         try {
@@ -72,7 +67,7 @@ public class GetInfo {
 
     public Socket connect(String roomID){
 //        String realRoomID = getRealRoomID(roomID);
-        ConfInfo.liveConf = new LiveConf(roomID,ConfInfo.cookie);
+        ConfInfo.liveConf = new LiveConf(roomID,ConfInfo.confData.getCookie());
         String socketServerUrl = ConfInfo.liveConf.getHost();
         int socketServerPort = (ConfInfo.liveConf.getPort()==0)?DEFAULT_COMMENT_PORT:ConfInfo.liveConf.getPort();
 //        LogUtil.putLog(getFormatDay(), getFormatHour(), liveInfo.toString()+ "\n","TerBiliLive Log");

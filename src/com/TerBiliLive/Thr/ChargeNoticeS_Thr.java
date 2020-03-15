@@ -2,7 +2,7 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.GetInfo;
-import com.TerBiliLive.Utiliy.*;
+import com.TerBiliLive.Utils.*;
 
 import java.awt.*;
 import java.io.ByteArrayInputStream;
@@ -11,9 +11,9 @@ import java.net.Socket;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormat;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormat;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 /**
  * CODE IS POETRY
@@ -54,9 +54,9 @@ public class ChargeNoticeS_Thr {
         ConfInfo.liveConf=null;
         // 未登录将不执行
         String putDM = "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID ;
-        if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
-            uid =  ConfInfo.userInfo.getUid();
-            name =  ConfInfo.userInfo.getUname();
+        if(null!=ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
+            uid =  ConfInfo.liveUserInfo.getUid();
+            name =  ConfInfo.liveUserInfo.getUname();
             putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
         }else{
             putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  - 用户未登录(游客模式)";
@@ -82,9 +82,9 @@ public class ChargeNoticeS_Thr {
                     String uid = "";
                     String name =  "";
                     // 未登录将不执行
-                    if(null!=ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
-                        uid =  ConfInfo.userInfo.getUid();
-                        name =  ConfInfo.userInfo.getUname();
+                    if(null!=ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
+                        uid =  ConfInfo.liveUserInfo.getUid();
+                        name =  ConfInfo.liveUserInfo.getUname();
                         ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
 
                     } else{

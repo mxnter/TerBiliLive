@@ -1,5 +1,12 @@
 package com.TerBiliLive.Data;
 
+import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Utils.AESUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class ConfData {
 
     String Cookie="" ;
@@ -46,6 +53,33 @@ public class ConfData {
 
     public void setTulingApikey(String tulingApikey) {
         TulingApikey = tulingApikey;
+    }
+
+    public void readConfData(){
+        ResultSet resultSet = ConfInfo.databaesUtil.select("select * from ConfData");
+        try {
+            if(resultSet.next()){
+                ConfInfo.confData.setCookie(AESUtil.Decrypt(resultSet.getString("Cookie")));
+                ConfInfo.confData.setRoomId(resultSet.getString("Roomid"));
+                ConfInfo.confData.setSecond(resultSet.getString("Second"));
+                ConfInfo.confData.setText(resultSet.getString("Text"));
+                ConfInfo.confData.setTulingApikey(resultSet.getString("TulingApikey"));
+            }else{
+                InOutPutUtil.outPut("数据库暂无数据");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeConfData(){
+        ConfInfo.databaesUtil.executeUpdate("delete from ConfData");
+        try {
+            ConfInfo.databaesUtil.executeUpdate("INSERT INTO ConfData VALUES (\""+AESUtil.Encryption(Cookie)+"\",\""+RoomId+"\",\""+Second+"\",\""+Text+"\",\""+TulingApikey+"\")");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

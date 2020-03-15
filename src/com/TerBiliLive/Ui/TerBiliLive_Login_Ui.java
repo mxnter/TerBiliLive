@@ -3,10 +3,10 @@ package com.TerBiliLive.Ui;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.HttpClient;
-import com.TerBiliLive.Utiliy.AgreementUtil;
-import com.TerBiliLive.Utiliy.FileUtil;
-import com.TerBiliLive.Utiliy.OpenUtil;
-import com.TerBiliLive.Utiliy.ShearPlateUtil;
+import com.TerBiliLive.Utils.AgreementUtil;
+import com.TerBiliLive.Utils.FileUtil;
+import com.TerBiliLive.Utils.OpenUtil;
+import com.TerBiliLive.Utils.ShearPlateUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -132,7 +132,7 @@ public class TerBiliLive_Login_Ui extends JFrame  {
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
-                    SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json", "", ""));
+                    SVersionJson = new JSONObject( HttpClient.sendGet(ConfInfo.AppServerVersion, "", ""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
@@ -163,13 +163,13 @@ public class TerBiliLive_Login_Ui extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                ConfInfo.cookie=Login_UiT_Cookie.getText();
+                ConfInfo.confData.setCookie(Login_UiT_Cookie.getText());
                 if(ConfInfo.dev){
-                    FileUtil.writeFile("Cookie",ConfInfo.cookie);
+                    FileUtil.writeFile("Cookie",ConfInfo.confData.getCookie());
                 }
-                ConfInfo.confData.setCookie(ConfInfo.cookie);
+                ConfInfo.confData.setCookie(ConfInfo.confData.getCookie());
 //              ConfInfo.xmlUtil.writeData(); //关闭 xData.terda 输出
-                ConfInfo.jsonUtil.writeData();
+                ConfInfo.confData.writeConfData();
                 TerBiliLive_Greet_Ui greetUi =new TerBiliLive_Greet_Ui();
                 dispose();
             }

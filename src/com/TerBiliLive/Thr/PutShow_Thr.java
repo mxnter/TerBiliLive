@@ -1,10 +1,8 @@
 package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Utiliy.ColorUtil;
 
 import java.awt.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * CODE IS POETRY

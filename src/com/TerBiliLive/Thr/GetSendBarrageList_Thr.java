@@ -1,9 +1,8 @@
 package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Utiliy.ColorUtil;
+import com.TerBiliLive.Utils.ColorUtil;
 
-import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 

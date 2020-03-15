@@ -5,7 +5,7 @@ import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Monitor.Control_Monitor;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.TerBiliLive.TerWindowListener;
-import com.TerBiliLive.Utiliy.*;
+import com.TerBiliLive.Utils.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,8 +18,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utiliy.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 /**
  * @名称 整合所有 UI
@@ -82,11 +82,11 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
 
         this.setTitle(ConfInfo.Uname+" "+Appname + " " + ConfInfo.Version);
         this.setSize(800, 600);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setBackground(Color.white);
-        TerWindowListener terwl = new TerWindowListener();//创建一个窗口监听事件对象
-        this.addWindowListener(terwl);//添加myMouseListener鼠标监听事件
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setName("master");
+        addWindowListener(new TerWindowListener(this));
 
 //        //设置图片
 //        try {
@@ -161,13 +161,13 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 try {
 
                     String msg="";
-                    JSONObject jsonObject = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/msg.json","",""));
+                    JSONObject jsonObject = new JSONObject( HttpClient.sendGet(ConfInfo.AppServerMsg,"",""));
                     msg = jsonObject.getString("msg");
                     ConfInfo.putShowUtil.PutDMUtil("开发者通知：\n    "+msg ,Color.DARK_GRAY);
                     int SVersionNum = ConfInfo.VersionNum;
                     int level = -1;
                     String SVersion = Version;
-                    JSONObject SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    JSONObject SVersionJson = new JSONObject( HttpClient.sendGet(ConfInfo.AppServerVersion,"",""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));
@@ -260,7 +260,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
                 ConfInfo.confData.setTulingApikey("");
-                ConfInfo.jsonUtil.writeData();
+                ConfInfo.confData.writeConfData();
                 ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false);
                 JOptionPane.showMessageDialog(null,"已经清除图灵Key");
 
@@ -288,7 +288,7 @@ public class TerBiliLive_Ui extends JFrame implements ActionListener {
                 String SVersion = ConfInfo.Version;
                 JSONObject SVersionJson = null;
                 try {
-                    SVersionJson = new JSONObject( HttpClient.sendGet("https://mxnter.github.io/TerBiliLiveV/Networking/Version.json","",""));
+                    SVersionJson = new JSONObject( HttpClient.sendGet(ConfInfo.AppServerVersion,"",""));
                     SVersion = SVersionJson.getString("version");
                     SVersionNum = Integer.parseInt(SVersionJson.getString("versionNum"));
                     level = Integer.parseInt(SVersionJson.getString("level"));

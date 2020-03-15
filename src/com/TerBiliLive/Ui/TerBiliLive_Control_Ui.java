@@ -72,7 +72,7 @@ public class TerBiliLive_Control_Ui {
 
 
     TerBiliLive_Control_Ui(){
-        if(null!= ConfInfo.userInfo||!ConfInfo.cookie.equals("")){
+        if(null!= ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
            //登录后执行
         }else{
             //未登录执行

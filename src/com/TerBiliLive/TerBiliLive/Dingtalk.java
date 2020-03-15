@@ -2,11 +2,10 @@ package com.TerBiliLive.TerBiliLive;
 
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.TerBiliLive.HttpClient;
-import com.TerBiliLive.Utiliy.AESUtil;
-import com.TerBiliLive.Utiliy.AgreementUtil;
-import com.TerBiliLive.Utiliy.IpUtil;
-import com.TerBiliLive.Utiliy.MacUtil;
+import com.TerBiliLive.Utils.AESUtil;
+import com.TerBiliLive.Utils.AgreementUtil;
+import com.TerBiliLive.Utils.IpUtil;
+import com.TerBiliLive.Utils.MacUtil;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
