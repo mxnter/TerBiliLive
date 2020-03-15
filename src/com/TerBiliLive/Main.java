@@ -23,6 +23,7 @@ public class Main {
         FileUtil.createDir("Ter/data/");
         FileUtil.createDir("Ter/log/");
         FileUtil.createDir("Ter/Dm/");
+        FileUtil.createDir("Ter/database/");
 //      ConfInfo.dingtalk.OpenProgram();//统计用户
 
 //        TerBiliLive_Greet_Ui login =new TerBiliLive_Greet_Ui();

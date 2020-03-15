@@ -44,14 +44,14 @@ public class ConfInfo {
     public static final String AppServerMsg = AppServerUrl+"/Networking/msg.json";
 
     public static final String DatabaseInternalPath = "../assets/terbili";
-    public static final String DatabaseExternalPath = "Ter/Database/terbili";
+    public static final String DatabaseExternalPath = "Ter/database/terbili";
 
     // jdbc
-    public static final String JDBC_URL = "jdbc:sqlite:Ter/Database/terbili";
+    public static final String JDBC_URL = "jdbc:sqlite:Ter/database/terbili";
     public static final String JDBC_USERNAME = "test";
     public static final String JDBC_PASSWORD = "test";
     public static final String JDBC_DRIVER = "org.sqlite.JDBC";
-    public static DatabaesUtil databaesUtil = new DatabaesUtil();
+    public static DatabaesUtil databaesUtil;
 
 
     //BiliServer

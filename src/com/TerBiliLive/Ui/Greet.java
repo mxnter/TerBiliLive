@@ -112,6 +112,7 @@ public class Greet extends JFrame {
         if(FileUtil.auditFile(ConfInfo.DatabaseExternalPath)){
             loading.setText("正在加载数据");
             progresValue = 20;
+            ConfInfo.databaesUtil=new DatabaesUtil();
             ConfInfo.confData.readConfData();
             progresValue = 40;
             DevLogUtil.printf(ConfInfo.confData.toString());
@@ -120,6 +121,7 @@ public class Greet extends JFrame {
         }else{
             progresValue = 20;
             FileUtil.copyInternalFiles(ConfInfo.DatabaseExternalPath,ConfInfo.DatabaseInternalPath);
+            ConfInfo.databaesUtil=new DatabaesUtil();
             loading.setText("正在创建数据");
             progresValue = 50;
         }

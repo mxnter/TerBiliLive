@@ -1,0 +1,16 @@
+尊敬的用户：
+　　您好，感谢您使用 TerBiliLive 弹幕姬。
+　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数，
+我们将统计部分信息，例如 IP、Mac、主机名等。这将发送到我们
+的服务上，以帮助开发者了解软件是否存在价值。
+　　开发者仅发送您的Cookie到BiliBili服务器,您的Cookie加密存储在本地。
+
+如果您觉得我们可以信赖，您可以选择 “确定”。如果您不想统计您的信
+息，请选择 “取消”。
+
+官方网站:http://terbililive.mter.top/
+GITHUB:https://github.com/mxnter/TerBiliLive
+
+再次感谢您的使用。
+
+用户：同意
