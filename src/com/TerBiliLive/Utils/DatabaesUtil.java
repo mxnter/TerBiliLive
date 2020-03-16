@@ -2,6 +2,7 @@ package com.TerBiliLive.Utils;
 
 
 import com.TerBiliLive.Info.ConfInfo;
+import org.apache.commons.text.StringEscapeUtils;
 import org.omg.CORBA.INTERNAL;
 
 import java.sql.*;
@@ -54,7 +55,7 @@ public class DatabaesUtil {
         }else{
             int rs = 0;
             try {
-               rs = statement.executeUpdate(sql);
+               rs = statement.executeUpdate(StringEscapeUtils.escapeEcmaScript(sql));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
