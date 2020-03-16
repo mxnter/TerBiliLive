@@ -11,6 +11,6 @@ public class InOutPutUtil {
         if(ConfInfo.dev){
             System.out.println(msg);
         }
-        LogUtil.putLogSystemOut(msg.toString());
+        if(ConfInfo.databaesUtil!=null) LogUtil.putLogSystemOut(msg.toString());
     }
 }

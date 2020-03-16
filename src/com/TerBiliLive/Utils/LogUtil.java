@@ -69,6 +69,7 @@ public class LogUtil {
 
 	}
 	public static void putLogDatabase(String GenerationTime, String LogType, String Log) {
+		if(null==Log||"".equals(Log)) return;
 		ConfInfo.databaesUtil.executeUpdate("INSERT INTO \"SystemLog\" (\"GenerationTime\", \"LogType\", \"Log\") VALUES ('"+GenerationTime+"','"+LogType+"','"+Log+"')");
 	}
 
