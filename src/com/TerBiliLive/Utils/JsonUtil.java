@@ -33,8 +33,7 @@ public class JsonUtil {
                 ConfInfo.confData.setTulingApikey(jsonObject.getString("TulingApikey"));
             }
         } catch (JSONException e) {
-            System.out.println("数据为空");
-            LogUtil.putLog(getFormatDay(), getFormatHour(), "数据为空" + "\n", "TerBiliLive Out");
+            InOutPutUtil.outPut("数据为空");
             e.printStackTrace();
         }
         return true;

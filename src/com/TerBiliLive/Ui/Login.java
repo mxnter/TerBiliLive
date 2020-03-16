@@ -95,7 +95,6 @@ public class Login extends JFrame{
         //AWTUtilities.setWindowOpacity(this, 0.6f); //透明
 
         InOutPutUtil.outPut(ConfInfo.confData.getCookie());
-        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.getCookie()+ "\n", "TerBiliLive Out");
 
         this.setVisible(true);
 

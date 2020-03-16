@@ -322,8 +322,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                    ConfInfo.putShowUtil.PutDMUtil(TulingUtilMsg);
                                             switch (TulingUtilMsg) {
                                                 case "msgnull": {
-                                                    System.out.println("消息为空");
-                                                    LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空" + "\n", "TerBiliLive Out");
+                                                    InOutPutUtil.outPut("消息为空");
                                                     break;
                                                 }
                                                 case "TulingApikeynull": {
@@ -355,8 +354,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                    ConfInfo.putShowUtil.PutDMUtil(TulingUtilMsg);
                                         switch (TulingUtilMsg) {
                                             case "msgnull": {
-                                                System.out.println("消息为空");
-                                                LogUtil.putLog(getFormatDay(), getFormatHour(), "消息为空" + "\n", "TerBiliLive Out");
+                                                InOutPutUtil.outPut("消息为空");
                                                 break;
                                             }
                                             case "TulingApikeynull": {
@@ -383,9 +381,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 }
 //
                             }
-
-                            System.out.println(putDM);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), putDM + "\n", "TerBiliLive Out");
+                            InOutPutUtil.outPut(putDM);
                             break;
                         }
                         case "SEND_GIFT": { //普通礼物
@@ -399,13 +395,11 @@ public class ParsingBarrage_Thr extends Thread {
 
                             //整合礼物使用整合线程进行展示弹幕
                             if (!ConfInfo.integrated.containsKey(uname+giftName)) {
-                              System.out.println("开启整合 礼物："+giftName +"MAP："+ uname+giftName);//整合辣条启动
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "整合"+giftName + uname + "\n", "TerBiliLive Out");
+                                InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName);
                                 new GiftIntegration_Thr().start(uname, giftName);
                                 ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,0));
                             }
-                          System.out.println("开启整合 礼物："+giftName +"MAP："+ uname+giftName +"数量："+ giftNum);//持续整合辣条
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "整合"+giftName + uname + "\n", "TerBiliLive Out");
+                            InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName +"数量："+ giftNum);
                             ConfInfo.integrated.get(uname+giftName).setTimestamp(timestamp);
                             ConfInfo.integrated.get(uname+giftName).setGiftNum(ConfInfo.integrated.get(uname+giftName).getGiftNum()+giftNum);
                             putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
@@ -427,7 +421,7 @@ public class ParsingBarrage_Thr extends Thread {
                             if (ConfInfo.Thank.equals("ok"))
                                 new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
                             System.out.println(putDM);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
                         case "COMBO_END": {//连击礼物
@@ -442,8 +436,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             if (gift_name.equals("摩天大楼")) {
                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
-                                System.out.println("----------------------------------------关闭老爷----------------------------------------");
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "关闭老爷" + "\n", "TerBiliLive Out");
+                                InOutPutUtil.outPut("关闭老爷--------");
                                 new Thread(new Runnable() {
                                     public void run() {
 
@@ -451,8 +444,7 @@ public class ParsingBarrage_Thr extends Thread {
                                             Thread.sleep(180 * 1000);
                                             if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                                 //启动欢迎老爷
-                                                System.out.println("----------------------------------------启动老爷----------------------------------------");
-                                                LogUtil.putLog(getFormatDay(), getFormatHour(), "启动老爷" + "\n", "TerBiliLive Out");
+                                                InOutPutUtil.outPut("启动老爷----------");
                                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                             }
                                         } catch (InterruptedException e) {
@@ -472,10 +464,9 @@ public class ParsingBarrage_Thr extends Thread {
 //                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*[" + combo_num + "连击]  喵~"); //多次感谢暂时关闭
                                 System.out.println(putDM);
                             } else {
-                                System.out.println("连送礼物结束" + ConfInfo.SEND_GIFT);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), "连送礼物结束" + ConfInfo.SEND_GIFT + "\n", "TerBiliLive Out");
+                                InOutPutUtil.outPut("连送礼物结束" + ConfInfo.SEND_GIFT);
                             }
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
                         case "SPECIAL_GIFT": {
@@ -500,7 +491,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 }
                                 case "end": {
                                     if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + giftid + "送的 节奏风暴 喵~",1);
-                                    LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                                    LogUtil.putLogGiftRecord(object.toString() + "\n");
                                     ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                     if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                         //启动欢迎老爷
@@ -523,7 +514,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                paramMap.put("csrf_token", "810077afcf6973ee439bd6bd2caaddd5");
 //                                                paramMap.put("visit_id", "");
 //                                                System.out.println("\n\n\n\n" +   HttpClient.sendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             System.out.println(putTZ);
                             break;
                         }
@@ -539,7 +530,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String id = giftData.getString("id");
                             putTZ = "通知 ： ~ " + "小电视 开始 大佬：" + from + " Id:" + id;
                             putDM = "通知 ： ~ " + "小电视 开始 大佬：" + from + " Id:" + id;
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
                         case "TV_END": {
@@ -550,7 +541,7 @@ public class ParsingBarrage_Thr extends Thread {
                             putTZ = "通知 ： ~ " + "小电视 结束 大佬：" + from + " Id:" + id;
                             putDM = "通知 ： ~ " + "小电视 结束 大佬：" + from + " Id:" + id;
                             if (ConfInfo.Thank.equals("ok")) new HFJ_Fun("哇，发现大佬 " + from + "送的 小电视 喵~",1);
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                             if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                 //启动欢迎老爷
@@ -559,9 +550,43 @@ public class ParsingBarrage_Thr extends Thread {
                             }
                             break;
                         }
-                        case "ROOM_ADMINS": {
-                            // 房管
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive Log");
+                        case "ROOM_ADMINS":
+                        case "PK_PROCESS":
+
+
+
+
+
+
+
+/* PK
+15:51:11:{"pk_id":131652,"data":{"uid":90708755,"face":"http://i0.hdslb.com/bfs/face/be74581c904733dd2722246fda18c2a41737600f.jpg","escape_all_time":10,"uname":"梨落大大","match_id":3647345,"is_portrait":false,"init_id":7471685,"escape_time":10},"pk_status":100,"cmd":"PK_MATCH","roomid":7471685}
+
+15:51:12:{"pk_id":131652,"data":{"pk_start_time":1537084277,"match_id":3647345,"count_down":5,"pk_pre_time":1537084272,"end_time":1537084697,"pk_topic":"唱首中文歌","pk_end_time":1537084577,"init_id":7471685},"pk_status":200,"cmd":"PK_PRE"}
+                                    15:21:15:{"pk_id":131628,"data":{"match_id":7471685,"pk_topic":"做一项别人不会的绝技","init_id":11365011},"pk_status":300,"cmd":"PK_START"}
+
+                                    15:24:35:{"pk_id":131628,"data":{"uid":18169995,"match_votes":5,"init_votes":0,"user_votes":5},"pk_status":300,"cmd":"PK_PROCESS","roomid":7471685}
+
+                                    15:26:16:{"pk_id":131628,"data":{"punish_topic":"惩罚：模仿面筋哥","match_id":7471685,"init_id":11365011},"pk_status":400,"cmd":"PK_END"}
+
+                                    15:26:16:{"pk_id":131628,"data":{"match_info":{"is_winner":true,"uid":27897180,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/6232d18dff2835591c3cf867ef79acef3a6e74e8.jpg","face_frame":"","uname":"小小的小兔团儿","vip_type":0,"match_id":7471685,"votes":5,"exp":{"master_level":{"color":5805790,"level":15},"color":9868950,"user_level":8},"vip":{"vip":0,"svip":0}},"init_info":{"is_winner":false,"uid":330655469,"face":"http://i1.hdslb.com/bfs/face/1cee3f42eb4d6268e3c368f9506dc4eda230c532.jpg","uname":"圆啵叽","votes":0,"init_id":11365011},"pk_id":131628,"punish_topic":"惩罚：模仿面筋哥","best_user":{"uid":18169995,"privilege_type":0,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/ecd8064598c534ec311287dd9c0b17dc8f3bb4f9.jpg","face_frame":"","uname":"mxnter","vip_type":0,"exp":{"master_level":{"color":6406234,"level":10},"color":5805790,"user_level":28},"vip":{"vip":0,"svip":0}}},"pk_status":400,"cmd":"PK_SETTLE"}
+*/
+                        case "PK_START":
+                        case "PK_END":
+                        case "PK_SETTLE":
+                        case "PK_MATCH":
+                        case "PK_PRE":
+                        case "PK_MIC_END":
+                        case "PK_CLICK_AGAIN":
+                        case "CHANGE_ROOM_INFO":// 改变房间信息
+                            // {"background":"http://static.hdslb.com/live-static/images/bg/4.jpg","cmd":"CHANGE_ROOM_INFO"}
+                        case "ACTIVITY_EVENT":// 活动事件
+                            // {"data":{"limit":500000,"progress":74380,"keyword":"bls_winter_2018","type":"charge"},"cmd":"ACTIVITY_EVENT"}
+                        case "WISH_BOTTLE":// 许愿瓶
+                            // {"data":{"wish":{"uid":50621949,"wish_progress":25098,"type_id":3,"wish_limit":99999,"ctime":"2018-01-28 09:28:21","id":8427,"count_map":[1,10,100],"type":1,"content":"一个B克拉得老白勋章","status":1},"action":"update","id":8427},"cmd":"WISH_BOTTLE"}
+                        case "PK_AGAIN": {  // 房管
+
+                            LogUtil.putLogKnownUntreated(object.toString());
                             break;
                         }
 
@@ -588,11 +613,11 @@ public class ParsingBarrage_Thr extends Thread {
                                     break;
                                 }
                                 default: {
-                                    LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive WZLW Log");
+                                    LogUtil.putLogUnknownGift(object.toString());
                                     break;
                                 }
                             }
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
                         case "RAFFLE_END": {
@@ -618,7 +643,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     break;
                                 }
                                 default: {
-                                    LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive WZLW Log");
+                                    LogUtil.putLogUnknownGift(object.toString());
                                     break;
                                 }
                             }
@@ -630,7 +655,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                             }
 
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive LW Log");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
 
@@ -748,8 +773,7 @@ public class ParsingBarrage_Thr extends Thread {
 
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
-                            System.out.println(putTZ + "\t");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), putTZ + "\n", "TerBiliLive Out");
+                            InOutPutUtil.outPut(putTZ);
                             break;
                         }
                         case "SYS_MSG": {
@@ -762,13 +786,11 @@ public class ParsingBarrage_Thr extends Thread {
                                 if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected())
                                     new HFJ_Fun("出现低保：" + real_roomid);
                             }
-                            System.out.println(msg + "id:" + real_roomid + "\t");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), msg + "id:" + real_roomid + "\n", "TerBiliLive Out");
+                            InOutPutUtil.outPut(msg + "id:" + real_roomid + "\t");
                             break;
                         }
                         case "ENTRY_EFFECT": {
-                            System.out.println("进入动画" + "\t");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), "进入动画" + object + "\n", "TerBiliLive Out");
+                            InOutPutUtil.outPut("进入动画" + object);
                             break;
                         }
                         case "ROOM_RANK": {
@@ -834,72 +856,16 @@ public class ParsingBarrage_Thr extends Thread {
                                 new HFJ_Fun(" 出现航海" + " id:" + roomid + "类型：" + buy_typeStr,1);
                             System.out.println(putTZ);
                             break;
-                        }
+                        }// pk 开始
 
-
-
-
-
-
-
-/* PK
-15:51:11:{"pk_id":131652,"data":{"uid":90708755,"face":"http://i0.hdslb.com/bfs/face/be74581c904733dd2722246fda18c2a41737600f.jpg","escape_all_time":10,"uname":"梨落大大","match_id":3647345,"is_portrait":false,"init_id":7471685,"escape_time":10},"pk_status":100,"cmd":"PK_MATCH","roomid":7471685}
-
-15:51:12:{"pk_id":131652,"data":{"pk_start_time":1537084277,"match_id":3647345,"count_down":5,"pk_pre_time":1537084272,"end_time":1537084697,"pk_topic":"唱首中文歌","pk_end_time":1537084577,"init_id":7471685},"pk_status":200,"cmd":"PK_PRE"}
-                                    15:21:15:{"pk_id":131628,"data":{"match_id":7471685,"pk_topic":"做一项别人不会的绝技","init_id":11365011},"pk_status":300,"cmd":"PK_START"}
-
-                                    15:24:35:{"pk_id":131628,"data":{"uid":18169995,"match_votes":5,"init_votes":0,"user_votes":5},"pk_status":300,"cmd":"PK_PROCESS","roomid":7471685}
-
-                                    15:26:16:{"pk_id":131628,"data":{"punish_topic":"惩罚：模仿面筋哥","match_id":7471685,"init_id":11365011},"pk_status":400,"cmd":"PK_END"}
-
-                                    15:26:16:{"pk_id":131628,"data":{"match_info":{"is_winner":true,"uid":27897180,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/6232d18dff2835591c3cf867ef79acef3a6e74e8.jpg","face_frame":"","uname":"小小的小兔团儿","vip_type":0,"match_id":7471685,"votes":5,"exp":{"master_level":{"color":5805790,"level":15},"color":9868950,"user_level":8},"vip":{"vip":0,"svip":0}},"init_info":{"is_winner":false,"uid":330655469,"face":"http://i1.hdslb.com/bfs/face/1cee3f42eb4d6268e3c368f9506dc4eda230c532.jpg","uname":"圆啵叽","votes":0,"init_id":11365011},"pk_id":131628,"punish_topic":"惩罚：模仿面筋哥","best_user":{"uid":18169995,"privilege_type":0,"badge":{"position":0,"url":"","desc":""},"face":"http://i0.hdslb.com/bfs/face/ecd8064598c534ec311287dd9c0b17dc8f3bb4f9.jpg","face_frame":"","uname":"mxnter","vip_type":0,"exp":{"master_level":{"color":6406234,"level":10},"color":5805790,"user_level":28},"vip":{"vip":0,"svip":0}}},"pk_status":400,"cmd":"PK_SETTLE"}
-*/
-                        case "PK_START": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            // pk 开始
-                            break;
-                        }
-                        case "PK_PROCESS": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_END": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            // pk结束
-                            break;
-                        }
-                        case "PK_SETTLE": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_MATCH": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_PRE": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_MIC_END": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_CLICK_AGAIN": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
-                        case "PK_AGAIN": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            break;
-                        }
                         case "ROOM_SILENT_OFF": {// 房间关闭禁言
                             // {"data":[],"cmd":"ROOM_SILENT_OFF","roomid":7471685}
                             //{"cmd":"ROOM_SILENT_OFF","data":[],"roomid":9938182}
                             String XX="禁言 ："+getFormat()+" - "+"[解禁] 直播间ID："+object.getString("roomid");
                             ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("79B48E"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " SILENT Log","silent");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_SILENT Log","silent");
+                            LogUtil.putLogRoomSilent(object.toString());
+                            LogUtil.putLogRoomSilent(XX);
                             break;
                         }
                         case "ROOM_SILENT_ON": {// 房间打开禁言
@@ -927,8 +893,9 @@ public class ParsingBarrage_Thr extends Thread {
                             }
                             ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("ea9336"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " SILENT Log","silent");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_SILENT Log","silent");
+                            LogUtil.putLogRoomSilent(object.toString());
+                            LogUtil.putLogRoomSilent(XX);
+
 
                             break;
                         }
@@ -952,32 +919,14 @@ public class ParsingBarrage_Thr extends Thread {
                             }
                             ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("ea9336"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,Control_UiT_RoomId.getText());//输出到弹幕日志
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", " BLOCK_MSG Log","silent");
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), XX + "\n", " ROOM_BLOCK_MSG Log","silent");
-                            break;
-                        }
-                        case "CHANGE_ROOM_INFO": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            // 改变房间信息
-                            // {"background":"http://static.hdslb.com/live-static/images/bg/4.jpg","cmd":"CHANGE_ROOM_INFO"}
-                            break;
-                        }
-                        case "ACTIVITY_EVENT": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            // 活动事件
-                            // {"data":{"limit":500000,"progress":74380,"keyword":"bls_winter_2018","type":"charge"},"cmd":"ACTIVITY_EVENT"}
+                            LogUtil.putLogRoomBlock(object.toString());
+                            LogUtil.putLogRoomBlock(XX);
                             break;
                         }
 
-                        case "WISH_BOTTLE": {
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "WY Log");
-                            // 许愿瓶
-                            // {"data":{"wish":{"uid":50621949,"wish_progress":25098,"type_id":3,"wish_limit":99999,"ctime":"2018-01-28 09:28:21","id":8427,"count_map":[1,10,100],"type":1,"content":"一个B克拉得老白勋章","status":1},"action":"update","id":8427},"cmd":"WISH_BOTTLE"}
-                            break;
-                        }
                         default: {
                             putDM = "";
-                            LogUtil.putLog(getFormatDay(), getFormatHour(), object.toString() + "\n", "TerBiliLive Log");
+                            LogUtil.putLogUnknown(object.toString());
                         }
                     }
 

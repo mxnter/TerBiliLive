@@ -11,5 +11,6 @@ public class InOutPutUtil {
         if(ConfInfo.dev){
             System.out.println(msg);
         }
+        LogUtil.putLogSystemOut(msg.toString());
     }
 }

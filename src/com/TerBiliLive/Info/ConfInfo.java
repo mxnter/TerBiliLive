@@ -67,6 +67,35 @@ public class ConfInfo {
     public static SystemTray systemTray = SystemTray.getSystemTray();
 
 
+
+    //Database
+    public static final int AppDatabaseVersion = 1;
+
+    public static final List<String> AppInitDatabases  = new ArrayList<>();
+    static{
+        AppInitDatabases.add("CREATE TABLE \"SystemInfo\"(\"Name\" varchar, \"Version\" int);");
+        AppInitDatabases.add("INSERT INTO \"SystemInfo\" (\"Name\", \"Version\") VALUES ('Database', "+AppDatabaseVersion+")");
+        AppInitDatabases.add("CREATE TABLE \"ConfData\"(\"Cookie\" text,\"RoomId\" varchar,\"Second\" varchar,\"Text\" varchar,\"TulingApiKey\" varchar);");
+    }
+
+    public static final List<String[]> AppUpdateDatabases = new ArrayList<>();
+    static {
+        String sql = "UPDATE \"SystemInfo\" SET \"Version\" = "+AppDatabaseVersion+" WHERE \"Name\" = 'Database'";
+        String[] sql0 = {};
+        AppUpdateDatabases.add(sql0);
+        String[] sql1 = {
+                "create table SystemLog(GenerationTime datetime, LogType varchar, Log text);",
+                sql
+        };
+        AppUpdateDatabases.add(sql1);
+    }
+    public static final String Database_SelectDatabaseVersion = "SELECT * FROM SystemInfo WHERE \"Name\" = 'Database'";
+
+
+
+
+
+
     public static int isReConnSum = 0;
     public static String Thank = "no";
     public static String SEND_GIFT ="";

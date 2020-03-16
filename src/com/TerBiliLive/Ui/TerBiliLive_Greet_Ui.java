@@ -2,6 +2,7 @@ package com.TerBiliLive.Ui;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.*;
+import com.TerBiliLive.Utils.InOutPutUtil;
 import com.TerBiliLive.Utils.LogUtil;
 import com.TerBiliLive.Utils.TimeUtil;
 
@@ -88,10 +89,7 @@ public class TerBiliLive_Greet_Ui extends JFrame {
         con.add(p,BorderLayout.SOUTH);
         con.add(pp,BorderLayout.CENTER);
 //                FileUtil.readFile("Cookie");
-        System.out.println(ConfInfo.confData.getCookie());
-        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.getCookie()+ "\n", "TerBiliLive Out");
-
-
+        InOutPutUtil.outPut(ConfInfo.confData.getCookie());
 
 
         this.setVisible(true);

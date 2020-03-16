@@ -156,8 +156,7 @@ public class ChargeNoticeS_Thr {
                             byte[] msgBody = new byte[msgBodyLength];
                             if (inputStream.read(msgBody) == msgBodyLength){
                                 String jsonStr = new String(msgBody, "utf-8");
-                                System.out.println(jsonStr);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), jsonStr+ "\n", "TerBiliLive Out");
+                                InOutPutUtil.outPut(jsonStr);
                                 // 将弹幕信息放入 list
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
                                 // 开启弹幕解析线程

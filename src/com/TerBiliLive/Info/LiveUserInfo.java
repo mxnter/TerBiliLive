@@ -72,9 +72,9 @@ public class LiveUserInfo {
 
                     break;
                 }
-                default:{
-                    LogUtil.putLog(getFormatDay(), getFormatHour(), "获取个人信息数据信息异常 ："+returnData+ "\n", "Exception","Exception");
+                default:{ ;
                     System.out.println("获取个人信息数据信息异常 ："+returnData);
+                    LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
                     break;
                 }
             }
@@ -97,7 +97,7 @@ public class LiveUserInfo {
 //                user_next_level = jsonObject.getString("user_next_level");
 //                vip = jsonObject.getString("vip");
 //            }else{
-//                LogUtil.putLog(getFormatDay(), getFormatHour(), "获取个人信息数据信息异常 ："+returnData+ "\n", "Exception","Exception");
+//                LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
 //                System.out.println("获取个人信息数据信息异常 ："+returnData);
 //            }
 

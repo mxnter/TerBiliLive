@@ -16,7 +16,12 @@ public class DatabaesUtil {
 
     public DatabaesUtil() {
         try {
-            connection = DriverManager.getConnection(ConfInfo.JDBC_URL);
+            try {
+                Class.forName(JDBC_DRIVER);// 加载驱动,连接sqlite的jdbc
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+            connection = DriverManager.getConnection(JDBC_URL);
             statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
         } catch (SQLException e) {

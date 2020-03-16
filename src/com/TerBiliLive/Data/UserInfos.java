@@ -35,8 +35,8 @@ public class UserInfos {
                 money = data.getString("money");
                 current_exp = level_info.getString("current_exp");
             } else {
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "获取服务器接口数据信息异常 ：" + returnData + "\n", "Exception", "Exception");
                 System.out.println("获取服务器接口数据信息异常 ：" + returnData);
+                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + returnData);
             }
         } catch (JSONException e) {
             e.printStackTrace();

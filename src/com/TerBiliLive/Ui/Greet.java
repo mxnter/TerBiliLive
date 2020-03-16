@@ -8,6 +8,9 @@ import com.TerBiliLive.Utils.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
@@ -65,10 +68,6 @@ public class Greet extends JFrame {
         //AWTUtilities.setWindowOpacity(this, 0.6f); //透明
 
 //        ConfInfo.cookie=ConfInfo.confData.getCookie();
-        InOutPutUtil.outPut(ConfInfo.confData.getCookie());
-        LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.getCookie()+ "\n", "TerBiliLive Out");
-
-
 
 
         this.setVisible(true);
@@ -113,17 +112,36 @@ public class Greet extends JFrame {
             loading.setText("正在加载数据");
             progresValue = 20;
             ConfInfo.databaesUtil=new DatabaesUtil();
-            ConfInfo.confData.readConfData();
+            ResultSet resultSet =  ConfInfo.databaesUtil.select(ConfInfo.Database_SelectDatabaseVersion);
+            try {
+                if(resultSet.next()){
+                    if(resultSet.getInt("Version") < ConfInfo.AppDatabaseVersion) {
+                        List<String[]> UpdateDatabases = ConfInfo.AppUpdateDatabases.subList(resultSet.getInt("Version")+1,ConfInfo.AppDatabaseVersion+1);
+                        UpdateDatabases.forEach(data->{
+                            for(String sql : data){
+                                ConfInfo.databaesUtil.executeUpdate(sql);
+                            }
+                        });
+                        loading.setText("正在升级数据库");
+                        progresValue = 50;
+                    }
+                }else{
+                    InitDatabases();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            InOutPutUtil.outPut(ConfInfo.confData.getCookie());
             progresValue = 40;
-            DevLogUtil.printf(ConfInfo.confData.toString());
-            LogUtil.putLog(getFormatDay(), getFormatHour(), ConfInfo.confData.toString() + "\n", "TerBiliLive Logxx");
+            ConfInfo.confData.readConfData();
             progresValue = 50;
+            InOutPutUtil.outPut(ConfInfo.confData.toString());
         }else{
             progresValue = 20;
-            FileUtil.copyInternalFiles(ConfInfo.DatabaseExternalPath,ConfInfo.DatabaseInternalPath);
+//            FileUtil.copyInternalFiles(ConfInfo.DatabaseExternalPath,ConfInfo.DatabaseInternalPath);
             ConfInfo.databaesUtil=new DatabaesUtil();
-            loading.setText("正在创建数据");
-            progresValue = 50;
+            InitDatabases();
         }
 
 
@@ -203,7 +221,13 @@ public class Greet extends JFrame {
 
     }
 
-
+    public void InitDatabases(){
+        ConfInfo.AppInitDatabases.forEach(sql->{
+            ConfInfo.databaesUtil.executeUpdate(sql);
+        });
+        loading.setText("正在创建数据");
+        progresValue = 50;
+    }
 
 
 }

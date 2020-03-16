@@ -37,21 +37,21 @@ public class GiftIntegration_Thr extends Thread {
 //            try {
 //                sleep(5000);
 //            } catch (InterruptedException e) {
-//                LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+//                LogUtil.putLogException("异常日志：礼物整合 睡眠异常"+uname+"--"+giftName);
 //                e.printStackTrace();
 //            }
 //        }else{
 //            try {
 //                sleep(1000);
 //            } catch (InterruptedException e) {
-//                LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+//                LogUtil.putLogException("异常日志：礼物整合 睡眠异常"+uname+"--"+giftName);
 //                e.printStackTrace();
 //            }
 //        }
         try {
             sleep(5000);
         } catch (InterruptedException e) {
-            LogUtil.putLog(getFormatDay(), getFormatHour(), "异常日志：礼物整合 睡眠异常"+uname+"--"+giftName+ "\n", "Exception","Exception");
+            LogUtil.putLogException("异常日志：礼物整合 睡眠异常"+uname+"--"+giftName);
             e.printStackTrace();
         }
 

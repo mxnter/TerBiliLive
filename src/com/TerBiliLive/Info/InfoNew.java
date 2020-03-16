@@ -40,8 +40,8 @@ public class InfoNew {
                 longitude = jsonObject.getString("longitude");
                 province = jsonObject.getString("province");
             } else {
-                LogUtil.putLog(getFormatDay(), getFormatHour(), "获取服务器接口数据信息异常 ：" + ReturnData + "\n", "Exception", "Exception");
                 System.out.println("获取服务器接口数据信息异常 ：" + ReturnData);
+                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + ReturnData);
             }
 
 
