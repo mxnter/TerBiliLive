@@ -11,6 +11,17 @@ public class InOutPutUtil {
         if(ConfInfo.dev){
             System.out.println(msg);
         }
-        if(ConfInfo.databaesUtil!=null) LogUtil.putLogSystemOut(msg.toString());
+        if(ConfInfo.devDatabase){
+            if(ConfInfo.databaesUtil!=null) LogUtil.putLogSystemOut(msg.toString());
+        }
+
+    }
+    public static void outPut(Object msg,boolean database){
+        if(ConfInfo.devDatabasePut){
+            System.out.println(msg);
+        }
+        if(ConfInfo.devDatabase){
+            if(ConfInfo.databaesUtil!=null&&database) LogUtil.putLogSystemOut(msg.toString());
+        }
     }
 }

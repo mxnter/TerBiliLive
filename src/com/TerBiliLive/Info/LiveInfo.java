@@ -59,7 +59,7 @@ public class LiveInfo {
 //		} catch (UnsupportedEncodingException e) {
 //			e.printStackTrace();
 //		}
-//		System.out.println(ReturnData);
+//		InOutPutUtil.outPut(ReturnData);
 //		ReturnData = CodingUtil.ascii2native(ReturnData);
 		setAllDate();
 

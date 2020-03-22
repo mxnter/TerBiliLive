@@ -2,6 +2,7 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utils.ColorUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -33,7 +34,7 @@ public class GetSendBarrageList_Thr extends Thread {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-//            System.out.println(ConfInfo.ChargeBarrageList.get(0).substring(0,2));
+//            InOutPutUtil.outPut(ConfInfo.ChargeBarrageList.get(0).substring(0,2));
             if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("礼物")){ //为了区分礼物和弹幕的颜色
                 new PutShow_Thr(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("944ef3")).start();
 //                ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("944ef3"));
@@ -62,7 +63,7 @@ public class GetSendBarrageList_Thr extends Thread {
                     try {
                         ConfInfo.GBT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;
-                        System.out.println("-----------------------显示弹幕数据进入休眠-----------------------");
+                        InOutPutUtil.outPut("-----------------------显示弹幕数据进入休眠-----------------------");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

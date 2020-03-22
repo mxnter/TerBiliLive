@@ -3,6 +3,7 @@ package com.TerBiliLive.Info;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utils.LogUtil;
 import org.json.JSONException;
+import com.TerBiliLive.Utils.InOutPutUtil;
 import org.json.JSONObject;
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
@@ -44,7 +45,7 @@ public class LiveUserInfo {
     public LiveUserInfo(String cookie){
 
         returnData = HttpClient.sendGet(ConfInfo.UserInfoURL,cookie);
-        System.out.println(returnData);
+        InOutPutUtil.outPut(returnData);
         try {
             JSONObject data = new JSONObject(returnData);
             switch (data.getString("code")){
@@ -73,7 +74,7 @@ public class LiveUserInfo {
                     break;
                 }
                 default:{ ;
-                    System.out.println("获取个人信息数据信息异常 ："+returnData);
+                    InOutPutUtil.outPut("获取个人信息数据信息异常 ："+returnData);
                     LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
                     break;
                 }
@@ -98,7 +99,7 @@ public class LiveUserInfo {
 //                vip = jsonObject.getString("vip");
 //            }else{
 //                LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
-//                System.out.println("获取个人信息数据信息异常 ："+returnData);
+//                InOutPutUtil.outPut("获取个人信息数据信息异常 ："+returnData);
 //            }
 
 

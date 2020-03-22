@@ -32,10 +32,10 @@ public class SendBarrage_Thr extends Thread {
             if (!ConfInfo.SendBarrageList.isEmpty() && !ConfInfo.SendBarrageList.get(0).equals("")) {
                 String msg = ConfInfo.SendBarrageList.get(0).getMsg();
                 if (msg.equals(ConfInfo.Upper_barrage)) {
-                    System.out.println("弹幕重复 - 判断时间");
+                    InOutPutUtil.outPut("弹幕重复 - 判断时间");
                     if (TimeUtil.timeStamplong() - ConfInfo.Upper_barrage_time < 6) {
 //                    ConfInfo.Upper_barrage_time =TimeUtil.timeStamplong();
-                        System.out.println("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                        InOutPutUtil.outPut("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
                         TerBiliLive_SendBarrage_Ui.HFJ_UiT_State.setText("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
                         ConfInfo.SendBarrageList.remove(0);
                         continue;
@@ -79,7 +79,7 @@ public class SendBarrage_Thr extends Thread {
                 try {
                     JSONObject jsonObject = new JSONObject(RTData);
 
-                    System.out.println(jsonObject);
+                    InOutPutUtil.outPut(jsonObject);
                     TerBiliLive_SendBarrage_Ui.HFJ_UiT_Time.setText(getFormatHour());
                     String retMsg = "";
                     String logSendBarrage = "";
@@ -149,7 +149,7 @@ public class SendBarrage_Thr extends Thread {
                     try {
                         ConfInfo.SBLT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;
-                        System.out.println("-----------------------发送弹幕　　进入休眠-----------------------");
+                        InOutPutUtil.outPut("-----------------------发送弹幕　　进入休眠-----------------------");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

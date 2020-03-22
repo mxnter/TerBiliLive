@@ -2,6 +2,7 @@ package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utils.TimeUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -23,9 +24,9 @@ public class SendBarrage {
         url = ConfInfo.sendBarrageUrl;
         try {
             //转换字符串到URLEncoder
-            System.out.println("SendBarrage :"+msg);
+            InOutPutUtil.outPut("SendBarrage :"+msg);
             msg =URLEncoder.encode(msg, "UTF-8");
-            System.out.println("SendBarrage : "+msg);
+            InOutPutUtil.outPut("SendBarrage : "+msg);
             //封装弹幕颜色
             paramMap.put("color", "16777215");
             //封装弹幕字体大小
@@ -47,7 +48,7 @@ public class SendBarrage {
             result = HttpClient.sendPost(url,paramMap,cookie);
 
         } catch (UnsupportedEncodingException e) {
-            System.out.println("SendBarrage : 转换字符出错 "+msg);
+            InOutPutUtil.outPut("SendBarrage : 转换字符出错 "+msg);
             e.printStackTrace();
         }
 

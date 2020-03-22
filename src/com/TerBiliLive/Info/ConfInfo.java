@@ -27,7 +27,9 @@ public class ConfInfo {
     public static String MacAddress = null;
     public static String IpAddress = null;
 
-    public static final boolean dev = false;
+    public static final boolean dev = true;
+    public static final boolean devDatabasePut = false;
+    public static final boolean devDatabase = false;
     public static final HashMap<String, String> AppName = new HashMap<String, String>();
     static { AppName.put("A", "TerBiliAssistant");AppName.put("L", "TerBiliLive"); }
     public static final HashMap<String,String> AppViceName = new HashMap<String, String>();
@@ -73,9 +75,13 @@ public class ConfInfo {
 
     public static final List<String> AppInitDatabases  = new ArrayList<>();
     static{
-        AppInitDatabases.add("CREATE TABLE \"SystemInfo\"(\"Name\" varchar, \"Version\" int);");
-        AppInitDatabases.add("INSERT INTO \"SystemInfo\" (\"Name\", \"Version\") VALUES ('Database', "+AppDatabaseVersion+")");
+        AppInitDatabases.add("CREATE TABLE \"SystemInfo\"(\"Name\" varchar, \"Version\" varchar);");
+        AppInitDatabases.add("INSERT INTO \"SystemInfo\" (\"Name\", \"Version\") VALUES (\"Database\", '"+AppDatabaseVersion+"')");
         AppInitDatabases.add("CREATE TABLE \"ConfData\"(\"Cookie\" text,\"RoomId\" varchar,\"Second\" varchar,\"Text\" varchar,\"TulingApiKey\" varchar);");
+        AppInitDatabases.add("CREATE TABLE \"SystemLog\" (\"GenerationTime\" datetime, \"LogType\" varchar, \"Log\" text);");
+        AppInitDatabases.add("CREATE TABLE BarrageInfo (time datetime,roomId varchar,cmd varchar,guard varchar,vip varchar,isadmin varchar,medal varchar,userLevel varchar,uid varchar,nickname varchar,barrage varchar,msg varchar,info text);");
+        AppInitDatabases.add("CREATE TABLE BarrageNotice(time datetime,msg varchar,info text);");
+        AppInitDatabases.add("CREATE TABLE BarrageLog (time datetime,cmd int, msg varchar,info text);");
     }
 
     public static final List<String[]> AppUpdateDatabases = new ArrayList<>();
@@ -84,12 +90,16 @@ public class ConfInfo {
         String[] sql0 = {};
         AppUpdateDatabases.add(sql0);
         String[] sql1 = {
-                "create table SystemLog(GenerationTime datetime, LogType varchar, Log text);",
+                "CREATE TABLE \"SystemLog\" (\"GenerationTime\" datetime, \"LogType\" varchar, \"Log\" text);",
                 sql
         };
         AppUpdateDatabases.add(sql1);
     }
     public static final String Database_SelectDatabaseVersion = "SELECT * FROM SystemInfo WHERE \"Name\" = 'Database'";
+
+    public static final String Database_DeleteSystemLog = "DELETE FROM SystemLog WHERE GenerationTime <";
+
+    public static final String Database_InsertDatabaseBarrage = "INSERT INTO BarrageInfo VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 
 

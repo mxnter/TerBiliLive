@@ -1,9 +1,13 @@
 package com.TerBiliLive.Utils;
 
+import com.TerBiliLive.Info.ConfInfo;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * CODE IS POETRY
@@ -15,6 +19,24 @@ import java.io.PrintWriter;
 public class DmLogUtil {
 
 
+
+    public static void putBarrageInfoDatabase(String time, String roomId,String cmd, String guard, String vip, String isadmin, String medal, String userLevel, String uid, String nickname, String barrage,String msg, String info) {
+        List<String> sqlValue = new ArrayList<>();
+        sqlValue.add(time);
+        sqlValue.add(roomId);
+        sqlValue.add(cmd);
+        sqlValue.add(guard);
+        sqlValue.add(vip);
+        sqlValue.add(isadmin);
+        sqlValue.add(medal);
+        sqlValue.add(userLevel);
+        sqlValue.add(uid);
+        sqlValue.add(nickname);
+        sqlValue.add(barrage);
+        sqlValue.add(msg);
+        sqlValue.add(info);
+        ConfInfo.databaesUtil.executeUpdate(ConfInfo.Database_InsertDatabaseBarrage,sqlValue);
+    }
 
     // 输出弹幕日志 输出到Ter/Dm/[房间号]日期.txt
     public static void putDmLog(String Day, String Date, String DmLog ,String roomid ) {

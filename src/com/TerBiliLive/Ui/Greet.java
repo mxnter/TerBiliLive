@@ -12,9 +12,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
+import static com.TerBiliLive.Utils.TimeUtil.*;
 
 public class Greet extends JFrame {
     private JPanel panel;
@@ -208,9 +206,11 @@ public class Greet extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
+                LogUtil.clearDatabase(); //清理日志
 
                 loading.setText("登陆成功");
+
+
 
                 new Console();
                 this.dispose();

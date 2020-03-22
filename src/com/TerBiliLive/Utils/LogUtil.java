@@ -5,9 +5,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormat;
+import static com.TerBiliLive.Utils.TimeUtil.getFormatDistance;
 
 public class LogUtil {
 
@@ -68,9 +71,18 @@ public class LogUtil {
 		putLogDatabase(getFormat(),LogType,Log);
 
 	}
+
+	public static void clearDatabase() {
+		ConfInfo.databaesUtil.executeUpdate(ConfInfo.Database_DeleteSystemLog+"'"+getFormatDistance(-7)+"'");
+
+	}
 	public static void putLogDatabase(String GenerationTime, String LogType, String Log) {
 		if(null==Log||"".equals(Log)) return;
-		ConfInfo.databaesUtil.executeUpdate("INSERT INTO \"SystemLog\" (\"GenerationTime\", \"LogType\", \"Log\") VALUES ('"+GenerationTime+"','"+LogType+"','"+Log+"')");
+		List<String> sqlValue = new ArrayList<>();
+		sqlValue.add(GenerationTime);
+		sqlValue.add(LogType);
+		sqlValue.add(Log);
+		ConfInfo.databaesUtil.executeUpdate("INSERT INTO SystemLog (GenerationTime, LogType, Log) VALUES (?,?,?)",sqlValue);
 	}
 
 	// 输出日志 ProjectName 项目名，区分日志

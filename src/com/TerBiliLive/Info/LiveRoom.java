@@ -3,6 +3,7 @@ package com.TerBiliLive.Info;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 public class LiveRoom {
 
@@ -15,7 +16,7 @@ public class LiveRoom {
 
         //获取返回值
         ReturnData = HttpClient.sendGet(LiveRoomURL + Cid);
-        System.out.println(ReturnData);
+        InOutPutUtil.outPut(ReturnData);
         JSONObject AllData = null;
         try {
             AllData = new JSONObject(ReturnData);
@@ -23,7 +24,7 @@ public class LiveRoom {
             room_id = Data.getString("room_id");
             uid= Data.getString("uid");
         } catch (JSONException e) {
-            System.out.println("获取房间真实ID失败");
+            InOutPutUtil.outPut("获取房间真实ID失败");
             e.printStackTrace();
         }
 

@@ -7,6 +7,7 @@ import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
 import com.TerBiliLive.Thr.ParsingBarrage_Thr;
 import com.TerBiliLive.Thr.SendAdvertising_Thr;
 import com.TerBiliLive.Utils.FileUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 import javax.swing.*;
 
@@ -117,7 +118,7 @@ public class Control_Fun {
     }
 
     public void Start(){
-//        System.out.println("GT1");
+//        InOutPutUtil.outPut("GT1");
         if(ConfInfo.terBiliLive_control_ui.Control_UiT_RoomId.getText().equals("")){
             ConfInfo.terBiliLive_adv_ui.GG_UiT_State.setText("请填写直播间");
             return;
@@ -139,10 +140,10 @@ public class Control_Fun {
 //        if(ConfInfo.sendAdvertising_thr.isAlive()){
 //            synchronized (ConfInfo.sendAdvertising_thr) {
 //                ConfInfo.sendAdvertising_thr.notify();
-//                System.out.println("-----------------------广告姬重新激活-----------------------");
+//                InOutPutUtil.outPut("-----------------------广告姬重新激活-----------------------");
 //            }
 //        }else {
-        System.out.println("-----------------------广告姬线程启动-----------------------");
+        InOutPutUtil.outPut("-----------------------广告姬线程启动-----------------------");
             ConfInfo.sendAdvertising_thr.start();
 //        }
 
@@ -160,7 +161,7 @@ public class Control_Fun {
     }
     @SuppressWarnings("deprecation")
     public void Suspend(){
-//        System.out.println("GT2");
+//        InOutPutUtil.outPut("GT2");
         GG_Ui_Start.setEnabled(true);
         GG_Ui_Suspend.setEnabled(false);
         GG_UiT_State.setText("暂停");
@@ -168,14 +169,14 @@ public class Control_Fun {
 
         ConfInfo.sendAdvertising_thr.stop();
         ConfInfo.sendAdvertising_thr=null;
-        System.out.println("-----------------------广告姬线程销毁-----------------------");
+        InOutPutUtil.outPut("-----------------------广告姬线程销毁-----------------------");
 //        new Thread(new Runnable(){
 //            public void run(){
 //
 //                synchronized (ConfInfo.sendAdvertising_thr) {
 //                    try {
 //                        ConfInfo.sendAdvertising_thr.wait();
-//                        System.out.println("-----------------------广告姬进入休眠-----------------------");
+//                        InOutPutUtil.outPut("-----------------------广告姬进入休眠-----------------------");
 //                    } catch (InterruptedException e) {
 //                        e.printStackTrace();
 //                    }

@@ -52,27 +52,26 @@ public class ParsingBarrage_Thr extends Thread {
 //                                    int uid = array.getInteger(0);
 
 
-                            String timeline = TimeUtil.timeStamp2Date(Date.getString(4), null);
-                            String GUARD =  object.getJSONArray("info").getString(7);
-                            String  vip = array.getString(3).equals("1")?"月费老爷":(array.getString(4).equals("1")?"年费老爷":"");
-                            String  isadmin =(array.getString(2).equals("1")) ? array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid()) ? "房主" : "房管" : "";
+                            String timeline = TimeUtil.timeStamp2Datess(Date.getString(4), null);
 
-                            String medal ="";
-                            String medal_level ="";
-                            try {
-                                medal = object.getJSONArray("info").getJSONArray(3).getString(1);
-                                medal_level=object.getJSONArray("info").getJSONArray(3).getString(0);
-
-                            } catch (Exception e) {
-                                medal = "";
-                                medal_level="";
-                            }
-                            String  user_level =object.getJSONArray("info").getJSONArray(4).getString(0)  ;
-                            String  nickname  = array.getString(1);
-                            String text = object.getJSONArray("info").getString(1);;
-
-
-
+                            String  uid = array.getString(0);
+                            //TODO 备用字段
+//                            String  user_level =object.getJSONArray("info").getJSONArray(4).getString(0);
+//                            String GUARD =  object.getJSONArray("info").getString(7);
+//                            String  vip = array.getString(3).equals("1")?"月费老爷":(array.getString(4).equals("1")?"年费老爷":"");
+//                            String  isadmin =(array.getString(2).equals("1")) ? array.getString(0).equals(ConfInfo.getLiveRoomUserInfo.getRoomUseruid()) ? "房主" : "房管" : "";
+//                            String medal ="";
+//                            String medal_level ="";
+//                            try {
+//                                medal = object.getJSONArray("info").getJSONArray(3).getString(1);
+//                                medal_level=object.getJSONArray("info").getJSONArray(3).getString(0);
+//
+//                            } catch (Exception e) {
+//                                medal = "";
+//                                medal_level="";
+//                            }
+//                            String  nickname  = array.getString(1);
+//                            String text = object.getJSONArray("info").getString(1);;
 
 
                             String putDM_text = object.getJSONArray("info").getString(1);
@@ -103,7 +102,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     putDM_GUARD="";break;
                             }
 
-                            putDM_timeline = TimeUtil.timeStamp2Date(Date.getString(4), null);
+                            putDM_timeline = TimeUtil.timeStamp2Datess(Date.getString(4), null);
 
                             if (array.getString(3).equals("1")) {
                                 putDM_vip = "普通老爷 ";
@@ -121,21 +120,12 @@ public class ParsingBarrage_Thr extends Thread {
 //                            e.printStackTrace();
 //                        }
 
+                            DmLogUtil.putBarrageInfoDatabase(timeline,Control_UiT_RoomId.getText(),msgType,putDM_GUARD,putDM_vip,putDM_isadmin,putDM_medal,putDM_user_level,uid,putDM_nickname,putDM_text,putDM,object.toString());
 
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                             if (array.getString(2).equals("1") || putDM_nickname.equals("mxnter")) {
-//                                            if(putDM_text.equals("# 版本信息")) {new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version);}
-//                                            if(putDM_text.equals("# 关闭老爷")){ ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);new HFJ_Fun("关闭老爷 成功");}
-//                                            if(putDM_text.equals("# 开启老爷")){ ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(true); new HFJ_Fun("开启老爷 成功");}
-//                                            if(putDM_text.equals("# 开启感谢")){ ConfInfo.terBiliLive_control_ui.Control_UiB_OpenThinks.doClick();new HFJ_Fun("开启感谢 成功");}
-//                                            if(putDM_text.equals("# 关闭感谢")){ ConfInfo.terBiliLive_control_ui.Control_UiB_ClaseThinks.doClick();new HFJ_Fun("关闭感谢 成功");}
-//                                            if(putDM_text.equals("# 关闭30")){ ConfInfo.terBiliLive_control_ui.Reply_30.setSelected(false);new HFJ_Fun("关闭30 成功");}
-//                                            if(putDM_text.equals("# 开启30")){ ConfInfo.terBiliLive_control_ui.Reply_30.setSelected(true);new HFJ_Fun("开启30 成功");}
-//                                            if(putDM_text.equals("# 开启舰长")){ ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(true);new HFJ_Fun("开启舰长 成功");}
-//                                            if(putDM_text.equals("# 关闭舰长")){ ConfInfo.terBiliLive_control_ui.Reply_Guard.setSelected(false);new HFJ_Fun("关闭舰长 成功");}
 
                                 switch (putDM_text) {
-//                                                case "# 版本信息":{new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version); }
+                                    case "# 版本信息":{new HFJ_Fun("当前版本："+ConfInfo.terBiliLive_ui.Version); }
                                     case "# 关闭老爷": {
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
                                         ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.setSelected(false);
@@ -391,7 +381,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String uname = giftData.getString("uname");
                             String timestamp = giftData.getString("timestamp");
                             //int uid = giftData.getInteger("uid");
-//                          System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
+//                          InOutPutUtil.outPut(uname + "赠送 " + giftName + "*" + giftNum);
 
                             //整合礼物使用整合线程进行展示弹幕
                             if (!ConfInfo.integrated.containsKey(uname+giftName)) {
@@ -413,14 +403,14 @@ public class ParsingBarrage_Thr extends Thread {
                             int combo_num = giftData.getInteger("combo_num");
                             String timestamp = giftData.getString("timestamp");
 //                                    int uid = giftData.getInteger("uid");
-//                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
+//                                        InOutPutUtil.outPut(uname + "赠送 " + giftName + "*" + giftNum);
                             putDM = "礼物 ：" + TimeUtil.timeStamp2Date(timestamp, null) + " $ " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
 
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                             if (ConfInfo.Thank.equals("ok"))
                                 new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
-                            System.out.println(putDM);
+                            InOutPutUtil.outPut(putDM);
                             LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
                         }
@@ -432,7 +422,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String uname = giftData.getString("uname");
                             String end_time = giftData.getString("end_time");
 //                                    int uid = giftData.getInteger("uid");
-//                                        System.out.println(uname + "赠送 " + giftName + "*" + giftNum);
+//                                        InOutPutUtil.outPut(uname + "赠送 " + giftName + "*" + giftNum);
 
                             if (gift_name.equals("摩天大楼")) {
                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
@@ -462,7 +452,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                                 if (ConfInfo.Thank.equals("ok"))
 //                                    new HFJ_Fun("感谢 " + uname + " 赠送的 " + gift_name + "*[" + combo_num + "连击]  喵~"); //多次感谢暂时关闭
-                                System.out.println(putDM);
+                                InOutPutUtil.outPut(putDM);
                             } else {
                                 InOutPutUtil.outPut("连送礼物结束" + ConfInfo.SEND_GIFT);
                             }
@@ -475,7 +465,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String giftaction = gift39.getString("action");
 
                             String giftid = gift39.getString("id");
-//                                        System.out.println(giftData);
+//                                        InOutPutUtil.outPut(giftData);
                             switch (giftaction) {
                                 case "start": {
 
@@ -486,7 +476,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     putDM = "通知 ： ~ " + "节奏风暴 开始 id:" + giftid + "内容：" + giftcontent;
                                     //关闭欢迎老爷
                                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                                    System.out.println("----------------------------------------关闭老爷----------------------------------------");
+                                    InOutPutUtil.outPut("----------------------------------------关闭老爷----------------------------------------");
                                     break;
                                 }
                                 case "end": {
@@ -495,7 +485,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                                     if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                         //启动欢迎老爷
-                                        System.out.println("----------------------------------------启动老爷----------------------------------------");
+                                        InOutPutUtil.outPut("----------------------------------------启动老爷----------------------------------------");
                                         ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                                     }
 
@@ -513,9 +503,9 @@ public class ParsingBarrage_Thr extends Thread {
 //                                                paramMap.put("roomid", "5440");
 //                                                paramMap.put("csrf_token", "810077afcf6973ee439bd6bd2caaddd5");
 //                                                paramMap.put("visit_id", "");
-//                                                System.out.println("\n\n\n\n" +   HttpClient.sendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
+//                                                InOutPutUtil.outPut("\n\n\n\n" +   HttpClient.sendPost("https://api.live.bilibili.com/lottery/v1/Storm/join", null, ConfInfo.cookie)+ "aabbcc");
                             LogUtil.putLogGiftRecord(object.toString() + "\n");
-                            System.out.println(putTZ);
+                            InOutPutUtil.outPut(putTZ);
                             break;
                         }
 
@@ -524,7 +514,7 @@ public class ParsingBarrage_Thr extends Thread {
                         case "TV_START": {
                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);
-                            System.out.println("----------------------------------------关闭老爷----------------------------------------");
+                            InOutPutUtil.outPut("----------------------------------------关闭老爷----------------------------------------");
                             JSONObject giftData = object.getJSONObject("data");
                             String from = giftData.getString("from");
                             String id = giftData.getString("id");
@@ -545,7 +535,7 @@ public class ParsingBarrage_Thr extends Thread {
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                             if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                 //启动欢迎老爷
-                                System.out.println("----------------------------------------启动老爷----------------------------------------");
+                                InOutPutUtil.outPut("----------------------------------------启动老爷----------------------------------------");
                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                             }
                             break;
@@ -580,6 +570,8 @@ public class ParsingBarrage_Thr extends Thread {
                         case "PK_CLICK_AGAIN":
                         case "CHANGE_ROOM_INFO":// 改变房间信息
                             // {"background":"http://static.hdslb.com/live-static/images/bg/4.jpg","cmd":"CHANGE_ROOM_INFO"}
+                        case "ROOM_REAL_TIME_MESSAGE_UPDATE":// 房间实时信息更新
+//                        {"data":{"red_notice":-1,"roomid":21144080,"fans":499410},"cmd":"ROOM_REAL_TIME_MESSAGE_UPDATE"}
                         case "ACTIVITY_EVENT":// 活动事件
                             // {"data":{"limit":500000,"progress":74380,"keyword":"bls_winter_2018","type":"charge"},"cmd":"ACTIVITY_EVENT"}
                         case "WISH_BOTTLE":// 许愿瓶
@@ -594,7 +586,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(false);
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(false);
-                            System.out.println("----------------------------------------关闭老爷----------------------------------------");
+                            InOutPutUtil.outPut("----------------------------------------关闭老爷----------------------------------------");
                             JSONObject giftData = object.getJSONObject("data");
                             String from = giftData.getString("from");
                             String id = giftData.getString("id");
@@ -651,7 +643,7 @@ public class ParsingBarrage_Thr extends Thread {
                             ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.setSelected(true);
                             if (ConfInfo.terBiliLive_control_ui.Reply_MasterRadioGift.isSelected()) {
                                 //启动欢迎老爷
-                                System.out.println("----------------------------------------启动老爷----------------------------------------");
+                                InOutPutUtil.outPut("----------------------------------------启动老爷----------------------------------------");
                                 ConfInfo.terBiliLive_control_ui.Reply_Master.setSelected(true);
                             }
 
@@ -686,13 +678,13 @@ public class ParsingBarrage_Thr extends Thread {
                             }
 
                             String uname = welcData.getString("uname");
-//                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
+//                                        InOutPutUtil.outPut("欢迎老爷 " + uname + " 进入直播间");
 
                             putDM = "提示 ：" + getFormat() + " @ " + "欢迎" + vipStr + "老爷 " + uname;
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_Master.isSelected())
                                 new HFJ_Fun("欢迎" + vipStr + "老爷 " + uname);
-                            System.out.println(putDM);
+                            InOutPutUtil.outPut(putDM);
                             if (!ConfInfo.terBiliLive_control_ui.Reply_MasterBarrage.isSelected()) {
                                 putDM = "";
                             }
@@ -703,7 +695,7 @@ public class ParsingBarrage_Thr extends Thread {
 //                                    int uid = welcData.getInteger("uid");
                             String username = welcData.getString("username");
                             String guard_level = welcData.getString("guard_level");
-//                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
+//                                        InOutPutUtil.outPut("欢迎老爷 " + uname + " 进入直播间");
                             switch (guard_level) {
                                 case "3":
                                     putDM = "提示 ：" + getFormat() + " @ " + "欢迎舰长 " + username;
@@ -729,7 +721,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
 //                                        new HFJ_Fun("欢迎老爷 "  +username +"\t");
-                            System.out.println(putDM);
+                            InOutPutUtil.outPut(putDM);
                             break;
                         }
 //                                    {"data":{"uid":263160725,"start_time":1537077349,"price":198000,"num":1,"gift_id":10003,"end_time":1537077349,"gift_name":"舰长","username":"送君千里带绿帽","guard_level":3},"cmd":"GUARD_BUY"}
@@ -740,7 +732,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String username = welcData.getString("username");
                             String start_time = welcData.getString("start_time");
                             String guard_level = welcData.getString("guard_level");
-//                                        System.out.println("欢迎老爷 " + uname + " 进入直播间");
+//                                        InOutPutUtil.outPut("欢迎老爷 " + uname + " 进入直播间");
                             switch (guard_level) {
                                 case "3":
                                     putDM = "提示 ：" + TimeUtil.timeStamp2Date(start_time, null) + " @ " + "喵~ 感谢新的 " + gift_name + " " + username + "开通特权";
@@ -763,7 +755,7 @@ public class ParsingBarrage_Thr extends Thread {
 
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, Control_UiT_RoomId.getText());
-                            System.out.println(putDM);
+                            InOutPutUtil.outPut(putDM);
                             break;
                         }
                         case "NOTICE_MSG": {
@@ -801,7 +793,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             Control_UiT_RoomRank.setText(rank_desc);
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
-                            System.out.println(rank_desc + " id:" + roomid + "\t");
+                            InOutPutUtil.outPut(rank_desc + " id:" + roomid + "\t");
 
                             break;
                         }
@@ -812,7 +804,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播开始啦，拿好小板凳哟. ");
-                            System.out.println("通知 ： ~ " + "   id:" + roomid + " 直播开始啦，拿好小板凳哟.");
+                            InOutPutUtil.outPut("通知 ： ~ " + "   id:" + roomid + " 直播开始啦，拿好小板凳哟.");
                             ConfInfo.dingtalk.LiveLive();
                             break;
                         }
@@ -823,7 +815,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LiveState.isSelected()) new HFJ_Fun("直播结束啦，记得关注哦.");
-                            System.out.println("通知 ： ~ " + "   id:" + roomid + " 直播结束啦，记得关注哦.");
+                            InOutPutUtil.outPut("通知 ： ~ " + "   id:" + roomid + " 直播结束啦，记得关注哦.");
                             ConfInfo.dingtalk.LivePreparing();
                             break;
                         }
@@ -854,7 +846,7 @@ public class ParsingBarrage_Thr extends Thread {
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, Control_UiT_RoomId.getText());
                             if (ConfInfo.terBiliLive_control_ui.Reply_LowSecurity.isSelected())
                                 new HFJ_Fun(" 出现航海" + " id:" + roomid + "类型：" + buy_typeStr,1);
-                            System.out.println(putTZ);
+                            InOutPutUtil.outPut(putTZ);
                             break;
                         }// pk 开始
 
@@ -951,7 +943,7 @@ public class ParsingBarrage_Thr extends Thread {
                     synchronized (ConfInfo.PBT) {
                         try {
                             ConfInfo.PBT.wait();
-                            System.out.println("-----------------------解析弹幕数据进入休眠-----------------------");
+                            InOutPutUtil.outPut("-----------------------解析弹幕数据进入休眠-----------------------");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

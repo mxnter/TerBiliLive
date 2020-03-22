@@ -65,7 +65,7 @@ public class ChargeNoticeS_Thr {
        // new PutDMUtil(putDM);
         Control_UiT_State.setText("已断开连接" );
         DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
-        System.out.println("断开连接" +" 真实直播间ID："+roomID );
+        InOutPutUtil.outPut("断开连接" +" 真实直播间ID："+roomID );
     }
 
     private class handle_data_loop extends Thread {
@@ -91,7 +91,7 @@ public class ChargeNoticeS_Thr {
                         ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  - 用户未登录(游客模式)",Color.BLUE);
                     }
                     DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
-                    System.out.println("连接成功" +"真实直播间ID："+roomID );
+                    InOutPutUtil.outPut("连接成功" +"真实直播间ID："+roomID );
                     ConfInfo.isReConnSum=0;
                 }catch (Exception ex){
                     ex.printStackTrace();
@@ -111,7 +111,7 @@ public class ChargeNoticeS_Thr {
                             ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID,Color.BLUE);
 
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,Control_UiT_RoomId.getText());
-                            System.out.println("自动重连" +" 真实直播间ID："+roomID );
+                            InOutPutUtil.outPut("自动重连" +" 真实直播间ID："+roomID );
 
                             if(ConfInfo.isReConnSum>=10){
                                 keepRunning = false;
@@ -131,13 +131,13 @@ public class ChargeNoticeS_Thr {
 
             int dataLength = data.length;
             if (dataLength < 16){
-                System.out.println("错误的数据");
+                InOutPutUtil.outPut("错误的数据");
             }else {
                 DataInputStream inputStream = new DataInputStream(new ByteArrayInputStream(data));
                 try {
                     int msgLength = inputStream.readInt();
                     if (msgLength < 16){
-                        System.out.println("可能需要扩大缓冲区大小");
+                        InOutPutUtil.outPut("可能需要扩大缓冲区大小");
                     }else if(msgLength > 16 && msgLength == dataLength){
                         // 其实是两个char
                         inputStream.readInt();
@@ -146,10 +146,10 @@ public class ChargeNoticeS_Thr {
                         if (action == 2){
                             inputStream.readInt();
                             int userCount = inputStream.readInt();
-//                            System.out.println("在线人数：" + userCount);
+//                            InOutPutUtil.outPut("在线人数：" + userCount);
                             Control_UiT_State.setText("人气：" + userCount);
 //                            ConfInfo.putDMUtil.PutDMUtil("在线人数：" + userCount);
-                            System.out.println("人气：" + userCount);
+                            InOutPutUtil.outPut("人气：" + userCount);
                         }else if (action == 4){
                             inputStream.readInt();
                             int msgBodyLength = dataLength - 16;

@@ -28,7 +28,7 @@ public class SendAdvertising_Thr extends Thread {
 
     @Override
     public void run() {
-//        System.out.println("GT3");
+//        InOutPutUtil.outPut("GT3");
         int i = 1;
         // GG_Fun GF =
 
@@ -49,7 +49,7 @@ public class SendAdvertising_Thr extends Thread {
 
 
             //JSONObject jsonObject = new JSONObject(RTData);
-//                System.out.println(LI.getState());
+//                InOutPutUtil.outPut(LI.getState());
 
             switch (LI.getState()) {
 
@@ -85,7 +85,7 @@ public class SendAdvertising_Thr extends Thread {
             }
             /*线程停止运行的设计*/
 //            AYO = Control_Fun.AYO_GG;
-//           // System.out.println(AYO);
+//           // InOutPutUtil.outPut(AYO);
 //            if (!AYO) GG_UiT_State.setText("已暂停");
             //String RTData = GG_Fun.RTData;
 

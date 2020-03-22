@@ -6,6 +6,8 @@ import com.TerBiliLive.Utils.InOutPutUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConfData {
 
@@ -74,7 +76,7 @@ public class ConfData {
     }
 
     public void writeConfData(){
-        ConfInfo.databaesUtil.executeUpdate("delete from ConfData");
+        ConfInfo.databaesUtil.executeUpdate("DELETE FROM \"ConfData\"");
         try {
             ConfInfo.databaesUtil.executeUpdate("INSERT INTO ConfData VALUES (\""+AESUtil.Encryption(Cookie)+"\",\""+RoomId+"\",\""+Second+"\",\""+Text+"\",\""+TulingApikey+"\")");
         } catch (Exception e) {

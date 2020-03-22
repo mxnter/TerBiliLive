@@ -3,6 +3,7 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Function.HFJ_Fun;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Utils.DmLogUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
 import com.TerBiliLive.Utils.LogUtil;
 import com.TerBiliLive.Utils.TimeUtil;
 
@@ -55,11 +56,11 @@ public class GiftIntegration_Thr extends Thread {
             e.printStackTrace();
         }
 
-        System.out.println(ConfInfo.integrated.get(uname+giftName));//查看礼物整合的数据
+        InOutPutUtil.outPut(ConfInfo.integrated.get(uname+giftName));//查看礼物整合的数据
         if (ConfInfo.Thank.equals("ok")){
             if(ConfInfo.terBiliLive_control_ui.Reply_NeglectSpicy.isSelected()){
                 if(giftName.equals("辣条")){
-                    System.out.println("_______________________忽略辣条感谢_____________________________");
+                    InOutPutUtil.outPut("_______________________忽略辣条感谢_____________________________");
                 }else{
                     new HFJ_Fun("感谢 " + uname + " 赠送的 " + giftName +"*" +  ConfInfo.integrated.get(uname+giftName).getGiftNum() +" 喵~",1);
                 }

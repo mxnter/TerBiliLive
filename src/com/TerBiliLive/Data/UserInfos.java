@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
@@ -22,7 +23,7 @@ public class UserInfos {
 
     public UserInfos() {
         String returnData = HttpClient.sendGet(ConfInfo.BiliServer_nav, ConfInfo.confData.getCookie());
-        System.out.println(returnData);
+        InOutPutUtil.outPut(returnData);
         try {
             JSONObject Return = new JSONObject(returnData);
             JSONObject data = Return.getJSONObject("data");
@@ -35,7 +36,7 @@ public class UserInfos {
                 money = data.getString("money");
                 current_exp = level_info.getString("current_exp");
             } else {
-                System.out.println("获取服务器接口数据信息异常 ：" + returnData);
+                InOutPutUtil.outPut("获取服务器接口数据信息异常 ：" + returnData);
                 LogUtil.putLogException("获取服务器接口数据信息异常 ：" + returnData);
             }
         } catch (JSONException e) {

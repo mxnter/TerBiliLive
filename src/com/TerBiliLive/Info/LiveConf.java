@@ -4,6 +4,7 @@ import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utils.LogUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
+import com.TerBiliLive.Utils.InOutPutUtil;
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
@@ -28,7 +29,7 @@ public class LiveConf {
 
     public LiveConf(String Cid,String cookie) {
         ReturnData = HttpClient.sendGet(ConfInfo.LiveConfURL+Cid,cookie);
-        System.out.println(ReturnData);
+        InOutPutUtil.outPut(ReturnData);
         try {
             JSONObject data = new JSONObject(ReturnData);
             JSONObject jsonObject = data.getJSONObject("data");
@@ -43,7 +44,7 @@ public class LiveConf {
                 token = jsonObject.getString("token");
             }else{
                 LogUtil.putLogException("获取服务器接口数据信息异常 ："+ReturnData);
-                System.out.println("获取服务器接口数据信息异常 ："+ReturnData);
+                InOutPutUtil.outPut("获取服务器接口数据信息异常 ："+ReturnData);
             }
 
 

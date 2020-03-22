@@ -1,5 +1,6 @@
 package com.TerBiliLive.Utils;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -34,6 +35,12 @@ public class TimeUtil {
 		String dateString = formatter.format(date);
 		return dateString;
 	}
+	public static String getFormatDistance(int distance) {
+		Calendar now = Calendar.getInstance();
+		now.add(Calendar.DAY_OF_MONTH, distance);
+		String dateString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(now.getTime());
+		return dateString;
+	}
 
 	/**
 	 * 时间戳转换成日期格式字符串
@@ -50,6 +57,23 @@ public class TimeUtil {
 		}
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		return sdf.format(new Date(Long.valueOf(seconds+"000")));
+	}
+
+	/**
+	 * 时间戳转换成日期格式字符串
+	 * @param seconds 精确到秒的字符串
+	 * @param format
+	 * @return
+	 */
+	public static String timeStamp2Datess(String seconds,String format) {
+		if(seconds == null || seconds.isEmpty() || seconds.equals("null")){
+			return "";
+		}
+		if(format == null || format.isEmpty()){
+			format = "yyyy-MM-dd HH:mm:ss";
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		return sdf.format(new Date(Long.valueOf(seconds)));
 	}
 	/**
 	 * 日期格式字符串转换成时间戳
@@ -86,6 +110,8 @@ public class TimeUtil {
 //		String t = String.valueOf(time/1000);
 		return time/1000;
 	}
+
+
 
 
 }
