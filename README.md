@@ -3,7 +3,7 @@
 ### Bilibili Live Barrage kyi,Using Java .
 ### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-##### 尽力更新  
+#### 全新版本 Beta7 正在开发，当前编译版可能会出现无法正常使用。
 
 # 推荐
 推荐您 Watch 本项目，以保证您及时收取新版本。  
