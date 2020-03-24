@@ -106,18 +106,19 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
-    <property name="last_opened_file_path" value="G:/WorkingArea/tusho/tongda-java2nd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -599,10 +600,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="535" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585041431511" />
-    <state x="440" y="93" key="SettingsEditor" timestamp="1585041105216">
+    <state x="440" y="93" key="SettingsEditor" timestamp="1585058862054">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="93" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585041105216" />
+    <state x="440" y="93" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585058862054" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585041276338">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
