@@ -1,10 +1,10 @@
-# [TerBiliLive - Beta06](http://terbililive.mter.top/)  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 06](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
+# [TerBiliLive - Beta7](http://terbililive.mter.top/)  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
-### Bilibili Live Barrage kyi,Using Java .
-### 哔哩哔哩直播弹幕姬，使用 Java 。  
+#### Bilibili Live Barrage kyi,Using Java .
+##### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-#### 全新版本 Beta7 正在开发，当前编译版可能会出现无法正常使用。
-
+# 全新版本 Beta7 正在主分支开发
+## 您可以访问 [Beta6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 来使用可正常运行的版本
 # 推荐
 推荐您 Watch 本项目，以保证您及时收取新版本。  
 
