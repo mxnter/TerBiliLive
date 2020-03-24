@@ -1,20 +1,19 @@
-# [TerBiliLive - Beta7](http://terbililive.mter.top/)  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-06-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
+# [TerBiliLive - Beta7](http://terbililive.mter.top/)  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-7-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-# 全新版本 Beta7 正在主分支开发
-## 您可以访问 [Beta6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 来使用可正常运行的版本
-# 推荐
+# 全新版本 Beta 7 正在主分支开发
+## 您可以访问 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 来使用可正常运行的版本
+## 推荐
 推荐您 Watch 本项目，以保证您及时收取新版本。  
+## 警告
+软件将会记录您的 IP、Mac、主机名等信息,已供开发者参考。 
 
-
-# 告知：
+## 告知：
 提示： 暂停发布版更新请直接下载当前编译的最新版本  
-[最新下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
+[最新下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/Beta6/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)  
 
-当前版本及以后版本  
-将会记录您的 IP、Mac、主机名等信息 ，以方便作者统计使用人数(您的Cooike将永久保存再您的设备内，我永远不会窃取您的Cookie)。 
   
 ### <center>Cookie 请自行在浏览器内获取！</center> [获取Cookie方法](#四丶帮助)    
   
