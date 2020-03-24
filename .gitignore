@@ -1,4 +1,6 @@
 # Run Data
 /Ter/
 # Build Data
-/out/production/
+/out/
+# APP Data
+/app/Ter/

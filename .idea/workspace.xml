@@ -7,8 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="编译">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/spring_core_5_2_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,14 +110,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -322,7 +324,7 @@
       <workItem from="1565501608068" duration="716000" />
       <workItem from="1569050080561" duration="1108000" />
       <workItem from="1585040636175" duration="749000" />
-      <workItem from="1585058814816" duration="299000" />
+      <workItem from="1585058814816" duration="1122000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -492,7 +494,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585059024707</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="编译">
+      <created>1585059123720</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1585059123720</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView">
@@ -602,18 +611,26 @@
     <option name="LAST_COMMIT_MESSAGE" value="编译" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="535" y="114" key="CommitChangelistDialog2" timestamp="1585059021304">
+    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585059606576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="535" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059021304" />
-    <state x="440" y="93" key="SettingsEditor" timestamp="1585058862054">
+    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585059606576" />
+    <state x="535" y="114" key="CommitChangelistDialog2" timestamp="1585059122907">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="93" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585058862054" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585059027506">
+    <state x="535" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059122907" />
+    <state x="431" y="271" key="FileChooserDialogImpl" timestamp="1585059633345">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059027506" />
+    <state x="431" y="271" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585059633345" />
+    <state x="63" y="8" key="SettingsEditor" timestamp="1585059768386">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="63" y="8" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585059768386" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585059125362">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059125362" />
     <state x="603" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585041061878">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
