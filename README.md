@@ -89,7 +89,7 @@
 
 ### 获取Cookie
 打开任意直播间 F12 然后刷新页面即可看到下图
-![获取Cookie](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/getcookie.png)
+![获取Cookie](http://terbililive.mter.top/APP/Beta6/getcookie.png)
 
 
 # 四丶用户协议
