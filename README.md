@@ -2,9 +2,10 @@
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
-
+##### [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/)  [码云](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 # 全新版本 Beta 7 正在主分支开发
-## 您可以访问 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 来使用可正常运行的版本
+## 您可以访问 [GitHub Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) [码云 Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) 来使用可正常运行的版本
+
 ## 推荐
 推荐您 Watch 本项目，以保证您及时收取新版本。  
 ## 警告
@@ -58,13 +59,13 @@
 ###### <center>Ui展示</center>
 
 ### 1.欢迎界面
-![欢迎界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/hi.png)
+![欢迎界面](http://terbililive.mter.top/APP/Beta6/hi.png)
 
 ### 2.登陆界面
-![登陆界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dl.png)
+![登陆界面](http://terbililive.mter.top/APP/Beta6/dl.png)
 
 ### 3.弹幕姬界面
-![弹幕姬界面](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/MDImg/dmj.png)
+![弹幕姬界面](http://terbililive.mter.top/APP/Beta6/dmj.png)
 
 
 
