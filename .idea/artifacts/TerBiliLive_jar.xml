@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" build-on-make="true" name="TerBiliLive:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/TerBiliLive_jar</output-path>
+    <output-path>$PROJECT_DIR$/out</output-path>
     <root id="archive" name="TerBiliLive.jar">
       <element id="module-output" name="TerBiliLive" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/fastjson-1.2-unwrap.jar" path-in-jar="/" />

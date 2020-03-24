@@ -22,5 +22,6 @@
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.25.1" level="project" />
+    <orderEntry type="library" name="commons-io-2.6" level="project" />
   </component>
 </module>
