@@ -1,5 +1,6 @@
 package com.TerBiliLive.Ui;
 
+import com.TerBiliLive.Entity.HttpClientEntity;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.HttpClient;
@@ -13,7 +14,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
+import static com.TerBiliLive.TerBiliLive.HttpClient.sendGetHeader;
+import static com.TerBiliLive.TerBiliLive.HttpClient.sendPostHeader;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
@@ -41,6 +49,9 @@ public class Login extends JFrame{
     private JPanel panel4;
     private JPanel panel5;
     private JButton noLogin;
+    private JLabel qrcode;
+    private JPanel qrcodePanel;
+    private JLabel qrcodeMsg;
     private ImageIcon backgroundImg;
 
     public Login() {
@@ -81,8 +92,10 @@ public class Login extends JFrame{
         tips2.setOpaque(false); //背景透明
         clear.setOpaque(false); //背景透明
         paste.setOpaque(false); //背景透明
+        qrcode.setOpaque(false); //背景透明
         msg.setOpaque(false); //背景透明
         loginPanel.setOpaque(false); //背景透明
+        qrcodePanel.setOpaque(false); //背景透明
         panel1.setOpaque(false); //背景透明
         panel2.setOpaque(false); //背景透明
         panel3.setOpaque(false); //背景透明
@@ -98,6 +111,17 @@ public class Login extends JFrame{
 
         this.setVisible(true);
 
+        new Thread(new Runnable() {
+            public void run() {
+                // 开始使用二维码登录
+                try {
+                    cookieValue.setText(qrCodeLogin(qrcode,qrcodeMsg));
+                    login.doClick();
+                } catch (JSONException | IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
         //弹出授权记录信息提示框
         String SQ = "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
@@ -120,6 +144,10 @@ public class Login extends JFrame{
 //                System.exit(0); //不同意后关闭软件
             }
         }
+
+
+
+
         new Thread(new Runnable() {
             public void run() {
                 int SVersionNum = ConfInfo.VersionNum;
@@ -168,6 +196,7 @@ public class Login extends JFrame{
                 }
                 ConfInfo.confData.writeConfData();
                 new Greet();
+                setVisible(false);
                 dispose();
             }
         });
@@ -213,6 +242,42 @@ public class Login extends JFrame{
             @Override
             public void mouseClicked(MouseEvent e) {
                 OpenUtil.OpenUrl("https://github.com/mxnter/TerBiliLive");
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+        qrcode.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new Thread(new Runnable() {
+                    public void run() {
+                        // 开始使用二维码登录
+                        try {
+                            cookieValue.setText(qrCodeLogin(qrcode,qrcodeMsg));
+                            login.doClick();
+                        } catch (JSONException | IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
             }
 
             @Override
@@ -289,5 +354,65 @@ public class Login extends JFrame{
             }
         });
 
+    }
+
+
+    public static String qrCodeLogin(JLabel qrcode,JLabel qrcodeMsg) throws JSONException, InterruptedException, IOException {
+        String getQrCodeUrl = "https://passport.bilibili.com/qrcode/getLoginUrl";
+        String getQrCodeLoginUrl = "https://passport.bilibili.com/qrcode/getLoginInfo";
+        String getQrCodeImgUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+        StringBuilder cookie = new StringBuilder();
+        String oauthKey = "";
+
+        qrcodeMsg.setText("正在获取二维码");
+        HttpClientEntity getQrCode = sendGetHeader(getQrCodeUrl,null,null);
+        for (String setCookie : getQrCode.getHeader().get("Set-Cookie")) {
+            cookie.append(setCookie.split(";")[0]).append("; ");
+        }
+        JSONObject result = new JSONObject(getQrCode.getResult());
+        JSONObject resultData = result.getJSONObject("data");
+        oauthKey = resultData.getString("oauthKey");
+//        System.out.println(cookie);
+//        System.out.println(resultData.getString("url"));
+        try {
+            ImageIcon image = new ImageIcon(new URL(getQrCodeImgUrl+resultData.getString("url")),"头像");//设置图片的来源路径（图片的URL）
+            image.setImage(image.getImage().getScaledInstance(200, 200, 100));//设置图片大小
+            qrcode.setIcon(image);
+        } catch (MalformedURLException e) {
+            qrcode.setIcon(ImageBroker.loadImageIcon("defaultFace.jpg"));
+            e.printStackTrace();
+        }
+//        Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+getQrCodeImgUrl+resultData.getString("url"));
+        HttpClientEntity getQrCodeLogin;
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("oauthKey",oauthKey);
+        paramMap.put("gourl","https://www.bilibili.com/");
+        JSONObject getLoginInfo = new JSONObject(getQrCode.getResult());
+        do{
+            Thread.sleep(1000);
+            getQrCodeLogin = sendPostHeader(getQrCodeLoginUrl,paramMap, cookie.toString());
+            getLoginInfo = new JSONObject(getQrCodeLogin.getResult());
+            if(!getLoginInfo.getBoolean("status")){
+                if(getLoginInfo.getInt("data")==-2){
+                    qrcodeMsg.setText("二维码已超时,点击重新获取");
+//                    System.out.println("二维码已超时,请重新获取");
+                    return null;
+                }else if(getLoginInfo.getInt("data")==-4){
+                    qrcodeMsg.setText("扫码二维,登录账号");
+//                    System.out.println("未扫描二维码");
+                }else if(getLoginInfo.getInt("data")==-5){
+                    qrcodeMsg.setText("已扫码二维码");
+//                    System.out.println("已扫码二维码");
+                }
+            }
+        }while (!getLoginInfo.getBoolean("status"));
+        for (String setCookie : getQrCodeLogin.getHeader().get("Set-Cookie")) {
+            cookie.append(setCookie.split(";")[0]).append("; ");
+        }
+//        System.out.println(cookie);
+//        HttpClientEntity get3 = sendGetSetCookie("https://api.live.bilibili.com/User/getUserInfo",null, cookie.toString());
+//        System.out.println(get3.getResult());
+
+        return cookie.toString();
     }
 }
