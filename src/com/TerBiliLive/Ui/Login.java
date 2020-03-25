@@ -100,20 +100,16 @@ public class Login extends JFrame{
 
 
         //弹出授权记录信息提示框
-        String SQ = "尊敬的用户：\n" +
-                "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
+        String SQ = "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
                 "　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数，\n" +
-                "我们将统计部分信息，例如 IP、Mac、主机名等。这将发送到我们\n" +
-                "的服务上，以帮助开发者了解软件是否存在价值。\n" +
-                "　　开发者仅发送您的Cookie到BiliBili服务器,您的Cookie加密存储在本地。\n" +
-                "\n" +
-                "如果您觉得我们可以信赖，您可以选择 “确定”。如果您不想统计您的信\n" +
-                "息，请选择 “取消”。\n" +
-                "\n" +
-                "官方网站:http://terbililive.mter.top/\n"+
-                "GITHUB:https://github.com/mxnter/TerBiliLive\n"+
-                "\n" +
-                "再次感谢您的使用。\n";
+                "软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断使用次数和人数,\n" +
+                "以帮助开发者了解软件是否有价值.您的Cookie是加密存储在本地。\n" +
+                "点击 “确定” 后表示您同意,我们将不再提示此信息.\n" +
+                "点击 “取消” 后本次使用将不会记录任何信息,下次启动会提示此信息.\n" +
+                "官方网站:http://terbililive.mter.top/\n" +
+                "GITHUB:https://github.com/mxnter/TerBiliLive\n" +
+                "码云:https://gitee.com/mxnter/TerBiliLive\n" +
+                "再次感谢您的使用。 ";
         if(new AgreementUtil().readFile().equals("NO")){
             //  JOptionPane.showInputDialog(null,SQ,"用户授权",JOptionPane.PLAIN_MESSAGE).equals("我同意")
             if(JOptionPane.showConfirmDialog(null, SQ, "用户授权",JOptionPane.OK_CANCEL_OPTION)==0){

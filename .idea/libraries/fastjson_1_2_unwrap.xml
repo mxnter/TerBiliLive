@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="javax.crypto-1.0.5">
+  <library name="fastjson-1.2-unwrap">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/javax.crypto-1.0.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastjson-1.2-unwrap.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

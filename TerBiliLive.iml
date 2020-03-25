@@ -15,17 +15,14 @@
     <content url="file://$MODULE_DIR$/out/production" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="org.json" level="project" />
-    <orderEntry type="library" exported="" name="io.netty:netty-all:4.1.28.Final" level="project" />
-    <orderEntry type="library" exported="" name="cn.bestwu:fastjson:1.2-unwrap" level="project" />
-    <orderEntry type="library" name="jsoup-1.11.3" level="project" />
-    <orderEntry type="library" name="javax.crypto-1.0.5" level="project" />
-    <orderEntry type="library" name="commons-codec-1.4" level="project" />
-    <orderEntry type="library" name="commons-io-2.6" level="project" />
-    <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="sqlite-jdbc-3.25.1" level="project" />
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="commons-io-2.6" level="project" />
+    <orderEntry type="library" name="org.json" level="project" />
+    <orderEntry type="library" name="fastjson-1.2-unwrap" level="project" />
+    <orderEntry type="library" name="commons-codec-1.4" level="project" />
+    <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="spring-core-5.2.4" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc-3.25.1" level="project" />
   </component>
 </module>

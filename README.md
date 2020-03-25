@@ -1,24 +1,26 @@
-# [TerBiliLive - Beta7](http://terbililive.mter.top/)  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-7-ff69b4.svg)]()  [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=102)]()
+# [TerBiliLive - Beta 7](http://terbililive.mter.top/) 
+ [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Simplified Chinese](https://img.shields.io/badge/Simplified-Chinese-ff4569.svg)]() [![Beta 6](https://img.shields.io/badge/Beta-6-ff69b4.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-7-ff35b8.svg)]()
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
-##### [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/)  [码云](https://gitee.com/mxnter/TerBiliLive/tree/master/)
-# 全新版本 Beta 7 正在主分支开发
-## 您可以访问 [GitHub Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) [码云 Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) 来使用可正常运行的版本
 
-## 推荐
-推荐您 Watch 本项目，以保证您及时收取新版本。  
-## 警告
-软件将会记录您的 IP、Mac、主机名等信息,已供开发者参考。 
+### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
-## 告知：
-提示： 暂停发布版更新请直接下载当前编译的最新版本  
-[最新下载](https://raw.githubusercontent.com/mxnter/TerBiliLive/Beta6/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)  
+# 全新版本 Beta 7 开发中
+##### Beta 7 正在主分支开发,功能不完全,您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/),来查看 `Beta 6` 的最终版本源码.
+##### Beta 7 重构了部页面和功能,现阶段无法直接使用,如需要体验或使用 `TerBiliLive` ,推荐您前往 [官网](http://terbililive.mter.top/) 下载 `Beta 6` 的最终版本.
+
+### Recommend 推荐
+1. 推荐您 Watch 本项目，以保证您及时收取新版本。  
+2. Cookie 请自行在浏览器内获取! [获取Cookie方法](#四丶帮助)  
+### Warning 警告
+1. 请在本机配置好Java环境(由于Java的跨平台性,几乎可以运行在任何拥有JVM的平台上)
+2. 软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断使用次数和人数。 
+
+### Feedback 反馈
+如有问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。
 
   
-### <center>Cookie 请自行在浏览器内获取！</center> [获取Cookie方法](#四丶帮助)    
-  
-如有其他问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。  
 
 ## 目录
 * [一丶简述](#一丶简述)
@@ -44,13 +46,12 @@
 #### 现存问题
 1. 随机出现假死现象
 
-### 发布版本下载：[暂停发布版更新](https://github.com/mxnter/TerBiliLive/releases)
+### 发布版本下载：
+推荐您前往 [官网](http://terbililive.mter.top/) 下载
 
 
-### 编译版下载：[GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/out/artifacts/TerBiliLive_jar/TerBiliLive.jar)
-
-
-<center>注意：如需使用请在本机配置好Java环境(由于Java的跨平台性,几乎可以运行在任何拥有JVM的平台上)</center>
+### 编译版下载：
+推荐您前往 [官网](http://terbililive.mter.top/) 下载
 
 <br><br>
 
@@ -94,43 +95,23 @@
 
 # 四丶用户协议
 
->尊敬的用户：  
-　　您好，感谢您使用 TerBiliLive 弹幕姬。
-　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数，
-我们将统计部分信息，例如 IP、Mac、主机名等。这将发送到我们
-的服务上，以帮助开发者了解软件是否存在价值。
-　　开发者仅发送您的Cookie到BiliBili服务器,您的Cookie加密存储在本地。
->如果您觉得我们可以信赖，您可以选择 “确定”。如果您不想统计您的信
->息，请选择 “取消”。
+>　　您好，感谢您使用 TerBiliLive 弹幕姬。  
+>　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数,  
+>软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断  
+>使用次数和人数,以帮助开发者了解软件是否有价值.您的Cookie  
+>是加密存储在本地。
+>点击 “确定” 后表示您同意,我们将不再提示此信息.
+>点击 “取消” 后本次使用将不会记录任何信息,下次启动会提示此信息.
 >官方网站:http://terbililive.mter.top/
 >GITHUB:https://github.com/mxnter/TerBiliLive
+>码云:https://gitee.com/mxnter/TerBiliLive
 >再次感谢您的使用。 
 
 
 # 五丶版本记录
+>##### Beta 7.00000 (开发中)
+> 重构项目  
 
->##### Beta06[D.Beta08-0617]-[H.Beta9-0921]-[G.Beta03]-[L.Beta04-0119]
-> 更改 用户协议  
-> 更改 存储信息  
-
->##### Beta06[D.Beta08-0617]-[H.Beta9-0921]-[G.Beta03]-[L.Beta03-0916]
-> 更改 信息加密  
-> 修复 检查更新  
-> 增加 未登录提醒
-  
->##### Beta06[D.Beta08-0617]-[H.Beta9-0514]-[G.Beta03]-[L.Beta03-0714]  
-> 完善 登录页面  
-> 增加 更新检查  
-> 修复 更新检查逻辑问题  
-
->##### Beta06[D.Beta07]-[H.Beta8]-[G.Beta03]  
-> 修复无法发送弹幕
-
->##### Beta06[D.Beta08-0131]-[H.Beta9-0131]-[G.Beta03]  
-> 更新房间禁言关掉全部发送消息 并且钉钉群提示
-
->##### Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03] - 发布版  
-> 更新弹幕显示时的颜色
 
 [更多记录](VERSION.md)
 

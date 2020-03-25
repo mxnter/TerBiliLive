@@ -2,7 +2,6 @@
   <library name="spring-core-5.2.4">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/spring-core-5.2.4.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.25.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

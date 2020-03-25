@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="jsoup-1.11.3">
+  <library name="sqlite-jdbc-3.25.1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/jsoup-1.11.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.25.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

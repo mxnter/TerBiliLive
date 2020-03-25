@@ -7,12 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改编译文件位置">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_25_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/cn_bestwu_fastjson_1_2_unwrap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_unwrap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/io_netty_netty_all_4_1_28_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_crypto_1_0_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsoup_1_11_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/spring_core_5_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/spring_core_5_2_4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDImg/dl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDImg/dmj.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDImg/getcookie.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MDImg/hi.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerBiliLive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TerBiliLive.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DatabaesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DatabaesUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,49 +54,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>Login_Ui_NoLogin</find>
-      <find>ConfInfo.cookie.equals(&quot;&quot;)</find>
-      <find>settitle</find>
-      <find>连接</find>
-      <find>回复</find>
-      <find>color</find>
-      <find>font</find>
-      <find>请前往 GitHub 下载</find>
-      <find>开发者通知：</find>
-      <find>SVersionNum</find>
-      <find>https://mxnter.github.io/TerBiliLiveV/Networking/index.html</find>
-      <find>JOptionPane</find>
-      <find>m3_item1</find>
-      <find>System.out.println(level);</find>
-      <find>sette</find>
-      <find>Version</find>
-      <find>ConfInfo.userInfo</find>
-      <find>sleep</find>
-      <find>settit</find>
-      <find>new Thread</find>
-      <find>0711</find>
-      <find>git@</find>
-      <find>游客</find>
-      <find>收到一份更新提醒,请尽快更新</find>
-      <find>收到一份更新提醒,请尽</find>
-      <find>level&gt;0</find>
-      <find>int level</find>
-      <find>更新计划</find>
-      <find>尽快更新</find>
-      <find>ConfInfo.VersionNum&lt;SVersionNum</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>TerBiliLive</replace>
-      <replace>GG.GG_Ui</replace>
-      <replace>logoa.png</replace>
-      <replace>Color.RED</replace>
-      <replace>Color.GREEN</replace>
-      <replace>Color.DARK_GRAY</replace>
-      <replace>ConfInfo.docs</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -622,10 +588,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="修改编译文件位置" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585059606576">
+    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585105205630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585059606576" />
+    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585105205630" />
     <state x="535" y="114" key="CommitChangelistDialog2" timestamp="1585059967223">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -634,26 +600,26 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="431" y="271" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585059633345" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1585061517359">
+    <state width="1257" height="142" key="GridCell.Tab.0.bottom" timestamp="1585105244225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585061517359" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1585061517359">
+    <state width="1257" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
+    <state width="1257" height="142" key="GridCell.Tab.0.center" timestamp="1585105244225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585061517359" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1585061517359">
+    <state width="1257" height="142" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
+    <state width="1257" height="142" key="GridCell.Tab.0.left" timestamp="1585105244225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585061517359" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1585061517359">
+    <state width="1257" height="142" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
+    <state width="1257" height="142" key="GridCell.Tab.0.right" timestamp="1585105244225">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585061517359" />
-    <state x="63" y="8" key="SettingsEditor" timestamp="1585059768386">
+    <state width="1257" height="142" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
+    <state x="363" y="48" key="SettingsEditor" timestamp="1585105224952">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="63" y="8" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585059768386" />
+    <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585105224952" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585061411731">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
