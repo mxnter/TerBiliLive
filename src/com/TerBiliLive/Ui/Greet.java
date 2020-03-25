@@ -54,7 +54,7 @@ public class Greet extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // 设置圆角
-        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 50, 50);
+        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 25, 25);
         setShape(shape);
 //        this.setBorder(new LineBorder(Color.WHITE, 5, true));
         background.setForeground(Color.WHITE);

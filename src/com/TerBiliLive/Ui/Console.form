@@ -214,6 +214,14 @@
               <text value="弹幕姬"/>
             </properties>
           </component>
+          <component id="bf67e" class="javax.swing.JButton" binding="autoSpeak">
+            <constraints/>
+            <properties>
+              <background color="-12542209"/>
+              <foreground color="-1775635"/>
+              <text value="广告姬"/>
+            </properties>
+          </component>
         </children>
       </grid>
       <vspacer id="ac2a9">

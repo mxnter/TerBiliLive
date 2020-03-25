@@ -38,6 +38,7 @@ public class Console extends JFrame {
     private JButton logout;
     private JPanel functionPanel;
     private JPanel msgPanel;
+    private JButton autoSpeak;
     private ImageIcon backgroundImg;
     public Console() {
         this.setContentPane(panel);
@@ -93,6 +94,7 @@ public class Console extends JFrame {
         logout.setBorderPainted(false);//不绘制边框
         sign.setBorderPainted(false);//不绘制边框
         master.setBorderPainted(false);//不绘制边框
+        autoSpeak.setBorderPainted(false);//不绘制边框
         msgPanel.setOpaque(false); //背景透明
         functionPanel.setOpaque(false); //背景透明
 
@@ -132,6 +134,14 @@ public class Console extends JFrame {
                 }else{
                     ConfInfo.terBiliLive_ui.setVisible(true);
                 }
+
+            }
+        });
+        autoSpeak.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                new AutoSpeak();
 
             }
         });
