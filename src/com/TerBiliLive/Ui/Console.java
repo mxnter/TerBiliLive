@@ -4,6 +4,8 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.TerBiliLive.TerWindowListener;
+import com.TerBiliLive.Utils.InOutPutUtil;
+import com.TerBiliLive.Utils.TimerUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -12,6 +14,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Date;
+import java.util.TimerTask;
 
 public class Console extends JFrame {
     private JPanel contentPanel;
@@ -60,7 +64,7 @@ public class Console extends JFrame {
         }
         user_level_rank.setMaximum(Integer.parseInt(ConfInfo.liveUserInfo.getUser_next_intimacy()));
         user_level_rank.setValue(Integer.parseInt(ConfInfo.liveUserInfo.getUser_intimacy()));
-
+        user_level_rank.setString(ConfInfo.liveUserInfo.getUser_intimacy()+"/"+ConfInfo.liveUserInfo.getUser_next_intimacy());
         this.setTitle(ConfInfo.AppName.get(ConfInfo.AppSystemId));
         this.setName("Console");
         this.addWindowListener(new TerWindowListener(this));
@@ -103,7 +107,19 @@ public class Console extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                doSign();
+                ConfInfo.doSign = new TimerUtil("签到-每天");
+                ConfInfo.doSign.Init(new TimerTask() {
+                    @Override
+                    public void run() {
+                        InOutPutUtil.outPut("开启每日自动签到");
+                        msg.setText("开启每日自动签到");
+                        doSign();
+                    }
+                });
+                ConfInfo.doSign.StartNow(60*60*24);
+
+
+
             }
         });
 

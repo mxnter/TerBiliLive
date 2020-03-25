@@ -194,7 +194,7 @@ public class Greet extends JFrame {
                 }
 
                 JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
-                new TerBiliLive_Login_Ui();
+                new Login();
                 this.dispose();
                 this.setVisible(false);
 

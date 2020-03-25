@@ -183,6 +183,8 @@
                 </constraints>
                 <properties>
                   <borderPainted value="false"/>
+                  <string value=""/>
+                  <stringPainted value="true"/>
                 </properties>
               </component>
             </children>

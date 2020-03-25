@@ -103,6 +103,10 @@ public class ConfInfo {
 
 
 
+    // Timer
+    public static TimerUtil doSign;
+
+
 
 
 
