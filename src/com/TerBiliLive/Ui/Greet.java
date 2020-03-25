@@ -7,7 +7,9 @@ import com.TerBiliLive.Info.LiveUserInfo;
 import com.TerBiliLive.Utils.*;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,10 @@ public class Greet extends JFrame {
         this.setUndecorated(true);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        // 设置圆角
+        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 50, 50);
+        setShape(shape);
+//        this.setBorder(new LineBorder(Color.WHITE, 5, true));
         background.setForeground(Color.WHITE);
         background.setOpaque(false); //背景透明
         panel.setOpaque(false); //背景透明
