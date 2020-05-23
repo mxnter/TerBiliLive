@@ -54,7 +54,7 @@ public class Greet extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // 设置圆角
-        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 25, 25);
+        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 15, 15);
         setShape(shape);
 //        this.setBorder(new LineBorder(Color.WHITE, 5, true));
         background.setForeground(Color.WHITE);
@@ -86,7 +86,7 @@ public class Greet extends JFrame {
                         if(progresValue>progress){
                             Thread.sleep(10);
                         }else{
-                            Thread.sleep(500);
+                            Thread.sleep(200);
                             continue;
                         }
                     } catch (InterruptedException e) {
@@ -101,11 +101,11 @@ public class Greet extends JFrame {
             }
         }).start();
         loading.setText("正在加载数据");
-        progresValue = 10;
+        progresValue = 0;
 
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -149,7 +149,7 @@ public class Greet extends JFrame {
 
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -159,7 +159,7 @@ public class Greet extends JFrame {
 
 
             try {
-                Thread.sleep(1000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -188,7 +188,7 @@ public class Greet extends JFrame {
 
 
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -207,7 +207,7 @@ public class Greet extends JFrame {
 
 
                 try {
-                    Thread.sleep(1500);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
