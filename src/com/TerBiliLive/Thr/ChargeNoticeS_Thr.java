@@ -3,11 +3,13 @@ package com.TerBiliLive.Thr;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.GetInfo;
 import com.TerBiliLive.Utils.*;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
 
 import java.awt.*;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
+import java.io.*;
 import java.net.Socket;
+import java.util.Arrays;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
@@ -154,11 +156,43 @@ public class ChargeNoticeS_Thr {
                             inputStream.readInt();
                             int msgBodyLength = dataLength - 16;
                             byte[] msgBody = new byte[msgBodyLength];
+                            byte[] msgBodys;
+                            byte[] msgBodyfg;
+
+                            String[] strArr = null;
                             if (inputStream.read(msgBody) == msgBodyLength){
-                                String jsonStr = new String(msgBody, "utf-8");
-                                InOutPutUtil.outPut(jsonStr);
-                                // 将弹幕信息放入 list
-                                ConfInfo.ParsingBarrageList.add(jsonStr);
+                                if(data[7] == 2){
+                                    InOutPutUtil.outPut("压缩----------------");
+                                    msgBodys = ZLibUtil.decompress(msgBody);
+                                    msgBodyfg = Arrays.copyOfRange(msgBodys, 0,16);
+                                    msgBodys = Arrays.copyOfRange(msgBodys, 16,msgBodys.length);
+                                    String jsonStr = new String(msgBodys, "utf-8");
+                                    strArr = jsonStr.split(new String(msgBodyfg, "utf-8"));
+                                }else{
+                                    msgBodys = msgBody;
+                                    String jsonStr = new String(msgBodys, "utf-8");
+                                    strArr = new String[]{jsonStr};
+                                }
+                                for (String s : strArr) {
+                                    InOutPutUtil.outPut("放入------------");
+                                    InOutPutUtil.outPut(s);
+                                    ConfInfo.ParsingBarrageList.add(s);
+//
+                                }
+//                                if(jsonStr.substring(0, 1).toCharArray()[0] == '['){
+//                                    JSONArray array = JSON.parseArray(jsonStr);
+//                                    InOutPutUtil.outPut(jsonStr);
+//                                    array.forEach(d->{
+//                                        InOutPutUtil.outPut("循环-------------");
+//                                        InOutPutUtil.outPut(d.toString());
+//                                        // 将弹幕信息放入 list
+////                                        ConfInfo.ParsingBarrageList.add(d.toString());
+//                                    });
+//                                }else{
+//                                    InOutPutUtil.outPut(jsonStr);
+////                                    ConfInfo.ParsingBarrageList.add(jsonStr);
+//                                }
+//
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
                                     ConfInfo.PBT.notify();
