@@ -23,9 +23,10 @@ public class SendGet {
 			// 打开和URL之间的连接
 			URLConnection connection = realUrl.openConnection();
 			// 设置通用的请求属性
-			connection.setRequestProperty("accept", "*/*");
+			connection.setRequestProperty("accept", "application/json, text/plain, */*");
 			connection.setRequestProperty("connection", "Keep-Alive");
-			connection.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+			connection.setRequestProperty("user-agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
+			connection.setRequestProperty("accept-language", "zh-CN,zh;q=0.9");
 			connection.setRequestProperty("Cookie", cookie);
 			// 建立实际的连接
 			connection.connect();

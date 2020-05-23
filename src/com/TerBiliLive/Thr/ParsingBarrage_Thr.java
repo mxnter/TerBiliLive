@@ -1012,6 +1012,7 @@ public class ParsingBarrage_Thr extends Thread {
                 }
             }catch (Exception e){
                 System.out.println(ConfInfo.ParsingBarrageList);
+                ConfInfo.ParsingBarrageList.remove(0);
             }
 
 

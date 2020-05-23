@@ -9,6 +9,7 @@ import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.net.Socket;
+import java.util.Arrays;
 
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
@@ -167,13 +168,27 @@ public class ChargeNoticeS_Thr {
                             inputStream.readInt();
                             int msgBodyLength = dataLength - 16;
                             byte[] msgBody = new byte[msgBodyLength];
-                            if (inputStream.read(msgBody) == msgBodyLength){
-                                String jsonStr = new String(msgBody, "utf-8");
-                                System.out.println(jsonStr);
-                                LogUtil.putLog(getFormatDay(), getFormatHour(), jsonStr+ "\n", "TerBiliLive Out");
-                                // 将弹幕信息放入 list
-                                ConfInfo.ParsingBarrageList.add(jsonStr);
+                            byte[] msgBodys;
+                            byte[] msgBodyfg;
 
+                            String[] strArr = null;
+                            if (inputStream.read(msgBody) == msgBodyLength){
+                                if(data[7] == 2){
+
+                                    msgBodys = ZLibUtil.decompress(msgBody);
+                                    msgBodyfg = Arrays.copyOfRange(msgBodys, 0,16);
+                                    msgBodys = Arrays.copyOfRange(msgBodys, 16,msgBodys.length);
+                                    String jsonStr = new String(msgBodys, "utf-8");
+                                    strArr = jsonStr.split(new String(msgBodyfg, "utf-8"));
+                                }else{
+                                    msgBodys = msgBody;
+                                    String jsonStr = new String(msgBodys, "utf-8");
+                                    strArr = new String[]{jsonStr};
+                                }
+                                for (String s : strArr) {
+                                    ConfInfo.ParsingBarrageList.add(s);
+//
+                                }
 
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
