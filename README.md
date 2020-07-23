@@ -3,6 +3,7 @@
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
+## 提示： 当前软件无法使用，作者考完试后将尽快修复。
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 

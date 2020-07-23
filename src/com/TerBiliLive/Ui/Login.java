@@ -357,7 +357,8 @@ public class Login extends JFrame{
     }
 
 
-    public static String qrCodeLogin(JLabel qrcode,JLabel qrcodeMsg) throws JSONException, InterruptedException, IOException {
+    // 使用网络API 生成二维码 弃用
+    public static String qrCodeLoginWebApi(JLabel qrcode,JLabel qrcodeMsg) throws JSONException, InterruptedException, IOException {
         String getQrCodeUrl = "https://passport.bilibili.com/qrcode/getLoginUrl";
         String getQrCodeLoginUrl = "https://passport.bilibili.com/qrcode/getLoginInfo";
         String getQrCodeImgUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
@@ -412,6 +413,57 @@ public class Login extends JFrame{
 //        System.out.println(cookie);
 //        HttpClientEntity get3 = sendGetSetCookie("https://api.live.bilibili.com/User/getUserInfo",null, cookie.toString());
 //        System.out.println(get3.getResult());
+
+        return cookie.toString();
+    }
+
+    public static String qrCodeLogin(JLabel qrcode,JLabel qrcodeMsg) throws JSONException, InterruptedException, IOException {
+        String getQrCodeUrl = "https://passport.bilibili.com/qrcode/getLoginUrl";
+        String getQrCodeLoginUrl = "https://passport.bilibili.com/qrcode/getLoginInfo";
+        StringBuilder cookie = new StringBuilder();
+        String oauthKey = "";
+
+        qrcodeMsg.setText("正在获取二维码");
+        HttpClientEntity getQrCode = sendGetHeader(getQrCodeUrl,null,null);
+        for (String setCookie : getQrCode.getHeader().get("Set-Cookie")) {
+            cookie.append(setCookie.split(";")[0]).append("; ");
+        }
+        JSONObject result = new JSONObject(getQrCode.getResult());
+        JSONObject resultData = result.getJSONObject("data");
+        oauthKey = resultData.getString("oauthKey");
+        // 使用本地生成二维码
+        try {
+            ImageIcon image = new ImageIcon(QRCodeUtil.buildLoginQr(resultData.getString("url")),"头像");//设置图片的来源路径（图片的URL）
+            image.setImage(image.getImage().getScaledInstance(200, 200, 100));//设置图片大小
+            qrcode.setIcon(image);
+        } catch (Exception e) {
+            qrcode.setIcon(ImageBroker.loadImageIcon("defaultFace.jpg"));
+            e.printStackTrace();
+        }
+
+        HttpClientEntity getQrCodeLogin;
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("oauthKey",oauthKey);
+        paramMap.put("gourl","https://www.bilibili.com/");
+        JSONObject getLoginInfo = new JSONObject(getQrCode.getResult());
+        do{
+            Thread.sleep(1000);
+            getQrCodeLogin = sendPostHeader(getQrCodeLoginUrl,paramMap, cookie.toString());
+            getLoginInfo = new JSONObject(getQrCodeLogin.getResult());
+            if(!getLoginInfo.getBoolean("status")){
+                if(getLoginInfo.getInt("data")==-2){
+                    qrcodeMsg.setText("二维码已超时,点击重新获取");
+                    return null;
+                }else if(getLoginInfo.getInt("data")==-4){
+                    qrcodeMsg.setText("扫码二维,登录账号");
+                }else if(getLoginInfo.getInt("data")==-5){
+                    qrcodeMsg.setText("已扫码二维码");
+                }
+            }
+        }while (!getLoginInfo.getBoolean("status"));
+        for (String setCookie : getQrCodeLogin.getHeader().get("Set-Cookie")) {
+            cookie.append(setCookie.split(";")[0]).append("; ");
+        }
 
         return cookie.toString();
     }
