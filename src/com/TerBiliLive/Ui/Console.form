@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.TerBiliLive.Ui.Console">
-  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="434" height="540"/>
+      <xy x="20" y="20" width="450" height="540"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -67,6 +67,21 @@
               <text value="登出"/>
             </properties>
           </component>
+          <grid id="52a" binding="breathingPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="a9085" class="javax.swing.JLabel" binding="breathing">
+                <constraints/>
+                <properties>
+                  <text value="❤"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
         </children>
       </grid>
       <grid id="664ef" binding="userInfoPanel" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -159,7 +174,7 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="8e687" class="javax.swing.JLabel">
+              <component id="8e687" class="javax.swing.JLabel" binding="billCoin">
                 <constraints>
                   <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -191,48 +206,33 @@
           </grid>
         </children>
       </grid>
-      <grid id="d0715" binding="functionPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+      <grid id="d0715" binding="functionPanel" layout-manager="FlowLayout" hgap="4" vgap="5" flow-align="0">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
+          <component id="d632a" class="javax.swing.JLabel" binding="basicsLabel">
+            <constraints/>
+            <properties>
+              <text value="基　础："/>
+            </properties>
+          </component>
           <component id="8ef34" class="javax.swing.JButton" binding="sign">
             <constraints/>
             <properties>
-              <background color="-12542209"/>
+              <background color="-15023878"/>
               <foreground color="-1775635"/>
-              <text value="签 到"/>
-            </properties>
-          </component>
-          <component id="53b3b" class="javax.swing.JButton" binding="master">
-            <constraints/>
-            <properties>
-              <background color="-12542209"/>
-              <foreground color="-1775635"/>
-              <text value="弹幕姬"/>
-            </properties>
-          </component>
-          <component id="bf67e" class="javax.swing.JButton" binding="autoSpeak">
-            <constraints/>
-            <properties>
-              <background color="-12542209"/>
-              <foreground color="-1775635"/>
-              <text value="广告姬"/>
+              <text value="自动签到"/>
             </properties>
           </component>
         </children>
       </grid>
-      <vspacer id="ac2a9">
-        <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-        </constraints>
-      </vspacer>
       <grid id="a2669" binding="msgPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
@@ -244,6 +244,112 @@
             <properties>
               <foreground color="-10460570"/>
               <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="f6697" binding="statePanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="65a05" class="javax.swing.JLabel" binding="doSignState">
+            <constraints/>
+            <properties>
+              <text value="⬤"/>
+            </properties>
+          </component>
+          <component id="6651e" class="javax.swing.JLabel" binding="doSignText">
+            <constraints/>
+            <properties>
+              <text value="自动签到"/>
+            </properties>
+          </component>
+          <component id="2c44" class="javax.swing.JLabel" binding="autoSpeakState">
+            <constraints/>
+            <properties>
+              <text value="⬤"/>
+            </properties>
+          </component>
+          <component id="2b66b" class="javax.swing.JLabel" binding="autoSpeakText">
+            <constraints/>
+            <properties>
+              <text value="广告姬"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <scrollpane id="4563a" binding="logJScrollPane">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <alignmentX value="0.5"/>
+          <autoscrolls value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="da9a5" class="javax.swing.JTextArea" binding="log">
+            <constraints/>
+            <properties>
+              <margin top="5" left="5" bottom="5" right="5"/>
+              <text value=""/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <grid id="63392" binding="autoSpeakFunctionPanel" layout-manager="FlowLayout" hgap="4" vgap="5" flow-align="0">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="2f2e1" class="javax.swing.JLabel" binding="autoSpeakLabel">
+            <constraints/>
+            <properties>
+              <text value="广告姬："/>
+            </properties>
+          </component>
+          <component id="25d7b" class="javax.swing.JButton" binding="autoSpeak">
+            <constraints/>
+            <properties>
+              <background color="-15023878"/>
+              <foreground color="-1775635"/>
+              <text value="广告姬"/>
+            </properties>
+          </component>
+          <component id="bf67e" class="javax.swing.JButton" binding="autoSpeakSet">
+            <constraints/>
+            <properties>
+              <background color="-15023878"/>
+              <foreground color="-1775635"/>
+              <text value="设置"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="d7a05" binding="masterPanel" layout-manager="FlowLayout" hgap="4" vgap="5" flow-align="0">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="4f60e" class="javax.swing.JLabel" binding="masterLabel">
+            <constraints/>
+            <properties>
+              <text value="弹幕姬："/>
+            </properties>
+          </component>
+          <component id="53b3b" class="javax.swing.JButton" binding="master">
+            <constraints/>
+            <properties>
+              <background color="-15023878"/>
+              <foreground color="-1775635"/>
+              <text value="弹幕姬"/>
             </properties>
           </component>
         </children>

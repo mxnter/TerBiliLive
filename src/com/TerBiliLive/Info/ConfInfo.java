@@ -65,6 +65,7 @@ public class ConfInfo {
 
 
     public static LiveUserInfo liveUserInfo = null;
+    public static UserInfoNav userInfoNav = null;
 
     public static SystemTray systemTray = SystemTray.getSystemTray();
 
@@ -105,6 +106,11 @@ public class ConfInfo {
 
     // Timer
     public static TimerUtil doSign;
+    public static TimerUtil autoSpeak;
+    public static TimerUtil breathing;
+
+
+    public static SystemState systemState = new SystemState();
 
 
 
@@ -120,7 +126,8 @@ public class ConfInfo {
 //    public static String RoomLive = "NO";//705952
     public static String sendBarrageUrl = "https://api.live.bilibili.com/msg/send";
     public static String LiveInfoURL = "https://api.live.bilibili.com/api/player?platform=pc&player_type=web&id=cid:";
-    public static String UserInfoURL = "https://api.live.bilibili.com/xlive/web-ucenter/user/get_user_info";
+    public static String LiveUserInfoURL = "https://api.live.bilibili.com/xlive/web-ucenter/user/get_user_info"; // 长城宽带下无法调用接口
+    public static String UserInfoURL = "https://api.bilibili.com/x/web-interface/nav";
     public static String LiveConfURL = "https://api.live.bilibili.com/room/v1/Danmu/getConf?room_id=";
     public static String InfoNewURL = "https://api.live.bilibili.com/client/v1/Ip/getInfoNew";
     public static String LiveRoomUserInfoURL = "https://api.live.bilibili.com/room_ex/v1/RoomNews/get?roomid=";

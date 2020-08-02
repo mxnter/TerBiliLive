@@ -36,6 +36,10 @@ public class TerWindowListener implements WindowListener {
 				win.dispose();
 				break;
 			}
+			case "AutoSpeak":{
+				win.dispose();
+				break;
+			}
 			default:{
 				ConfInfo.control_fun.Preservation();
 				DevLogUtil.printf("您正在关闭窗口,启动保存信息");

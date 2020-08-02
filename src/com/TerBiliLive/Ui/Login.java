@@ -22,8 +22,6 @@ import java.util.Map;
 
 import static com.TerBiliLive.TerBiliLive.HttpClient.sendGetHeader;
 import static com.TerBiliLive.TerBiliLive.HttpClient.sendPostHeader;
-import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
-import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
 
 public class Login extends JFrame{
     private JPanel contentPanel;
@@ -53,6 +51,8 @@ public class Login extends JFrame{
     private JPanel qrcodePanel;
     private JLabel qrcodeMsg;
     private ImageIcon backgroundImg;
+
+    private int getQRnumber = 0;
 
     public Login() {
         this.setContentPane(contentPanel);
@@ -111,17 +111,7 @@ public class Login extends JFrame{
 
         this.setVisible(true);
 
-        new Thread(new Runnable() {
-            public void run() {
-                // 开始使用二维码登录
-                try {
-                    cookieValue.setText(qrCodeLogin(qrcode,qrcodeMsg));
-                    login.doClick();
-                } catch (JSONException | IOException | InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        getQrCodes();
 
         //弹出授权记录信息提示框
         String SQ = "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
@@ -267,17 +257,7 @@ public class Login extends JFrame{
         qrcode.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new Thread(new Runnable() {
-                    public void run() {
-                        // 开始使用二维码登录
-                        try {
-                            cookieValue.setText(qrCodeLogin(qrcode,qrcodeMsg));
-                            login.doClick();
-                        } catch (JSONException | IOException | InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }).start();
+                getQrCodes();
             }
 
             @Override
@@ -300,7 +280,32 @@ public class Login extends JFrame{
 
             }
         });
+        qrcodeMsg.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                getQrCodes();
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
         paste.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -402,8 +407,8 @@ public class Login extends JFrame{
                     qrcodeMsg.setText("扫码二维,登录账号");
 //                    System.out.println("未扫描二维码");
                 }else if(getLoginInfo.getInt("data")==-5){
-                    qrcodeMsg.setText("已扫码二维码");
-//                    System.out.println("已扫码二维码");
+                    qrcodeMsg.setText("已扫描二维码");
+//                    System.out.println("已扫描二维码");
                 }
             }
         }while (!getLoginInfo.getBoolean("status"));
@@ -415,6 +420,32 @@ public class Login extends JFrame{
 //        System.out.println(get3.getResult());
 
         return cookie.toString();
+    }
+
+    void getQrCodes(){
+        new Thread(new Runnable() {
+            public void run() {
+                // 开始使用二维码登录
+                try {
+                    String cookie = qrCodeLogin(qrcode,qrcodeMsg);
+                    if(cookie==null){
+                        getQRnumber++;
+                        if(getQRnumber < 5){
+                            qrcodeMsg.setText("网络异常，点击重新获取");
+                        }else{
+                            qrcodeMsg.setText("您的网络不稳定，请尝试更换网络");
+                        }
+                        qrcode.setIcon(null);
+                    }else{
+                        cookieValue.setText(cookie);
+                        login.doClick();
+                    }
+                } catch (Exception e) { //JSONException | IOException | InterruptedException |
+                    qrcodeMsg.setText("网络异常，点击重新获取");
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public static String qrCodeLogin(JLabel qrcode,JLabel qrcodeMsg) throws JSONException, InterruptedException, IOException {
@@ -449,6 +480,9 @@ public class Login extends JFrame{
         do{
             Thread.sleep(1000);
             getQrCodeLogin = sendPostHeader(getQrCodeLoginUrl,paramMap, cookie.toString());
+            if(getQrCodeLogin.getResult()==null){
+                return null;
+            }
             getLoginInfo = new JSONObject(getQrCodeLogin.getResult());
             if(!getLoginInfo.getBoolean("status")){
                 if(getLoginInfo.getInt("data")==-2){
@@ -457,7 +491,7 @@ public class Login extends JFrame{
                 }else if(getLoginInfo.getInt("data")==-4){
                     qrcodeMsg.setText("扫码二维,登录账号");
                 }else if(getLoginInfo.getInt("data")==-5){
-                    qrcodeMsg.setText("已扫码二维码");
+                    qrcodeMsg.setText("已扫描二维码");
                 }
             }
         }while (!getLoginInfo.getBoolean("status"));

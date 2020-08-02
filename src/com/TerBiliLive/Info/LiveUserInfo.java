@@ -44,7 +44,7 @@ public class LiveUserInfo {
 
     public LiveUserInfo(String cookie){
 
-        returnData = HttpClient.sendGet(ConfInfo.UserInfoURL,cookie);
+        returnData = HttpClient.sendGet(ConfInfo.LiveUserInfoURL,cookie);
         InOutPutUtil.outPut(returnData);
         try {
             JSONObject data = new JSONObject(returnData);
@@ -79,30 +79,6 @@ public class LiveUserInfo {
                     break;
                 }
             }
-//            if(data.getString("code").equals("0")){
-//                JSONObject jsonObject = data.getJSONObject("data");
-//                achieve = jsonObject.getString("achieve");
-//                billCoin = jsonObject.getString("billCoin");
-//                face = jsonObject.getString("face");
-//                gold = jsonObject.getString("gold");
-//                is_level_top = jsonObject.getString("is_level_top");
-//                silver = jsonObject.getString("silver");
-//                svip = jsonObject.getString("svip");
-//                uid = jsonObject.getString("uid");
-//                uname = jsonObject.getString("uname");
-//                user_charged = jsonObject.getString("user_charged");
-//                user_intimacy = jsonObject.getString("user_intimacy");
-//                user_level = jsonObject.getString("user_level");
-//                user_level_rank = jsonObject.getString("user_level_rank");
-//                user_next_intimacy = jsonObject.getString("user_next_intimacy");
-//                user_next_level = jsonObject.getString("user_next_level");
-//                vip = jsonObject.getString("vip");
-//            }else{
-//                LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
-//                InOutPutUtil.outPut("获取个人信息数据信息异常 ："+returnData);
-//            }
-
-
 
         } catch (JSONException e) {
             e.printStackTrace();

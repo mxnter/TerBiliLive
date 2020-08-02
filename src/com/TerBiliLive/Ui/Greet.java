@@ -4,6 +4,7 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.InfoNew;
 import com.TerBiliLive.Info.LiveUserInfo;
+import com.TerBiliLive.Info.UserInfoNav;
 import com.TerBiliLive.Utils.*;
 
 import javax.swing.*;
@@ -173,6 +174,8 @@ public class Greet extends JFrame {
                 loading.setText("正在自动登录");
                 progresValue = 60;
                 ConfInfo.liveUserInfo = new LiveUserInfo(ConfInfo.confData.getCookie());
+                //TODO 获取主站信息
+//                ConfInfo.userInfoNav = new UserInfoNav(ConfInfo.confData.getCookie());
                 progresValue = 70;
             }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"未检测到网络\n请连接网络再试\n\n（如果您多次收到此提示，请查看 Github ：TerBiliLive 是否有更新\n如果未找到更新，请发送邮件到 TerBiliLive@outlook.com 提醒作者程序无法使用！）");

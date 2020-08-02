@@ -5,23 +5,46 @@
       <artifact name="TerBiliLive:jar" />
     </artifacts-to-build>
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改编译文件位置">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/sqlite_jdbc_3_25_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/cn_bestwu_fastjson_1_2_unwrap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_unwrap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/io_netty_netty_all_4_1_28_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_crypto_1_0_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jsoup_1_11_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/spring_core_5_2_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/spring_core_5_2_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Level_info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Official.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/OfficialVerify.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Pendant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Vip_label.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Wallet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfoNav.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerBiliLive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TerBiliLive.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveUserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DatabaesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DatabaesUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/QRCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/QRCodeUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,20 +53,6 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TerBiliLive$Main.ic" NAME="Main Coverage Results" MODIFIED="1537680017845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -58,16 +67,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Beta6" />
+        <entry key="$PROJECT_DIR$" value="DisableOutput" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1ZZJJvqjSgxD1Gq8jXqt8hMfk62" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -79,7 +86,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/out" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -97,13 +104,15 @@
       <recent name="com.TerBiliLive" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Learn\GitHub\TerBiliLive\src\com\TerBiliLive\Info\UserInfo" />
+      <recent name="G:\Learn\GitHub\TerBiliLive\lib" />
       <recent name="G:\Learn\GitHub\TerBiliLive\MDImg" />
       <recent name="G:\Learn\GitHub\TerBiliLive" />
       <recent name="G:\Learn\GitHub\TerBiliLive\src\com\TerBiliLive\Img" />
-      <recent name="G:\Learn\GitHub\TerBiliLive\lib" />
-      <recent name="G:\Learn\GitHub\TerBiliLive\Ter" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.TerBiliLive.Info" />
+      <recent name="com.TerBiliLive.Utils" />
       <recent name="com.TerBiliLive.Utiliy" />
       <recent name="com.TerBiliLive.Thr" />
       <recent name="com.TerBiliLive.Ui" />
@@ -135,30 +144,32 @@
         </pattern>
       </extension>
     </configuration>
+    <configuration name="QRCodeUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TerBiliLive.Utils.QRCodeUtil" />
+      <module name="TerBiliLive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.TerBiliLive.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
+      <item itemvalue="Application.QRCodeUtil" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.QRCodeUtil" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -294,6 +305,11 @@
       <workItem from="1569050080561" duration="1108000" />
       <workItem from="1585040636175" duration="749000" />
       <workItem from="1585058814816" duration="3230000" />
+      <workItem from="1591356021674" duration="481000" />
+      <workItem from="1595515350675" duration="2112000" />
+      <workItem from="1595595950617" duration="18169000" />
+      <workItem from="1595690135359" duration="5771000" />
+      <workItem from="1595771040807" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -477,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585059969797</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="新增 修改本地生成二维码">
+      <created>1595517351191</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1595517351191</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -490,7 +513,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -532,17 +555,15 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
     <option name="RECENT_FILTERS">
       <map>
@@ -558,6 +579,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -585,53 +607,89 @@
     <MESSAGE value="处理项目提交" />
     <MESSAGE value="编译" />
     <MESSAGE value="修改编译文件位置" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改编译文件位置" />
+    <MESSAGE value="新增 修改本地生成二维码" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增 修改本地生成二维码" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585105205630">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1595659283024">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="381" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585105205630" />
-    <state x="535" y="114" key="CommitChangelistDialog2" timestamp="1585059967223">
+    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595659283024" />
+    <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1595517349227">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="535" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059967223" />
-    <state x="431" y="271" key="FileChooserDialogImpl" timestamp="1585059633345">
+    <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517349227" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595515890052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="431" y="271" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585059633345" />
-    <state width="1257" height="142" key="GridCell.Tab.0.bottom" timestamp="1585105244225">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595515890052" />
+    <state width="1877" height="265" key="GridCell.Tab.0.bottom" timestamp="1595745071861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1257" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
-    <state width="1257" height="142" key="GridCell.Tab.0.center" timestamp="1585105244225">
+    <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
+    <state width="1877" height="265" key="GridCell.Tab.0.center" timestamp="1595745071861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1257" height="142" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
-    <state width="1257" height="142" key="GridCell.Tab.0.left" timestamp="1585105244225">
+    <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
+    <state width="1877" height="265" key="GridCell.Tab.0.left" timestamp="1595745071861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1257" height="142" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
-    <state width="1257" height="142" key="GridCell.Tab.0.right" timestamp="1585105244225">
+    <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
+    <state width="1877" height="265" key="GridCell.Tab.0.right" timestamp="1595745071861">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1257" height="142" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585105244225" />
-    <state x="363" y="48" key="SettingsEditor" timestamp="1585105224952">
+    <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
+    <state x="363" y="48" key="SettingsEditor" timestamp="1595516047111">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585105224952" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1585061411731">
+    <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595516047111" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1595517403108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585061411731" />
-    <state x="603" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585041061878">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517403108" />
+    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595648720182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="134" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1585041061878" />
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585059987957">
+    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595648720182" />
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595688777673">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585059987957" />
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595688777673" />
+    <state x="741" y="267" width="596" height="536" key="find.popup" timestamp="1595693454963">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="741" y="267" width="596" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595693454963" />
+    <state width="477" height="258" key="javadoc.popup" timestamp="1595690293614">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="477" height="258" key="javadoc.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595690293614" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java</url>
+          <line>178</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="new String(msgBodys, &quot;utf-8&quot;)" language="JAVA" />
+        <watch expression="new String(Arrays.copyOfRange(msgBodys, 16,msgBodys.length), &quot;utf-8&quot;)" language="JAVA" />
+        <watch expression="msgBodys[15]" />
+        <watch expression="Arrays.copyOfRange(msgBody, 0,17)" language="JAVA" />
+        <watch expression="new String(Arrays.copyOfRange(msgBodys, 0,17), &quot;utf-8&quot;)" language="JAVA" />
+        <watch expression="ConfInfo.ParsingBarrageList" language="JAVA" />
+        <watch expression="ConfInfo.ParsingBarrageList.get(0)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
