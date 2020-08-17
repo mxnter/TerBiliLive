@@ -3,7 +3,12 @@
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
-## 提示： 当前软件无法使用，作者考完试后将尽快修复。
+## 提示： 当前软件存在问题，开发者考试通过了，将在近期维护代码。
+
+## Previously On 前情回归
+此软件开发源自于 [mxnter](https://space.bilibili.com/18169995) 喜欢的主播 [小小的小兔团儿](https://space.bilibili.com/27897180) 。看到别的小姐姐都有弹幕感谢，我萌生出一个想法，为这个小姐姐写一个弹幕姬。  
+或许这个软件不够完善，但是感谢使用这个软件的大家，如果有好的建议或者意见，请给 TerBiliLive@outlook.com 发送邮件（可能回复邮件不及时），感谢大家的相伴。
+
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
