@@ -26,5 +26,7 @@
     <orderEntry type="library" name="sqlite-jdbc-3.25.1" level="project" />
     <orderEntry type="library" name="core-3.4.0" level="project" />
     <orderEntry type="library" name="javase-3.4.0" level="project" />
+    <orderEntry type="library" name="core-3.4.0" level="project" />
+    <orderEntry type="library" name="javase-3.4.0" level="project" />
   </component>
 </module>

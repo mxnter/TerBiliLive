@@ -6,45 +6,17 @@
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改编译文件位置">
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Level_info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Official.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/OfficialVerify.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Pendant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Vip_label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo/Wallet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfoNav.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/core_3_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javase_3_4_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveUserInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/QRCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/QRCodeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TerBiliLive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TerBiliLive.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +53,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -157,6 +130,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.QRCodeUtil" />
@@ -171,6 +155,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -310,6 +295,7 @@
       <workItem from="1595595950617" duration="18169000" />
       <workItem from="1595690135359" duration="5771000" />
       <workItem from="1595771040807" duration="117000" />
+      <workItem from="1599227098139" duration="561000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -513,7 +499,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -615,6 +601,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595659283024" />
+    <state x="2711" y="288" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599227600737">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2711" y="288" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227600737" />
+    <state x="2633" y="184" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1599227321089">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2633" y="184" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227321089" />
     <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1595517349227">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -623,25 +617,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595515890052" />
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom" timestamp="1595745071861">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1599227625005">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
     <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="265" key="GridCell.Tab.0.center" timestamp="1595745071861">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1599227625005">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
     <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="265" key="GridCell.Tab.0.left" timestamp="1595745071861">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1599227625005">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
     <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="265" key="GridCell.Tab.0.right" timestamp="1595745071861">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1599227625005">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
     <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state x="363" y="48" key="SettingsEditor" timestamp="1595516047111">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2461" y="73" key="SettingsEditor" timestamp="1599227673972">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2461" y="73" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227673972" />
     <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595516047111" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1595517403108">
       <screen x="0" y="0" width="1920" height="1040" />
