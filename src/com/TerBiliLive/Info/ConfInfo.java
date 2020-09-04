@@ -41,9 +41,10 @@ public class ConfInfo {
     public static final int AppVersionNum = 202001190;
 
     //Server
-    public static final String AppServerUrl = "http://uxj608.coding-pages.com";
-    public static final String AppServerVersion = AppServerUrl+"/Networking/Version.json";
-    public static final String AppServerMsg = AppServerUrl+"/Networking/msg.json";
+    public static final String AppServerUrl = "http://s5caqz.coding-pages.com";
+    public static final String AppServerHello = AppServerUrl+"/TerBiliLive/hello.json";
+    public static final String AppServerVersion = AppServerUrl+"/TerBiliLive/Version.json";
+    public static final String AppServerMsg = AppServerUrl+"/TerBiliLive/msg.json";
 
     public static final String DatabaseInternalPath = "../assets/terbili";
     public static final String DatabaseExternalPath = "Ter/database/terbili";

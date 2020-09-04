@@ -5,8 +5,10 @@ import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.TerBiliLive.TerWindowListener;
 import com.TerBiliLive.Utils.InOutPutUtil;
+import com.TerBiliLive.Utils.OpenUtil;
 import com.TerBiliLive.Utils.TimeUtil;
 import com.TerBiliLive.Utils.TimerUtil;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -134,6 +136,20 @@ public class Console extends JFrame {
 
 
         this.setVisible(true);
+
+
+        // 获取开发者通知
+        try {
+//            String msg="";
+            JSONObject jsonObject = new JSONObject( HttpClient.sendGet(ConfInfo.AppServerHello,"",""));
+            JSONArray msg = jsonObject.getJSONArray("msg");
+            for(int i=0;i<msg.length();i++) {
+                sendLog(msg.getString(i));
+            }
+        } catch (Exception e) {
+            sendLog("[ Ter ] 服务器连接失败");
+            e.printStackTrace();
+        }
 
         // 呼吸灯
         new Thread(() -> {

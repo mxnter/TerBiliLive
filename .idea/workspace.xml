@@ -6,17 +6,35 @@
     </artifacts-to-build>
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改编译文件位置">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/core_3_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javase_3_4_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/TerBiliLive_jar.xml" beforeDir="false" />
+    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修复无法生成二维码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TerBiliLive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TerBiliLive.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +61,13 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/mxnter/TerBiliLive" />
+      </set>
+    </option>
   </component>
   <component name="ProjectId" id="1ZZJJvqjSgxD1Gq8jXqt8hMfk62" />
   <component name="ProjectViewState">
@@ -295,7 +320,7 @@
       <workItem from="1595595950617" duration="18169000" />
       <workItem from="1595690135359" duration="5771000" />
       <workItem from="1595771040807" duration="117000" />
-      <workItem from="1599227098139" duration="561000" />
+      <workItem from="1599227098139" duration="2030000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -486,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595517351191</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="修复无法生成二维码">
+      <created>1599227773245</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1599227773245</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView">
@@ -541,7 +573,19 @@
         </entry>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -594,7 +638,8 @@
     <MESSAGE value="编译" />
     <MESSAGE value="修改编译文件位置" />
     <MESSAGE value="新增 修改本地生成二维码" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增 修改本地生成二维码" />
+    <MESSAGE value="修复无法生成二维码" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复无法生成二维码" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1595659283024">
@@ -609,42 +654,44 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2633" y="184" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227321089" />
-    <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1595517349227">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2478" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1599227980717">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2478" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227980717" />
     <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517349227" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595515890052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595515890052" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1599227625005">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1599229122857">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599229122857" />
     <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1599227625005">
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1599229122856">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599229122856" />
     <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1599227625005">
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1599229122856">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599229122856" />
     <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1599227625005">
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1599229122856">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227625005" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599229122856" />
     <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
     <state x="2461" y="73" key="SettingsEditor" timestamp="1599227673972">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2461" y="73" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227673972" />
     <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595516047111" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1595517403108">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599227817057">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227817057" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517403108" />
     <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595648720182">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -654,9 +701,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595688777673" />
-    <state x="741" y="267" width="596" height="536" key="find.popup" timestamp="1595693454963">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2661" y="267" width="596" height="536" key="find.popup" timestamp="1599228184852">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2661" y="267" width="596" height="536" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599228184852" />
     <state x="741" y="267" width="596" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595693454963" />
     <state width="477" height="258" key="javadoc.popup" timestamp="1595690293614">
       <screen x="0" y="0" width="1920" height="1040" />
