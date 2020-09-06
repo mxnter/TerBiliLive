@@ -112,28 +112,28 @@ public class Login extends JFrame{
         this.setVisible(true);
 
         getQrCodes();
-
-        //弹出授权记录信息提示框
-        String SQ = "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
-                "　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数，\n" +
-                "软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断使用次数和人数,\n" +
-                "以帮助开发者了解软件是否有价值.您的Cookie是加密存储在本地。\n" +
-                "点击 “确定” 后表示您同意,我们将不再提示此信息.\n" +
-                "点击 “取消” 后本次使用将不会记录任何信息,下次启动会提示此信息.\n" +
-                "官方网站:http://terbililive.mter.top/\n" +
-                "GITHUB:https://github.com/mxnter/TerBiliLive\n" +
-                "码云:https://gitee.com/mxnter/TerBiliLive\n" +
-                "再次感谢您的使用。 ";
-        if(new AgreementUtil().readFile().equals("NO")){
-            //  JOptionPane.showInputDialog(null,SQ,"用户授权",JOptionPane.PLAIN_MESSAGE).equals("我同意")
-            if(JOptionPane.showConfirmDialog(null, SQ, "用户授权",JOptionPane.OK_CANCEL_OPTION)==0){
-                new AgreementUtil().putAgreement(SQ+"\n"+"用户：同意");
-                ConfInfo.dingtalk.Agreement("同意");
-            }else{
-                ConfInfo.dingtalk.Agreement("不同意");
-//                System.exit(0); //不同意后关闭软件
-            }
-        }
+//        new Agreement();
+//        //弹出授权记录信息提示框
+//        String SQ = "　　您好，感谢您使用 TerBiliLive 弹幕姬。\n" +
+//                "　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数，\n" +
+//                "软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断使用次数和人数,\n" +
+//                "以帮助开发者了解软件是否有价值.您的Cookie是加密存储在本地。\n" +
+//                "点击 “确定” 后表示您同意,我们将不再提示此信息.\n" +
+//                "点击 “取消” 后本次使用将不会记录任何信息,下次启动会提示此信息.\n" +
+//                "官方网站:http://terbililive.mter.top/\n" +
+//                "GITHUB:https://github.com/mxnter/TerBiliLive\n" +
+//                "码云:https://gitee.com/mxnter/TerBiliLive\n" +
+//                "再次感谢您的使用。 ";
+//        if(new AgreementUtil().readFile().equals("NO")){
+//            //  JOptionPane.showInputDialog(null,SQ,"用户授权",JOptionPane.PLAIN_MESSAGE).equals("我同意")
+//            if(JOptionPane.showConfirmDialog(null, SQ, "用户授权",JOptionPane.OK_CANCEL_OPTION)==0){
+//                new AgreementUtil().putAgreement(SQ+"\n"+"用户：同意");
+//                ConfInfo.dingtalk.Agreement("同意");
+//            }else{
+//                ConfInfo.dingtalk.Agreement("不同意");
+////                System.exit(0); //不同意后关闭软件
+//            }
+//        }
 
 
 

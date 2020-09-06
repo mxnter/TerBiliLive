@@ -166,7 +166,11 @@ public class Greet extends JFrame {
             }
 
 
-            new Login();
+            if(new AgreementUtil().readFile().equals("NO")){
+                new Agreement();
+            }else{
+                new Login();
+            }
             this.setVisible(false);
         }else{
             try {
@@ -197,7 +201,12 @@ public class Greet extends JFrame {
                 }
 
                 JOptionPane.showMessageDialog(null,"登陆过期，请重新登陆！");
-                new Login();
+
+                if(new AgreementUtil().readFile().equals("NO")){
+                    new Agreement();
+                }else{
+                    new Login();
+                }
                 this.dispose();
                 this.setVisible(false);
 
