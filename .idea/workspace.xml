@@ -10,10 +10,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="新增隐私协议页面，隐私协议来源互联网">
+    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改readme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +301,7 @@
       <workItem from="1595690135359" duration="5771000" />
       <workItem from="1595771040807" duration="117000" />
       <workItem from="1599227098139" duration="2115000" />
-      <workItem from="1599359780007" duration="5838000" />
+      <workItem from="1599359780007" duration="6895000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -514,7 +513,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599365794551</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="修改readme">
+      <created>1599366527025</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1599366527025</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -610,7 +616,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="更新房间禁言关掉全部发送消息 并且钉钉群提示" />
     <MESSAGE value="清理无用文件" />
     <MESSAGE value="版本号 Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03]&#10;Update 弹幕显示颜色" />
     <MESSAGE value="更新 简介" />
@@ -635,7 +640,8 @@
     <MESSAGE value="修复无法生成二维码" />
     <MESSAGE value="新增开发者通知" />
     <MESSAGE value="新增隐私协议页面，隐私协议来源互联网" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增隐私协议页面，隐私协议来源互联网" />
+    <MESSAGE value="修改readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1595659283024">
@@ -650,10 +656,10 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2633" y="184" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227321089" />
-    <state x="2478" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1599366300783">
+    <state x="2478" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1599366525453">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2478" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599366300783" />
+    <state x="2478" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599366525453" />
     <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517349227" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595515890052">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -684,10 +690,10 @@
     </state>
     <state x="2461" y="73" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227673972" />
     <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595516047111" />
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599365796385">
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599366529854">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599365796385" />
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599366529854" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517403108" />
     <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595648720182">
       <screen x="0" y="0" width="1920" height="1040" />

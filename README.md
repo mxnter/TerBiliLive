@@ -14,7 +14,12 @@
 
 ### Recommend 推荐
 1. 推荐您 Watch 本项目，以保证您及时收取新版本。  
-2. Cookie 请自行在浏览器内获取! [获取Cookie方法](#四丶帮助)  
+2. Cookie 请自行在浏览器内获取! [获取Cookie方法](#Cookie)  
+
+### Download 下载
+ [GitHub](https://raw.githubusercontent.com/mxnter/TerBiliLive/master/app/TerBiliLive.jar) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/raw/master/app/TerBiliLive.jar)
+
+
 ### Warning 警告
 1. 请在本机配置好Java环境(由于Java的跨平台性,几乎可以运行在任何拥有JVM的平台上)
 2. 软件将会记录您的特征码(IP、Mac、主机名等),用于开发者判断使用次数和人数。 
@@ -22,38 +27,17 @@
 ### Feedback 反馈
 如有问题可将问题反馈到 TerBiliLive@outlook.com 邮箱。
 
-  
-
-## 目录
-* [一丶简述](#一丶简述)
-* [二丶Ui展示](#二丶Ui展示)
-* [三丶帮助](#三丶帮助)
-* [四丶用户协议](#四丶用户协议)
-* [五丶版本记录](#五丶版本记录)
-
-<br>
-
-# 一丶简述
-
-## Previously On 前情回顾
+ 
+### Previously On 前情回顾
 此软件开发源自于 [mxnter](https://space.bilibili.com/18169995) 喜欢的主播 [小小的小兔团儿](https://space.bilibili.com/27897180) 。看到别的小姐姐都有弹幕感谢，我萌生出一个想法，为这个小姐姐写一个弹幕姬。  
 或许这个软件不够完善，但是感谢使用这个软件的大家，如果有好的建议或者意见，请给 TerBiliLive@outlook.com 发送邮件（可能回复邮件不及时），感谢大家的相伴。
+ 
+### Sketch 简述
+当前暂无发布版本
 
+### Exhibition 展示
 
-### 发布版本下载：
-推荐您前往 [官网](http://terbililive.mter.top/) 下载
-
-
-### 编译版下载：
-推荐您前往 [官网](http://terbililive.mter.top/) 下载
-
-<br><br>
-
-<br><br>
-# 二丶Ui展示
-###### <center>Ui展示</center>
-
-![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs1.png)  
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs1.png) 
 
 ![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs2.png)  
 
@@ -65,13 +49,9 @@
  
 
 
+### Help 帮助
 
-
-
-
-# 三丶帮助
-
-### 弹幕控制
+#### 弹幕控制
 ```
 (#号后需要一个半角空格)
 # 关闭老爷
@@ -84,12 +64,12 @@
 # 关闭舰长
 ```
 
-### 获取Cookie
+## Cookie
 打开任意直播间 F12 然后刷新页面即可看到下图
 ![获取Cookie](http://terbililive.mter.top/APP/Beta6/getcookie.png)
 
 
-# 四丶用户协议
+# Agreement 协议
 
 >　　您好，感谢您使用 TerBiliLive 弹幕姬。  
 >　　在您使用之前我们将告知您，为了统计弹幕姬使用人和次数,  
@@ -104,7 +84,7 @@
 >再次感谢您的使用。 
 
 
-# 五丶版本记录
+# Version 版本
 >##### Beta 7.00000 (开发中)
 > 重构项目  
 
