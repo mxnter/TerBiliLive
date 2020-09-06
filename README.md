@@ -3,18 +3,14 @@
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
-## 提示： 当前软件存在问题，开发者考试通过了，将在近期维护代码。
 
-## Previously On 前情回归
-此软件开发源自于 [mxnter](https://space.bilibili.com/18169995) 喜欢的主播 [小小的小兔团儿](https://space.bilibili.com/27897180) 。看到别的小姐姐都有弹幕感谢，我萌生出一个想法，为这个小姐姐写一个弹幕姬。  
-或许这个软件不够完善，但是感谢使用这个软件的大家，如果有好的建议或者意见，请给 TerBiliLive@outlook.com 发送邮件（可能回复邮件不及时），感谢大家的相伴。
 
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
 # 全新版本 Beta 7 开发中
-##### Beta 7 正在主分支开发,功能不完全,您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/),来查看 `Beta 6` 的最终版本源码.
-##### Beta 7 重构了部页面和功能,现阶段无法直接使用,如需要体验或使用 `TerBiliLive` ,推荐您前往 [官网](http://terbililive.mter.top/) 下载 `Beta 6` 的最终版本.
+##### Beta 7 正在主分支开发,功能不完全,您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) ,来查看 `Beta 6` 的最终版本源码. ( `Beta 6` 版本将不在维护)
+##### Beta 7 重构了部页面和功能,现阶段无法直接使用,如需要体验或使用 `TerBiliLive` ,推荐您前往 [官网](http://terbililive.mter.top/) 下载 `Beta 6` 的最终版本 ( `Beta 6` 版本将不在维护).
 
 ### Recommend 推荐
 1. 推荐您 Watch 本项目，以保证您及时收取新版本。  
@@ -39,18 +35,10 @@
 
 # 一丶简述
 
-#### 实现功能
-1. 接收弹幕
-2. 发送弹幕
-3. 定时发送弹幕
-4. 礼物感谢
-5. 欢迎老爷舰长
-6. 机器人聊天
-7. 钉钉群推送
-8. 检查更新
+## Previously On 前情回顾
+此软件开发源自于 [mxnter](https://space.bilibili.com/18169995) 喜欢的主播 [小小的小兔团儿](https://space.bilibili.com/27897180) 。看到别的小姐姐都有弹幕感谢，我萌生出一个想法，为这个小姐姐写一个弹幕姬。  
+或许这个软件不够完善，但是感谢使用这个软件的大家，如果有好的建议或者意见，请给 TerBiliLive@outlook.com 发送邮件（可能回复邮件不及时），感谢大家的相伴。
 
-#### 现存问题
-1. 随机出现假死现象
 
 ### 发布版本下载：
 推荐您前往 [官网](http://terbililive.mter.top/) 下载
@@ -65,14 +53,16 @@
 # 二丶Ui展示
 ###### <center>Ui展示</center>
 
-### 1.欢迎界面
-![欢迎界面](http://terbililive.mter.top/APP/Beta6/hi.png)
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs1.png)  
 
-### 2.登陆界面
-![登陆界面](http://terbililive.mter.top/APP/Beta6/dl.png)
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs2.png)  
 
-### 3.弹幕姬界面
-![弹幕姬界面](http://terbililive.mter.top/APP/Beta6/dmj.png)
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs3.png)  
+
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs4.png)  
+
+![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs5.png)  
+ 
 
 
 
