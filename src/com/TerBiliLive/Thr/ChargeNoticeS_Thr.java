@@ -139,7 +139,7 @@ public class ChargeNoticeS_Thr {
                 try {
                     int msgLength = inputStream.readInt();
                     if (msgLength < 16){
-                        InOutPutUtil.outPut("可能需要扩大缓冲区大小");
+                        InOutPutUtil.outPut("缓冲区大小可能需要扩大");
                     }else if(msgLength > 16 && msgLength == dataLength){
                         // 其实是两个char
                         inputStream.readInt();
@@ -149,50 +149,24 @@ public class ChargeNoticeS_Thr {
                             inputStream.readInt();
                             int userCount = inputStream.readInt();
 //                            InOutPutUtil.outPut("在线人数：" + userCount);
-                            Control_UiT_State.setText("人气：" + userCount);
+                            ConfInfo.barrage.setPopularity("人气：" + userCount);
 //                            ConfInfo.putDMUtil.PutDMUtil("在线人数：" + userCount);
                             InOutPutUtil.outPut("人气：" + userCount);
                         }else if (action == 4){
                             inputStream.readInt();
                             int msgBodyLength = dataLength - 16;
                             byte[] msgBody = new byte[msgBodyLength];
-                            byte[] msgBodys;
-                            byte[] msgBodyfg;
-
-                            String[] strArr = null;
                             if (inputStream.read(msgBody) == msgBodyLength){
                                 if(data[7] == 2){
-                                    InOutPutUtil.outPut("压缩----------------");
-                                    msgBodys = ZLibUtil.decompress(msgBody);
-                                    msgBodyfg = Arrays.copyOfRange(msgBodys, 0,16);
-                                    msgBodys = Arrays.copyOfRange(msgBodys, 16,msgBodys.length);
-                                    String jsonStr = new String(msgBodys, "utf-8");
-                                    strArr = jsonStr.split(new String(msgBodyfg, "utf-8"));
-                                }else{
-                                    msgBodys = msgBody;
-                                    String jsonStr = new String(msgBodys, "utf-8");
-                                    strArr = new String[]{jsonStr};
+                                    analyzeData(ZLibUtil.decompress(msgBody));
+                                    return;
                                 }
-                                for (String s : strArr) {
-                                    InOutPutUtil.outPut("放入------------");
-                                    InOutPutUtil.outPut(s);
-                                    ConfInfo.ParsingBarrageList.add(s);
-//
-                                }
-//                                if(jsonStr.substring(0, 1).toCharArray()[0] == '['){
-//                                    JSONArray array = JSON.parseArray(jsonStr);
-//                                    InOutPutUtil.outPut(jsonStr);
-//                                    array.forEach(d->{
-//                                        InOutPutUtil.outPut("循环-------------");
-//                                        InOutPutUtil.outPut(d.toString());
-//                                        // 将弹幕信息放入 list
-////                                        ConfInfo.ParsingBarrageList.add(d.toString());
-//                                    });
-//                                }else{
-//                                    InOutPutUtil.outPut(jsonStr);
-////                                    ConfInfo.ParsingBarrageList.add(jsonStr);
-//                                }
-//
+                                String jsonStr = new String(msgBody, "utf-8");
+                                System.out.println(jsonStr);
+                                // 将弹幕信息放入 list
+                                ConfInfo.ParsingBarrageList.add(jsonStr);
+
+
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
                                     ConfInfo.PBT.notify();
@@ -200,6 +174,61 @@ public class ChargeNoticeS_Thr {
 
                             }
                         }
+//                        else if (action == 4){
+//                            inputStream.readInt();
+//                            int msgBodyLength = dataLength - 16;
+//                            byte[] msgBody = new byte[msgBodyLength];
+//                            byte[] msgBodys;
+//                            byte[] msgBodyfg;
+//
+//                            String[] strArr = null;
+//                            if (inputStream.read(msgBody) == msgBodyLength){
+//                                if(data[7] == 2){
+//                                    msgBodys = ZLibUtil.decompress(msgBody);
+//                                    analyzeData(msgBodys);
+//                                    InOutPutUtil.outPut("信息-----------"+bytesToInt(Arrays.copyOfRange(msgBodys, 0,4)));
+//                                    InOutPutUtil.outPut("信息-----------"+Arrays.toString(Arrays.copyOfRange(msgBodys, 0,4)));
+//                                    InOutPutUtil.outPut("信息-----------"+Arrays.toString(msgBodys));
+//                                    msgBodyfg = Arrays.copyOfRange(msgBodys, 0,16);
+//                                    msgBodys = Arrays.copyOfRange(msgBodys, 16,msgBodys.length);
+//                                    String jsonStr = new String(msgBodys, "utf-8");
+////                                    if(jsonStr.contains(new String(msgBodyfg, "utf-8"))){
+//                                        strArr = jsonStr.split(new String(msgBodyfg, "utf-8"));
+////                                    }else{
+////                                        strArr = new String[]{jsonStr};
+////                                    }
+//
+//                                }else{
+//                                    msgBodys = msgBody;
+//                                    String jsonStr = new String(msgBodys, "utf-8");
+//                                    strArr = new String[]{jsonStr};
+//                                }
+//                                for (String s : strArr) {
+//                                    InOutPutUtil.outPut(s);
+//                                    ConfInfo.ParsingBarrageList.add(s);
+////
+//                                }
+////                                if(jsonStr.substring(0, 1).toCharArray()[0] == '['){
+////                                    JSONArray array = JSON.parseArray(jsonStr);
+////                                    InOutPutUtil.outPut(jsonStr);
+////                                    array.forEach(d->{
+////                                        InOutPutUtil.outPut("循环-------------");
+////                                        InOutPutUtil.outPut(d.toString());
+////                                        // 将弹幕信息放入 list
+//////                                        ConfInfo.ParsingBarrageList.add(d.toString());
+////                                    });
+////                                }else{
+////                                    InOutPutUtil.outPut(jsonStr);
+//////                                    ConfInfo.ParsingBarrageList.add(jsonStr);
+////                                }
+////
+//                                // 开启弹幕解析线程
+//                                synchronized (ConfInfo.PBT) {
+//                                    ConfInfo.PBT.notify();
+//                                }
+//
+//                            }
+//                        }
                     }else if (msgLength > 16 && msgLength < dataLength){
                         byte[] singleData = new byte[msgLength];
                         System.arraycopy(data, 0, singleData, 0, msgLength);
