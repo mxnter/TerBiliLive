@@ -149,7 +149,7 @@ public class ChargeNoticeS_Thr {
                             inputStream.readInt();
                             int userCount = inputStream.readInt();
 //                            InOutPutUtil.outPut("在线人数：" + userCount);
-                            ConfInfo.barrage.setPopularity("人气：" + userCount);
+                            Control_UiT_State.setText("人气：" + userCount);
 //                            ConfInfo.putDMUtil.PutDMUtil("在线人数：" + userCount);
                             InOutPutUtil.outPut("人气：" + userCount);
                         }else if (action == 4){
