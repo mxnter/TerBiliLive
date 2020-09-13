@@ -9,6 +9,7 @@
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
 # 全新版本 Beta 7 开发中
+####  Beta 7 版本将一次性发布，Beta 6 转变到 Beta 7 最终版本，可查看分支 `B6toB7Final`,Beta 7 在正式发布前将处于无法使用状态。
 ##### Beta 7 正在主分支开发,功能不完全,您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) ,来查看 `Beta 6` 的最终版本源码. ( `Beta 6` 版本将不在维护)
 ##### Beta 7 重构了部页面和功能,现阶段无法直接使用,如需要体验或使用 `TerBiliLive` ,推荐您前往 [官网](http://terbililive.mter.top/) 下载 `Beta 6` 的最终版本 ( `Beta 6` 版本将不在维护).
 
