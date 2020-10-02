@@ -73,7 +73,7 @@ public class Dingtalk {
     public void LogIn(){
         DingtalkInform();
         try {
-            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ConfInfo.infoNew.getAddr()+"\n UL: "+ConfInfo.Uname+"\n latitude: "+ConfInfo.infoNew.getLatitude()+"\n longitude: "+ConfInfo.infoNew.getLongitude()+"\n Address: "+ConfInfo.infoNew.getCountry()+"-"+ConfInfo.infoNew.getProvince()+"-"+ConfInfo.infoNew.getCity()+"-"+ConfInfo.infoNew.getIsp();
+            String msg = "[登陆]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ConfInfo.infoNew.getAddr()+"\n UL: "+ConfInfo.Uname+"\n latitude: "+ConfInfo.infoNew.getLatitude()+"\n longitude: "+ConfInfo.infoNew.getLongitude()+"\n Address: "+ConfInfo.infoNew.getCountry()+"-"+ConfInfo.infoNew.getProvince()+"-"+ConfInfo.infoNew.getCity()+"-"+ConfInfo.infoNew.getIsp()+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
             String textMsg = Msg(msg);
             Send(WEBHOOK_TOKEN_LOGIN,textMsg);
         } catch (UnknownHostException e) {
@@ -84,7 +84,7 @@ public class Dingtalk {
     public void OpenProgram(){
         DingtalkInform();
         try {
-            String msg = "[启动]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress;
+            String msg = "[启动]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
             String textMsg = Msg(msg);
             Send(WEBHOOK_TOKEN_OPEM,textMsg);
         } catch (UnknownHostException e) {
@@ -93,20 +93,20 @@ public class Dingtalk {
     }
     public void OpenLink(){
         DingtalkInform();
-        String msg = "[开启连接]" + "\n UL:"+ConfInfo.Uname+"\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[开启连接]" + "\n UL:"+ConfInfo.Uname+"\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_LINK,textMsg);
     }
     public void CloseLink(){
         DingtalkInform();
-        String msg = "[关闭连接]" + "\n UL:"+ConfInfo.Uname+"\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[关闭连接]" + "\n UL:"+ConfInfo.Uname+"\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_LINK,textMsg);
     }
 
     public void LiveLive(){
         DingtalkInform();
-        String msg = "[直播开始]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[直播开始]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
 
@@ -115,21 +115,21 @@ public class Dingtalk {
     }
     public void LivePreparing(){
         DingtalkInform();
-        String msg = "[直播结束]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[直播结束]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
     }
 
     public void LiveLogin(){
         DingtalkInform();
-        String msg = "[未登录]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[未登录]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
     }
 
     public void chatAdmin(String m,String uanme){
         DingtalkInform();
-        String msg = "[呼叫作者]" + "\n信息：\n"+uanme+":"+m+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[呼叫作者]" + "\n信息：\n"+uanme+":"+m+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
 
@@ -138,7 +138,7 @@ public class Dingtalk {
     }
     public void chatUp(String m){
         DingtalkInform();
-        String msg = "[呼叫Up]" + "\n信息："+m+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[呼叫Up]" + "\n信息："+m+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
 
@@ -147,7 +147,7 @@ public class Dingtalk {
     }
     public void bannedNotice(String m){
         DingtalkInform();
-        String msg = "[禁言通知]" + "\n信息：\n"+m+"，已将感谢关闭"+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.room_id +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id;
+        String msg = "[禁言通知]" + "\n信息：\n"+m+"，已将感谢关闭"+"\n\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
 
@@ -158,7 +158,7 @@ public class Dingtalk {
     public void Agreement(String type){
         DingtalkInform();
         try {
-            String msg = "[授权]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress +"\n Type: "+type;
+            String msg = "[授权]" + "\n PC: "+ InetAddress.getLocalHost().getHostName()+"\n Mac: "+ ConfInfo.MacAddress +"\n IP: "+ ConfInfo.IpAddress +"\n Type: "+type+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
             String textMsg = Msg(msg);
             HttpClient.sendPostJson(WEBHOOK_TOKEN_OPEM,textMsg);
         } catch (UnknownHostException e) {

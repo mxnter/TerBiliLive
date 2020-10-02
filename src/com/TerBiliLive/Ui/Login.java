@@ -196,7 +196,7 @@ public class Login extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                TerBiliLive_Ui ui =new TerBiliLive_Ui();
+//                TerBiliLive_Ui ui =new TerBiliLive_Ui();
                 ConfInfo.Uname = "游客";
                 dispose();
             }

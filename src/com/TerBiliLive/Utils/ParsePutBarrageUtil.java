@@ -20,11 +20,11 @@ public class ParsePutBarrageUtil {
     public void ParsePut( String timeline, String GUARD , String  vip, String  isadmin , String medal,String medal_level, String  user_level , String  nickname , String text) throws BadLocationException {
         SimpleAttributeSet attrset = new SimpleAttributeSet();
         StyleConstants.setFontSize(attrset,12);
-        StyledDocument docs = ConfInfo.docsS;//获得文本对象
+        StyledDocument docs = null;//ConfInfo.docsS;//获得文本对象
         StyleConstants.setForeground(attrset, Color.BLACK);
-        docs.insertString(ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument().getLength(), "弹幕 ：", attrset);//对文本进行追加
+        docs.insertString(ConfInfo.barrage.getEditorPane().getDocument().getLength(), "弹幕 ：", attrset);//对文本进行追加
         System.out.println(timeline);
-        docs.insertString(ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument().getLength(), timeline.toString(), attrset);//对文本进行追加
+        docs.insertString(ConfInfo.barrage.getEditorPane().getDocument().getLength(), timeline.toString(), attrset);//对文本进行追加
         System.out.println("2");
 //        // 船员
 //        if(GUARD!=null&&!GUARD.equals("")){
@@ -142,12 +142,12 @@ public class ParsePutBarrageUtil {
         StyleConstants.setForeground(attrset, Color.BLACK);
 //        docs.insertString(docs.getLength(), "", attrset);
         System.out.println("9");
-        ConfInfo.terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.setCaretPosition(ConfInfo.docs.getLength());
+        ConfInfo.barrage.getEditorPane().setCaretPosition(ConfInfo.barrage.getEditorPane().getDocument().getLength());
     }
     public void PutDMUtil() throws BadLocationException {
         SimpleAttributeSet attrset = new SimpleAttributeSet();
         StyleConstants.setFontSize(attrset,12);
-        Document docs = ConfInfo.docs;//获得文本对象
+        Document docs = ConfInfo.barrage.getEditorPane().getDocument();//获得文本对象
 //        Document doc = docs ;
         StyleConstants.setForeground(attrset, Color.BLACK);
         docs.insertString(docs.getLength(), "弹幕 ：", attrset);//对文本进行追加

@@ -11,8 +11,6 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Arrays;
 
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_State;
 import static com.TerBiliLive.Utils.TimeUtil.getFormat;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatHour;
@@ -55,18 +53,18 @@ public class ChargeNoticeS_Thr {
         String name =  "";
         ConfInfo.liveConf=null;
         // 未登录将不执行
-        String putDM = "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID ;
+        String putDM = "系统"+" | "+getFormat()+" | "+"断开连接"+" | "+" 真实直播间ID："+roomID ;
         if(null!=ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
             uid =  ConfInfo.liveUserInfo.getUid();
             name =  ConfInfo.liveUserInfo.getUname();
-            putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name;
+            putDM =  "系统"+" | "+getFormat()+" | "+"断开连接"+" | "+"ID："+roomID+" | "+"UID："+uid+" | "+"昵称："+name;
         }else{
-            putDM =  "系统 ："+getFormat()+" - "+"断开连接" +" 真实直播间ID："+roomID +"  - 用户未登录(游客模式)";
+            putDM =  "系统"+" | "+getFormat()+" | "+"断开连接"+" | "+"ID："+roomID+" | "+" - 用户未登录(游客模式)";
         }
         ConfInfo.putShowUtil.PutDMUtil(putDM, Color.RED);
        // new PutDMUtil(putDM);
-        Control_UiT_State.setText("已断开连接" );
-        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,Control_UiT_RoomId.getText());
+//        Control_UiT_State.setText("已断开连接" );
+        DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),putDM,ConfInfo.barrage.getRoomid());
         InOutPutUtil.outPut("断开连接" +" 真实直播间ID："+roomID );
     }
 
@@ -87,12 +85,12 @@ public class ChargeNoticeS_Thr {
                     if(null!=ConfInfo.liveUserInfo||!ConfInfo.confData.getCookie().equals("")){
                         uid =  ConfInfo.liveUserInfo.getUid();
                         name =  ConfInfo.liveUserInfo.getUname();
-                        ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  UID："+uid+"  昵称："+name,Color.BLUE);
+                        ConfInfo.putShowUtil.PutDMUtil("系统"+" | "+getFormat()+" | "+"连接成功" +" | "+"ID："+roomID +" | "+"UID："+uid+" | "+"昵称："+name,Color.BLUE);
 
                     } else{
-                        ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+"连接成功 " +"真实直播间ID："+roomID +"  - 用户未登录(游客模式)",Color.BLUE);
+                        ConfInfo.putShowUtil.PutDMUtil("系统"+" | "+getFormat()+" | "+"连接成功" +" | "+"ID："+roomID+" - 用户未登录(游客模式)",Color.BLUE);
                     }
-                    DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,Control_UiT_RoomId.getText());
+                    DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),"连接成功" +"真实直播间ID："+roomID ,ConfInfo.barrage.getRoomid());
                     InOutPutUtil.outPut("连接成功" +"真实直播间ID："+roomID );
                     ConfInfo.isReConnSum=0;
                 }catch (Exception ex){
@@ -110,9 +108,9 @@ public class ChargeNoticeS_Thr {
                         }
                     }catch (Exception e){
                         if (isReConn && keepRunning ) {
-                            ConfInfo.putShowUtil.PutDMUtil("系统 ："+getFormat()+" ! "+ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID,Color.BLUE);
+                            ConfInfo.putShowUtil.PutDMUtil("系统"+" | "+getFormat()+" | "+ConfInfo.isReConnSum+"-自动重连"+" | "+"真实直播间ID："+roomID,Color.BLUE);
 
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,Control_UiT_RoomId.getText());
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(),ConfInfo.isReConnSum+"-自动重连" +" 真实直播间ID："+roomID   ,ConfInfo.barrage.getRoomid());
                             InOutPutUtil.outPut("自动重连" +" 真实直播间ID："+roomID );
 
                             if(ConfInfo.isReConnSum>=10){
@@ -149,7 +147,7 @@ public class ChargeNoticeS_Thr {
                             inputStream.readInt();
                             int userCount = inputStream.readInt();
 //                            InOutPutUtil.outPut("在线人数：" + userCount);
-                            Control_UiT_State.setText("人气：" + userCount);
+                            ConfInfo.barrage.setPopularity("人气：" + userCount);
 //                            ConfInfo.putDMUtil.PutDMUtil("在线人数：" + userCount);
                             InOutPutUtil.outPut("人气：" + userCount);
                         }else if (action == 4){
@@ -166,7 +164,6 @@ public class ChargeNoticeS_Thr {
                                 // 将弹幕信息放入 list
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
 
-
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
                                     ConfInfo.PBT.notify();
@@ -174,61 +171,6 @@ public class ChargeNoticeS_Thr {
 
                             }
                         }
-//                        else if (action == 4){
-//                            inputStream.readInt();
-//                            int msgBodyLength = dataLength - 16;
-//                            byte[] msgBody = new byte[msgBodyLength];
-//                            byte[] msgBodys;
-//                            byte[] msgBodyfg;
-//
-//                            String[] strArr = null;
-//                            if (inputStream.read(msgBody) == msgBodyLength){
-//                                if(data[7] == 2){
-//                                    msgBodys = ZLibUtil.decompress(msgBody);
-//                                    analyzeData(msgBodys);
-//                                    InOutPutUtil.outPut("信息-----------"+bytesToInt(Arrays.copyOfRange(msgBodys, 0,4)));
-//                                    InOutPutUtil.outPut("信息-----------"+Arrays.toString(Arrays.copyOfRange(msgBodys, 0,4)));
-//                                    InOutPutUtil.outPut("信息-----------"+Arrays.toString(msgBodys));
-//                                    msgBodyfg = Arrays.copyOfRange(msgBodys, 0,16);
-//                                    msgBodys = Arrays.copyOfRange(msgBodys, 16,msgBodys.length);
-//                                    String jsonStr = new String(msgBodys, "utf-8");
-////                                    if(jsonStr.contains(new String(msgBodyfg, "utf-8"))){
-//                                        strArr = jsonStr.split(new String(msgBodyfg, "utf-8"));
-////                                    }else{
-////                                        strArr = new String[]{jsonStr};
-////                                    }
-//
-//                                }else{
-//                                    msgBodys = msgBody;
-//                                    String jsonStr = new String(msgBodys, "utf-8");
-//                                    strArr = new String[]{jsonStr};
-//                                }
-//                                for (String s : strArr) {
-//                                    InOutPutUtil.outPut(s);
-//                                    ConfInfo.ParsingBarrageList.add(s);
-////
-//                                }
-////                                if(jsonStr.substring(0, 1).toCharArray()[0] == '['){
-////                                    JSONArray array = JSON.parseArray(jsonStr);
-////                                    InOutPutUtil.outPut(jsonStr);
-////                                    array.forEach(d->{
-////                                        InOutPutUtil.outPut("循环-------------");
-////                                        InOutPutUtil.outPut(d.toString());
-////                                        // 将弹幕信息放入 list
-//////                                        ConfInfo.ParsingBarrageList.add(d.toString());
-////                                    });
-////                                }else{
-////                                    InOutPutUtil.outPut(jsonStr);
-//////                                    ConfInfo.ParsingBarrageList.add(jsonStr);
-////                                }
-////
-//                                // 开启弹幕解析线程
-//                                synchronized (ConfInfo.PBT) {
-//                                    ConfInfo.PBT.notify();
-//                                }
-//
-//                            }
-//                        }
                     }else if (msgLength > 16 && msgLength < dataLength){
                         byte[] singleData = new byte[msgLength];
                         System.arraycopy(data, 0, singleData, 0, msgLength);
@@ -239,7 +181,6 @@ public class ChargeNoticeS_Thr {
                         analyzeData(remainDate);
                     }
                 }catch (Exception ex){
-
                     ex.printStackTrace();
                 }
             }

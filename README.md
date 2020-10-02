@@ -1,4 +1,4 @@
-# [TerBiliLive - Beta 7](http://terbililive.mter.top/) 
+# [TerBiliLive - Beta 7](http://terbililive.mter.xyz/) 
  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Simplified Chinese](https://img.shields.io/badge/Simplified-Chinese-ff4569.svg)]() [![Beta 6](https://img.shields.io/badge/Beta-6-ff69b4.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-7-ff35b8.svg)]()
 
 #### Bilibili Live Barrage kyi,Using Java .
@@ -9,9 +9,10 @@
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
 # 全新版本 Beta 7 开发中
-####  Beta 7 版本将一次性发布，Beta 6 转变到 Beta 7 最终版本，可查看分支 `B6toB7Final`,Beta 7 在正式发布前将处于无法使用状态。
-##### Beta 7 正在主分支开发,功能不完全,您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) ,来查看 `Beta 6` 的最终版本源码. ( `Beta 6` 版本将不在维护)
-##### Beta 7 重构了部页面和功能,现阶段无法直接使用,如需要体验或使用 `TerBiliLive` ,推荐您前往 [官网](http://terbililive.mter.top/) 下载 `Beta 6` 的最终版本 ( `Beta 6` 版本将不在维护).
+####  Beta 7 版本已经发布，Beta 6 转变到 Beta 7 最终版本，可查看分支 `B6toB7Final`,Beta 7 在正式发布前将处于无法使用状态。
+##### Beta 7 重构了部页面和功能, 部分功能可能不全，将在后期迭代中加入
+##### 您可以到 [Beta 6](https://github.com/mxnter/TerBiliLive/tree/Beta6) 或 码云Git [Beta 6](https://gitee.com/mxnter/TerBiliLive/tree/Beta6/) ,来查看 `Beta 6` 的最终版本源码. ( `Beta 6` 版本将不在维护)
+
 
 ### Recommend 推荐
 1. 推荐您 Watch 本项目，以保证您及时收取新版本。  
@@ -44,9 +45,8 @@
 
 ![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs3.png)  
 
-![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs4.png)  
 
-![界面](http://s5caqz.coding-pages.com/TerBiliLive/img/zs5.png)  
+![界面](http://b.mter.xyz/img/AppImg/Beta7/b7.png)  
  
 
 
@@ -67,7 +67,7 @@
 
 ## Cookie
 打开任意直播间 F12 然后刷新页面即可看到下图
-![获取Cookie](http://terbililive.mter.top/APP/Beta6/getcookie.png)
+![获取Cookie](http://terbililive.mter.xyz/APP/Beta6/getcookie.png)
 
 
 # Agreement 协议
@@ -79,15 +79,20 @@
 >是加密存储在本地。
 >点击 “确定” 后表示您同意,我们将不再提示此信息.
 >点击 “取消” 后本次使用将不会记录任何信息,下次启动会提示此信息.
->官方网站:http://terbililive.mter.top/
+>官方网站:http://terbililive.mter.xyz/
 >GITHUB:https://github.com/mxnter/TerBiliLive
 >码云:https://gitee.com/mxnter/TerBiliLive
 >再次感谢您的使用。 
 
 
+# Sponsorships 赞赏
+
+![赞赏](http://s5caqz.coding-pages.com/TerBiliLive/img/zanshang.png)  
+
+
 # Version 版本
->##### Beta 7.00000 (开发中)
-> 重构项目  
+>##### Beta 7.001 更新内容 （2020年10月2日）
+> * 项目重构  
 
 
 [更多记录](VERSION.md)

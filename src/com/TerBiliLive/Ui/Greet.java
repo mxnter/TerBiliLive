@@ -4,18 +4,13 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.InfoNew;
 import com.TerBiliLive.Info.LiveUserInfo;
-import com.TerBiliLive.Info.UserInfoNav;
 import com.TerBiliLive.Utils.*;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
-
-import static com.TerBiliLive.Utils.TimeUtil.*;
 
 public class Greet extends JFrame {
     private JPanel panel;
@@ -227,9 +222,13 @@ public class Greet extends JFrame {
 
                 loading.setText("登陆成功");
 
+                if (ConfInfo.AppSystemId == "A"){
+                    new Console();
+                }else{
+                    ConfInfo.barrage = new Barrage();
+                }
 
 
-                new Console();
                 this.dispose();
                 this.setVisible(false);
             }

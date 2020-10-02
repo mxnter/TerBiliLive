@@ -352,6 +352,14 @@
               <text value="弹幕姬"/>
             </properties>
           </component>
+          <component id="fcefb" class="javax.swing.JButton" binding="newmaster">
+            <constraints/>
+            <properties>
+              <background color="-15023878"/>
+              <foreground color="-1775635"/>
+              <text value="弹幕姬"/>
+            </properties>
+          </component>
         </children>
       </grid>
     </children>

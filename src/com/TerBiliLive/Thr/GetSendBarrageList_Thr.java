@@ -29,11 +29,11 @@ public class GetSendBarrageList_Thr extends Thread {
 
 //          System.out.print("0");
         if(!ConfInfo.ChargeBarrageList.isEmpty()&&!ConfInfo.ChargeBarrageList.get(0).equals("")) {
-            try {
-                sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                sleep(500);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
 //            InOutPutUtil.outPut(ConfInfo.ChargeBarrageList.get(0).substring(0,2));
             if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("礼物")){ //为了区分礼物和弹幕的颜色
                 new PutShow_Thr(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("944ef3")).start();
@@ -41,7 +41,7 @@ public class GetSendBarrageList_Thr extends Thread {
             }else if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("提示")){ //为了区分礼物和弹幕的颜色
                 new PutShow_Thr(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ff00")).start();
 //                ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ff00"));
-            }else if(ConfInfo.ChargeBarrageList.get(0).substring(0,4).equals("整合礼物")){ //为了区分礼物和弹幕的颜色
+            }else if(ConfInfo.ChargeBarrageList.get(0).substring(0,2).equals("整合")){ //为了区分礼物和弹幕的颜色
                 new PutShow_Thr(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ffff")).start();
 //                ConfInfo.putShowUtil.PutDMUtil(ConfInfo.ChargeBarrageList.get(0), ColorUtil.toColorFromString("00ffff"));
             }else{

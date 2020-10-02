@@ -1,15 +1,11 @@
 package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.Ui.TerBiliLive_Control_Ui;
-import com.TerBiliLive.Ui.TerBiliLive_SendBarrage_Ui;
 import com.TerBiliLive.Utils.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.TerBiliLive.Ui.TerBiliLive_Control_Ui.Control_UiT_RoomId;
 import static com.TerBiliLive.Utils.TimeUtil.*;
 
 /**
@@ -34,13 +30,18 @@ public class SendBarrage_Thr extends Thread {
                 if (msg.equals(ConfInfo.Upper_barrage)) {
                     InOutPutUtil.outPut("弹幕重复 - 判断时间");
                     if (TimeUtil.timeStamplong() - ConfInfo.Upper_barrage_time < 6) {
-//                    ConfInfo.Upper_barrage_time =TimeUtil.timeStamplong();
                         InOutPutUtil.outPut("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
-                        TerBiliLive_SendBarrage_Ui.HFJ_UiT_State.setText("弹幕重复 - 判断时间 - 小于6秒 - 未发送");
+                        ConfInfo.barrage.setNotice(1,"弹幕重复未发送",null);
                         ConfInfo.SendBarrageList.remove(0);
                         continue;
                     }
 
+                }
+                if(!ConfInfo.systemState.isLink){//如果未连接则不发送
+                    ConfInfo.barrage.setNotice(1,"请先连接到房间",null);
+                    ConfInfo.barrage.setSendText(ConfInfo.SendBarrageList.get(0).getMsg());
+                    ConfInfo.SendBarrageList.remove(0);
+                    continue;
                 }
                 try {
                     sleep(500);
@@ -48,26 +49,26 @@ public class SendBarrage_Thr extends Thread {
                     e.printStackTrace();
                 }
 
-                String roomid = Control_UiT_RoomId.getText();
+                String roomid = ConfInfo.barrage.getRoomid();
                 if (ConfInfo.sendBarrage == null) ConfInfo.sendBarrage = new SendBarrage();
-                ConfInfo.liveRoom = new LiveRoom(Control_UiT_RoomId.getText());
+                ConfInfo.liveRoom.getLiveRoom(ConfInfo.barrage.getRoomid());
                 //TODO 测试接收礼物后回复的弹幕
-                String RTData = "{\"msg\":\"强制暂停发送\",\"code\":-500,\"data\":[],\"message\":\"强制暂停发送\"}";
+                String RTData = "{\"msg\":\"请先解锁弹幕锁\",\"code\":-500,\"data\":[],\"message\":\"请先解锁弹幕锁\"}";
                 LogUtil.putLogSendBarrageRecord(msg);
 //                String RTData;
                 switch (ConfInfo.SendBarrageList.get(0).getType()){
                     case 1:{
-                        if(ConfInfo.Thank.equals("ok")){
-                            RTData=ConfInfo.sendBarrage.SendBarrage(LiveRoom.room_id,ConfInfo.confData.getCookie(),msg);
+                        if(!ConfInfo.systemState.isSystemSendLock){
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.getRoom_id(),ConfInfo.confData.getCookie(),msg);
                         }
                         break;
                     }
                     case 2:{
-                            RTData=ConfInfo.sendBarrage.SendBarrage(LiveRoom.room_id,ConfInfo.confData.getCookie(),msg);
+                            RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.getRoom_id(),ConfInfo.confData.getCookie(),msg);
                         break;
                     }
                     default:{
-                        RTData=ConfInfo.sendBarrage.SendBarrage(LiveRoom.room_id,ConfInfo.confData.getCookie(),msg);
+                        RTData=ConfInfo.sendBarrage.SendBarrage(ConfInfo.liveRoom.getRoom_id(),ConfInfo.confData.getCookie(),msg);
                         break;
                     }
                 }
@@ -80,13 +81,13 @@ public class SendBarrage_Thr extends Thread {
                     JSONObject jsonObject = new JSONObject(RTData);
 
                     InOutPutUtil.outPut(jsonObject);
-                    TerBiliLive_SendBarrage_Ui.HFJ_UiT_Time.setText(getFormatHour());
+//                    TerBiliLive_SendBarrage_Ui.HFJ_UiT_Time.setText(getFormatHour());
                     String retMsg = "";
                     String logSendBarrage = "";
                     switch (jsonObject.getString("code")) {
 
                         case "0":
-                            retMsg = "发送成功：OK" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg;
+                            retMsg = "发送成功：OK" + "(" + CodingUtil.ascii2native(jsonObject.getString("message")) + ")" + msg;
                             logSendBarrage = "[发送成功]-->[" + roomid + "] : "+msg+"\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n";
                             if (jsonObject.getString("msg").equals("msg repeat"))
                                 retMsg = "弹幕重复";
@@ -109,8 +110,8 @@ public class SendBarrage_Thr extends Thread {
                             logSendBarrage = "[已被禁言]-->[" + roomid + "] ：" + msg + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n";
                             String ms = "禁言 ：" + getFormat() + " - " + jsonObject.getString("message");//提示信息
                             ConfInfo.putShowUtil.PutDMUtil(ms, ColorUtil.toColorFromString("ea9336"));
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms, Control_UiT_RoomId.getText());//输出到弹幕日志
-                            TerBiliLive_Control_Ui.Control_UiB_ClaseThinks.doClick(); // 被禁言 关闭感谢
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), ms, ConfInfo.barrage.getRoomid());//输出到弹幕日志
+                            ConfInfo.barrage.closeThank(); // 被禁言 关闭感谢
                             //TODO 暂时只关闭 感谢
 //                            ConfInfo.terBiliLive_control_ui.Reply_chat.setSelected(false); // 关闭 聊天
 //                            ConfInfo.terBiliLive_control_ui.Reply_tourist.setSelected(false);// 关闭 回应游客
@@ -126,7 +127,7 @@ public class SendBarrage_Thr extends Thread {
                             retMsg = "未知错误，" + "<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + msg;
                             logSendBarrage = "[未知错误]-->[" + roomid + "] ：" + msg + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n";
                     }
-                    TerBiliLive_SendBarrage_Ui.HFJ_UiT_State.setText(retMsg);
+                    ConfInfo.barrage.setNotice(1,retMsg,null);
                     LogUtil.putLogSendBarrage(logSendBarrage);
 
 
@@ -139,10 +140,6 @@ public class SendBarrage_Thr extends Thread {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-
-                TerBiliLive_SendBarrage_Ui.HFJ_UiB_Send.setEnabled(true);
-                TerBiliLive_SendBarrage_Ui.HFJ_UiT_Text.setEnabled(true);
-                TerBiliLive_SendBarrage_Ui.HFJ_UiT_Text.grabFocus();
 
             } else {
                 synchronized (ConfInfo.SBLT) {

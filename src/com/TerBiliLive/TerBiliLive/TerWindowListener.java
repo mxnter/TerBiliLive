@@ -2,6 +2,8 @@ package com.TerBiliLive.TerBiliLive;
 
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Ui.Barrage;
+import com.TerBiliLive.Ui.Console;
 import com.TerBiliLive.Utils.DevLogUtil;
 
 import javax.swing.*;
@@ -41,8 +43,13 @@ public class TerWindowListener implements WindowListener {
 				break;
 			}
 			default:{
-				ConfInfo.control_fun.Preservation();
+				ConfInfo.control_inlet.Preservation();
 				DevLogUtil.printf("您正在关闭窗口,启动保存信息");
+				if (ConfInfo.AppSystemId == "L"){
+					System.exit(0);
+				}else{
+					win.dispose();
+				}
 			}
 		}
 

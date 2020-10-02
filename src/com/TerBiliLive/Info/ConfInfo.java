@@ -1,27 +1,31 @@
 package com.TerBiliLive.Info;
 
 import com.TerBiliLive.Data.ConfData;
-import com.TerBiliLive.Function.Control_Fun;
+import com.TerBiliLive.Info.Nav.UserInfoNav;
+import com.TerBiliLive.Inlet.Control_Inlet;
 import com.TerBiliLive.TerBiliLive.Dingtalk;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
 import com.TerBiliLive.TerBiliLive.SendBarrage;
-import com.TerBiliLive.Thr.*;
-import com.TerBiliLive.Ui.*;
+import com.TerBiliLive.Thr.GetSendBarrageList_Thr;
+import com.TerBiliLive.Thr.ParsingBarrage_Thr;
+import com.TerBiliLive.Thr.SendAdvertising_Thr;
+import com.TerBiliLive.Thr.SendBarrage_Thr;
+import com.TerBiliLive.Ui.Barrage;
 import com.TerBiliLive.Utils.*;
 
-import javax.swing.text.Document;
-import javax.swing.text.StyledDocument;
 import java.awt.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ConfInfo {
 
 
+    public static String Version = "Beta 7";
+    public static int VersionNum = 202010020;
 
 
-    public static String Version = "Beta06[D."+ TerBiliLive_ChargeBarrage_Ui.Version+"]-[H."+ TerBiliLive_SendBarrage_Ui.Version+"]-[G."+ TerBiliLive_Adv_Ui.Version+"]"+"-[L."+ TerBiliLive_Login_Ui.Version+"]";
-    public static int VersionNum = 202001190;
 
     // System Info
     public static String MacAddress = null;
@@ -34,11 +38,13 @@ public class ConfInfo {
     static { AppName.put("A", "TerBiliAssistant");AppName.put("L", "TerBiliLive"); }
     public static final HashMap<String,String> AppViceName = new HashMap<String, String>();
     static { AppViceName.put("A", "BiliBili 智能助手 By.Mxnter");AppViceName.put("L", "哔哩哔哩直播弹幕姬 By.Mxnter"); }
-    public static final String AppSystemId = "A";
-    public static final String AppViceNameId = "A";
+    public static final String AppSystemId = "L";
+    public static final String AppViceNameId = "L";
     public static final String AppVersion = "Beta 7";
-    public static final String AppVersionBuildNum = "00001";
-    public static final int AppVersionNum = 202001190;
+    public static final String AppVersionBuildNum = "001";
+    public static final int AppVersionNum = 202010020;
+
+
 
     //Server
     public static final String AppServerUrl = "http://s5caqz.coding-pages.com";
@@ -72,9 +78,8 @@ public class ConfInfo {
     public static SystemTray systemTray = SystemTray.getSystemTray();
 
 
-
     //Database
-    public static final int AppDatabaseVersion = 1;
+    public static final int AppDatabaseVersion = 2;
 
     public static final List<String> AppInitDatabases  = new ArrayList<>();
     static{
@@ -97,8 +102,19 @@ public class ConfInfo {
                 sql
         };
         AppUpdateDatabases.add(sql1);
+        String[] sql2 = {
+                "CREATE TABLE \"SystemData\" (\"name\" varchar, \"data\" varchar);",
+                "INSERT INTO SystemData VALUES ('roomId','')",
+                "INSERT INTO SystemData VALUES ('systemState','')",
+                sql
+        };
+        AppUpdateDatabases.add(sql2);
     }
     public static final String Database_SelectDatabaseVersion = "SELECT * FROM SystemInfo WHERE \"Name\" = 'Database'";
+
+    public static final String Database_SelectSystemDataWhereName = "SELECT * FROM SystemData WHERE name =";
+
+    public static final String Database_UpdateSystemDataWhereName = "UPDATE SystemData SET data = ? WHERE name = ?";
 
     public static final String Database_DeleteSystemLog = "DELETE FROM SystemLog WHERE GenerationTime <";
 
@@ -113,8 +129,24 @@ public class ConfInfo {
 
 
     public static SystemState systemState = new SystemState();
+    public static List<String> inOperationRadioGift = new ArrayList<>(); //运行中的小电视
 
+    public static Barrage barrage = null;
 
+    public static LiveRoom liveRoom =new LiveRoom();
+    public static Control_Inlet control_inlet = new Control_Inlet();
+
+    // 获取直播间
+    public static String LiveRoomInfoOldURL = "https://api.live.bilibili.com/room/v1/Room/getRoomInfoOld?mid=";
+    public static LiveRoomInfo liveRoomInfo;
+
+    // 获取用户信息
+    public static String SearchUserURL = "https://api.live.bilibili.com/banned_service/v2/Silent/search_user?search=";
+    //{"code":0,"msg":"","message":"","data":{"items":[{"uid":191176177,"face":"https://i2.hdslb.com/bfs/face/df0ce20fa678a2c920d312358ee1569b3601f9be.jpg","uname":"WhaleEcns"}]}}
+
+    //获取是否开启30字发言
+    public static String isSend30URL = "https://api.live.bilibili.com/rc/v1/Achv/getList?type=normal&status=1&category=all&keywords=%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90&page=1&pageSize=6";
+    //{"code":0,"msg":"","message":"","data":{"user":{"progress":26,"total":39,"achieve":510,"done":10,"can_receive_normal":0},"info":[{"tid":2,"css":"task-2","title":"小有所成","award":"<p>弹幕最大长度提升为30个字</p>","awards":[{"type":"dannmakuLength","text":"弹幕最大长度提升为30个字"}],"achieve":30,"descript":"达成条件：用户等级达到20级","status":true,"finished":true,"show_receive_icon":true,"progress":{"now":0,"max":0}}],"page":{"total":1,"totalPage":1,"current":1,"info":[]}}}
 
 
 
@@ -133,22 +165,15 @@ public class ConfInfo {
     public static String LiveConfURL = "https://api.live.bilibili.com/room/v1/Danmu/getConf?room_id=";
     public static String InfoNewURL = "https://api.live.bilibili.com/client/v1/Ip/getInfoNew";
     public static String LiveRoomUserInfoURL = "https://api.live.bilibili.com/room_ex/v1/RoomNews/get?roomid=";
+
 //    public static LiveInfo liveInfo = null; //TODO b站更改接口 停用 20190412
 
     public static LiveConf liveConf = null;
     public static InfoNew infoNew = null;
-    public static LiveRoom liveRoom =null;
+
     public static SendBarrage sendBarrage = null;
-    public static TerBiliLive_Control_Ui terBiliLive_control_ui = null;
-    public static TerBiliLive_ChargeBarrage_Ui terBiliLive_chargeBarrage_ui = null;
-    public static TerBiliLive_Adv_Ui terBiliLive_adv_ui = null;
-    public static TerBiliLive_SendBarrage_Ui terBiliLive_sendBarrage_ui = null;
-    public static TerBiliLive_Ui terBiliLive_ui = null;
-//    public static TerBiliLive_Login_Ui terBiliLive_login_ui = null;
     public static GetLiveRoomUserInfo getLiveRoomUserInfo=null;
-    public static Control_Fun control_fun = new Control_Fun();
-//    public static GG_Fun gg_fun = null;
-//    public static HFJ_Fun hfj_fun = null;
+
     public static PutShowUtil putShowUtil;
     public static SubStringUtil subStringUtil = new SubStringUtil();
     public static String Upper_barrage;
@@ -182,8 +207,9 @@ public class ConfInfo {
 
 //    public static ParsePutBarrageUtil PPutBUtil = new ParsePutBarrageUtil(); // 解析弹幕类型显示不同颜色
 //    public static ColorUtil colorUtil = new ColorUtil(); // 解析弹幕类型显示不同颜色
-    public static Document docs = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getDocument();
-    public static StyledDocument docsS = terBiliLive_chargeBarrage_ui.DMJ_UiT_Text.getStyledDocument();
+//    public static Document docs = barrage.getEditorPane().getDocument();
+//    public static StyledDocument docsS = null;
+//            barrage.getEditorPane().getStyledDocument();
 //    public static SpicyIntegration_Thr spicyIntegration_thr =null;
 
     // Dingtalk Robot Webhook

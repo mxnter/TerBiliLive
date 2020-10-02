@@ -20,47 +20,55 @@ public class LogUtil {
 	}
 
 	public static void putLogGiftRecord(String Log) {
-		putLogDatabase("礼物记录 ",Log);
+		putLogDatabase("礼物记录",Log);
 	}
 
 	public static void putLogUnknownGift(String Log) {
-		putLogDatabase("未知礼物 ",Log);
+		putLogDatabase("未知礼物",Log);
 	}
 
 	public static void putLogSendBarrage(String Log) {
-		putLogDatabase("发送弹幕 ",Log);
+		putLogDatabase("发送弹幕",Log);
 	}
 
 	public static void putLogSendBarrageRecord(String Log) {
-		putLogDatabase("发送弹幕记录 ",Log);
+		putLogDatabase("发送弹幕记录",Log);
 	}
 
 	public static void putLogTimingBarrage(String Log) {
-		putLogDatabase("定时弹幕 ",Log);
+		putLogDatabase("定时弹幕",Log);
 	}
 
 	public static void putLogException(String Log) {
-		putLogDatabase("异常信息 ",Log);
+		putLogDatabase("异常信息",Log);
 	}
 
 	public static void putLogRoomSilent(String Log) {
-		putLogDatabase("房间禁言 ",Log);
+		putLogDatabase("房间禁言",Log);
 	}
 
 	public static void putLogRoomBlock(String Log) {
-		putLogDatabase("个人禁言 ",Log);
+		putLogDatabase("个人禁言",Log);
+	}
+
+	public static void putLogRoomAdminEntrance(String Log) {
+		putLogDatabase("房管任命",Log);
+	}
+
+	public static void putlogRoomAdmins(String Log) {
+		putLogDatabase("房管变更",Log);
 	}
 
 	public static void putLogKnown(String Log) {
-		putLogDatabase("已知推送 ",Log);
+		putLogDatabase("已知推送",Log);
 	}
 
 	public static void putLogKnownUntreated(String Log) {
-		putLogDatabase("已知未处理 ",Log);
+		putLogDatabase("已知未处理",Log);
 	}
 
 	public static void putLogUnknown(String Log) {
-		putLogDatabase("未知推送 ",Log);
+		putLogDatabase("未知推送",Log);
 	}
 
 	public static void putLog(String LogType,String Log) {

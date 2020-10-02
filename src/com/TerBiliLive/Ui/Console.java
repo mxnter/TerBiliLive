@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
@@ -59,6 +60,7 @@ public class Console extends JFrame {
     private JPanel masterPanel;
     private JLabel breathing;
     private JPanel breathingPanel;
+    private JButton newmaster;
     private ImageIcon backgroundImg;
 
     public Console() {
@@ -129,6 +131,8 @@ public class Console extends JFrame {
         log.setOpaque(false); //背景透明
         log.setLineWrap(true); //自动换行
         log.setEditable(false); //禁止输入
+
+        master.setVisible(false);
 
 
         //AWTUtilities.setWindowOpaque(this, false);//透明
@@ -268,11 +272,18 @@ public class Console extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                if(ConfInfo.terBiliLive_ui == null){
-                    ConfInfo.terBiliLive_ui = new TerBiliLive_Ui();
-                }else{
-                    ConfInfo.terBiliLive_ui.setVisible(true);
-                }
+//                if(ConfInfo.terBiliLive_ui == null){
+//                    ConfInfo.terBiliLive_ui = new TerBiliLive_Ui();
+//                }else{
+//                    ConfInfo.terBiliLive_ui.setVisible(true);
+//                }
+            }
+        });
+        newmaster.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+                // TODO Auto-generated method stub
+                ConfInfo.barrage = new Barrage();
             }
         });
         autoSpeakSet.addActionListener(new ActionListener() {
@@ -287,7 +298,7 @@ public class Console extends JFrame {
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 // TODO Auto-generated method stub
-                ConfInfo.control_fun.Clear();
+                ConfInfo.control_inlet.Clear();
             }
         });
 
