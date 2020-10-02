@@ -11,8 +11,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="修改readme">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveRoomInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/Nav/LiveRoomInfoNav.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/Control_Inlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/SendBarrage_Inlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Function/Control_Fun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Function/GG_Fun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Function/HFJ_Fun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/LiveRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfoNav.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/Nav/UserInfoNav.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Monitor/Control_Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Monitor/GG_Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Monitor/HFJ_Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/Dingtalk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/Dingtalk.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/GetLiveRoomUserInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/GetLiveRoomUserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/TerWindowListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetRoomInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GiftIntegration_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendAdvertising_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendAdvertising_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SendBarrage_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SpicyIntegration_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/SpicyIntegration_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Adv_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_ChargeBarrage_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Control_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Greet_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Login_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_SendBarrage_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/TerBiliLive_Ui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/LogUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/LogUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/ParsePutBarrageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/ParsePutBarrageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/PutShowUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/PutShowUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +97,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -62,7 +107,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/TerBiliLive/Info/UserInfo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TerBiliLiveB6toB7" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,13 +117,12 @@
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\Learn\TerBiliLive\lib" />
-      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.TerBiliLive" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\Learn\GitHub\TerBiliLive\src\com\TerBiliLive\Info\UserInfo" />
@@ -89,13 +133,14 @@
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.TerBiliLive.Info" />
+      <recent name="com.TerBiliLive.Inlet" />
       <recent name="com.TerBiliLive.Utils" />
       <recent name="com.TerBiliLive.Utiliy" />
       <recent name="com.TerBiliLive.Thr" />
-      <recent name="com.TerBiliLive.Ui" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.TerBiliLive" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Learn\TerBiliLive\lib" />
+      <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -129,19 +174,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -301,7 +333,12 @@
       <workItem from="1595690135359" duration="5771000" />
       <workItem from="1595771040807" duration="117000" />
       <workItem from="1599227098139" duration="2115000" />
-      <workItem from="1599359780007" duration="6895000" />
+      <workItem from="1599359780007" duration="14430000" />
+      <workItem from="1599971467291" duration="66667000" />
+      <workItem from="1600148350000" duration="6242000" />
+      <workItem from="1600340596661" duration="5708000" />
+      <workItem from="1601538137013" duration="653000" />
+      <workItem from="1601632765560" duration="1632000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -520,17 +557,29 @@
       <option name="project" value="LOCAL" />
       <updated>1599366527025</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="修改readme">
+      <created>1599367587726</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1599367587726</updated>
+    </task>
+    <task id="LOCAL-00033" summary="处理丢失弹幕问题">
+      <created>1599994041326</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1599994041327</updated>
+    </task>
+    <task id="LOCAL-00034" summary="修改readme">
+      <created>1599995027039</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1599995027039</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
@@ -616,7 +665,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="清理无用文件" />
     <MESSAGE value="版本号 Beta06[D.Beta08-0200]-[H.Beta9-0131]-[G.Beta03]&#10;Update 弹幕显示颜色" />
     <MESSAGE value="更新 简介" />
     <MESSAGE value="获取Cookie方法已更新在README.md&#10;closed #1" />
@@ -640,13 +688,19 @@
     <MESSAGE value="修复无法生成二维码" />
     <MESSAGE value="新增开发者通知" />
     <MESSAGE value="新增隐私协议页面，隐私协议来源互联网" />
+    <MESSAGE value="处理丢失弹幕问题" />
     <MESSAGE value="修改readme" />
     <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1595659283024">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2472" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599369551426">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
+    <state x="2472" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599369551426" />
+    <state x="2685" y="203" key="#com.intellij.ide.util.MemberChooser" timestamp="1600050277292">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2685" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600050277292" />
     <state x="765" y="203" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595659283024" />
     <state x="2711" y="288" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1599227600737">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -656,76 +710,134 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2633" y="184" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227321089" />
-    <state x="2478" y="86" width="1259" height="894" key="CommitChangelistDialog2" timestamp="1599366525453">
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600341821101">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2478" y="86" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599366525453" />
-    <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517349227" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595515890052">
+    <state x="2610" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600341821101" />
+    <state x="2747" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff" timestamp="1599369754715">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2747" y="402" key="#com.intellij.uiDesigner.palette.ComponentItemDialog.OneOff/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599369754715" />
+    <state x="558" y="86" width="1138" height="867" key="CommitChangelistDialog2" timestamp="1601635655533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="2002" y="50" width="1138" height="867" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600003803856" />
+    <state x="558" y="86" width="1259" height="894" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1601635655533" />
+    <state width="415" height="466" key="DebuggerActiveHint" timestamp="1600060107340">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="415" height="466" key="DebuggerActiveHint/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600060107340" />
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1600342197765">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600342197765" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595515890052" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1599365936197">
+    <state x="2660" y="274" key="FileChooserDialogImpl" timestamp="1599994140015">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599365936197" />
-    <state width="1877" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1599365936197">
+    <state x="2660" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599994140015" />
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom" timestamp="1601635598821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601557770801" />
+    <state width="1877" height="246" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601635598821" />
+    <state width="1877" height="246" key="GridCell.Tab.0.center" timestamp="1601635598821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="246" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601557770801" />
+    <state width="1877" height="246" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601635598821" />
+    <state width="1877" height="246" key="GridCell.Tab.0.left" timestamp="1601635598821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="246" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601557770801" />
+    <state width="1877" height="246" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601635598821" />
+    <state width="1877" height="246" key="GridCell.Tab.0.right" timestamp="1601635598821">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="246" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601557770801" />
+    <state width="1877" height="246" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601635598821" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1600136718925">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599365936197" />
-    <state width="1877" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1599365936197">
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600136718925" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1600136718925">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599365936197" />
-    <state width="1877" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1599365936197">
+    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600136718925" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1600136718925">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599365936197" />
-    <state width="1877" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595745071861" />
-    <state x="2461" y="73" key="SettingsEditor" timestamp="1599227673972">
+    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600136718925" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1600136718925">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2461" y="73" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599227673972" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600136718925" />
+    <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1599369560512">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="220" height="477" key="HiddenNamespacesPopup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599369560512" />
+    <state x="2679" y="221" key="RollbackChangesDialog" timestamp="1600342726688">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2679" y="221" key="RollbackChangesDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600342726688" />
+    <state x="2461" y="73" key="SettingsEditor" timestamp="1600343093219">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2461" y="73" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600343093219" />
     <state x="363" y="48" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1595516047111" />
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599366529854">
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2" timestamp="1599995042493">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599366529854" />
+    <state x="2472" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599995042493" />
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595517403108" />
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1595648720182">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595648720182" />
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1595688777673">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595688777673" />
-    <state x="2661" y="267" width="596" height="536" key="find.popup" timestamp="1599364232772">
+    <state x="2610" y="324" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog" timestamp="1600001120970">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2661" y="267" width="596" height="536" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599364232772" />
-    <state x="741" y="267" width="596" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595693454963" />
-    <state width="477" height="258" key="javadoc.popup" timestamp="1595690293614">
+    <state x="2610" y="324" key="com.intellij.database.dbimport.ImportUtil.ChooseTargetDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600001120970" />
+    <state x="2486" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599371404588">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2486" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599371404588" />
+    <state x="566" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1595648720182" />
+    <state x="2672" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599994853959">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2672" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599994853959" />
+    <state x="752" y="436" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1595688777673" />
+    <state x="2647" y="398" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog" timestamp="1599996840278">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2647" y="398" key="com.intellij.uiDesigner.propertyInspector.editors.string.StringEditorDialog/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599996840278" />
+    <state x="2419" y="255" width="921" height="642" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600342699890">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2419" y="255" width="921" height="642" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600342699890" />
+    <state x="536" y="130" width="1154" height="719" key="dock-window-1" timestamp="1600002050937">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="536" y="130" width="1154" height="719" key="dock-window-1/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600002050937" />
+    <state x="2105" y="126" width="1406" height="759" key="find.popup" timestamp="1600342705596">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2105" y="126" width="1406" height="759" key="find.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1600342705596" />
+    <state x="741" y="267" width="596" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595693454963" />
+    <state width="477" height="258" key="javadoc.popup" timestamp="1599995921619">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="477" height="258" key="javadoc.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599995921619" />
     <state width="477" height="258" key="javadoc.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1595690293614" />
+    <state x="2536" y="240" key="run.anything.popup" timestamp="1599986907078">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2536" y="240" key="run.anything.popup/0.0.1920.1040/1920.0.1920.1040@1920.0.1920.1040" timestamp="1599986907078" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java</url>
-          <line>178</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
