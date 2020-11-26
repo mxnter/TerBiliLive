@@ -8,6 +8,9 @@
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
+# 项目暂停委会
+我不敢相信，大学寝室6个人6个床，4个凳子，两张桌。我抢不过室友，没有桌子用，放假再写吧！
+
 # 全新版本 Beta 7 开发中
 ####  Beta 7 版本已经发布，Beta 6 转变到 Beta 7 最终版本，可查看分支 `B6toB7Final`,Beta 7 在正式发布前将处于无法使用状态。
 ##### Beta 7 重构了部页面和功能, 部分功能可能不全，将在后期迭代中加入
@@ -85,9 +88,6 @@
 >再次感谢您的使用。 
 
 
-# Sponsorships 赞赏
-
-![赞赏](http://s5caqz.coding-pages.com/TerBiliLive/img/zanshang.png)  
 
 
 # Version 版本
