@@ -8,7 +8,7 @@
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
 
-# 项目暂停委会
+# 项目暂停维护
 我不敢相信，大学寝室6个人6个床，4个凳子，两张桌。我抢不过室友，没有桌子用，放假再写吧！
 
 # 全新版本 Beta 7 开发中
