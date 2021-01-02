@@ -44,7 +44,7 @@ public class SendBarrage_Inlet {
             ConfInfo.SendBarrageList.add(new SendBarrageMap(msg, type));
         }
 
-        synchronized (ConfInfo.sendBarrage_lock) {
+        synchronized (ConfInfo.SBLT) {
             ConfInfo.barrage.updateSendStatus(1);
             ConfInfo.SBLT.notify();
         }

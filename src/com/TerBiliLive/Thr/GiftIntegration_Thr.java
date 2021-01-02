@@ -60,7 +60,7 @@ public class GiftIntegration_Thr extends Thread {
 
         if (!putDM.equals("")) {
             ConfInfo.ChargeBarrageList.add(putDM);
-            synchronized (ConfInfo.getSendBarrageList_lock) {
+            synchronized (ConfInfo.GBT) {
                 ConfInfo.GBT.notify();
             }
         }

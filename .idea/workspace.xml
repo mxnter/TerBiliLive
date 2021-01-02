@@ -10,10 +10,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="Beta 7.001 版本更新">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题">
       <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/SendBarrage_Inlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/SendBarrage_Inlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/GetSendBarrageList_Thr.java" afterDir="false" />
@@ -309,7 +307,7 @@
       <workItem from="1606551752928" duration="1031000" />
       <workItem from="1608032664819" duration="2386000" />
       <workItem from="1608373555274" duration="10000" />
-      <workItem from="1609571933893" duration="975000" />
+      <workItem from="1609571933893" duration="1322000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -577,7 +575,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606386941530</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题">
+      <created>1609574411675</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1609574411675</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +669,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="fix #1" />
     <MESSAGE value="发布 Beta 06 版本" />
     <MESSAGE value="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知" />
     <MESSAGE value="V.Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写整合礼物 全部整合(不稳定版)" />
@@ -689,7 +693,8 @@
     <MESSAGE value="Beta 7.001 版本更新" />
     <MESSAGE value="修改 README.md" />
     <MESSAGE value="更新 README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新 README.md" />
+    <MESSAGE value="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
