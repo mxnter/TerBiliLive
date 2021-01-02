@@ -29,6 +29,7 @@ public class ChargeNoticeS_Thr {
     private boolean isReConn = true;
     private String roomID;
     private GetInfo client;
+    handle_data_loop hdp;
 
     public void start(String roomID, boolean isReConnect){
         this.roomID = roomID;
@@ -36,7 +37,7 @@ public class ChargeNoticeS_Thr {
         client = new GetInfo();
         socket = client.connect(this.roomID);
         if (socket != null) {
-            handle_data_loop hdp=  new handle_data_loop();
+             hdp =  new handle_data_loop();
             try {
                 hdp.join();
             } catch (InterruptedException e) {
@@ -47,6 +48,7 @@ public class ChargeNoticeS_Thr {
     }
 
     public void stop(){
+        hdp.stop();
         keepRunning = false;
         client.disconnect(socket);
         String uid = "";
