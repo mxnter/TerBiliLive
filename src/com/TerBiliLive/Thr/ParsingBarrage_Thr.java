@@ -918,7 +918,7 @@ public class ParsingBarrage_Thr extends Thread {
 
                     if (!putDM.equals("")) {
                         ConfInfo.ChargeBarrageList.add(putDM);
-                        synchronized (ConfInfo.GBT) { ConfInfo.GBT.notify(); }
+                        synchronized (ConfInfo.getSendBarrageList_lock) { ConfInfo.GBT.notify(); }
                     }
                     if (!putTZ.equals("")) ConfInfo.putShowUtil.PutTZUtil(putTZ);
                     if (!minorNotice.equals("")) ConfInfo.putShowUtil.minorNotice(minorNotice);
@@ -928,7 +928,7 @@ public class ParsingBarrage_Thr extends Thread {
 
 
                 } else {
-                    synchronized (ConfInfo.PBT) {
+                    synchronized (ConfInfo.parsingBarrage_lock) {
                         try {
                             ConfInfo.PBT.wait();
                             InOutPutUtil.outPut("-----------------------解析弹幕数据进入休眠-----------------------");

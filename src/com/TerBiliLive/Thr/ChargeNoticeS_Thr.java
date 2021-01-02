@@ -165,7 +165,7 @@ public class ChargeNoticeS_Thr {
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
 
                                 // 开启弹幕解析线程
-                                synchronized (ConfInfo.PBT) {
+                                synchronized (ConfInfo.parsingBarrage_lock) {
                                     ConfInfo.PBT.notify();
                                 }
 

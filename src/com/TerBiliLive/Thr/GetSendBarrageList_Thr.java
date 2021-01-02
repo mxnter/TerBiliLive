@@ -59,7 +59,7 @@ public class GetSendBarrageList_Thr extends Thread {
 
         }
         else{
-            synchronized (ConfInfo.GBT) {
+            synchronized (ConfInfo.getSendBarrageList_lock) {
                     try {
                         ConfInfo.GBT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;

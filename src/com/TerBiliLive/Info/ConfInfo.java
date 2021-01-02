@@ -188,12 +188,20 @@ public class ConfInfo {
 
 
     public static GetSendBarrageList_Thr GBT;
+    public final static Object getSendBarrageList_lock = new Object();
+
     public static SendBarrage_Thr SBLT = new SendBarrage_Thr();
+    public final static Object sendBarrage_lock = new Object();
+
     public static ParsingBarrage_Thr PBT;
+    public final static Object parsingBarrage_lock = new Object();
+
     public static SendAdvertising_Thr sendAdvertising_thr =null;
-    public static Map<String,Integer> lt_lt = new HashMap();
-    public static Map<String,Integer> pig_boom = new HashMap();
-    public static Map<String,Presents> integrated = new HashMap();
+    public final static Object sendAdvertising_lock = new Object();
+
+    public static Map<String,Integer> lt_lt = new HashMap<String,Integer>();
+    public static Map<String,Integer> pig_boom = new HashMap<String,Integer>();
+    public static Map<String,Presents> integrated = new HashMap<String,Presents>();
 //    public static GetSendBarrageList_Thr getSendBarrageList_thr =new GetSendBarrageList_Thr();
 
 //    private final String CID_INFO_URL = "http://live.bilibili.com/api/player?id=cid:";

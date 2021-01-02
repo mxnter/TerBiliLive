@@ -142,7 +142,7 @@ public class SendBarrage_Thr extends Thread {
                 }
 
             } else {
-                synchronized (ConfInfo.SBLT) {
+                synchronized (ConfInfo.sendBarrage_lock) {
                     try {
                         ConfInfo.SBLT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;
