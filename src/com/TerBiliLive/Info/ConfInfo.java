@@ -41,8 +41,8 @@ public class ConfInfo {
     public static final String AppSystemId = "L";
     public static final String AppViceNameId = "L";
     public static final String AppVersion = "Beta 7";
-    public static final String AppVersionBuildNum = "001";
-    public static final int AppVersionNum = 202010020;
+    public static final String AppVersionBuildNum = "002";
+    public static final int AppVersionNum = 202101020;
 
 
 
