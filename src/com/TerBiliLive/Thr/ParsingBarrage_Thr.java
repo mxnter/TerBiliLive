@@ -866,10 +866,9 @@ public class ParsingBarrage_Thr extends Thread {
                             InOutPutUtil.outPut(putTZ);
                             break;
                         }
-
-
-
-
+                        // TODO 小玩意列表 不知道干什么的
+                        //{"data":{"widget_list":{"15":{"band_id":36,"sub_key":"","type":1,"sub_data":"%7B%22time%22%3A1609831800%2C%22has_winner%22%3Atrue%2C%22anchor_uid%22%3A1700384160%2C%22anchor_name%22%3A%22NJ%E9%98%BF%E8%A5%BF%22%2C%22anchor_face%22%3A%22http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Fface%2F5c11ea25192a8a427b7788051166c02cc43c662e.jpg%22%2C%22user_uid%22%3A320408778%2C%22user_name%22%3A%22%E7%8F%8D%E8%A5%BF_%E5%B0%8F%E7%81%AB%E9%94%85%22%2C%22user_face%22%3A%22http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Fface%2F30dc913acee0e6d2156dd925889af3db41a288aa.jpg%22%7D"}},"timestamp":1609831807},"cmd":"WIDGET_BANNER"}
+                        case "WIDGET_BANNER":
 
                         /* PK
                         {"pk_id":131652,"data":{"uid":90708755,"face":"http://i0.hdslb.com/bfs/face/be74581c904733dd2722246fda18c2a41737600f.jpg","escape_all_time":10,"uname":"梨落大大","match_id":3647345,"is_portrait":false,"init_id":7471685,"escape_time":10},"pk_status":100,"cmd":"PK_MATCH","roomid":7471685}
