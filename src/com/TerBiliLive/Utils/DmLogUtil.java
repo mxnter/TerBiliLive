@@ -40,6 +40,10 @@ public class DmLogUtil {
 
     // 输出弹幕日志 输出到Ter/Dm/[房间号]日期.txt
     public static void putDmLog(String Day, String Date, String DmLog ,String roomid ) {
+        if(DmLog.equals("")||DmLog.equals("\n")){
+            System.out.println("输出弹幕日志 一个空的字符串");
+            return;
+        }
         FileWriter fw = null;
         try {
             // 如果文件存在，则追加内容；如果文件不存在，则创建文件

@@ -11,7 +11,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GetInfo {
+public class GetInfo implements ConnectSocket {
 
 
     private final int DEFAULT_COMMENT_PORT = 788;

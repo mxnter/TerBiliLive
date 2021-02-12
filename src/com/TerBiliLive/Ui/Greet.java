@@ -4,13 +4,16 @@ import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.InfoNew;
 import com.TerBiliLive.Info.LiveUserInfo;
+import com.TerBiliLive.Info.Nav.UserInfoNav;
 import com.TerBiliLive.Utils.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Greet extends JFrame {
     private JPanel panel;
@@ -25,12 +28,18 @@ public class Greet extends JFrame {
     private int progresValue = 0;
 
 
-
     public Greet() {
-
         this.setContentPane(panel);
 
-        backgroundImg = ImageBroker.loadImageIcon("greetBackgroud450x300.jpg");
+        // 启动随机动画
+        if(ConfInfo.AppSystemId == "A"){
+            String[] greetBackgroud = {"22.png","greetBackgroud450x300_gs.jpg","greetBackgroud450x300s_gs.jpg"};
+            Random random = new Random();
+            backgroundImg = ImageBroker.loadImageIcon(greetBackgroud[random.nextInt(greetBackgroud.length)]);
+        }else{
+            backgroundImg = ImageBroker.loadImageIcon("greetBackgroud450x300_gs.jpg");
+        }
+
         background.setIcon(backgroundImg);
         this.getLayeredPane().add(background, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
         background.setBounds(0,0,backgroundImg.getIconWidth(), backgroundImg.getIconHeight());//设置背景标签的位置
@@ -50,8 +59,8 @@ public class Greet extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // 设置圆角
-        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 15, 15);
-        setShape(shape);
+//        final Shape shape = new RoundRectangle2D.Double(0d, 0d, getWidth(), getHeight(), 15, 15);
+//        setShape(shape);
 //        this.setBorder(new LineBorder(Color.WHITE, 5, true));
         background.setForeground(Color.WHITE);
         background.setOpaque(false); //背景透明

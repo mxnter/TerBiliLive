@@ -26,6 +26,11 @@ public class SystemState {
     public boolean isThank = false; // 开启感谢
     public boolean isSystemSendLock = false; // 系统消息锁
     public boolean isInteractWord = false; // 欢迎用户
+    public boolean isThankFollow = false; // 关注感谢
+    public boolean isThankShare = false; // 分享感谢
+
+    // TODO 如初关注抽奖
+    public boolean isFollowDraw = false; // 关注抽奖
 
     @Override
     public String toString() {

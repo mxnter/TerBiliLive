@@ -10,9 +10,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题">
+    <list default="true" id="f8b21f60-9bd0-4365-8a9a-1151c2c2098f" name="默认的" comment="Beta 7.001 -&gt; Beta 7.002 （202102040）&#10;&#10;美化&#10;1. 美化了背景图片&#10;&#10;新增&#10;1.用户欢迎 弹幕显示，分两条信息回复(随机触发)&#10;2.用户关注 弹幕显示，分两条信息回复(随机触发)&#10;3.用户分享&#10;4.直播间标题修改后自动改变&#10;5.将扩展的推送分析做成接口状态&#10;&#10;个性&#10;1.没关注的会显示，点关注，关注的会显示小心心 (需要用户关注主播)&#10;&#10;定制&#10;0.连接 小兔团 如初 terkong 直播间时自动显示隐藏功能&#10;1.我们对 1757608 如初 的直播间定制了关注用户抽奖 https://www.yuque.com/mxnter/terbililive/ur5ghm&#10;&#10;修复&#10;1.无法保存直播间和其他信息&#10;&#10;实验&#10;1.使用新版弹幕服务器连接(如果稳定，老版连接将更改，或许可以提供选择连接的版本)">
+      <change afterPath="$PROJECT_DIR$/help/followings-同时关注的主播.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/help/getInfoByUser api.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/help/查询用户与自己关系（仅查关注）.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/help/用户关系相关.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/ExtendInterface/ParsingBarrageExtend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/ExtendRealization/RuchuExtend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Img/consoleBackground600x400_gs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Img/greetBackgroud450x300_gs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Img/greetBackgroud450x300s_gs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Img/loginBackground500x750_gs.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/DanmuInfo/DanmuInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/DanmuInfo/Host_list.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/Nav/GetDanmuInfoNav.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/Nav/RelationUPNav.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/ConnectSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/ConnectSocketImpl2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/RandomUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/RuchuUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/StringUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VERSION.md" beforeDir="false" afterPath="$PROJECT_DIR$/VERSION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/TerBiliLive.jar" beforeDir="false" afterPath="$PROJECT_DIR$/app/TerBiliLive.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/ConfInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Info/SystemState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/Control_Inlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Inlet/Control_Inlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/GetInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/TerBiliLive/GetInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ChargeNoticeS_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Thr/ParsingBarrage_Thr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Barrage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Greet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Ui/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DmLogUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/DmLogUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/FileUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/TerBiliLive/Utils/FileUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +65,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,11 +85,15 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZZJJvqjSgxD1Gq8jXqt8hMfk62" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -63,13 +104,14 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543757217655" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TerBiliLiveB6toB7" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Ter/Ruchu" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -81,22 +123,22 @@
       <recent name="com.TerBiliLive" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\User Project\TerBiliLive\Ter\Ruchu" />
+      <recent name="D:\User Project\TerBiliLive\Ter\database" />
+      <recent name="D:\User Project\TerBiliLive\src\com\TerBiliLive\Img" />
       <recent name="G:\Learn\GitHub\TerBiliLive\src\com\TerBiliLive\Info\UserInfo" />
       <recent name="G:\Learn\GitHub\TerBiliLive\lib" />
-      <recent name="G:\Learn\GitHub\TerBiliLive\MDImg" />
-      <recent name="G:\Learn\GitHub\TerBiliLive" />
-      <recent name="G:\Learn\GitHub\TerBiliLive\src\com\TerBiliLive\Img" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.TerBiliLive.Info" />
-      <recent name="com.TerBiliLive.Inlet" />
-      <recent name="com.TerBiliLive.Utils" />
-      <recent name="com.TerBiliLive.Utiliy" />
-      <recent name="com.TerBiliLive.Thr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\Learn\TerBiliLive\lib" />
       <recent name="G:\Learn\TerBiliLive\src\com\TerBiliLive\Img" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.TerBiliLive.Info.Nav" />
+      <recent name="com.TerBiliLive.Info" />
+      <recent name="com.TerBiliLive.Inlet" />
+      <recent name="com.TerBiliLive.Utils" />
+      <recent name="com.TerBiliLive.Utiliy" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -134,16 +176,44 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RuchuUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TerBiliLive.Utils.RuchuUtil" />
+      <module name="TerBiliLive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.TerBiliLive.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TerBiliLive.Utils.StringUtil" />
+      <module name="TerBiliLive" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.TerBiliLive.Utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.QRCodeUtil" />
+      <item itemvalue="Application.StringUtil" />
+      <item itemvalue="Application.RuchuUtil" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RuchuUtil" />
+        <item itemvalue="Application.StringUtil" />
         <item itemvalue="Application.QRCodeUtil" />
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -302,7 +372,24 @@
       <workItem from="1606551752928" duration="1031000" />
       <workItem from="1608032664819" duration="2386000" />
       <workItem from="1608373555274" duration="10000" />
-      <workItem from="1609571933893" duration="1654000" />
+      <workItem from="1609571933893" duration="2807000" />
+      <workItem from="1609590479269" duration="1584000" />
+      <workItem from="1609815207138" duration="4355000" />
+      <workItem from="1609901207531" duration="7024000" />
+      <workItem from="1611836725137" duration="3368000" />
+      <workItem from="1611889683970" duration="21731000" />
+      <workItem from="1611975868832" duration="23016000" />
+      <workItem from="1612057701617" duration="24423000" />
+      <workItem from="1612166216793" duration="16683000" />
+      <workItem from="1612240446878" duration="1401000" />
+      <workItem from="1612418698180" duration="8808000" />
+      <workItem from="1612496575155" duration="4174000" />
+      <workItem from="1612509305613" duration="3314000" />
+      <workItem from="1612580100012" duration="9836000" />
+      <workItem from="1612756533507" duration="9592000" />
+      <workItem from="1612778779532" duration="5261000" />
+      <workItem from="1612837594542" duration="9009000" />
+      <workItem from="1613135521475" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="更新 新的大楼关闭老爷">
       <created>1538041425049</created>
@@ -584,7 +671,35 @@
       <option name="project" value="LOCAL" />
       <updated>1609574647714</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：断开连接发出异常">
+      <created>1609574943483</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1609574943483</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Beta 7.001 -&gt; Beta 7.002&#10;修改版本号">
+      <created>1610086076129</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1610086076129</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Beta 7.001 -&gt; Beta 7.002&#10;添加一个未知的推送">
+      <created>1610086205799</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1610086205799</updated>
+    </task>
+    <task id="LOCAL-00044" summary="更新README">
+      <created>1612537261099</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1612537261099</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -671,10 +786,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="发布 Beta 06 版本" />
-    <MESSAGE value="V.Beta06[D.Beta08-0203]-[H.Beta9-0131]-[G.Beta03]&#10;Upadte 显示禁言通知" />
-    <MESSAGE value="V.Beta06[D.Beta08-0204]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写整合礼物 全部整合(不稳定版)" />
-    <MESSAGE value="V.Beta06[D.Beta08-0205]-[H.Beta9-0131]-[G.Beta03] (不稳定版)&#10;Upadte 重写发送弹幕 线程 - 由于线程会重复发送(不稳定版)" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="V.Beta06[D.Beta08-0413]-[H.Beta9-0514]-[G.Beta03]&#10;Upadte Cookie 失效卡死 &#10;Upadte 无法获取直播间信息" />
     <MESSAGE value="V.Beta06[D.Beta08-0413]-[H.Beta9-0514]-[G.Beta03]&#10;Add 官网菜单" />
     <MESSAGE value="V.Beta06[D.Beta08-0606]-[H.Beta9-0514]-[G.Beta03]&#10;Upadte 无法显示弹幕信息" />
@@ -696,7 +808,11 @@
     <MESSAGE value="修改 README.md" />
     <MESSAGE value="更新 README.md" />
     <MESSAGE value="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：修复线程问题" />
+    <MESSAGE value="Beta 7.001 -&gt; Beta 7.002&#10;问题修复：断开连接发出异常" />
+    <MESSAGE value="Beta 7.001 -&gt; Beta 7.002&#10;修改版本号" />
+    <MESSAGE value="Beta 7.001 -&gt; Beta 7.002&#10;添加一个未知的推送" />
+    <MESSAGE value="更新README" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新README" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,7 +1,9 @@
 package com.TerBiliLive.Thr;
 
 
+import com.TerBiliLive.ExtendInterface.ParsingBarrageExtend;
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.Nav.RelationUPNav;
 import com.TerBiliLive.Info.Presents;
 import com.TerBiliLive.Inlet.SendBarrage_Inlet;
 import com.TerBiliLive.TerBiliLive.HttpClient;
@@ -10,7 +12,9 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import static com.TerBiliLive.Utils.TimeUtil.*;
@@ -24,6 +28,19 @@ import static com.TerBiliLive.Utils.TimeUtil.*;
  */
 public class ParsingBarrage_Thr extends Thread {
 
+    List<ParsingBarrageExtend> parsingBarrageExtends = new ArrayList<>();
+
+    public List<ParsingBarrageExtend> getParsingBarrageExtends() {
+        return parsingBarrageExtends;
+    }
+
+    public void setParsingBarrageExtends(List<ParsingBarrageExtend> parsingBarrageExtends) {
+        this.parsingBarrageExtends = parsingBarrageExtends;
+    }
+
+    public void putParsingBarrageExtend(ParsingBarrageExtend parsingBarrageExtend) {
+        this.parsingBarrageExtends.add(parsingBarrageExtend);
+    }
 
     @Override
     public void run() {
@@ -403,6 +420,7 @@ public class ParsingBarrage_Thr extends Thread {
 ////
 //                            }
                             InOutPutUtil.outPut(putDM);
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
                             break;
                         }
 
@@ -430,14 +448,15 @@ public class ParsingBarrage_Thr extends Thread {
 
                         //连击礼物
                         case "COMBO_SEND": {
+                            //TODO 这个连击礼物 会导致 2次感谢，并且没有时间戳暂时忽略
                             JSONObject giftData = object.getJSONObject("data");
                             String gift_name = giftData.getString("gift_name");
                             String uname = giftData.getString("uname");
                             int combo_num = giftData.getInteger("combo_num");
                             String timestamp = giftData.getString("timestamp");
-                            putDM = "礼物" +" | "+ TimeUtil.timeStamp2Date(timestamp, null) + " | " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
+                            putDM = "连击" +" | "+ TimeUtil.timeStamp2Date(timestamp, null) + " | " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
-                            if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
+//                            if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
                             InOutPutUtil.outPut(putDM);
                             LogUtil.putLogGiftRecord(object.toString() + "\n");
                             break;
@@ -453,7 +472,7 @@ public class ParsingBarrage_Thr extends Thread {
                             String end_time = giftData.getString("end_time");
 
                             if (!ConfInfo.SEND_GIFT.equals(uname + gift_name + combo_num)) {
-                                putDM = "礼物" +" | "+ TimeUtil.timeStamp2Date(end_time, null) + " | " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
+                                putDM = "连击" +" | "+ TimeUtil.timeStamp2Date(end_time, null) + " | " + " 感谢 " + uname + " 赠送 " + gift_name + "*" + combo_num;
                                 DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
                                 // TODO 多次感谢暂时关闭
 //                                if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("感谢 " + uname + " 赠送的 " + gift_name + "*[" + combo_num + "连击]  喵~");
@@ -489,10 +508,61 @@ public class ParsingBarrage_Thr extends Thread {
                             break;
                         }
 
-                        // 欢迎用户
+                        //{"cmd":"INTERACT_WORD","data":{"uid":301164820,"uname":"TerKong","uname_color":"","identities":[3,1],"msg_type":1,"roomid":4639581,"timestamp":1611897462,"score":1611921007194,"fans_medal":{"target_id":29569825,"medal_level":10,"medal_name":"家有矿","medal_color":9272486,"medal_color_start":9272486,"medal_color_end":9272486,"medal_color_border":9272486,"is_lighted":1,"guard_level":0,"special":"","icon_id":0,"anchor_roomid":1757608,"score":13545},"is_spread":0,"spread_info":"","contribution":{"grade":0},"spread_desc":"","tail_icon":0}}
+                        //{"cmd":"INTERACT_WORD","data":{"uid":301164820,"uname":"TerKong","uname_color":"","identities":[3,1],"msg_type":2,"roomid":4639581,"timestamp":1611897472,"score":1611921017031,"fans_medal":{"target_id":29569825,"medal_level":10,"medal_name":"家有矿","medal_color":9272486,"medal_color_start":9272486,"medal_color_end":9272486,"medal_color_border":9272486,"is_lighted":1,"guard_level":0,"special":"","icon_id":0,"anchor_roomid":1757608,"score":13545},"is_spread":0,"spread_info":"","contribution":{"grade":0},"spread_desc":"","tail_icon":0}}
+
+                        // 欢迎用户 msg_type 1 为进入直播间 2 为关注 3为分享直播间
+                        // ID	关键字	备注
+                        // 1	Entry	进入 (对于舰长/提督/总督: 光临)
+                        // 2	Attention	关注了
+                        // 3	Share	分享了
+                        // 4	SpecialAttention	特别关注了
+                        // 5	MutualAttention	互粉了
                         case "INTERACT_WORD": {
-                            minorNotice = "欢迎 "  + object.getJSONObject("data").getString("uname");
-                            if (ConfInfo.systemState.isInteractWord) new SendBarrage_Inlet("欢迎 "+object.getJSONObject("data").getString("uname")+" 进入直播间，点个关注吧");
+                            switch (object.getJSONObject("data").getInteger("msg_type")){
+                                case 1:{
+                                    minorNotice = "欢迎 "  + object.getJSONObject("data").getString("uname");
+                                    if (ConfInfo.systemState.isInteractWord) { // 是否开启欢迎用户
+                                        putDM = "欢迎" +" | "+ TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("timestamp"), null) + " | " + "  " + object.getJSONObject("data").getString("uname");
+                                        String msg = "欢迎 "+object.getJSONObject("data").getString("uname")+" 进入直播间";
+                                        RelationUPNav relationUPNav = new RelationUPNav();
+                                        int r = relationUPNav.getJudgmentFocus(object.getJSONObject("data").getString("uid"),ConfInfo.getLiveRoomUserInfo.getRoomUseruid());
+                                        if(r==1){ // 是否已经关注
+                                            msg+="，投喂个小心心吧";
+                                        }else if(r==0){
+                                            msg+="，点点关注不迷路呦";
+                                        }
+                                        new SendBarrage_Inlet(msg);
+
+                                        if(RandomUtil.getRandomBoolean(50)){ // 随机触发第二句
+                                            new SendBarrage_Inlet("点点关注不迷路呀，可以投喂小心心 喵~");
+                                        }
+                                    }
+                                    break;
+                                }
+                                case 2:{
+                                    minorNotice = "关注 "  + object.getJSONObject("data").getString("uname");
+                                    putDM = "关注" +" | "+ TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("timestamp"), null) + " | " + "  " + object.getJSONObject("data").getString("uname");
+                                    if (ConfInfo.systemState.isThankFollow) new SendBarrage_Inlet("感谢 "+object.getJSONObject("data").getString("uname")+" 关注了直播间，感谢你的喜欢");
+                                    if (ConfInfo.systemState.isThankFollow&&RandomUtil.getRandomBoolean(5)) new SendBarrage_Inlet("自己关注的主播，要记得常回来看看呦 ~");
+                                    break;
+                                }
+                                case 3:{
+                                    minorNotice = "分享 "  + object.getJSONObject("data").getString("uname");
+                                    if (ConfInfo.systemState.isThankShare) new SendBarrage_Inlet("感谢 "+object.getJSONObject("data").getString("uname")+" 分享了直播间，感谢您的喜欢！");
+                                    break;
+                                }
+                                case 4:{
+                                    minorNotice = "特别 "  + object.getJSONObject("data").getString("uname");
+                                    if (ConfInfo.systemState.isThankFollow) new SendBarrage_Inlet("感谢 "+object.getJSONObject("data").getString("uname")+" 特别关注了直播间，感谢你特别的喜欢！");
+                                    break;
+                                }
+                                case 5:{
+                                    minorNotice = "互粉 "  + object.getJSONObject("data").getString("uname");
+                                    if (ConfInfo.systemState.isThankFollow) new SendBarrage_Inlet("感谢 "+object.getJSONObject("data").getString("uname")+" 互粉了直播间，愿我们一直都是好朋友！");
+                                    break;
+                                }
+                            }
 
                             break;
                         }
@@ -521,6 +591,7 @@ public class ParsingBarrage_Thr extends Thread {
                             break;
                         }
 
+//                        {"cmd":"ENTRY_EFFECT","data":{"id":4,"uid":162114214,"target_id":29569825,"mock_effect":0,"face":"https://i0.hdslb.com/bfs/face/c0db3f1bc36b482479b90bfc18dece146bc6b3f4.jpg","privilege_type":3,"copy_writing":"欢迎舰长 <%墨歸途%> 进入直播间","copy_color":"#ffffff","highlight_color":"#E6FF00","priority":1,"basemap_url":"https://i0.hdslb.com/bfs/live/mlive/f34c7441cdbad86f76edebf74e60b59d2958f6ad.png","show_avatar":1,"effective_time":2,"web_basemap_url":"","web_effective_time":0,"web_effect_close":0,"web_close_time":0,"business":1,"copy_writing_v2":"欢迎 <^icon^> 舰长 <%墨歸途%> 进入直播间","icon_list":[2],"max_delay_time":7}}
                         // 欢迎大航海舰长
                         case "WELCOME_GUARD": {
                             JSONObject welcData = object.getJSONObject("data");
@@ -690,8 +761,8 @@ public class ParsingBarrage_Thr extends Thread {
                             String msg_common = object.getString("msg_common");
                             String real_roomid = object.getString("real_roomid");
                             minorNotice = "id:" + real_roomid + " " + msg_common;
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, ConfInfo.barrage.getRoomid());
-                            InOutPutUtil.outPut(putTZ);
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), minorNotice, ConfInfo.barrage.getRoomid());
+                            InOutPutUtil.outPut(minorNotice);
                             break;
                         }
 
@@ -704,7 +775,7 @@ public class ParsingBarrage_Thr extends Thread {
                             //if (real_roomid != null) {
                             //        new HFJ_Fun("出现低保：" + real_roomid);
                             //}
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, ConfInfo.barrage.getRoomid());
+                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), minorNotice, ConfInfo.barrage.getRoomid());
                             InOutPutUtil.outPut(msg + "id:" + real_roomid + "\t");
                             break;
                         }
@@ -866,7 +937,21 @@ public class ParsingBarrage_Thr extends Thread {
                             InOutPutUtil.outPut(putTZ);
                             break;
                         }
-                        // TODO 小玩意列表 不知道干什么的
+
+                        // 修改了房间名
+                        //{"cmd":"ROOM_CHANGE","data":{"title":"\u4f60\u4ee5\u4e3a\u8fd9\u662f\u4ec0\u4e48","area_id":377,"parent_area_id":11,"area_name":"\u804c\u4e1a\u6280\u80fd","parent_area_name":"\u5b66\u4e60","live_key":"119580084328178950","sub_session_key":"119580084328178950sub_time:1611901072"}}
+                        case "ROOM_CHANGE":{
+                            InOutPutUtil.outPut("直播间修改了名称："+object.getJSONObject("data").getString("title"));
+                            ConfInfo.barrage.setLiveTitleTitle(object.getJSONObject("data").getString("title"));
+                            break;
+                        }
+
+                        case "ONLINE_RANK_V2": //排行榜
+                        //{"data":{"list":[{"uid":346349691,"score":"10","face":"http://i2.hdslb.com/bfs/face/ad7d8f19b244b8ee89efab36676a4063a54c6b7c.jpg","uname":"000Lucifer","rank":1,"guard_level":3},{"uid":28956166,"score":"1","face":"http://i1.hdslb.com/bfs/face/512f1110f503656b91ad677c0c5bbf6eb4aaa514.jpg","uname":"撒孜然の无恙","rank":2,"guard_level":0}],"rank_type":"gold-rank"},"cmd":"ONLINE_RANK_V2"}
+                        case "ONLINE_RANK_TOP3": //排行榜前三
+                        //{"data":{"list":[{"msg":"恭喜 <%撒孜然の无恙%> 成为高能榜","rank":2}]},"cmd":"ONLINE_RANK_TOP3"}
+                            // TODO 小玩意列表 不知道干什么的
+                        //{"cmd":"WIDGET_BANNER","data":{"timestamp":1611926830,"widget_list":{"4":{"id":4,"title":"主播任务","cover":"","tip_text":"一月活动","tip_text_color":"#4F0404","tip_bottom_color":"#E0C5C5","jump_url":"https://live.bilibili.com/activity/live-activity-battle/index.html?is_live_half_webview=1\u0026hybrid_rotate_d=1\u0026is_cling_player=1\u0026hybrid_half_ui=1,3,100p,70p,a27af6,0,30,100;2,2,375,100p,a27af6,0,30,100;3,3,100p,70p,a27af6,0,30,100;4,2,375,100p,a27af6,0,30,100;5,3,100p,70p,a27af6,0,30,100;6,3,100p,70p,a27af6,0,30,100;7,3,100p,70p,a27af6,0,30,100;8,3,100p,70p,a27af6,0,30,100\u0026room_id=1757608\u0026uid=29569825#/task","url":"","stay_time":5,"site":1,"platform_in":["live","web","blink","live_link","pc_link"],"type":6,"band_id":0,"sub_key":"task_pendant_info","sub_data":"%7B%22act_id%22%3A35%2C%22task_status%22%3A1%2C%22task_info%22%3A%7B%22period%22%3A0%2C%22level%22%3A2%2C%22total_level%22%3A9%2C%22status%22%3A0%2C%22list%22%3A%5B%7B%22task_type%22%3A0%2C%22current_num%22%3A3%2C%22total_num%22%3A3%2C%22status%22%3A6%7D%2C%7B%22task_type%22%3A1%2C%22current_num%22%3A2140%2C%22total_num%22%3A10000%2C%22status%22%3A3%7D%5D%2C%22assiant_info%22%3A%7B%22anchor%22%3A%7B%22uname%22%3A%22%E5%85%A8%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%9C%80%E5%8F%AF%E7%88%B1%E7%9A%84%E5%A6%82%E5%88%9D%22%2C%22face%22%3A%22http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Fface%2F603376ab2aa388feaeec290b87d31ed14c6ca83c.jpg%22%7D%2C%22assist%22%3A%7B%22uname%22%3A%22%E5%A2%A8%E6%AD%B8%E9%80%94%22%2C%22face%22%3A%22http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Fface%2Fc0db3f1bc36b482479b90bfc18dece146bc6b3f4.jpg%22%7D%7D%7D%2C%22config_info%22%3A%7B%22bg_color%22%3A%22%23603B8E%22%2C%22no_progress_color%22%3A%22%23FFFFFF%22%2C%22yes_progress_color%22%3A%22%23FCD089%22%2C%22level_font_color%22%3A%22%23DBA95F%22%2C%22progress_font_color%22%3A%22%233C326F%22%2C%22task_font_color%22%3A%22%23FEE1AB%22%2C%22list%22%3A%5B%7B%22desc%22%3A%22%E5%B0%8F%E5%BF%83%E5%BF%83%E4%BB%BB%E5%8A%A1%22%7D%2C%7B%22desc%22%3A%22%E9%87%91%E7%93%9C%E5%AD%90%E4%BB%BB%E5%8A%A1%22%7D%2C%7B%22desc%22%3A%22%E5%A4%A7%E4%B9%B1%E6%96%97%E4%BB%BB%E5%8A%A1%22%7D%5D%2C%22url%22%3A%22https%3A%2F%2Flive.bilibili.com%2Factivity%2Flive-activity-battle%2Findex.html%3Froom_id%3D1757608%23%2Ftask%22%2C%22act_id%22%3A25%7D%7D","is_add":true}}}}
                         //{"data":{"widget_list":{"15":{"band_id":36,"sub_key":"","type":1,"sub_data":"%7B%22time%22%3A1609831800%2C%22has_winner%22%3Atrue%2C%22anchor_uid%22%3A1700384160%2C%22anchor_name%22%3A%22NJ%E9%98%BF%E8%A5%BF%22%2C%22anchor_face%22%3A%22http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Fface%2F5c11ea25192a8a427b7788051166c02cc43c662e.jpg%22%2C%22user_uid%22%3A320408778%2C%22user_name%22%3A%22%E7%8F%8D%E8%A5%BF_%E5%B0%8F%E7%81%AB%E9%94%85%22%2C%22user_face%22%3A%22http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Fface%2F30dc913acee0e6d2156dd925889af3db41a288aa.jpg%22%7D"}},"timestamp":1609831807},"cmd":"WIDGET_BANNER"}
                         case "WIDGET_BANNER":
 
@@ -921,6 +1006,11 @@ public class ParsingBarrage_Thr extends Thread {
                     }
                     if (!putTZ.equals("")) ConfInfo.putShowUtil.PutTZUtil(putTZ);
                     if (!minorNotice.equals("")) ConfInfo.putShowUtil.minorNotice(minorNotice);
+
+                    // 扩展调用
+                    parsingBarrageExtends.forEach(data->{
+                        data.ParsingBarrage(msgType,object);
+                    });
 
 
                     ConfInfo.ParsingBarrageList.remove(0);

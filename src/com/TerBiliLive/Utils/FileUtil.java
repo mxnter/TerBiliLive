@@ -62,7 +62,7 @@ public class FileUtil {
     public static boolean createDir(String destDirName) {
         File dir = new File(destDirName);
         if (dir.exists()) {
-            InOutPutUtil.outPut("创建目录" + destDirName + "失败，目标目录已经存在");
+            InOutPutUtil.outPut("创建目录" + destDirName + "警告，目标目录已经存在");
             return false;
         }
         if (!destDirName.endsWith(File.separator)) {

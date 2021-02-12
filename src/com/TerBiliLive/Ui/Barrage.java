@@ -3,6 +3,7 @@ package com.TerBiliLive.Ui;
 import com.TerBiliLive.Img.ImageBroker;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.Nav.LiveRoomInfoNav;
+import com.TerBiliLive.Info.Nav.RelationUPNav;
 import com.TerBiliLive.Info.SendBarrageMap;
 import com.TerBiliLive.Inlet.SendBarrage_Inlet;
 import com.TerBiliLive.TerBiliLive.GetLiveRoomUserInfo;
@@ -10,6 +11,7 @@ import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.TerBiliLive.TerWindowListener;
 import com.TerBiliLive.Utils.InOutPutUtil;
 import com.TerBiliLive.Utils.PutShowUtil;
+import com.TerBiliLive.Utils.RuchuUtil;
 import org.json.JSONObject;
 
 import javax.swing.*;
@@ -69,6 +71,11 @@ public class Barrage extends JFrame {
     private JLabel roomRank;
     private JLabel isInteractWordStatus;
     private JButton logout;
+    private JLabel isThankFollowStatus;
+    private JLabel isThankShareStatus;
+    private JButton modify;
+    private JButton test;
+    private JLabel isFollowDrawStatus;
     private ImageIcon backgroundImg;
 
     public Barrage() {
@@ -116,6 +123,15 @@ public class Barrage extends JFrame {
 
         // 隐藏功能，控制命令开启
         isInteractWordStatus.setVisible(false);
+        isThankFollowStatus.setVisible(false);
+        isThankShareStatus.setVisible(false);
+        isFollowDrawStatus.setVisible(false);
+
+        // 隐藏关注按钮
+        modify.setVisible(false);
+
+        // 测试按钮
+        test.setVisible(false);
 
 
 
@@ -355,7 +371,7 @@ public class Barrage extends JFrame {
             }
 
         });
-        // 可发送30字
+        // 欢迎用户
         isInteractWordStatus.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -388,6 +404,107 @@ public class Barrage extends JFrame {
             }
 
         });
+        // 关注感谢
+        isThankFollowStatus.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(ConfInfo.systemState. isThankFollow){
+                    ConfInfo.systemState. isThankFollow=false;
+                }else{
+                    ConfInfo.systemState. isThankFollow=true;
+                }
+                updateStatus();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
+        // 分享感谢
+        isThankShareStatus.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(ConfInfo.systemState.isThankShare){
+                    ConfInfo.systemState.isThankShare=false;
+                }else{
+                    ConfInfo.systemState.isThankShare=true;
+                }
+                updateStatus();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
+
+        // TODO 如初关注抽奖
+        isFollowDrawStatus.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(ConfInfo.systemState.isFollowDraw){
+                    ConfInfo.systemState.isFollowDraw=false;
+                }else{
+                    ConfInfo.systemState.isFollowDraw=true;
+                }
+                updateStatus();
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+
+        });
+
 
         // 发送按钮事件绑定
         send.addActionListener(new ActionListener() {
@@ -514,6 +631,29 @@ public class Barrage extends JFrame {
         }
 
 
+        modify.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RelationUPNav relationUPNav = new RelationUPNav();
+                if(ConfInfo.RelationUP){
+                    relationUPNav.Modify(ConfInfo.getLiveRoomUserInfo.getRoomUseruid(),"2","0");
+                }else{
+                    relationUPNav.Modify(ConfInfo.getLiveRoomUserInfo.getRoomUseruid(),"1","0");
+                }
+                relationUPNav.getRelationUP(ConfInfo.getLiveRoomUserInfo.getRoomUseruid());
+                updateRelationUP();
+            }
+        });
+
+
+        test.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ConfInfo.putShowUtil.PutDMUtil("定制"+" | "+getFormat()+" | 如初关注抽奖 解析出关注用户总数"+RuchuUtil.analysisUsers(), Color.BLUE);
+                ConfInfo.putShowUtil.PutDMUtil("定制"+" | "+getFormat()+" | 如初关注抽奖 解析出奖品总数"+RuchuUtil.analysisWeightLotterys(), Color.BLUE);
+            }
+        });
+
         this.setVisible(true);
     }
 
@@ -547,9 +687,40 @@ public class Barrage extends JFrame {
 
             ConfInfo.dingtalk.OpenLink();
 
+            // 连接 小兔团 如初 terkong 直播间时自动显示隐藏功能
+            if(getRoomid().equals("7471685")||getRoomid().equals("1757608")||getRoomid().equals("9938182")){
+                isInteractWordStatus.setVisible(true);
+                isThankFollowStatus.setVisible(true);
+                isThankShareStatus.setVisible(true);
+                ConfInfo.systemState.isInteractWord = false;
+                ConfInfo.systemState.isThankFollow = false;
+                ConfInfo.systemState.isThankShare = false;
+
+            }else{
+                isInteractWordStatus.setVisible(false);
+                isThankFollowStatus.setVisible(false);
+                isThankShareStatus.setVisible(false);
+                ConfInfo.systemState.isInteractWord = false;
+                ConfInfo.systemState.isThankFollow = false;
+                ConfInfo.systemState.isThankShare = false;
+            }
+
+            // TODO 如初关注抽奖
+            if(getRoomid().equals("1757608")){
+                RuchuUtil.analysisUsers();
+                RuchuUtil.analysisWeightLotterys();
+                test.setVisible(true);
+                isFollowDrawStatus.setVisible(true);
+            }
+
+            updateRelationUP();
         }else{
             setNotice(1,roomidMsg,Color.RED);
         }
+    }
+
+    public void setLiveTitleTitle(String title){
+        liveTitle.setText(title);
     }
 
     /**
@@ -557,6 +728,9 @@ public class Barrage extends JFrame {
      */
     public void closeLink(){
         //断开连接
+        if(ConfInfo.systemState.isThank){
+            closeThank();
+        }
         ConfInfo.systemState.isLink=false;
         ConfInfo.systemState.isThank=false;
         link.setText("连接");
@@ -567,6 +741,15 @@ public class Barrage extends JFrame {
         ConfInfo.getLiveRoomUserInfo = null;
         ConfInfo.SendBarrageList = new ArrayList<SendBarrageMap>();
         ConfInfo.systemState.isLiveStatus = false; //展示直播状态
+        modify.setVisible(false); // 隐藏关注按钮
+        ConfInfo.RelationUP = null; //重置关注状态
+
+        // TODO 如初关注抽奖
+        if(getRoomid().equals("1757608")){
+            isFollowDrawStatus.setVisible(false);
+            test.setVisible(false);
+        }
+
         updateStatus();
         emptyPopularity();
     }
@@ -628,9 +811,20 @@ public class Barrage extends JFrame {
         // 欢迎用户
         if(ConfInfo.systemState.isInteractWord) isInteractWordStatus.setForeground(Color.green);
         else isInteractWordStatus.setForeground(Color.black);
+        // 关注感谢
+        if(ConfInfo.systemState. isThankFollow) isThankFollowStatus.setForeground(Color.green);
+        else isThankFollowStatus.setForeground(Color.black);
+        // 分享感谢
+        if(ConfInfo.systemState.isThankShare) isThankShareStatus.setForeground(Color.green);
+        else isThankShareStatus.setForeground(Color.black);
         // 是否直播
         if(ConfInfo.systemState.isLiveStatus) isLiveStatus.setForeground(Color.green);
         else isLiveStatus.setForeground(Color.WHITE);
+
+
+        // TODO 如初关注抽奖
+            if(ConfInfo.systemState.isFollowDraw) isFollowDrawStatus.setForeground(Color.green);
+            else isFollowDrawStatus.setForeground(Color.black);
 
     }
 
@@ -836,6 +1030,22 @@ public class Barrage extends JFrame {
     }
 
     /**
+     * 更新关注状态
+     */
+    public void updateRelationUP(){
+        // 判断是否关注主播
+        RelationUPNav relationUPNav = new RelationUPNav();
+        modify.setVisible(true);
+        if(relationUPNav.getRelationUP(ConfInfo.getLiveRoomUserInfo.getRoomUseruid())){
+            modify.setText("取关");
+        }else{
+            modify.setText("关注");
+        }
+    }
+
+
+
+    /**
      * 将弹幕滚到最后一行
      */
     public void scrolltoEnd(){
@@ -850,6 +1060,8 @@ public class Barrage extends JFrame {
         switch (sendText.getText().substring(6)){
             case "open hide":{ //开启隐藏功能呢
                 isInteractWordStatus.setVisible(true);
+                isThankFollowStatus.setVisible(true);
+                isThankShareStatus.setVisible(true);
                 break;
             }
             case "exit system":{ // 退出系统
@@ -880,4 +1092,5 @@ public class Barrage extends JFrame {
         }
         sendText.setText("");
     }
+
 }

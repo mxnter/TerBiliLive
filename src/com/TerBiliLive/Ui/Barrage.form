@@ -3,14 +3,14 @@
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="8" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="696" height="400"/>
+      <xy x="20" y="20" width="818" height="400"/>
     </constraints>
     <properties>
       <background color="-1"/>
     </properties>
     <border type="none"/>
     <children>
-      <grid id="20d4a" binding="controlPanel" layout-manager="GridLayoutManager" row-count="1" column-count="12" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="20d4a" binding="controlPanel" layout-manager="GridLayoutManager" row-count="1" column-count="14" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -31,7 +31,7 @@
           </component>
           <hspacer id="75a67">
             <constraints>
-              <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="13" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <component id="4991b" class="javax.swing.JTextField" binding="roomid">
@@ -73,7 +73,7 @@
           </component>
           <component id="5d815" class="javax.swing.JLabel" binding="popularity">
             <constraints>
-              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value=""/>
@@ -81,7 +81,7 @@
           </component>
           <component id="d0aee" class="javax.swing.JLabel" binding="heartbeat">
             <constraints>
-              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-1"/>
@@ -90,7 +90,7 @@
           </component>
           <component id="29841" class="javax.swing.JLabel" binding="isLiveStatus">
             <constraints>
-              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="12" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-1"/>
@@ -102,9 +102,29 @@
               <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <background color="-12542209"/>
-              <foreground color="-10460570"/>
-              <text value="登出"/>
+              <background color="-16777216"/>
+              <foreground color="-1"/>
+              <text value="注销"/>
+            </properties>
+          </component>
+          <component id="860a2" class="javax.swing.JButton" binding="modify">
+            <constraints>
+              <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16711837"/>
+              <foreground color="-1"/>
+              <text value="关注"/>
+            </properties>
+          </component>
+          <component id="68e7d" class="javax.swing.JButton" binding="test">
+            <constraints>
+              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-16711837"/>
+              <foreground color="-1"/>
+              <text value="解析"/>
             </properties>
           </component>
         </children>
@@ -351,7 +371,7 @@
           </component>
         </children>
       </scrollpane>
-      <grid id="63799" binding="conPanel" layout-manager="GridLayoutManager" row-count="1" column-count="10" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="63799" binding="conPanel" layout-manager="GridLayoutManager" row-count="1" column-count="13" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -369,7 +389,7 @@
           </component>
           <hspacer id="dd080">
             <constraints>
-              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="12" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
           <component id="636ea" class="javax.swing.JLabel">
@@ -396,7 +416,7 @@
             </constraints>
             <properties>
               <foreground color="-10460570"/>
-              <text value="⬤ 欢迎老爷"/>
+              <text value="⬤ 老爷"/>
             </properties>
           </component>
           <component id="7d9d3" class="javax.swing.JLabel" binding="isLiveMsgState">
@@ -414,12 +434,12 @@
             </constraints>
             <properties>
               <foreground color="-10460570"/>
-              <text value="⬤ 欢迎舰长"/>
+              <text value="⬤ 舰长"/>
             </properties>
           </component>
           <component id="659ed" class="javax.swing.JLabel" binding="isIgnoreSpicystripState">
             <constraints>
-              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-10460570"/>
@@ -428,20 +448,47 @@
           </component>
           <component id="e3193" class="javax.swing.JLabel" binding="isSend30State">
             <constraints>
-              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-10460570"/>
               <text value="⬤ 可发送30字"/>
             </properties>
           </component>
-          <component id="e21bc" class="javax.swing.JLabel" binding="isInteractWordStatus">
+          <component id="4838d" class="javax.swing.JLabel" binding="isInteractWordStatus">
+            <constraints>
+              <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-10460570"/>
+              <text value="⬤ 用户"/>
+            </properties>
+          </component>
+          <component id="b9598" class="javax.swing.JLabel" binding="isThankFollowStatus">
+            <constraints>
+              <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-10460570"/>
+              <text value="⬤ 关注"/>
+            </properties>
+          </component>
+          <component id="32530" class="javax.swing.JLabel" binding="isThankShareStatus">
             <constraints>
               <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <foreground color="-10460570"/>
-              <text value="⬤ 欢迎用户"/>
+              <text value="⬤ 分享"/>
+            </properties>
+          </component>
+          <component id="86d84" class="javax.swing.JLabel" binding="isFollowDrawStatus">
+            <constraints>
+              <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <foreground color="-10460570"/>
+              <text value="⬤ 如初关注抽奖"/>
             </properties>
           </component>
         </children>

@@ -57,7 +57,7 @@ public class Login extends JFrame{
     public Login() {
         this.setContentPane(contentPanel);
 
-        backgroundImg = ImageBroker.loadImageIcon("loginBackground500x750.jpg");
+        backgroundImg = ImageBroker.loadImageIcon("loginBackground500x750_gs.jpg");
         background.setIcon(backgroundImg);
         this.getLayeredPane().add(background, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
         background.setBounds(0,0,backgroundImg.getIconWidth(), backgroundImg.getIconHeight());//设置背景标签的位置

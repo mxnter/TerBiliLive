@@ -42,7 +42,14 @@ public class ConfInfo {
     public static final String AppViceNameId = "L";
     public static final String AppVersion = "Beta 7";
     public static final String AppVersionBuildNum = "002";
-    public static final int AppVersionNum = 202101020;
+    public static final int AppVersionNum = 202102120;
+
+    /**
+     * 是否启用实验功能
+     * 1.新版连接弹幕服务器
+     */
+    public static final boolean experiment = true;
+
 
 
 
@@ -90,6 +97,9 @@ public class ConfInfo {
         AppInitDatabases.add("CREATE TABLE BarrageInfo (time datetime,roomId varchar,cmd varchar,guard varchar,vip varchar,isadmin varchar,medal varchar,userLevel varchar,uid varchar,nickname varchar,barrage varchar,msg varchar,info text);");
         AppInitDatabases.add("CREATE TABLE BarrageNotice(time datetime,msg varchar,info text);");
         AppInitDatabases.add("CREATE TABLE BarrageLog (time datetime,cmd int, msg varchar,info text);");
+        AppInitDatabases.add("CREATE TABLE \"SystemData\" (\"name\" varchar, \"data\" varchar);");
+        AppInitDatabases.add("INSERT INTO SystemData VALUES ('roomId','')");
+        AppInitDatabases.add("INSERT INTO SystemData VALUES ('systemState','')");
     }
 
     public static final List<String[]> AppUpdateDatabases = new ArrayList<>();
@@ -147,6 +157,20 @@ public class ConfInfo {
     //获取是否开启30字发言
     public static String isSend30URL = "https://api.live.bilibili.com/rc/v1/Achv/getList?type=normal&status=1&category=all&keywords=%E5%B0%8F%E6%9C%89%E6%89%80%E6%88%90&page=1&pageSize=6";
     //{"code":0,"msg":"","message":"","data":{"user":{"progress":26,"total":39,"achieve":510,"done":10,"can_receive_normal":0},"info":[{"tid":2,"css":"task-2","title":"小有所成","award":"<p>弹幕最大长度提升为30个字</p>","awards":[{"type":"dannmakuLength","text":"弹幕最大长度提升为30个字"}],"achieve":30,"descript":"达成条件：用户等级达到20级","status":true,"finished":true,"show_receive_icon":true,"progress":{"now":0,"max":0}}],"page":{"total":1,"totalPage":1,"current":1,"info":[]}}}
+
+    // 与登录账号同时关注的主播
+    public static String FollowingsURL = "http://api.bilibili.com/x/relation/same/followings?vmid=";
+
+    // 与登录账号是否关注主播
+    public static String RelationURL = "http://api.bilibili.com/x/relation?fid=";
+    public static Boolean RelationUP = null;// 是否关注了主播
+
+    //关注取消关.. 主播
+    public static String ModifyURL = "http://api.bilibili.com/x/relation/modify";
+
+    // 获取连接弹幕服务器的服务器地址和token
+    public static String GetDanmuInfoURL = "https://api.live.bilibili.com/xlive/web-room/v1/index/getDanmuInfo?type=0&id=";
+
 
 
 

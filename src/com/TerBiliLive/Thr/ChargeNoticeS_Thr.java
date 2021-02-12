@@ -1,15 +1,17 @@
 package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.DanmuInfo.DanmuInfo;
+import com.TerBiliLive.Info.LiveConf;
+import com.TerBiliLive.Info.Nav.GetDanmuInfoNav;
+import com.TerBiliLive.TerBiliLive.ConnectSocket;
+import com.TerBiliLive.TerBiliLive.ConnectSocketImpl2;
 import com.TerBiliLive.TerBiliLive.GetInfo;
 import com.TerBiliLive.Utils.*;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 
 import java.awt.*;
 import java.io.*;
 import java.net.Socket;
-import java.util.Arrays;
 
 import static com.TerBiliLive.Utils.TimeUtil.getFormat;
 import static com.TerBiliLive.Utils.TimeUtil.getFormatDay;
@@ -28,16 +30,27 @@ public class ChargeNoticeS_Thr {
     private boolean keepRunning = true;
     private boolean isReConn = true;
     private String roomID;
-    private GetInfo client;
-    handle_data_loop hdp;
+//    private GetInfo client;
+    private ConnectSocket client;
+    HandleDataLoop hdp;
 
     public void start(String roomID, boolean isReConnect){
         this.roomID = roomID;
         isReConn = isReConnect;
-        client = new GetInfo();
-        socket = client.connect(this.roomID);
+        // TODO 实验功能 使用新版弹幕连接
+        if(ConfInfo.experiment){
+            InOutPutUtil.outPut("正在使用实验功能");
+            ConfInfo.liveConf = new LiveConf(roomID,ConfInfo.confData.getCookie());
+            DanmuInfo danmuInfo = new GetDanmuInfoNav().getDanmuInfoNav(roomID,ConfInfo.confData.getCookie());
+            client = new ConnectSocketImpl2(danmuInfo.getHost_list().get(0).getPort(),danmuInfo.getHost_list().get(0).getHost(),ConfInfo.liveUserInfo.getUid(),danmuInfo.getToken());
+            socket = client.connect(this.roomID);
+            InOutPutUtil.outPut("使用新版弹幕连接 \n服务器地址："+danmuInfo.getHost_list().get(0).getHost()+" : "+danmuInfo.getHost_list().get(0).getPort()+" \nuid:"+ConfInfo.liveUserInfo.getUid()+" \nToken:"+danmuInfo.getToken() );
+        }else{
+            client = new GetInfo();
+            socket = client.connect(this.roomID);
+        }
         if (socket != null) {
-             hdp =  new handle_data_loop();
+             hdp =  new HandleDataLoop();
             try {
                 hdp.join();
             } catch (InterruptedException e) {
@@ -70,7 +83,10 @@ public class ChargeNoticeS_Thr {
         InOutPutUtil.outPut("断开连接" +" 真实直播间ID："+roomID );
     }
 
-    private class handle_data_loop extends Thread {
+    /**
+     * 处理消息接收线程
+     */
+    private class HandleDataLoop extends Thread {
         DataInputStream input = null;
 
 

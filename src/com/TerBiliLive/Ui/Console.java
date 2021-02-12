@@ -66,7 +66,7 @@ public class Console extends JFrame {
     public Console() {
         this.setContentPane(panel);
 
-        backgroundImg = ImageBroker.loadImageIcon("consoleBackground600x400.jpg");
+        backgroundImg = ImageBroker.loadImageIcon("consoleBackground600x400_gs.jpg");
         background.setIcon(backgroundImg);
         this.getLayeredPane().add(background, new Integer(Integer.MIN_VALUE));//注意这里是关键，将背景标签添加到jfram的LayeredPane面板里。
         background.setBounds(0,0,backgroundImg.getIconWidth(), backgroundImg.getIconHeight());//设置背景标签的位置
@@ -76,7 +76,13 @@ public class Console extends JFrame {
         version.setText(ConfInfo.AppVersion);
 
         uname.setText(ConfInfo.liveUserInfo.getUname());
-        user_level.setText(ConfInfo.liveUserInfo.getUser_level());
+
+        String userLevel = "UL:"+ConfInfo.liveUserInfo.getUser_level();
+        if(ConfInfo.userInfoNav!=null){
+            userLevel = "LV"+ConfInfo.userInfoNav.getUserInfo().getLevel_info().getCurrent_level() +"  "+userLevel;
+        }
+        user_level.setText(userLevel);
+
         billCoin.setText(ConfInfo.liveUserInfo.getBillCoin());
         String path=ConfInfo.liveUserInfo.getFace();
         try {

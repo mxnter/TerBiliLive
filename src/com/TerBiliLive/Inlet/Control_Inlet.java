@@ -1,5 +1,6 @@
 package com.TerBiliLive.Inlet;
 
+import com.TerBiliLive.ExtendRealization.RuchuExtend;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.LiveRoom;
 import com.TerBiliLive.Info.SendBarrageMap;
@@ -26,6 +27,10 @@ public class Control_Inlet {
         chargeNoticeS_thr= new ChargeNoticeS_Thr();
         ConfInfo.GBT =new GetSendBarrageList_Thr();
         ConfInfo.PBT =new ParsingBarrage_Thr();
+
+        // TODO 如初关注抽奖
+        ConfInfo.PBT.putParsingBarrageExtend(new RuchuExtend());
+
 //        ConfInfo.liveRoom.getLiveRoom(ConfInfo.barrage.getRoomid());
         ConfInfo.ChargeBarrageList.clear();
         chargeNoticeS_thr.start(ConfInfo.liveRoom.getRoom_id(),true);
