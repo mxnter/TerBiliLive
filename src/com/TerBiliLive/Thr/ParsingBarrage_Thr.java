@@ -3,18 +3,21 @@ package com.TerBiliLive.Thr;
 
 import com.TerBiliLive.ExtendInterface.ParsingBarrageExtend;
 import com.TerBiliLive.Info.ConfInfo;
+import com.TerBiliLive.Info.DanmuInfo.DanmuInfo;
+import com.TerBiliLive.Info.LiveConf;
+import com.TerBiliLive.Info.Nav.GetDanmuInfoNav;
 import com.TerBiliLive.Info.Nav.RelationUPNav;
 import com.TerBiliLive.Info.Presents;
 import com.TerBiliLive.Inlet.SendBarrage_Inlet;
+import com.TerBiliLive.TerBiliLive.ConnectSocketImpl2;
+import com.TerBiliLive.TerBiliLive.GetInfo;
 import com.TerBiliLive.TerBiliLive.HttpClient;
 import com.TerBiliLive.Utils.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static com.TerBiliLive.Utils.TimeUtil.*;
@@ -161,18 +164,20 @@ public class ParsingBarrage_Thr extends Thread {
                                     case "#close_laoye":
                                     case "# 关闭欢迎老爷":
                                     case "# 关闭老爷":{
-                                        ConfInfo.systemState.isGreetMaster = false;
-                                        ConfInfo.barrage.updateStatus();
-                                        new SendBarrage_Inlet("欢迎老爷已关闭");
+//                                        ConfInfo.systemState.isGreetMaster = false;
+//                                        ConfInfo.barrage.updateStatus();
+//                                        new SendBarrage_Inlet("欢迎老爷已关闭");
+                                        new SendBarrage_Inlet("功能下线(2021年2月21日)-Ter");
                                         break;
                                     }
 
                                     case "#open_laoye":
                                     case "# 开启欢迎老爷":
                                     case "# 开启老爷": {
-                                        ConfInfo.systemState.isGreetMaster = true;
-                                        ConfInfo.barrage.updateStatus();
-                                        new SendBarrage_Inlet("欢迎老爷已开启");
+//                                        ConfInfo.systemState.isGreetMaster = true;
+//                                        ConfInfo.barrage.updateStatus();
+//                                        new SendBarrage_Inlet("欢迎老爷已开启");
+                                        new SendBarrage_Inlet("功能下线(2021年2月21日)-Ter");
                                         break;
                                     }
 
@@ -234,21 +239,21 @@ public class ParsingBarrage_Thr extends Thread {
                                         break;
                                     }
 
-                                    case "#open_jianzhang":
-                                    case "# 开启欢迎舰长":
-                                    case "# 开启舰长": {
-                                        ConfInfo.systemState.isGreetCaptain = true;
+                                    case "#open_donghua":
+                                    case "# 开启动画信息":
+                                    case "# 开启动画": {
+                                        ConfInfo.systemState.istEffectInfo = true;
                                         ConfInfo.barrage.updateStatus();
-                                        new SendBarrage_Inlet("开启舰长 成功");
+                                        new SendBarrage_Inlet("开启动画 成功");
                                         break;
                                     }
 
-                                    case "#close_jianzhang":
-                                    case "# 关闭欢迎舰长":
-                                    case "# 关闭舰长": {
-                                        ConfInfo.systemState.isGreetCaptain = false;
+                                    case "#close_donghua":
+                                    case "# 关闭动画信息":
+                                    case "# 关闭动画": {
+                                        ConfInfo.systemState.istEffectInfo = false;
                                         ConfInfo.barrage.updateStatus();
-                                        new SendBarrage_Inlet("关闭舰长 成功");
+                                        new SendBarrage_Inlet("关闭动画 成功");
                                         break;
                                     }
 
@@ -275,6 +280,14 @@ public class ParsingBarrage_Thr extends Thread {
                                         ConfInfo.systemState.isSystemSendLock = true;
                                         ConfInfo.barrage.updateStatus();
                                         new SendBarrage_Inlet("那好吧，人家不说话就是了（￣へ￣）",2);
+                                        break;
+                                    }
+
+                                    case "ter张嘴":
+                                    case "Ter张嘴": {
+                                        ConfInfo.systemState.isSystemSendLock = false;
+                                        ConfInfo.barrage.updateStatus();
+                                        new SendBarrage_Inlet("这么快就想人家了，( ♥д♥)",2);
                                         break;
                                     }
 
@@ -326,12 +339,14 @@ public class ParsingBarrage_Thr extends Thread {
                                 String pattern = "# 呼叫Ter .*";
                                 if (Pattern.matches(pattern, text)) {
                                     ConfInfo.dingtalk.chatAdmin(text.substring(2), nickname);
+                                    new SendBarrage_Inlet("呼叫成功,主人看到后会尽快来呀！",2);
                                 }
                             }
 
                             String patter = "# 呼叫Ter " + ConfInfo.confData.getRoomId() + " .*";
                             if (Pattern.matches(patter, text)) {
                                 ConfInfo.dingtalk.chatAdmin(text.substring(2), nickname);
+                                new SendBarrage_Inlet("呼叫成功,主人看到后会尽快来呀！",2);
                             }
 
 
@@ -432,13 +447,28 @@ public class ParsingBarrage_Thr extends Thread {
                             String uname = giftData.getString("uname");
                             String timestamp = giftData.getString("timestamp");
 
-                            //整合礼物使用整合线程进行展示弹幕
-                            if (!ConfInfo.integrated.containsKey(uname+giftName)) {
-                                InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName);
-                                new GiftIntegration_Thr().start(uname, giftName);
-                                ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,0));
+
+                            // TODO 实验功能 使用新版弹幕连接
+                            if(ConfInfo.experiment){
+
+                                if (!ConfInfo.integrated.containsKey(uname+giftName)) {
+                                    InOutPutUtil.outPut("正在使用实验功能");
+                                    InOutPutUtil.outPut("开启整合(新版) 礼物："+giftName +"MAP："+ uname+giftName);
+                                    ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,0));
+                                }
+                                ConfInfo.integrated.get(uname+giftName).setAgainDelayed();
+
+                            }else{
+                                //整合礼物使用整合线程进行展示弹幕
+                                if (!ConfInfo.integrated.containsKey(uname+giftName)) {
+                                    InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName);
+                                    new GiftIntegration_Thr().start(uname, giftName);
+                                    ConfInfo.integrated.put(uname+giftName, new Presents(timestamp,uname,giftName,0));
+                                }
+                                InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName +"数量："+ giftNum);
+
                             }
-                            InOutPutUtil.outPut("开启整合 礼物："+giftName +"MAP："+ uname+giftName +"数量："+ giftNum);
+
                             ConfInfo.integrated.get(uname+giftName).setTimestamp(timestamp);
                             ConfInfo.integrated.get(uname+giftName).setGiftNum(ConfInfo.integrated.get(uname+giftName).getGiftNum()+giftNum);
                             putDM = "礼物" +" | "+ TimeUtil.timeStamp2Date(timestamp, null) + " | " + " 感谢 " + uname + " 赠送 " + giftName + "*" + giftNum;
@@ -458,7 +488,7 @@ public class ParsingBarrage_Thr extends Thread {
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
 //                            if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("感谢 " + uname + " 赠送的 " + gift_name + "*" + combo_num + " 喵~",1);
                             InOutPutUtil.outPut(putDM);
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             break;
                         }
 
@@ -480,7 +510,7 @@ public class ParsingBarrage_Thr extends Thread {
                             } else {
                                 InOutPutUtil.outPut("连送礼物结束" + ConfInfo.SEND_GIFT);
                             }
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             break;
                         }
 
@@ -522,8 +552,8 @@ public class ParsingBarrage_Thr extends Thread {
                             switch (object.getJSONObject("data").getInteger("msg_type")){
                                 case 1:{
                                     minorNotice = "欢迎 "  + object.getJSONObject("data").getString("uname");
+                                    putDM = "欢迎" +" | "+ TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("timestamp"), null) + " | " + "  " + object.getJSONObject("data").getString("uname");
                                     if (ConfInfo.systemState.isInteractWord) { // 是否开启欢迎用户
-                                        putDM = "欢迎" +" | "+ TimeUtil.timeStamp2Date(object.getJSONObject("data").getString("timestamp"), null) + " | " + "  " + object.getJSONObject("data").getString("uname");
                                         String msg = "欢迎 "+object.getJSONObject("data").getString("uname")+" 进入直播间";
                                         RelationUPNav relationUPNav = new RelationUPNav();
                                         int r = relationUPNav.getJudgmentFocus(object.getJSONObject("data").getString("uid"),ConfInfo.getLiveRoomUserInfo.getRoomUseruid());
@@ -567,57 +597,22 @@ public class ParsingBarrage_Thr extends Thread {
                             break;
                         }
 
-                        // 欢迎老爷
-                        case "WELCOME": {
-                            //{"cmd":"WELCOME","data":{"uid":16042466,"uname":"蛊毒の果","is_admin":false,"svip":1}}
-                            JSONObject welcData = object.getJSONObject("data");
-                            String uname = welcData.getString("uname");
-                            int vip = 0;
-                            int svip = 0;
-                            try {
-                                vip = welcData.getInteger("vip");
-                                svip = welcData.getInteger("svip");
-                            } catch (Exception e) {
-                                vip = 0;
-                                svip = 0;
-                            }
-                            String vipStr = svip==1?"年费":(vip==1?"月费":"");
-                            minorNotice = "欢迎" + vipStr + "老爷 " + uname;
-                            if (ConfInfo.systemState.isGreetMaster) new SendBarrage_Inlet("欢迎" + vipStr + "老爷 " + uname);
-                            //关闭弹幕显示欢迎老爷
-//                            putDM = "提示 ：" + getFormat() + " @ " + "欢迎" + vipStr + "老爷 " + uname;
-//                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
-//                            InOutPutUtil.outPut(putDM);
+                        // 进入动画 (舰长欢迎好像停用了被转移到进入动画)
+                        case "ENTRY_EFFECT": {
+
+                            InOutPutUtil.outPut("进入动画" + object);
+                            LogUtil.putLogDatabase("进入动画",object.toString(),msgType);
+                            String copy_writing = object.getJSONObject("data").getString("copy_writing");
+                            copy_writing = copy_writing.replace("<%"," ").replace("%>"," ");
+                            putDM =  "提示"+" | "+getFormat()+" | "+copy_writing+"\t";
+                            if (ConfInfo.systemState.istEffectInfo) new SendBarrage_Inlet(copy_writing);
+
+                            //{"cmd":"ENTRY_EFFECT","data":{"id":4,"uid":162114214,"target_id":29569825,"mock_effect":0,"face":"https://i0.hdslb.com/bfs/face/c0db3f1bc36b482479b90bfc18dece146bc6b3f4.jpg","privilege_type":3,"copy_writing":"欢迎舰长 <%墨歸途%> 进入直播间","copy_color":"#ffffff","highlight_color":"#E6FF00","priority":1,"basemap_url":"https://i0.hdslb.com/bfs/live/mlive/f34c7441cdbad86f76edebf74e60b59d2958f6ad.png","show_avatar":1,"effective_time":2,"web_basemap_url":"","web_effective_time":0,"web_effect_close":0,"web_close_time":0,"business":1,"copy_writing_v2":"欢迎 <^icon^> 舰长 <%墨歸途%> 进入直播间","icon_list":[2],"max_delay_time":7}}
+                            //{"data":{"copy_writing":"欢迎舰长 <%云墨啊啊啊%> 进入直播间","effective_time":2,"privilege_type":3,"basemap_url":"https://i0.hdslb.com/bfs/live/mlive/f34c7441cdbad86f76edebf74e60b59d2958f6ad.png","business":1,"mock_effect":0,"highlight_color":"#E6FF00","target_id":300702024,"copy_writing_v2":"欢迎舰长 <%云墨啊啊啊%> 进入直播间","max_delay_time":7,"priority":1,"web_effective_time":0,"uid":37641606,"face":"https://i0.hdslb.com/bfs/face/577fce7b2863e6f09cc240d6ede85c2ef7adbe1d.jpg","web_effect_close":0,"copy_color":"#ffffff","web_close_time":0,"show_avatar":1,"icon_list":[],"id":4,"web_basemap_url":""},"cmd":"ENTRY_EFFECT"}
                             break;
                         }
 
-//                        {"cmd":"ENTRY_EFFECT","data":{"id":4,"uid":162114214,"target_id":29569825,"mock_effect":0,"face":"https://i0.hdslb.com/bfs/face/c0db3f1bc36b482479b90bfc18dece146bc6b3f4.jpg","privilege_type":3,"copy_writing":"欢迎舰长 <%墨歸途%> 进入直播间","copy_color":"#ffffff","highlight_color":"#E6FF00","priority":1,"basemap_url":"https://i0.hdslb.com/bfs/live/mlive/f34c7441cdbad86f76edebf74e60b59d2958f6ad.png","show_avatar":1,"effective_time":2,"web_basemap_url":"","web_effective_time":0,"web_effect_close":0,"web_close_time":0,"business":1,"copy_writing_v2":"欢迎 <^icon^> 舰长 <%墨歸途%> 进入直播间","icon_list":[2],"max_delay_time":7}}
-                        // 欢迎大航海舰长
-                        case "WELCOME_GUARD": {
-                            JSONObject welcData = object.getJSONObject("data");
-                            String username = welcData.getString("username");
-                            String guard_level = welcData.getString("guard_level");
-                            String guard_level_string = "";
-                            switch (guard_level) {
-                                case "3":
-                                    guard_level_string = "舰长";
-                                    break;
-                                case "2":
-                                    guard_level_string = "提督";
-                                    break;
-                                case "1":
-                                    guard_level_string = "总督";
-                                    break;
-                                default:
-                                    guard_level_string = "";
-                            }
 
-                            putDM =  "提示"+" | "+getFormat()+" | "+"欢迎"+guard_level_string+" "+username +" 进入直播间\t";
-                            if (ConfInfo.systemState.isGreetCaptain) new SendBarrage_Inlet("欢迎" + guard_level_string + " " + username + " 进入直播间");
-                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
-                            InOutPutUtil.outPut(putDM);
-                            break;
-                        }
 
                         // 购买舰长
                         case "GUARD_BUY": {
@@ -628,8 +623,8 @@ public class ParsingBarrage_Thr extends Thread {
                             String start_time = welcData.getString("start_time");
                             String guard_level = welcData.getString("guard_level");
                             String guard_level_string = gift_name;
-                            putDM = "提示" +" | " + TimeUtil.timeStamp2Date(start_time, null) +" | " +"大航海新添" + " " + username + " " + guard_level_string;
-                            if (ConfInfo.systemState.isGreetCaptain) new SendBarrage_Inlet("大航海新添" + " " + username  + " " + guard_level_string+ " ，不要忘记添加"+ guard_level_string +"群",1);
+                            putDM = "提示" +" | " + TimeUtil.timeStamp2Date(start_time, null) +" | " +guard_level_string+" "+ username + "登舰";
+                            if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("感谢 "+guard_level_string+" "+ username + "登舰 ，不要忘记添加"+ guard_level_string +"群哦",1);
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
                             InOutPutUtil.outPut(putDM);
                             break;
@@ -665,8 +660,8 @@ public class ParsingBarrage_Thr extends Thread {
                             String block_msg =  "禁言" + " | " + getFormat()+ " | "+"[个人] 直播间ID："+ConfInfo.barrage.getRoomid() +" "+object.getString("uname")+" 被"+who+"禁言" +"  UID："+object.getString("uid")+"  昵称："+object.getString("uname");
                             ConfInfo.putShowUtil.PutDMUtil(block_msg,ColorUtil.toColorFromString("ea9336"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), block_msg,ConfInfo.barrage.getRoomid());//输出到弹幕日志
-                            LogUtil.putLogRoomBlock(object.toString());
-                            LogUtil.putLogRoomBlock(block_msg);
+                            LogUtil.putLogRoomBlock(object.toString(),msgType);
+                            LogUtil.putLogRoomBlock(block_msg,msgType);
                             break;
                         }
 
@@ -676,8 +671,8 @@ public class ParsingBarrage_Thr extends Thread {
                             String XX="解禁" + " | " + getFormat() + " | " + "[解禁] 直播间ID：" + ConfInfo.barrage.getRoomid();
                             ConfInfo.putShowUtil.PutDMUtil(XX,ColorUtil.toColorFromString("79B48E"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), XX,ConfInfo.barrage.getRoomid());//输出到弹幕日志
-                            LogUtil.putLogRoomSilent(object.toString());
-                            LogUtil.putLogRoomSilent(XX);
+                            LogUtil.putLogRoomSilent(object.toString(),msgType);
+                            LogUtil.putLogRoomSilent(XX,msgType);
                             break;
                         }
 
@@ -707,8 +702,8 @@ public class ParsingBarrage_Thr extends Thread {
                             }
                             ConfInfo.putShowUtil.PutDMUtil(block_msg,ColorUtil.toColorFromString("ea9336"));
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), block_msg,ConfInfo.barrage.getRoomid());//输出到弹幕日志
-                            LogUtil.putLogRoomSilent(object.toString());
-                            LogUtil.putLogRoomSilent(block_msg);
+                            LogUtil.putLogRoomSilent(object.toString(),msgType);
+                            LogUtil.putLogRoomSilent(block_msg,msgType);
                             break;
                         }
 
@@ -724,14 +719,14 @@ public class ParsingBarrage_Thr extends Thread {
                                 putDM = "提示" +" | " + getFormat() +" | " +"恭喜 " + uname + " 出任房管 ";
                             }
                             InOutPutUtil.outPut(putDM);
-                            LogUtil.putLogRoomAdminEntrance(object.toString());
+                            LogUtil.putLogRoomAdminEntrance(object.toString(),msgType);
                             break;
                         }
 
                         // 房管变更后全部房管
                         case "ROOM_ADMINS":{
                             //{"cmd":"ROOM_ADMINS","uids":[18169995,1587578,10798725,4531305,23219652,351510111,289007608,184464621]}
-                            LogUtil.putlogRoomAdmins(object.toString());
+                            LogUtil.putlogRoomAdmins(object.toString(),msgType);
                             break;
                         }
 
@@ -743,17 +738,12 @@ public class ParsingBarrage_Thr extends Thread {
                             putTZ = "通知 ： ~ " + "   id:" + roomid + " " + rank_desc;
                             ConfInfo.barrage.setRoomRank(rank_desc);
                             DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putTZ, ConfInfo.barrage.getRoomid());
-                            LogUtil.putLogDatabase("小时榜",object.toString());
+                            LogUtil.putLogDatabase("小时榜",object.toString(),msgType);
                             InOutPutUtil.outPut(rank_desc + " id:" + roomid + "\t");
                             break;
                         }
 
-                        // 进入动画(不展示)
-                        case "ENTRY_EFFECT": {
-                            InOutPutUtil.outPut("进入动画" + object);
-                            LogUtil.putLogDatabase("进入动画",object.toString());
-                            break;
-                        }
+
 
                         // 全局通知消息
                         case "NOTICE_MSG": {
@@ -797,7 +787,7 @@ public class ParsingBarrage_Thr extends Thread {
                             putTZ = "通知 ： ~ " + "小电视 开始 来自：" + from + " Id:" + id;
                             putDM = "通知 | " + "小电视 开始 来自：" + from + " Id:" + id;
                             ConfInfo.inOperationRadioGift.add(id);
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             break;
                         }
                         // 小电视结束
@@ -816,7 +806,7 @@ public class ParsingBarrage_Thr extends Thread {
                             }
 
                             if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("诶呀，发现了 "+from+" 送来的小电视，感谢喵~",1);
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
 
                             break;
                         }
@@ -848,14 +838,14 @@ public class ParsingBarrage_Thr extends Thread {
                                     break;
                                 }
                                 default: {
-                                    LogUtil.putLogUnknownGift(object.toString());
+                                    LogUtil.putLogUnknownGift(object.toString(),msgType);
                                     break;
                                 }
                             }
                             putTZ = "通知 ： ~ " + radioGiftName+" 开始 来自：" + from + " Id:" + id;
                             putDM = "通知 | " + radioGiftName+" 开始 来自：" + from + " Id:" + id;
                             ConfInfo.inOperationRadioGift.add(id);
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             break;
                         }
                         // 全局礼物结束
@@ -876,7 +866,7 @@ public class ParsingBarrage_Thr extends Thread {
                                     break;
                                 }
                                 default: {
-                                    LogUtil.putLogUnknownGift(object.toString());
+                                    LogUtil.putLogUnknownGift(object.toString(),msgType);
                                     break;
                                 }
                             }
@@ -890,7 +880,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 ConfInfo.systemState.isAlreadyOnGreetMaster = false;
                                 InOutPutUtil.outPut("----------------防止刷屏 启动老爷----------------");
                             }
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             break;
                         }
 
@@ -918,7 +908,7 @@ public class ParsingBarrage_Thr extends Thread {
                                 }
                                 case "end": {
                                     if (ConfInfo.systemState.isThank) new SendBarrage_Inlet("哇，发现大佬 " + giftid + "送的 节奏风暴 喵~",1);
-                                    LogUtil.putLogGiftRecord(object.toString() + "\n");
+                                    LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                                     ConfInfo.inOperationRadioGift.remove(giftid);
                                     if(ConfInfo.inOperationRadioGift.size()==0&&ConfInfo.systemState.isAlreadyOnGreetMaster){
                                         ConfInfo.systemState.isGreetMaster = true;
@@ -932,11 +922,66 @@ public class ParsingBarrage_Thr extends Thread {
                                 }
 
                             }
-                            LogUtil.putLogDatabase("SPECIAL_GIFT",object.toString());
-                            LogUtil.putLogGiftRecord(object.toString() + "\n");
+                            LogUtil.putLogDatabase("SPECIAL_GIFT",object.toString(),msgType);
+                            LogUtil.putLogGiftRecord(object.toString() + "\n",msgType);
                             InOutPutUtil.outPut(putTZ);
                             break;
                         }
+
+
+                        // TODO 老版本推送 暂停解析
+
+                        // 欢迎老爷 TODO 暂停解析 存入日志 老版本推送 2021年2月21日
+                        case "WELCOME": { //{"cmd":"WELCOME","data":{"uid":16042466,"uname":"蛊毒の果","is_admin":false,"svip":1}}
+                            LogUtil.putold(object.toString(),msgType);
+//                            JSONObject welcData = object.getJSONObject("data");
+//                            String uname = welcData.getString("uname");
+//                            String vipStr = "";
+//                            try {
+//                                if(welcData.getInteger("svip")==1){
+//                                    vipStr = "年费";
+//                                }else if(welcData.getInteger("vip")==1){
+//                                    vipStr = "月费";
+//                                }
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                            }
+//                            minorNotice = "欢迎" + vipStr + "老爷 " + uname;
+//                            if (ConfInfo.systemState.isGreetMaster) new SendBarrage_Inlet("欢迎" + vipStr + "老爷 " + uname);
+                            //关闭弹幕显示欢迎老爷
+//                            putDM =  "提示"+" | "+getFormat()+" | "+"欢迎"+vipStr+ "老爷 " +uname +" 进入直播间";
+//                            InOutPutUtil.outPut(putDM);
+                            break;
+                        }
+
+                        // 欢迎大航海舰长 TODO 暂停解析 存入日志 老版本推送 2021年2月21日
+                        case "WELCOME_GUARD": {
+                            LogUtil.putold(object.toString(),msgType);
+//                            JSONObject welcData = object.getJSONObject("data");
+//                            String username = welcData.getString("username");
+//                            String guard_level = welcData.getString("guard_level");
+//                            String guard_level_string = "";
+//                            switch (guard_level) {
+//                                case "3":
+//                                    guard_level_string = "舰长";
+//                                    break;
+//                                case "2":
+//                                    guard_level_string = "提督";
+//                                    break;
+//                                case "1":
+//                                    guard_level_string = "总督";
+//                                    break;
+//                                default:
+//                                    guard_level_string = "";
+//                            }
+//
+//                            putDM =  "提示"+" | "+getFormat()+" | "+"欢迎"+guard_level_string+" "+username +" 进入直播间\t";
+//                            if (ConfInfo.systemState.istEffectInfo) new SendBarrage_Inlet("欢迎" + guard_level_string + " " + username + " 进入直播间");
+//                            DmLogUtil.putDmLog(getFormatDay(), getFormatHour(), putDM, ConfInfo.barrage.getRoomid());
+//                            InOutPutUtil.outPut(putDM);
+                            break;
+                        }
+
 
                         // 修改了房间名
                         //{"cmd":"ROOM_CHANGE","data":{"title":"\u4f60\u4ee5\u4e3a\u8fd9\u662f\u4ec0\u4e48","area_id":377,"parent_area_id":11,"area_name":"\u804c\u4e1a\u6280\u80fd","parent_area_name":"\u5b66\u4e60","live_key":"119580084328178950","sub_session_key":"119580084328178950sub_time:1611901072"}}
@@ -945,6 +990,9 @@ public class ParsingBarrage_Thr extends Thread {
                             ConfInfo.barrage.setLiveTitleTitle(object.getJSONObject("data").getString("title"));
                             break;
                         }
+
+                        case "SUPER_CHAT_MESSAGE": //醒目留言
+                        case "SUPER_CHAT_MESSAGE_JPN": //醒目留言
 
                         case "ONLINE_RANK_V2": //排行榜
                         //{"data":{"list":[{"uid":346349691,"score":"10","face":"http://i2.hdslb.com/bfs/face/ad7d8f19b244b8ee89efab36676a4063a54c6b7c.jpg","uname":"000Lucifer","rank":1,"guard_level":3},{"uid":28956166,"score":"1","face":"http://i1.hdslb.com/bfs/face/512f1110f503656b91ad677c0c5bbf6eb4aaa514.jpg","uname":"撒孜然の无恙","rank":2,"guard_level":0}],"rank_type":"gold-rank"},"cmd":"ONLINE_RANK_V2"}
@@ -990,13 +1038,14 @@ public class ParsingBarrage_Thr extends Thread {
                         case "WISH_BOTTLE":// 许愿瓶
                             // {"data":{"wish":{"uid":50621949,"wish_progress":25098,"type_id":3,"wish_limit":99999,"ctime":"2018-01-28 09:28:21","id":8427,"count_map":[1,10,100],"type":1,"content":"一个B克拉得老白勋章","status":1},"action":"update","id":8427},"cmd":"WISH_BOTTLE"}
                         case "PK_AGAIN": {
-                            LogUtil.putLogKnownUntreated(object.toString());
+                            LogUtil.putLogKnownUntreated(object.toString(),msgType);
+                            System.out.println("未处理："+object.toString());
                             break;
                         }
 
                         default: {
                             putDM = "";
-                            LogUtil.putLogUnknown(object.toString());
+                            LogUtil.putLogUnknown(object.toString(),msgType);
                         }
                     }
 
@@ -1020,7 +1069,7 @@ public class ParsingBarrage_Thr extends Thread {
                     synchronized (ConfInfo.PBT) {
                         try {
                             ConfInfo.PBT.wait();
-                            InOutPutUtil.outPut("-----------------------解析弹幕数据进入休眠-----------------------");
+//                            InOutPutUtil.outPut(getFormat()+" -----------------------解析弹幕数据 休眠");
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

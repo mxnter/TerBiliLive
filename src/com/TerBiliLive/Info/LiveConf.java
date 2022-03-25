@@ -43,7 +43,7 @@ public class LiveConf {
                 server_list = jsonObject.getString("server_list");
                 token = jsonObject.getString("token");
             }else{
-                LogUtil.putLogException("获取服务器接口数据信息异常 ："+ReturnData);
+                LogUtil.putLogException("获取服务器接口数据信息异常 ："+ReturnData,"LiveConf");
                 InOutPutUtil.outPut("获取服务器接口数据信息异常 ："+ReturnData);
             }
 

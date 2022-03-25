@@ -12,7 +12,7 @@ public class InOutPutUtil {
             System.out.println(msg);
         }
         if(ConfInfo.devDatabase){
-            if(ConfInfo.databaesUtil!=null) LogUtil.putLogSystemOut(msg.toString());
+            if(ConfInfo.databaesUtil!=null) LogUtil.putLogSystemOut(msg.toString(),"InOutPutUtil");
         }
 
     }
@@ -21,7 +21,7 @@ public class InOutPutUtil {
             System.out.println(msg);
         }
         if(ConfInfo.devDatabase){
-            if(ConfInfo.databaesUtil!=null&&database) LogUtil.putLogSystemOut(msg.toString());
+            if(ConfInfo.databaesUtil!=null&&database) LogUtil.putLogSystemOut(msg.toString(),"InOutPutUtil");
         }
     }
 }

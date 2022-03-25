@@ -42,7 +42,7 @@ public class InfoNew {
                 province = jsonObject.getString("province");
             } else {
                 InOutPutUtil.outPut("获取服务器接口数据信息异常 ：" + ReturnData);
-                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + ReturnData);
+                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + ReturnData,"InfoNew");
             }
 
 

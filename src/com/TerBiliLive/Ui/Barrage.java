@@ -46,7 +46,7 @@ public class Barrage extends JFrame {
     private JLabel UPLabel;
     private JLabel isLiveMsgState;
     private JLabel isGreetMasterState;
-    private JLabel isGreetCaptainState;
+    private JLabel istEffectInfoState;
     private JLabel isIgnoreSpicystripState;
     private JLabel isSend30State;
     private JTextField sendText;
@@ -122,10 +122,10 @@ public class Barrage extends JFrame {
 
 
         // 隐藏功能，控制命令开启
-        isInteractWordStatus.setVisible(false);
-        isThankFollowStatus.setVisible(false);
-        isThankShareStatus.setVisible(false);
-        isFollowDrawStatus.setVisible(false);
+//        isInteractWordStatus.setVisible(false);
+//        isThankFollowStatus.setVisible(false);
+//        isThankShareStatus.setVisible(false);
+        isFollowDrawStatus.setVisible(false); // 如初抽奖
 
         // 隐藏关注按钮
         modify.setVisible(false);
@@ -133,6 +133,8 @@ public class Barrage extends JFrame {
         // 测试按钮
         test.setVisible(false);
 
+        // 隐藏老爷按钮 (欢迎老爷功能已关闭)
+        isGreetMasterState.setVisible(false);
 
 
         UIDLabel.setText("UID "+ConfInfo.Uid);
@@ -272,14 +274,14 @@ public class Barrage extends JFrame {
             }
 
         });
-        // 欢迎舰长
-        isGreetCaptainState.addMouseListener(new MouseListener() {
+        // 动画信息
+        istEffectInfoState.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(ConfInfo.systemState.isGreetCaptain){
-                    ConfInfo.systemState.isGreetCaptain=false;
+                if(ConfInfo.systemState.istEffectInfo){
+                    ConfInfo.systemState.istEffectInfo=false;
                 }else{
-                    ConfInfo.systemState.isGreetCaptain=true;
+                    ConfInfo.systemState.istEffectInfo=true;
                 }
                 updateStatus();
             }
@@ -590,9 +592,14 @@ public class Barrage extends JFrame {
                         JSONObject data = new JSONObject(systemStateresultSet.getString(2));
                         ConfInfo.systemState.isLiveMsg = data.getBoolean("isLiveMsg");
                         ConfInfo.systemState.isGreetMaster = data.getBoolean("isGreetMaster");
-                        ConfInfo.systemState.isGreetCaptain = data.getBoolean("isGreetCaptain");
+                        ConfInfo.systemState.istEffectInfo = data.getBoolean("istEffectInfo");
                         ConfInfo.systemState.isIgnoreSpicystrip = data.getBoolean("isIgnoreSpicystrip");
 //                        ConfInfo.systemState.isSend30 = data.getBoolean("isSend30");
+                        ConfInfo.systemState.isSystemSendLock = data.getBoolean("isSystemSendLock");
+                        ConfInfo.systemState.isInteractWord = data.getBoolean("isInteractWord");
+                        ConfInfo.systemState.isThankFollow = data.getBoolean("isThankFollow");
+                        ConfInfo.systemState.isThankShare = data.getBoolean("isThankShare");
+
                     }
                 }
             } catch (Exception e) {
@@ -689,20 +696,20 @@ public class Barrage extends JFrame {
 
             // 连接 小兔团 如初 terkong 直播间时自动显示隐藏功能
             if(getRoomid().equals("7471685")||getRoomid().equals("1757608")||getRoomid().equals("9938182")){
-                isInteractWordStatus.setVisible(true);
-                isThankFollowStatus.setVisible(true);
-                isThankShareStatus.setVisible(true);
-                ConfInfo.systemState.isInteractWord = false;
-                ConfInfo.systemState.isThankFollow = false;
-                ConfInfo.systemState.isThankShare = false;
+//                isInteractWordStatus.setVisible(true);
+//                isThankFollowStatus.setVisible(true);
+//                isThankShareStatus.setVisible(true);
+//                ConfInfo.systemState.isInteractWord = false;
+//                ConfInfo.systemState.isThankFollow = false;
+//                ConfInfo.systemState.isThankShare = false;
 
             }else{
-                isInteractWordStatus.setVisible(false);
-                isThankFollowStatus.setVisible(false);
-                isThankShareStatus.setVisible(false);
-                ConfInfo.systemState.isInteractWord = false;
-                ConfInfo.systemState.isThankFollow = false;
-                ConfInfo.systemState.isThankShare = false;
+//                isInteractWordStatus.setVisible(false);
+//                isThankFollowStatus.setVisible(false);
+//                isThankShareStatus.setVisible(false);
+//                ConfInfo.systemState.isInteractWord = false;
+//                ConfInfo.systemState.isThankFollow = false;
+//                ConfInfo.systemState.isThankShare = false;
             }
 
             // TODO 如初关注抽奖
@@ -799,9 +806,9 @@ public class Barrage extends JFrame {
         // 欢迎老爷
         if(ConfInfo.systemState.isGreetMaster) isGreetMasterState.setForeground(Color.green);
         else isGreetMasterState.setForeground(Color.black);
-        // 欢迎舰长
-        if(ConfInfo.systemState.isGreetCaptain) isGreetCaptainState.setForeground(Color.green);
-        else isGreetCaptainState.setForeground(Color.black);
+        // 动画信息
+        if(ConfInfo.systemState.istEffectInfo) istEffectInfoState.setForeground(Color.green);
+        else istEffectInfoState.setForeground(Color.black);
         // 忽略辣条
         if(ConfInfo.systemState.isIgnoreSpicystrip) isIgnoreSpicystripState.setForeground(Color.green);
         else isIgnoreSpicystripState.setForeground(Color.black);
@@ -1059,9 +1066,10 @@ public class Barrage extends JFrame {
         InOutPutUtil.outPut("执行控制命令" + sendText.getText().substring(6));
         switch (sendText.getText().substring(6)){
             case "open hide":{ //开启隐藏功能呢
-                isInteractWordStatus.setVisible(true);
-                isThankFollowStatus.setVisible(true);
-                isThankShareStatus.setVisible(true);
+                setNotice(1,"此版本没有隐藏功能",Color.RED);
+//                isInteractWordStatus.setVisible(true);
+//                isThankFollowStatus.setVisible(true);
+//                isThankShareStatus.setVisible(true);
                 break;
             }
             case "exit system":{ // 退出系统
@@ -1084,6 +1092,10 @@ public class Barrage extends JFrame {
             case "close send lock":{ // 关闭弹幕锁
                 ConfInfo.systemState.isSystemSendLock = false;
                 ConfInfo.barrage.updateStatus();
+                break;
+            }
+            case "clean up":{ // 清理弹幕
+                editorPane.setText("");
                 break;
             }
             default:{

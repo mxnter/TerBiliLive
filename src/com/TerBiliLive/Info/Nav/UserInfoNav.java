@@ -43,7 +43,7 @@ public class UserInfoNav {
             }
             default:{
                 InOutPutUtil.outPut("获取个人信息数据信息异常 ："+returnData);
-                LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData);
+                LogUtil.putLogException("获取个人信息数据信息异常 ："+returnData,"UserInfoNav");
                 break;
             }
         }

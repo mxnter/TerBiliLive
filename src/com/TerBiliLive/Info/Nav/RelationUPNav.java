@@ -46,7 +46,7 @@ public class RelationUPNav {
                 }
                 default:{
                     InOutPutUtil.outPut("获取关注主播信息信息异常 ："+returnData);
-                    LogUtil.putLogException("获取关注主播信息信息异常 ："+returnData);
+                    LogUtil.putLogException("获取关注主播信息信息异常 ："+returnData,"RelationUPNav");
                     ConfInfo.RelationUP = false;
                     return false;
                 }
@@ -95,12 +95,12 @@ public class RelationUPNav {
                 case "0":{
                     ConfInfo.putShowUtil.PutDMUtil("系统"+" | "+getFormat()+" | "+(act.equals("1")?"关注成功：":"取关成功：")+" 当前连接直播间的主播 " + fid, Color.BLUE);
                     InOutPutUtil.outPut((act.equals("1")?"关注成功：":"取关成功：")+" 当前连接直播间的主播 " +fid);
-                    LogUtil.putLogSystemOut((act.equals("1")?"关注成功：":"取关成功：")+" 当前连接直播间的主播 " +fid);
+                    LogUtil.putLogSystemOut((act.equals("1")?"关注成功：":"取关成功：")+" 当前连接直播间的主播 " +fid,"RelationUPNav");
                     break;
                 }
                 default:{
                     InOutPutUtil.outPut("关注异常 ："+returnData);
-                    LogUtil.putLogException("关注异常 ："+returnData);
+                    LogUtil.putLogException("关注异常 ："+returnData,"RelationUPNav");
                 }
             }
         } catch (JSONException e) {
@@ -134,7 +134,7 @@ public class RelationUPNav {
                     }
                     default:{
                         InOutPutUtil.outPut("是否关注了主播 ："+returnData);
-                        LogUtil.putLogException("是否关注了主播 ："+returnData);
+                        LogUtil.putLogException("是否关注了主播 ："+returnData,"RelationUPNav");
                         ConfInfo.RelationUP = false;
                         return -2;
                     }

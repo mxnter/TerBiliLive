@@ -33,7 +33,7 @@ public class LiveRoomInfoNav {
                 }
                 default:{
                     InOutPutUtil.outPut("直播间信息信息异常 ："+returnData);
-                    LogUtil.putLogException("直播间信息信息异常 ："+returnData);
+                    LogUtil.putLogException("直播间信息信息异常 ："+returnData,"UserInfoNav");
                     return null;
                 }
             }

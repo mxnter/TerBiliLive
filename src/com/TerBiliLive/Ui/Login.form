@@ -215,7 +215,7 @@
                     </constraints>
                     <properties>
                       <foreground color="-10460570"/>
-                      <text value="全新版本，游客登录暂时关闭"/>
+                      <text value="游客或将删除，有需求请联系 Q群 971011532"/>
                     </properties>
                   </component>
                 </children>

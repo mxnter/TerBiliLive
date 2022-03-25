@@ -15,68 +15,72 @@ import static com.TerBiliLive.Utils.TimeUtil.getFormatDistance;
 public class LogUtil {
 
 
-	public static void putLogSystemOut(String Log) {
-		putLogDatabase("系统输出",Log);
+	public static void putLogSystemOut(String Log, String cmd) {
+		putLogDatabase("系统输出",Log, cmd);
 	}
 
-	public static void putLogGiftRecord(String Log) {
-		putLogDatabase("礼物记录",Log);
+	public static void putLogGiftRecord(String Log, String cmd) {
+		putLogDatabase("礼物记录",Log, cmd);
 	}
 
-	public static void putLogUnknownGift(String Log) {
-		putLogDatabase("未知礼物",Log);
+	public static void putLogUnknownGift(String Log, String cmd) {
+		putLogDatabase("未知礼物",Log, cmd);
 	}
 
-	public static void putLogSendBarrage(String Log) {
-		putLogDatabase("发送弹幕",Log);
+	public static void putLogSendBarrage(String Log, String cmd) {
+		putLogDatabase("发送弹幕",Log, cmd);
 	}
 
-	public static void putLogSendBarrageRecord(String Log) {
-		putLogDatabase("发送弹幕记录",Log);
+	public static void putLogSendBarrageRecord(String Log, String cmd) {
+		putLogDatabase("发送弹幕记录",Log, cmd);
 	}
 
-	public static void putLogTimingBarrage(String Log) {
-		putLogDatabase("定时弹幕",Log);
+	public static void putLogTimingBarrage(String Log, String cmd) {
+		putLogDatabase("定时弹幕",Log, cmd);
 	}
 
-	public static void putLogException(String Log) {
-		putLogDatabase("异常信息",Log);
+	public static void putLogException(String Log, String cmd) {
+		putLogDatabase("异常信息",Log, cmd);
 	}
 
-	public static void putLogRoomSilent(String Log) {
-		putLogDatabase("房间禁言",Log);
+	public static void putLogRoomSilent(String Log, String cmd) {
+		putLogDatabase("房间禁言",Log, cmd);
 	}
 
-	public static void putLogRoomBlock(String Log) {
-		putLogDatabase("个人禁言",Log);
+	public static void putLogRoomBlock(String Log, String cmd) {
+		putLogDatabase("个人禁言",Log, cmd);
 	}
 
-	public static void putLogRoomAdminEntrance(String Log) {
-		putLogDatabase("房管任命",Log);
+	public static void putLogRoomAdminEntrance(String Log, String cmd) {
+		putLogDatabase("房管任命",Log, cmd);
 	}
 
-	public static void putlogRoomAdmins(String Log) {
-		putLogDatabase("房管变更",Log);
+	public static void putlogRoomAdmins(String Log, String cmd) {
+		putLogDatabase("房管变更",Log, cmd);
 	}
 
-	public static void putLogKnown(String Log) {
-		putLogDatabase("已知推送",Log);
+	public static void putLogKnown(String Log, String cmd) {
+		putLogDatabase("已知推送",Log, cmd);
 	}
 
-	public static void putLogKnownUntreated(String Log) {
-		putLogDatabase("已知未处理",Log);
+	public static void putold(String Log, String cmd) {
+		putLogDatabase("老版本推送",Log, cmd);
 	}
 
-	public static void putLogUnknown(String Log) {
-		putLogDatabase("未知推送",Log);
+	public static void putLogKnownUntreated(String Log, String cmd) {
+		putLogDatabase("已知未处理",Log,cmd);
 	}
 
-	public static void putLog(String LogType,String Log) {
-		putLogDatabase(LogType,Log);
+	public static void putLogUnknown(String Log, String cmd) {
+		putLogDatabase("未知推送",Log, cmd);
 	}
 
-	public static void putLogDatabase(String LogType, String Log) {
-		putLogDatabase(getFormat(),LogType,Log);
+	public static void putLog(String LogType,String Log, String cmd) {
+		putLogDatabase(LogType,Log,cmd);
+	}
+
+	public static void putLogDatabase(String LogType, String Log, String cmd) {
+		putLogDatabase(getFormat(),LogType,Log,cmd);
 
 	}
 
@@ -84,13 +88,14 @@ public class LogUtil {
 		ConfInfo.databaesUtil.executeUpdate(ConfInfo.Database_DeleteSystemLog+"'"+getFormatDistance(-7)+"'");
 
 	}
-	public static void putLogDatabase(String GenerationTime, String LogType, String Log) {
+	public static void putLogDatabase(String GenerationTime, String LogType, String Log, String cmd) {
 		if(null==Log||"".equals(Log)) return;
 		List<String> sqlValue = new ArrayList<>();
 		sqlValue.add(GenerationTime);
 		sqlValue.add(LogType);
 		sqlValue.add(Log);
-		ConfInfo.databaesUtil.executeUpdate("INSERT INTO SystemLog (GenerationTime, LogType, Log) VALUES (?,?,?)",sqlValue);
+		sqlValue.add(cmd);
+		ConfInfo.databaesUtil.executeUpdate("INSERT INTO SystemLog (GenerationTime, LogType, Log, cmd) VALUES (?,?,?,?)",sqlValue);
 	}
 
 	// 输出日志 ProjectName 项目名，区分日志

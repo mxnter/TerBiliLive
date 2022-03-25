@@ -3,6 +3,9 @@ package com.TerBiliLive.Inlet;
 import com.TerBiliLive.Info.ConfInfo;
 import com.TerBiliLive.Info.SendBarrageMap;
 import com.TerBiliLive.Utils.DevLogUtil;
+import com.TerBiliLive.Utils.InOutPutUtil;
+
+import static com.TerBiliLive.Utils.TimeUtil.getFormat;
 
 /**
  * 前置入口
@@ -46,6 +49,7 @@ public class SendBarrage_Inlet {
 
         synchronized (ConfInfo.SBLT) {
             ConfInfo.barrage.updateSendStatus(1);
+            InOutPutUtil.outPut(getFormat()+" -----------------------发送弹幕 唤醒");
             ConfInfo.SBLT.notify();
         }
     }

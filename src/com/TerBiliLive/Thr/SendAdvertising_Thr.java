@@ -52,7 +52,7 @@ public class SendAdvertising_Thr extends Thread {
                 case "ROUND":
 //                    TerBiliLive_Adv_Ui.GG_UiT_State.setText(getFormatHour() + "轮播中，等待验证" + "<" +LI.getState()+  ">");
                     if (!LiveOpen.equals("ROUND")) {
-                        LogUtil.putLogTimingBarrage("轮播中，等待验证"  + "<" + LI.getState()+ ">");
+                        LogUtil.putLogTimingBarrage("轮播中，等待验证"  + "<" + LI.getState()+ ">","SendAdvertising_Thr");
 
                     }
                     LiveOpen = "ROUND";
@@ -61,7 +61,7 @@ public class SendAdvertising_Thr extends Thread {
 //                    TerBiliLive_Adv_Ui.GG_UiT_State.setText(getFormatHour() + "直播暂停或准备，等待验证" + "<" + LI.getState()+">");
 
                     if (!LiveOpen.equals("ROUND")) {
-                        LogUtil.putLogTimingBarrage("直播暂停或准备，等待验证"  + "<" +LI.getState()+ ">");
+                        LogUtil.putLogTimingBarrage("直播暂停或准备，等待验证"  + "<" +LI.getState()+ ">","SendAdvertising_Thr");
 
                     }
                     LiveOpen = "ROUND";
@@ -69,7 +69,7 @@ public class SendAdvertising_Thr extends Thread {
                 default:
 //                    TerBiliLive_Adv_Ui.GG_UiT_State.setText(getFormatHour() + "读取直播状态失败 ：" + "<" +LI.getState()+">");
                     if (!LiveOpen.equals("OPEN")) {
-                        LogUtil.putLogTimingBarrage("读取失败" + "<"  +LI.getState()+ ">");
+                        LogUtil.putLogTimingBarrage("读取失败" + "<"  +LI.getState()+ ">","SendAdvertising_Thr");
 
                     }
                     LiveOpen = "OPEN";

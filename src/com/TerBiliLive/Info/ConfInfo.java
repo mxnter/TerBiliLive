@@ -41,8 +41,8 @@ public class ConfInfo {
     public static final String AppSystemId = "L";
     public static final String AppViceNameId = "L";
     public static final String AppVersion = "Beta 7";
-    public static final String AppVersionBuildNum = "002";
-    public static final int AppVersionNum = 202102120;
+    public static final String AppVersionBuildNum = "003";
+    public static final int AppVersionNum = 202102210;
 
     /**
      * 是否启用实验功能
@@ -86,14 +86,14 @@ public class ConfInfo {
 
 
     //Database
-    public static final int AppDatabaseVersion = 2;
+    public static final int AppDatabaseVersion = 3;
 
     public static final List<String> AppInitDatabases  = new ArrayList<>();
     static{
         AppInitDatabases.add("CREATE TABLE \"SystemInfo\"(\"Name\" varchar, \"Version\" varchar);");
         AppInitDatabases.add("INSERT INTO \"SystemInfo\" (\"Name\", \"Version\") VALUES (\"Database\", '"+AppDatabaseVersion+"')");
         AppInitDatabases.add("CREATE TABLE \"ConfData\"(\"Cookie\" text,\"RoomId\" varchar,\"Second\" varchar,\"Text\" varchar,\"TulingApiKey\" varchar);");
-        AppInitDatabases.add("CREATE TABLE \"SystemLog\" (\"GenerationTime\" datetime, \"LogType\" varchar, \"Log\" text);");
+        AppInitDatabases.add("CREATE TABLE \"SystemLog\" (\"GenerationTime\" datetime, \"LogType\" varchar, \"cmd\" varchar, \"Log\" text);");
         AppInitDatabases.add("CREATE TABLE BarrageInfo (time datetime,roomId varchar,cmd varchar,guard varchar,vip varchar,isadmin varchar,medal varchar,userLevel varchar,uid varchar,nickname varchar,barrage varchar,msg varchar,info text);");
         AppInitDatabases.add("CREATE TABLE BarrageNotice(time datetime,msg varchar,info text);");
         AppInitDatabases.add("CREATE TABLE BarrageLog (time datetime,cmd int, msg varchar,info text);");
@@ -119,6 +119,11 @@ public class ConfInfo {
                 sql
         };
         AppUpdateDatabases.add(sql2);
+        String[] sql3 = {
+                "ALTER TABLE SystemLog ADD COLUMN cmd varchar",
+                sql
+        };
+        AppUpdateDatabases.add(sql3);
     }
     public static final String Database_SelectDatabaseVersion = "SELECT * FROM SystemInfo WHERE \"Name\" = 'Database'";
 

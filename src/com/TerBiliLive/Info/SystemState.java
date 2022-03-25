@@ -15,7 +15,7 @@ public class SystemState {
 
     public boolean isLiveMsg = false; // 直播提醒
     public boolean isGreetMaster = false; // 欢迎老爷
-    public boolean isGreetCaptain = false; // 欢迎舰长
+    public boolean istEffectInfo = false; // 动画信息
     public boolean isIgnoreSpicystrip = true; // 忽略辣条
     public boolean isSend30 = false; // 可发送30字
 
@@ -24,6 +24,7 @@ public class SystemState {
 
     public boolean isLink = false; // 弹幕姬已连接
     public boolean isThank = false; // 开启感谢
+
     public boolean isSystemSendLock = false; // 系统消息锁
     public boolean isInteractWord = false; // 欢迎用户
     public boolean isThankFollow = false; // 关注感谢
@@ -37,9 +38,13 @@ public class SystemState {
         return "{" +
                 "isLiveMsg=" + isLiveMsg +
                 ", isGreetMaster=" + isGreetMaster +
-                ", isGreetCaptain=" + isGreetCaptain +
+                ", istEffectInfo=" + istEffectInfo +
                 ", isIgnoreSpicystrip=" + isIgnoreSpicystrip +
                 ", isSend30=" + isSend30 +
+                ", isSystemSendLock=" + isSystemSendLock +
+                ", isInteractWord=" + isInteractWord +
+                ", isThankFollow=" + isThankFollow +
+                ", isThankShare=" + isThankShare +
                 '}';
     }
 }

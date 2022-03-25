@@ -2,13 +2,12 @@ package com.TerBiliLive.TerBiliLive;
 
 
 import com.TerBiliLive.Info.ConfInfo;
-import com.TerBiliLive.Utils.AESUtil;
-import com.TerBiliLive.Utils.AgreementUtil;
-import com.TerBiliLive.Utils.IpUtil;
-import com.TerBiliLive.Utils.MacUtil;
+import com.TerBiliLive.Utils.*;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * CODE IS POETRY
@@ -24,6 +23,8 @@ public class Dingtalk {
     private String WEBHOOK_TOKEN_LINK = null;
     private String WEBHOOK_TOKEN_OPEM = null;
     private String WEBHOOK_TOKEN_LOGIN = null;
+
+    private Map<String, Long> temp = new HashMap<>();
 
 
 
@@ -106,25 +107,28 @@ public class Dingtalk {
 
     public void LiveLive(){
         DingtalkInform();
+        if(temp.get("[直播开始]")+(1000*60*10)>TimeUtil.timeStamplong())return;
         String msg = "[直播开始]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
-
-
-
+        temp.put("[直播开始]", TimeUtil.timeStamplong());
     }
     public void LivePreparing(){
         DingtalkInform();
+        if(temp.get("[直播结束]")+(1000*60*10)>TimeUtil.timeStamplong())return;
         String msg = "[直播结束]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
+        temp.put("[直播结束]", TimeUtil.timeStamplong());
     }
 
     public void LiveLogin(){
         DingtalkInform();
+        if(temp.get("[未登录]")+(1000*60*10)>TimeUtil.timeStamplong())return;
         String msg = "[未登录]" + "\n UP:"+ConfInfo.getLiveRoomUserInfo.getRoomUseruname()+"\n RoomId:"+ConfInfo.liveRoom.getRoom_id() +"\n 直播地址:"+"https://live.bilibili.com/"+ConfInfo.liveRoom.room_id+"\n 版本"+ConfInfo.AppVersion+"-"+ConfInfo.AppVersionBuildNum+"("+ConfInfo.AppVersionNum+")";
         String textMsg = Msg(msg);
         Send(WEBHOOK_TOKEN_START,textMsg);
+        temp.put("[未登录]", TimeUtil.timeStamplong());
     }
 
     public void chatAdmin(String m,String uanme){

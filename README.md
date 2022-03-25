@@ -1,11 +1,14 @@
-# [TerBiliLive - Beta 7](http://terbililive.mter.xyz/) 
+# [TerBiliLive - Beta 7](http://terbililive.mter.xyz/) - 暂缓开发
  [![Ter BiliLive](https://img.shields.io/badge/Ter-BiliLive-orange.svg)]() [![Simplified Chinese](https://img.shields.io/badge/Simplified-Chinese-ff4569.svg)]() [![Beta 7](https://img.shields.io/badge/Beta-7-ff35b8.svg)]()
 
 #### Bilibili Live Barrage kyi,Using Java .
 ##### 哔哩哔哩直播弹幕姬，使用 Java 。  
 
-## TerBiliLive 将暂缓开发(无期限)
-## 我们正在寻找一个对于用户门槛较低的语言重新编写程序，敬请期待。
+### 注:由于官方工具逐渐完善,此程序学习用途大于实际用途.程序不再保证可用.
+### 对本程序有兴趣可联系 TerBiliLive@outlook.com 交流
+
+# TerBiliLive 将暂缓开发(无期限)
+ 我们正在寻找一个对于用户门槛较低的语言重新编写程序，敬请期待。
 
 
 ### Git: [GitHub](https://gitee.com/mxnter/TerBiliLive/tree/master/) |  [Gitee (码云)](https://gitee.com/mxnter/TerBiliLive/tree/master/)
@@ -94,6 +97,33 @@
 
 
 # Version 版本
+
+>Beta 7.003 更新内容 （2022年03月25日）   
+>注:由于官方工具逐渐完善,此程序学习用途大于实际用途.
+>代码
+>1. 删除 登录页面 使用网络API 生成二维码
+>2. 删除 登录页面 弹出授权提示注释
+>3. 修改 登录页面 简写 lambda
+>4. 注释 线程唤醒休眠 日志输出
+>
+>新增
+>1.  ter clean up 命令清空弹幕
+>2. 弹幕控制 Ter张嘴
+>
+>更改
+>1. 将欢迎舰长更改为动画信息
+>2. 购买舰长感谢使用感谢按钮控制
+>3. 停用老爷欢迎
+>
+>定制
+>1. 我们对 1757608 如初 的直播间定制了关注用户抽奖 https://www.yuque.com/mxnter/terbililive/ur5ghm
+>
+>修复
+>1. 实验实验功能修复 礼物整合问题
+>
+>实验
+>1. 使用新版弹幕服务器连接(如果稳定，老版连接将更改，或许可以提供选择连接的版本)
+>2. 实验计时器功能整合礼物
 
 >##### Beta 7.002 更新内容 （2021年02月12日）
 > 本版介绍：  

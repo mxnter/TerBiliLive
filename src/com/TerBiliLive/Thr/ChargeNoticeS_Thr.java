@@ -178,12 +178,16 @@ public class ChargeNoticeS_Thr {
                                     return;
                                 }
                                 String jsonStr = new String(msgBody, "utf-8");
-                                System.out.println(jsonStr);
+
+                                // TODO 输出收到数据
+                                 System.out.println(jsonStr);
+
                                 // 将弹幕信息放入 list
                                 ConfInfo.ParsingBarrageList.add(jsonStr);
 
                                 // 开启弹幕解析线程
                                 synchronized (ConfInfo.PBT) {
+//                                    InOutPutUtil.outPut(getFormat()+" -----------------------解析弹幕数据 唤醒");
                                     ConfInfo.PBT.notify();
                                 }
 

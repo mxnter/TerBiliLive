@@ -37,7 +37,7 @@ public class GetDanmuInfoNav {
                 }
                 default:{
                     InOutPutUtil.outPut("获取连接服务器token信息异常 ："+returnData);
-                    LogUtil.putLogException("获取连接服务器token信息异常 ："+returnData);
+                    LogUtil.putLogException("获取连接服务器token信息异常 ："+returnData,"UserInfoNav");
                     return null;
                 }
             }

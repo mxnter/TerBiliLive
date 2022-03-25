@@ -7,6 +7,8 @@ import com.TerBiliLive.Utils.InOutPutUtil;
 import java.awt.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import static com.TerBiliLive.Utils.TimeUtil.getFormat;
+
 /**
  * CODE IS POETRY
  * @Nmae ：弹幕显示线程
@@ -63,7 +65,7 @@ public class GetSendBarrageList_Thr extends Thread {
                     try {
                         ConfInfo.GBT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;
-                        InOutPutUtil.outPut("-----------------------显示弹幕数据进入休眠-----------------------");
+//                        InOutPutUtil.outPut(getFormat()+" -----------------------显示弹幕数据 休眠");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

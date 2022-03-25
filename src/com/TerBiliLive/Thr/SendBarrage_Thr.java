@@ -54,7 +54,7 @@ public class SendBarrage_Thr extends Thread {
                 ConfInfo.liveRoom.getLiveRoom(ConfInfo.barrage.getRoomid());
                 //TODO 测试接收礼物后回复的弹幕
                 String RTData = "{\"msg\":\"请先解锁弹幕锁\",\"code\":-500,\"data\":[],\"message\":\"请先解锁弹幕锁\"}";
-                LogUtil.putLogSendBarrageRecord(msg);
+                LogUtil.putLogSendBarrageRecord(msg,"SendBarrage_Thr");
 //                String RTData;
                 switch (ConfInfo.SendBarrageList.get(0).getType()){
                     case 1:{
@@ -128,7 +128,7 @@ public class SendBarrage_Thr extends Thread {
                             logSendBarrage = "[未知错误]-->[" + roomid + "] ：" + msg + "\t<" + CodingUtil.ascii2native(jsonObject.getString("message")) + ">" + "\t 返回值：" + CodingUtil.ascii2native(RTData) + "\n";
                     }
                     ConfInfo.barrage.setNotice(1,retMsg,null);
-                    LogUtil.putLogSendBarrage(logSendBarrage);
+                    LogUtil.putLogSendBarrage(logSendBarrage,"SendBarrage_Thr");
 
 
                 } catch (JSONException e) {
@@ -146,7 +146,7 @@ public class SendBarrage_Thr extends Thread {
                     try {
                         ConfInfo.SBLT.wait();
 //                        ConfInfo.GetSendBarrageList_Thr_Size=false;
-                        InOutPutUtil.outPut("-----------------------发送弹幕　　进入休眠-----------------------");
+//                        InOutPutUtil.outPut(getFormat()+" -----------------------发送弹幕 休眠");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

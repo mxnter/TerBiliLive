@@ -1,5 +1,10 @@
 package com.TerBiliLive.Info;
 
+import com.TerBiliLive.Thr.GiftIntegration_Thr;
+
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * CODE IS POETRY
  *
@@ -12,12 +17,20 @@ public class Presents {
     String uname;
     String giftName;
     int giftNum;
-
+    Timer timer;
     public Presents(String timestamp, String uname, String giftName, int giftNum) {
         this.timestamp = timestamp;
         this.uname = uname;
         this.giftName = giftName;
         this.giftNum = giftNum;
+    }
+
+    public Presents(String timestamp, String uname, String giftName, int giftNum,Timer timer) {
+        this.timestamp = timestamp;
+        this.uname = uname;
+        this.giftName = giftName;
+        this.giftNum = giftNum;
+        this.timer = timer;
     }
 
     public String getTimestamp() {
@@ -51,6 +64,28 @@ public class Presents {
     public void setGiftNum(int giftNum) {
         this.giftNum = giftNum;
     }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
+
+    public void setAgainDelayed() {
+        if(getTimer()!=null){
+           getTimer().cancel();
+        }
+        setTimer(new Timer());
+        getTimer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                GiftIntegration_Thr.sendDm(uname+giftName);
+            }
+        },5000);
+    }
+
 
     @Override
     public String toString() {

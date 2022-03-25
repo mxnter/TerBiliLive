@@ -37,7 +37,7 @@ public class UserInfos {
                 current_exp = level_info.getString("current_exp");
             } else {
                 InOutPutUtil.outPut("获取服务器接口数据信息异常 ：" + returnData);
-                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + returnData);
+                LogUtil.putLogException("获取服务器接口数据信息异常 ：" + returnData,"UserInfos");
             }
         } catch (JSONException e) {
             e.printStackTrace();
